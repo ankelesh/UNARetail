@@ -5,7 +5,7 @@
 #endif
 #include "widgets/CoreWidget.h"
 #include "debugtrace.h"
-
+#include <QtQml>
 #include <QProxyStyle>
 
 class WinCEProxyStyle : public QProxyStyle

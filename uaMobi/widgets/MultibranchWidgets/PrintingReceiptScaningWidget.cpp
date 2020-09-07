@@ -55,7 +55,7 @@ void PrintingReceiptScaningWidget::printAndAxitPressed()
 	}
 	emit receiptDataFinished(valuesToPrint);
 	PrinterWrapper::instance().printReceipt(valuesToPrint);
-	RoleBoundScaningWidget::okPressed();
+    okPressed();
 }
 
 void PrintingReceiptScaningWidget::okPressed()
