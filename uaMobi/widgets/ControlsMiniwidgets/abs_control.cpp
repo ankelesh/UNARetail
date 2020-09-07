@@ -5,8 +5,23 @@
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
+#include <QWidget>
 
+#include "widgets/utils/BigButtonsSpinbox.h"
+#include <QTime>
 
+double abs_control::_getEnumerableValue() const
+{
+	return 0.0;
+}
+
+void abs_control::_setEnumerableValue(double)
+{
+}
+
+void abs_control::_setEnumerableMinimum(double) 
+{
+}
 
 abs_control::abs_control(QWidget* parent, InputControlEntity::ControlTypes Type, QString cname)
     : QObject(parent), type(Type), parent(parent), label(makeControlTranslation(cname)),name(cname)
@@ -29,6 +44,11 @@ QWidget* abs_control::myWidget() const
 InputControlEntity::ControlTypes abs_control::myType()
 {
 	return type;
+}
+
+double abs_control::getEnumerableValue() const
+{
+	return _getEnumerableValue();
 }
 
 bool abs_control::setValue(QString val)
@@ -61,6 +81,16 @@ void abs_control::connectAsNext(abs_control* ctrl)
 #endif
 	}
 
+}
+
+void abs_control::setEnumerableMinimum(double val)
+{
+	_setEnumerableMinimum(val);
+}
+
+void abs_control::setEnumerableValue(double v)
+{
+	_setEnumerableValue(v);
 }
 
 void abs_control::subcontrolEditingFinished()

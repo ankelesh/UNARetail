@@ -1,14 +1,12 @@
 #pragma once
 #include <QWidget>
-#include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
-#include <QComboBox>
-#include <QLineEdit>
-#include <QSpinBox>
-#include <QFormLayout>
-#include <QLabel>
-
-
+#include <QVector>
+#include <QIcon>
+class QFormLayout;
+class QLineEdit;
+class MegaIconButton;
+class QComboBox;
+class QLabel;
 class GeneralSettings : public QWidget
 {
 	Q_OBJECT

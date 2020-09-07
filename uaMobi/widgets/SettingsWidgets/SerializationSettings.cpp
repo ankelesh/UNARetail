@@ -4,6 +4,12 @@
 #include <qscroller.h>
 #endif
 
+#include <QWidget>
+#include <QFormLayout>
+#include <QLabel>
+#include <QComboBox>
+#include "widgets/utils/MegaIconButton.h"
+#include <QListWidget>
 
 SerializationSettings::SerializationSettings(Modes mode, Entity Prototype, QWidget* parent)
 	: QWidget(parent), mainLayout(new QVBoxLayout(this)), fieldPicker(new QListWidget(this)),

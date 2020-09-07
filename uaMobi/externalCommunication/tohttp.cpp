@@ -8,8 +8,24 @@
 #include <QTextDecoder>
 #include <QTextCodec>
 #include "widgets/utils/GlobalAppSettings.h"
+#include "dataproviders/sqldataprovider.h"
+#include "externalCommunication/communicationCore.h"
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkReply>
 const char separator[] = { 30, 0 };
 
+#include <QtConcurrent>
+QLinkedList<ShortBarcode> extractProducts(QString input, int sessionCounter)
+{
+	QLinkedList<ShortBarcode> loaded;
+	QStringList splitted = input.split(QChar(30));
+	input.clear();
+	for (int i = 0; i < splitted.count(); ++i)
+	{
+		loaded.push_back(ShortBarcodeEntity::extractFromLine(splitted.at(i)));
+	}
+	return loaded;
+}
 QPair<QStringList, QStringList> toHttp::_parsePlaceList()
 {
 	QPair<QStringList, QStringList> oplist;
@@ -35,17 +51,9 @@ QString toHttp::_loadDataToSend(sendingMode sendmode, int format)
 
 void toHttp::_parseProductList()
 {
-	loaded.clear();
-	QStringList splitted = input.split(QChar(30));
+	emit progressLeap(sessionCounter);
+	threadResults.push_back(QtConcurrent::run(extractProducts, input, sessionCounter));
 	input.clear();
-	for (int i = 0; i < splitted.count(); ++i)
-	{
-		emit progressLeap(i * 100 / splitted.count());
-		loaded.push_back(ShortBarcodeEntity::extractFromLine(splitted.at(i)));
-		loaded.last()->GUID = sessionCounter + i + 1LL;
-		QApplication::instance()->processEvents();
-	}
-	AppData->pushIntoDownloaded(loaded);
 }
 
 bool toHttp::_checkAddress()
@@ -66,7 +74,6 @@ bool toHttp::_setReply(QNetworkReply* reply)
 
 bool toHttp::_product_list_receiving_start()
 {
-	AppData->recreateDownloadTable();
 	++page;
 	sessionCounter = 0;
 	emit downloadStateChanged(tr("Server response ok, receiving"));
@@ -79,7 +86,7 @@ bool toHttp::_product_list_receiving_block(QString input)
 	emit downloadStateChanged(tr("Receiving block ") + QString::number(page));
 	_parseProductList();
 	++page;
-	sessionCounter += loaded.count();
+	++sessionCounter;
 	return _send_get_products();
 }
 
@@ -87,8 +94,31 @@ bool toHttp::_product_list_receiving_end()
 {
 	page = 0;
 	currentlyAwaiting = notAwaiting;
+	QLinkedList<QFuture< QLinkedList< ShortBarcode> > >::iterator begin = threadResults.begin();
+	int iter = 0;
+	while (begin != threadResults.end())
+	{
+		while (!begin->isFinished())
+		{
+			qApp->processEvents();
+			thread()->sleep(100);
+		}
+		loaded << begin->result();
+		begin->result().clear();
+		emit progressLeap((iter * 100) / threadResults.count());
+		emit downloadStateChanged(tr("parsing block: ") + QString::number(iter));
+		qApp->processEvents();
+		++iter;
+		++begin;
+	}
+	emit progressLeap(99);
+	emit downloadStateChanged(tr("pushing data..." ) );
+	AppData->recreateDownloadTable();
+	AppData->pushIntoDownloaded(loaded);
+	threadResults.clear();
 	emit progressLeap(100);
 	emit downloadStateChanged(QString());
+	productListPostClean();
 	return true;
 }
 
@@ -98,18 +128,32 @@ bool toHttp::_send_get_products()
 	{
 		return false;
 	}
-	QString furl = address + ((stored_place_code.isEmpty()) ? "?c=download" : "?c=list_products" + stored_place_code);
+	QString furl(address);
+	furl.reserve(100);
+	if (stored_place_code.isEmpty())
+	{
+		furl += "?c=download";
+	}
+	else
+	{
+		furl += "?c=list_products" + stored_place_code;
+	}
 	furl += "&page=" + QString::number(page);
+	furl += "&call_id=" + QString::number(sessionId);
 	if (!_setReply(communicationCore::sendGETRequest(furl)))
 		return false;
 	QObject::connect(awaitedReply, &QNetworkReply::finished, this, &toHttp::downloadResponce);
 	return true;
 }
 
-toHttp::toHttp(Modes mode)
-	: address(), currentMode(mode),  awaitedReply(Q_NULLPTR), li(0), lip(0), input(),
-	loaded(), currentlyAwaiting(0),
-	decoder(new QTextDecoder(QTextCodec::codecForName(AppSettings->getNetworkEncoding())))
+toHttp::toHttp(Modes mode, QObject* parent)
+	:QObject(parent), address(), currentMode(mode),  awaitedReply(Q_NULLPTR), li(0), lip(0), input(),
+	loaded(), threadResults(), currentlyAwaiting(0),
+	decoder(new QTextDecoder(QTextCodec::codecForName(AppSettings->getNetworkEncoding()))),
+	page(0),
+	sessionCounter(0),
+	stored_place_code(),
+	sessionId(0)
 {
 }
 
@@ -148,6 +192,7 @@ bool toHttp::getProductList(QString place_code)
 {
 	stored_place_code = place_code;
 	page = 0;
+	sessionId = ShortBarcodeEntity::makeGUID();
 	_send_get_products();
 	currentlyAwaiting = awaitingProducts;
 	return true;
@@ -165,9 +210,32 @@ void toHttp::clear()
 	currentlyAwaiting = notAwaiting;
 }
 
+void toHttp::productListPostClean()
+{
+	if (sessionId != 0)
+	{
+		QString furl(address);
+		furl.reserve(100);
+
+		if (stored_place_code.isEmpty())
+		{
+			furl += "?c=download";
+		}
+		else
+		{
+			furl += "?c=list_products" + stored_place_code;
+		}
+		furl += "&page=1000";
+		furl += "&call_id=" + QString::number(sessionId);
+		QNetworkReply* reply = communicationCore::sendGETRequest(furl);
+		reply->deleteLater();
+		sessionId = 0;
+	}
+}
+
 int toHttp::count()
 {
-	return sessionCounter;
+	return loaded.count();
 }
 
 void toHttp::downloadResponce()

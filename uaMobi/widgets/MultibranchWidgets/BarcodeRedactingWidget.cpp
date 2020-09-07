@@ -1,7 +1,8 @@
 #include "BarcodeRedactingWidget.h"
 #include "widgets/utils/ElementsStyles.h"
-
-
+#include "widgets/utils/MegaIconButton.h"
+#include <QGridLayout>
+#include "widgets/MultibranchWidgets/Redactors/RoleBoundRedactor.h"
 Abs_Redactor* generateRedactor(Modes mode, QWidget* parent)
 {
 	switch (modenamesLinker[mode]->myType())
@@ -19,7 +20,7 @@ Abs_Redactor* generateRedactor(Modes mode, QWidget* parent)
 BarcodeRedactingWidget::BarcodeRedactingWidget(Modes mode, QWidget* parent)
 	: inframedWidget(parent),
 	mainLayout(new QGridLayout(this)),
-	redactor(generateRedactor(mode, this)),
+	redactor(new RoleBoundRedactor(this)),
 	okButton(new MegaIconButton(this)),
 	backButton(new MegaIconButton(this)),
 	entityCopy(),

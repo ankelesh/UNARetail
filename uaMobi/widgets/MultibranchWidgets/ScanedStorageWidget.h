@@ -1,15 +1,8 @@
 #pragma once
-#include <qlistview.h>
-#include <qboxlayout.h>
-#include <QLabel>
+#include "dataproviders/ModesDescriptions.h"
+#include "Datacore/AbsEntity.h"
 #include "widgets/parents/inframedWidget.h"
-#include "widgets/utils/EventsAndFilters.h"
-#include "widgets/utils/MegaIconButton.h"
 #include "widgets/parents/abstractNodeInterface.h"
-#include "Datacore/DataEntities.h"
-#include "dataproviders/sqldataprovider.h"
-#include "dataproviders/DataAsyncLoader.h"
-#include "BarcodeRedactingWidget.h"
 /*
 	This widget is made to provide access to barcode database with possibility to edit entries.
 	Each barcode is shown like a string with all info barcode is holding.
@@ -30,6 +23,15 @@
 		now separator is used to separate sent barcodes and unsent ones
 		minor changes into refresh - now it also shows sent barcodes
 */
+class QVBoxLayout;
+class QLabel;
+class QHBoxLayout;
+class QListView;
+class DataEntityListModel;
+class MegaIconButton;
+class QThread;
+class DataAsyncLoader;
+class BarcodeRedactingWidget;
 class ScanedStorageWidget : public inframedWidget, abstractNode
 {
 	Q_OBJECT

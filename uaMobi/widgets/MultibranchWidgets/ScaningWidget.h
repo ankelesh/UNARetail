@@ -1,10 +1,10 @@
 #pragma once
 #include "widgets/parents/AbstractScaningWidget.h"
-#include <QtCore/QHash>
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
 /*
 */
-
+class MegaIconButton;
+class QuantityControl;
+class TwoLevelCounterLabel;
 class ScaningWidget :
 	public AbstractScaningWidget
 {

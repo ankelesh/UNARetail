@@ -17,7 +17,7 @@
 
 innerSettingsForm::innerSettingsForm(Modes mode, QWidget* parent)
 	: inframedWidget(parent), mainLayout(new QVBoxLayout(this)),
-	innerWidget(new QTabWidget(this)), scaningSettings(new ScaningSettings(this)),
+	innerWidget(new QTabWidget(this)), scaningSettings(new ScaningSettings(mode,this)),
 	databaseSettings(new DatabaseSettings(mode, this)),
 	extrascanSettings(new ExtraScaningSettings(mode, this)),
 	taxInvoiceSettings(new TaxInvoiceSettings(mode,this)),

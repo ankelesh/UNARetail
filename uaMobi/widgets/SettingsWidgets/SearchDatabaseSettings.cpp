@@ -7,6 +7,17 @@
 #ifdef Q_OS_ANDROID
 #include <qscroller.h>
 #endif
+#include <QBoxLayout>
+#include "widgets/utils/MegaIconButton.h"
+#include <QComboBox>
+#include <QLineEdit>
+#include <QSpinBox>
+#include <QFormLayout>
+#include <QLabel>
+#include <qprogressbar.h>
+#include <qlistwidget.h>
+#include "externalCommunication/tohttp.h"
+#include "widgets/UtilityElements/ExtendedDialogs.h"
 
 QString SearchDatabaseSettings::_getCurrentPlace()
 {
@@ -29,7 +40,7 @@ SearchDatabaseSettings::SearchDatabaseSettings(QWidget* parent)
 	deletePlaceButton(new MegaIconButton(innerWidget)),
 	downloadNow(new MegaIconButton(innerWidget)),
 	downloadProgress(new QProgressBar(innerWidget)),
-	downloadcenter(Modes::Search),
+	downloadcenter(new toHttp(Modes::Search,this)),
 	timeoutTimer(new QTimer(this)),
 
 	placeSelectionWidget(new inframedWidget(this)),
@@ -83,7 +94,7 @@ SearchDatabaseSettings::SearchDatabaseSettings(QWidget* parent)
 	deletePlaceButton->setText(tr("del"));
 	deletePlaceButton->setIcon(QIcon(":/res/data2.png"));
 	httpDownloadUrl->setText(AppSettings->httpIn.toString());
-	downloadcenter.setAddress(AppSettings->httpIn.toString());
+	downloadcenter->setAddress(AppSettings->httpIn.toString());
 	if (!currentPlace.isEmpty())
 	{
 		placeInfo->setText(AppSettings->placeAsItem);
@@ -102,22 +113,22 @@ SearchDatabaseSettings::SearchDatabaseSettings(QWidget* parent)
 	placeSelectionList->setHorizontalScrollMode(QListView::ScrollPerPixel);
 	placeSelectionList->setVerticalScrollMode(QListView::ScrollPerPixel);
 	placeSelectionList->setWordWrap(true);
-	timeoutTimer->setInterval(40000);
+	timeoutTimer->setInterval(240000);
 	timeoutTimer->setSingleShot(true);
 	placeSelectionWidget->hide();
 	downloadProgress->setTextVisible(true);
 	downloadProgress->setAlignment(Qt::AlignCenter);
 #ifdef QT_VERSION5X
 	QObject::connect(downloadNow, &QPushButton::clicked, this, &SearchDatabaseSettings::downloadDatabase);
-	QObject::connect(&downloadcenter, &toHttp::progressLeap, this, &SearchDatabaseSettings::downloadProcess);
+	QObject::connect(downloadcenter, &toHttp::progressLeap, this, &SearchDatabaseSettings::downloadProcess);
 	QObject::connect(timeoutTimer, &QTimer::timeout, this, &SearchDatabaseSettings::downloadTimeout);
 	QObject::connect(deletePlaceButton, &MegaIconButton::clicked, this, &SearchDatabaseSettings::deletePlace);
 
 	QObject::connect(selectPlaceButton, &MegaIconButton::clicked, this, &SearchDatabaseSettings::getPlaceList);
-	QObject::connect(&downloadcenter, &toHttp::placelistReceived, this, &SearchDatabaseSettings::placeListReceived);
+	QObject::connect(downloadcenter, &toHttp::placelistReceived, this, &SearchDatabaseSettings::placeListReceived);
 	QObject::connect(placeSelectionList, &QListWidget::itemDoubleClicked, this, &SearchDatabaseSettings::placeSelected);
-	QObject::connect(&downloadcenter, &toHttp::downloadStateChanged, this, &SearchDatabaseSettings::downloadStateChanged);
-	QObject::connect(&downloadcenter, &toHttp::errorReceived, this, &SearchDatabaseSettings::downloadTimeout);
+	QObject::connect(downloadcenter, &toHttp::downloadStateChanged, this, &SearchDatabaseSettings::downloadStateChanged);
+	QObject::connect(downloadcenter, &toHttp::errorReceived, this, &SearchDatabaseSettings::downloadTimeout);
 #else
 	QObject::connect(httpDownloadUrl, SIGNAL(returnPressed()), httpUploadUrl,
 		SLOT(setFocus()));
@@ -143,20 +154,20 @@ void SearchDatabaseSettings::retranslate()
 
 void SearchDatabaseSettings::downloadDatabase()
 {
-	if (downloadcenter.isUsed())
+	if (downloadcenter->isUsed())
 		return;
 	downloadProgress->setValue(1);
 	downloadNow->setDisabled(true);
 	timeoutTimer->start();
-	downloadcenter.setAddress(httpDownloadUrl->text());
-	downloadcenter.getProductList(_getCurrentPlace());
+	downloadcenter->setAddress(httpDownloadUrl->text());
+	downloadcenter->getProductList(_getCurrentPlace());
 }
 
 
 
 void SearchDatabaseSettings::downloadTimeout()
 {
-	downloadcenter.dropAwaiting();
+	downloadcenter->dropAwaiting();
 	downloadNow->setDisabled(false);
 	QMessageBox::critical(this, tr("error"), tr("TimeoutError"));
 }
@@ -173,12 +184,12 @@ void SearchDatabaseSettings::downloadProcess(int proc)
 
 void SearchDatabaseSettings::getPlaceList()
 {
-	if (!downloadcenter.isUsed())
+	if (!downloadcenter->isUsed())
 	{
-		downloadcenter.setAddress(httpDownloadUrl->text());
+		downloadcenter->setAddress(httpDownloadUrl->text());
 		timeoutTimer->start();
-		if (!downloadcenter.getPlacelist())
-			QMessageBox::critical(this, tr("error"), tr("Error receiving place list"));
+		if (!downloadcenter->getPlacelist())
+			ErrorMessageDialog::showErrorInfo(tr("error"), tr("Error receiving place list"));
 	}
 }
 
@@ -186,18 +197,19 @@ void SearchDatabaseSettings::placeListReceived(QStringList names, QStringList co
 {
 	if (names.count() != codes.count())
 	{
-		QMessageBox::critical(this, tr("error"), tr("data error: codes count do not correspond to names count!"));
+	 ErrorMessageDialog::showErrorInfo(tr("error"), tr("data error: codes count do not correspond to names count!"));
 	}
 	placeCodes = codes;
 	placeNames = names;
 	_hideAny(placeSelectionWidget);
 	placeSelectionList->clear();
 	placeSelectionList->addItems(names);
+	emit innerBranchSwitched(true);
 }
 
 void SearchDatabaseSettings::placeListTimeout()
 {
-	QMessageBox::critical(this, tr("error"), tr("TimeoutError"));
+	ErrorMessageDialog::showErrorInfo(tr("error"), tr("TimeoutError"));
 }
 
 void SearchDatabaseSettings::placeSelected(QListWidgetItem* item)
@@ -211,19 +223,22 @@ void SearchDatabaseSettings::placeSelected(QListWidgetItem* item)
 		AppSettings->placeAsCode = placeCodes.at(index);
 		AppSettings->placeAsItem = placeNames.at(index);
 	}
+	downloadcenter->clear();
+	emit innerBranchSwitched(false);
 }
 
 void SearchDatabaseSettings::hideCurrent()
 {
 	_hideCurrent(untouchable);
+	emit innerBranchSwitched(false);
 }
 
 void SearchDatabaseSettings::downloadStateChanged(QString state)
 {
 	if (state.isEmpty())
 	{
-		int downloadedQ = downloadcenter.count();
-		downloadcenter.clear();
+		int downloadedQ = downloadcenter->count();
+		downloadcenter->clear();
 		QMessageBox::information(this, tr("done"), tr("Product list received succesfully") + " " + QString::number(downloadedQ));
 		refreshStoredCounter();
 	}
@@ -237,7 +252,8 @@ void SearchDatabaseSettings::downloadStateChanged(QString state)
 void SearchDatabaseSettings::downloadError()
 {
 	QMessageBox::critical(this, tr("connection error"), tr("connection error - download stopped"));
-	downloadcenter.dropAwaiting();
+	downloadcenter->dropAwaiting();
+	downloadcenter->productListPostClean();
 }
 
 void SearchDatabaseSettings::deletePlace()

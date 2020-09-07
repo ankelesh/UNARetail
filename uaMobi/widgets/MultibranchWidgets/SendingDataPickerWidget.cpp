@@ -2,7 +2,14 @@
 #include "widgets/utils/ElementsStyles.h"
 #include <QMessageBox>
 #include <QtCore/QTimer>
-
+#include "widgets/MultibranchWidgets/ReceiveWidget.h"
+#include "widgets/MultibranchWidgets/SendSettings.h"
+#include "widgets/UtilityElements/ExtendedLabels.h"
+#include <QBoxLayout>
+#include "widgets/utils/MegaIconButton.h"
+#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "dataproviders/sqldataprovider.h"
+#include "widgets/utils/GlobalAppSettings.h"
 
 SendingDataPickerWidget::SendingDataPickerWidget(Modes mode, QWidget* parent)
 	:inframedWidget(parent), abstractNode(), mainLayout(new QVBoxLayout(this)),
@@ -154,11 +161,11 @@ bool SendingDataPickerWidget::giveSettings()
 void SendingDataPickerWidget::set_info()
 {
 	sentQuantityInfo->setText(tr("total_barcodes_quantity\n"));
-	sentQuantityInfo->setCounter(AppData->countAllIn(currentMode, TableNames::Uploaded));
+	sentQuantityInfo->setValue(AppData->countAllIn(currentMode, TableNames::Uploaded));
 	unsentQuantityInfo->setText(tr("total_barcodes_quantity\n"));
-	unsentQuantityInfo->setCounter(AppData->countAllIn(currentMode, TableNames::Scanned));
+	unsentQuantityInfo->setValue(AppData->countAllIn(currentMode, TableNames::Scanned));
 	totalQantityInfo->setText(tr("total_barcodes_quantity\n") );
-	totalQantityInfo->setCounter(AppData->countAllIn(currentMode, TableNames::Uploaded) +
+	totalQantityInfo->setValue(AppData->countAllIn(currentMode, TableNames::Uploaded) +
 		AppData->countAllIn(currentMode, TableNames::Scanned));
 }
 

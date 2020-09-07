@@ -21,8 +21,8 @@
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
-
-
+#include "Datacore/DataEntities.h"
+#include <QFile>
 QVector<int> DatabaseLoadSettings::extractInsertionIndexes()
 {
 	

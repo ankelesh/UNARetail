@@ -1,16 +1,13 @@
 #pragma once
 #include "widgets/parents/inframedWidget.h"
 #include "widgets/MultibranchWidgets/BarcodeRedactingWidget.h"
-#include "widgets/utils/MegaIconButton.h"
-#include "widgets/utils/VirtualBarcodeKeyboard.h"
-#include "widgets/utils/EventsAndFilters.h"
-#include "widgets/MultibranchWidgets/ScaningCameraWidget.h"
 #include "widgets/parents/abstractNodeInterface.h"
-#include <QtCore/QPointer>
-#include "widgets/utils/BarcodeObserver.h"
 #include <QListView>
 #include <QTextEdit>
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include <QLineEdit>
+
+
+
 /*
 */
 //Performs check of barcode: not too long, not empty
@@ -41,7 +38,7 @@ public:
 
 };
 
-
+class DataEntityListModel;
 class AbstractScaningWidget : public inframedWidget, abstractDynamicNode
 {
 	Q_OBJECT

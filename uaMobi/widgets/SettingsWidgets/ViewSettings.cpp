@@ -1,6 +1,10 @@
 #include "ViewSettings.h"
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/utils/GlobalAppSettings.h"
+#include <QBoxLayout>
+#include <QSpinBox>
+#include <QFormLayout>
+#include <QLabel>
 
 
 

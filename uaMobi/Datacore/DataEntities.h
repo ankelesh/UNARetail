@@ -3,6 +3,7 @@
 #include "PricedBarcodeEntity.h"
 #include "ShortBarcodeEntity.h"
 #include "UtilityEntities.h"
+#include "ProductEntity.h"
 #include <QAbstractListModel>
 
 /*
@@ -47,6 +48,8 @@ public:
 	void replaceDataEntity(Entity);
 	void addToDataEntity(Entity, int role);
 	void appendDataEntity(Entity);
+	QVector<Entity> releaseData();
+	const Entity& directAccessByFlatIndex(int findex) const;
 	// empties model
 	void reset();
 public slots:

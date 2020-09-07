@@ -1,11 +1,6 @@
 #pragma once
 #ifdef CAMERA_SUPPORT
-#include "widgets/utils/MegaIconButton.h"
 #include "widgets/parents/inframedWidget.h"
-#include "widgets/utils/GlobalAppSettings.h"
-#include <QBoxLayout>
-
-#include <QQuickView>
 
 /*
 		This widget is core one for anything than interfaces with camera - it holds a view
@@ -20,7 +15,10 @@
 			Show is pure virtual! Check inheritors to see why.
 
 */
-
+class QVBoxLayout;
+class QQuickView;
+class QHBoxLayout;
+class MegaIconButton;
 class AbstractCameraWidget : public inframedWidget
 	// Abstract parent of any camera widget, which provides layout and qml handling
 {

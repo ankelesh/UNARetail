@@ -5,10 +5,6 @@
       <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
     </Filter>
-    <Filter Include="Generated Files">
-      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -51,65 +47,122 @@
     <Filter Include="Header Files\QZXing">
       <UniqueIdentifier>{0fff68ce-1fe0-41db-b27b-e74f55410337}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\widgets">
-      <UniqueIdentifier>{819117f8-7de2-4cc2-994b-92a5e6c80ba9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\util">
       <UniqueIdentifier>{b17c0f95-ca2e-4234-a6b4-58ef88c5776e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\commcore">
-      <UniqueIdentifier>{b67bfa28-504d-4cab-85c5-925b021f7370}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\widgets\parents">
-      <UniqueIdentifier>{239faa55-eb53-4c8e-9213-54b4cf296dc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\widgets\elements">
-      <UniqueIdentifier>{32dab5a9-0f09-4656-b897-db970d357eff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\commcore">
-      <UniqueIdentifier>{6a7e6677-8138-4fcf-a47e-596e11a80169}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\widgets">
-      <UniqueIdentifier>{8d7551bf-e4ec-4818-9e85-8841a14dff08}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\util">
       <UniqueIdentifier>{b9a06dd5-0ae6-4c89-ab2f-8a2d30d45eec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\widgets\parents">
-      <UniqueIdentifier>{b794b890-5289-49ad-ad61-cdf7dc038608}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\widgets\elements">
-      <UniqueIdentifier>{d23d50bf-687a-4450-bca4-0de0d21a7eda}</UniqueIdentifier>
-    </Filter>
     <Filter Include="qml">
       <UniqueIdentifier>{63d33c8e-0544-484b-b6bf-14f6c61556ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\widgets\Multibranch">
-      <UniqueIdentifier>{574eeac4-b543-4384-b35c-aa58969f06e6}</UniqueIdentifier>
+    <Filter Include="Header Files\util\globals">
+      <UniqueIdentifier>{b64e44b9-9f7a-4120-ad07-4bec6aa0dee1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\widgets\Roots">
-      <UniqueIdentifier>{6c60bb34-911c-447c-b407-7dbc7a1031e8}</UniqueIdentifier>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{f1ff474a-3096-4338-93fd-5cf4c0d4846c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\widgets\Multibranch">
-      <UniqueIdentifier>{7b0a8948-e323-451e-9206-7b22bfc8fd6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\widgets\Root">
-      <UniqueIdentifier>{d2b3a4a1-8d7d-4440-85a2-12ae518c981d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Datacore">
+    <Filter Include="Header Files\Model\Datacore">
       <UniqueIdentifier>{e393aab0-51b4-45e5-8bf9-c14a9b9a0b41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\widgets\SettingsScreens">
+    <Filter Include="Header Files\Model\Datacore\DataEntities">
+      <UniqueIdentifier>{e2ef2fd9-4046-4ae4-91ac-b681357e91da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model\commcore">
+      <UniqueIdentifier>{b67bfa28-504d-4cab-85c5-925b021f7370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{819117f8-7de2-4cc2-994b-92a5e6c80ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\parents">
+      <UniqueIdentifier>{239faa55-eb53-4c8e-9213-54b4cf296dc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\elements">
+      <UniqueIdentifier>{32dab5a9-0f09-4656-b897-db970d357eff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\elements\controls">
+      <UniqueIdentifier>{a062f592-6899-4c70-b5e1-1abd8d9453ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\elements\delegates">
+      <UniqueIdentifier>{1c56252a-360d-4597-bfc2-af52f313f59c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Multibranch">
+      <UniqueIdentifier>{574eeac4-b543-4384-b35c-aa58969f06e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Multibranch\Redactors">
+      <UniqueIdentifier>{9ad86772-0f4e-4ba8-bad8-d52bb69004a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\Roots">
+      <UniqueIdentifier>{6c60bb34-911c-447c-b407-7dbc7a1031e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\SettingsScreens">
       <UniqueIdentifier>{1d6a9a58-bcfa-4dfd-97d3-235a12707f3c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Datacore">
+    <Filter Include="Header Files\View\SettingsScreens\MainPageSettings">
+      <UniqueIdentifier>{6906082f-ca71-4f28-acb8-ca170ab5a9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\SettingsScreens\InModeSettings">
+      <UniqueIdentifier>{15cdd4a9-e298-44d2-b07f-583caad2df50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\SettingsScreens\SendingSettings">
+      <UniqueIdentifier>{1598efe4-7ad3-434d-bb53-47069b291fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View\ScaningRelated">
+      <UniqueIdentifier>{8773ca46-a2e4-473f-92d1-dbf488a6fe1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{8762a11a-d19d-4123-be14-20c4f5a95684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\commcore">
+      <UniqueIdentifier>{6a7e6677-8138-4fcf-a47e-596e11a80169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model\Datacore">
       <UniqueIdentifier>{08573db5-161e-4151-be8c-06f4fb3f89e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\widgets\SettingScreens">
+    <Filter Include="Source Files\Model\Datacore\DataEntities">
+      <UniqueIdentifier>{f8f13159-d5db-458f-86d3-d6d2db114e83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util\globals">
+      <UniqueIdentifier>{dc3373b8-8089-43de-b3c2-16e108b65609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{8d7551bf-e4ec-4818-9e85-8841a14dff08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\parents">
+      <UniqueIdentifier>{b794b890-5289-49ad-ad61-cdf7dc038608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\elements">
+      <UniqueIdentifier>{d23d50bf-687a-4450-bca4-0de0d21a7eda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\Multibranch">
+      <UniqueIdentifier>{7b0a8948-e323-451e-9206-7b22bfc8fd6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\Root">
+      <UniqueIdentifier>{d2b3a4a1-8d7d-4440-85a2-12ae518c981d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\SettingScreens">
       <UniqueIdentifier>{1062b1e9-0760-4e63-a606-d4f18ef02c7d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\widgets\ScaningRelated">
-      <UniqueIdentifier>{8773ca46-a2e4-473f-92d1-dbf488a6fe1b}</UniqueIdentifier>
+    <Filter Include="Source Files\View\elements\controls">
+      <UniqueIdentifier>{8f98eea0-391b-4473-bfda-4635de4c6af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\elements\delegates">
+      <UniqueIdentifier>{cd025a87-1c6b-4a92-a595-4807ad606ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\Multibranch\redactors">
+      <UniqueIdentifier>{6169fae1-5d85-47f7-9f5f-b75cb0a496ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\ScaningRelated">
+      <UniqueIdentifier>{7e637535-9aa8-4ec5-bf39-dfea7377662d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\SettingScreens\MainPageSettings">
+      <UniqueIdentifier>{64ce90a2-39bb-4602-97f1-89934180536f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\SettingScreens\InModeSettings">
+      <UniqueIdentifier>{3f557df0-7056-45ce-99f2-3e27a03f778d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View\SettingScreens\SendingSettings">
+      <UniqueIdentifier>{de1e7efe-9ea8-43b6-8734-270f9934ad1f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -573,225 +626,252 @@
       <Filter>Source Files\QZXing</Filter>
     </ClCompile>
     <ClCompile Include="widgets\parents\AbstractCameraWidget.cpp">
-      <Filter>Source Files\widgets\parents</Filter>
+      <Filter>Source Files\View\parents</Filter>
     </ClCompile>
     <ClCompile Include="widgets\parents\AbstractScaningWidget.cpp">
-      <Filter>Source Files\widgets\parents</Filter>
+      <Filter>Source Files\View\parents</Filter>
     </ClCompile>
     <ClCompile Include="widgets\utils\BigButtonsSpinbox.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
+      <Filter>Source Files\View\elements</Filter>
     </ClCompile>
     <ClCompile Include="widgets\parents\BranchRootWidget.cpp">
-      <Filter>Source Files\widgets\parents</Filter>
+      <Filter>Source Files\View\parents</Filter>
     </ClCompile>
     <ClCompile Include="externalCommunication\communicationCore.cpp">
-      <Filter>Source Files\commcore</Filter>
+      <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
     <ClCompile Include="widgets\CoreWidget.cpp">
-      <Filter>Source Files\widgets</Filter>
+      <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="dataFormats\dataformater.cpp">
-      <Filter>Source Files\commcore</Filter>
+      <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
     <ClCompile Include="debugtrace.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="widgets\utils\ElementsStyles.cpp">
-      <Filter>Source Files\util</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\utils\MegaIconButton.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsForm.cpp">
-      <Filter>Source Files\widgets</Filter>
-    </ClCompile>
-    <ClCompile Include="dataproviders\sqldataprovider.cpp">
-      <Filter>Source Files\commcore</Filter>
-    </ClCompile>
-    <ClCompile Include="dataproviders\TableHandlers.cpp">
-      <Filter>Source Files\util</Filter>
+      <Filter>Source Files\View\elements</Filter>
     </ClCompile>
     <ClCompile Include="externalCommunication\tohttp.cpp">
-      <Filter>Source Files\commcore</Filter>
+      <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
     <ClCompile Include="externalCommunication\tolocalmemory.cpp">
-      <Filter>Source Files\commcore</Filter>
+      <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
     <ClCompile Include="widgets\utils\VirtualBarcodeKeyboard.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\utils\ZebraListItemDelegate.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
+      <Filter>Source Files\View\elements</Filter>
     </ClCompile>
     <ClCompile Include="widgets\utils\EventsAndFilters.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
     <ClCompile Include="widgets\parents\inframedWidget.cpp">
-      <Filter>Source Files\widgets\parents</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\utils\GlobalAppSettings.cpp">
-      <Filter>Source Files\util</Filter>
+      <Filter>Source Files\View\parents</Filter>
     </ClCompile>
     <ClCompile Include="dataFormats\formats.cpp">
-      <Filter>Source Files\commcore</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\innerSettingsForm.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
+      <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\BarcodeRedactingWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
     <ClCompile Include="widgets\CameraBranch\CameraWidget.cpp">
-      <Filter>Source Files\widgets\Root</Filter>
+      <Filter>Source Files\View\Root</Filter>
     </ClCompile>
     <ClCompile Include="widgets\InventoryBranch\InventoryWidget.cpp">
-      <Filter>Source Files\widgets\Root</Filter>
+      <Filter>Source Files\View\Root</Filter>
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\ReceiveWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\ScanedStorageWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\ScaningCameraWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\ScaningWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
     <ClCompile Include="widgets\SearchBranch\SearchWidget.cpp">
-      <Filter>Source Files\widgets\Root</Filter>
+      <Filter>Source Files\View\Root</Filter>
     </ClCompile>
     <ClCompile Include="widgets\SimpleBranch\SimpleBranchWidget.cpp">
-      <Filter>Source Files\widgets\Root</Filter>
+      <Filter>Source Files\View\Root</Filter>
     </ClCompile>
     <ClCompile Include="widgets\SupplyBranch\SuppliesWidget.cpp">
-      <Filter>Source Files\widgets\Root</Filter>
+      <Filter>Source Files\View\Root</Filter>
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\SendingDataPickerWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\PriceBranch\PriceScaningWidget.cpp">
-      <Filter>Source Files\widgets\Multibranch</Filter>
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
     <ClCompile Include="widgets\PriceBranch\PriceBranchWidget.cpp">
-      <Filter>Source Files\widgets\Root</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\utils\BarcodeObserver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\parents\abstractNodeInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\abs_control.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\ControlTranslator.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\DateTimeControl.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\QuantityControl.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\StringControl.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\AbsEntity.cpp">
-      <Filter>Source Files\Datacore</Filter>
+      <Filter>Source Files\View\Root</Filter>
     </ClCompile>
     <ClCompile Include="dataproviders\BackupingEngine.cpp">
-      <Filter>Source Files\commcore</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\BarcodeEntity.cpp">
-      <Filter>Source Files\Datacore</Filter>
+      <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
     <ClCompile Include="dataproviders\DataAsyncLoader.cpp">
-      <Filter>Source Files\Datacore</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\ScaningSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\DatabaseSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\SendSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\ShortBarcodeEntity.cpp">
-      <Filter>Source Files\Datacore</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\PricedBarcodeEntity.cpp">
-      <Filter>Source Files\Datacore</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\DataEntities.cpp">
-      <Filter>Source Files\Datacore</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\QuickSendSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\SerializationSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\SearchDatabaseSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\GeneralSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\ViewSettings.cpp">
-      <Filter>Source Files\widgets\SettingScreens</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\Redactors\Abs_Redactor.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\Redactors\PricedBarcodeRedactorForm.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\DatabaseLoadSettings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\ExtraSendSettings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\UtilityEntities.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\ExtraScaningSettings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\LoginSettings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\InvoiceBranch\InvoiceBranchWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="externalCommunication\AsyncRequestEngine.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\UpdateableScaningWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\UtilityElements\ExtendedLabels.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\RestScaningWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="dataproviders\ModesDescriptions.cpp">
-      <Filter>Source Files\commcore</Filter>
+      <Filter>Source Files\Model\Datacore</Filter>
     </ClCompile>
     <ClCompile Include="widgets\UtilityElements\ExtendedDialogs.cpp">
-      <Filter>Source Files\widgets\elements</Filter>
+      <Filter>Source Files\View\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="externalCommunication\AsyncRequestEngine.cpp">
+      <Filter>Source Files\Model\commcore</Filter>
+    </ClCompile>
+    <ClCompile Include="dataproviders\ModesDescriptions.cpp">
+      <Filter>Source Files\Model\Datacore</Filter>
+    </ClCompile>
+    <ClCompile Include="dataproviders\sqldataprovider.cpp">
+      <Filter>Source Files\Model\Datacore</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\AbsEntity.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\BarcodeEntity.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\DataEntities.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\PricedBarcodeEntity.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\ShortBarcodeEntity.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="dataproviders\TableHandlers.cpp">
+      <Filter>Source Files\Model\Datacore</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\UtilityEntities.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\utils\GlobalAppSettings.cpp">
+      <Filter>Source Files\util\globals</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\utils\ElementsStyles.cpp">
+      <Filter>Source Files\util\globals</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\utils\BarcodeObserver.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\abs_control.cpp">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\ControlTranslator.cpp">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\DateTimeControl.cpp">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\QuantityControl.cpp">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\StringControl.cpp">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\utils\ZebraListItemDelegate.cpp">
+      <Filter>Source Files\View\elements\delegates</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.cpp">
+      <Filter>Source Files\View\elements\delegates</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\UtilityElements\ExtendedLabels.cpp">
+      <Filter>Source Files\View\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\Redactors\Abs_Redactor.cpp">
+      <Filter>Source Files\View\Multibranch\redactors</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\Redactors\PricedBarcodeRedactorForm.cpp">
+      <Filter>Source Files\View\Multibranch\redactors</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.cpp">
+      <Filter>Source Files\View\Multibranch\redactors</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\parents\abstractNodeInterface.cpp">
+      <Filter>Source Files\View\parents</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\ScaningWidget.cpp">
+      <Filter>Source Files\View\ScaningRelated</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\ScaningCameraWidget.cpp">
+      <Filter>Source Files\View\ScaningRelated</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\PriceBranch\PriceScaningWidget.cpp">
+      <Filter>Source Files\View\ScaningRelated</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\UpdateableScaningWidget.cpp">
+      <Filter>Source Files\View\ScaningRelated</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\RestScaningWidget.cpp">
+      <Filter>Source Files\View\ScaningRelated</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsForm.cpp">
+      <Filter>Source Files\View\SettingScreens\MainPageSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\DatabaseLoadSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\MainPageSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\GeneralSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\MainPageSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\SearchDatabaseSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\MainPageSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\ViewSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\MainPageSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\DatabaseSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\InModeSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\innerSettingsForm.cpp">
+      <Filter>Source Files\View\SettingScreens\InModeSettings</Filter>
     </ClCompile>
     <ClCompile Include="widgets\SettingsWidgets\TaxInvoiceSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\InModeSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\ScaningSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\InModeSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\ExtraScaningSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\InModeSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\ExtraSendSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\SendingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\QuickSendSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\SendingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\SendSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\SendingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\SerializationSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\SendingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\LoginSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\SendingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\InvoiceBranch\InvoiceBranchWidget.cpp">
+      <Filter>Source Files\View\Root</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SalesAccountingBranch\SalesAccounting.cpp">
+      <Filter>Source Files\View\Root</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\ProductEntity.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\RoleBoundScaningWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\ControlManager.cpp">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\EntityQuickHash.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrapper.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -857,166 +937,73 @@
       <Filter>Header Files\QZXing</Filter>
     </QtMoc>
     <ClInclude Include="dataFormats\dataformater.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
     </ClInclude>
     <ClInclude Include="debugtrace.h">
       <Filter>Header Files\util</Filter>
     </ClInclude>
-    <ClInclude Include="widgets\utils\ElementsStyles.h">
-      <Filter>Header Files\util</Filter>
-    </ClInclude>
-    <ClInclude Include="dataproviders\TableHandlers.h">
-      <Filter>Header Files\util</Filter>
-    </ClInclude>
-    <ClInclude Include="dataproviders\sqldataprovider.h">
-      <Filter>Header Files\commcore</Filter>
-    </ClInclude>
-    <ClInclude Include="Datacore\AbsEntity.h">
-      <Filter>Header Files\Datacore</Filter>
-    </ClInclude>
-    <ClInclude Include="Datacore\BarcodeEntity.h">
-      <Filter>Header Files\Datacore</Filter>
-    </ClInclude>
-    <ClInclude Include="Datacore\PricedBarcodeEntity.h">
-      <Filter>Header Files\Datacore</Filter>
-    </ClInclude>
-    <ClInclude Include="Datacore\ShortBarcodeEntity.h">
-      <Filter>Header Files\Datacore</Filter>
-    </ClInclude>
     <ClInclude Include="widgets\parents\abstractNodeInterface.h">
-      <Filter>Header Files\widgets\parents</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets\ControlsMiniwidgets\QuantityControl.h">
-      <Filter>Header Files\widgets\elements</Filter>
+      <Filter>Header Files\View\parents</Filter>
     </ClInclude>
     <ClInclude Include="dataproviders\BackupingEngine.h">
-      <Filter>Header Files\commcore</Filter>
-    </ClInclude>
-    <ClInclude Include="Datacore\UtilityEntities.h">
-      <Filter>Header Files\Datacore</Filter>
-    </ClInclude>
-    <ClInclude Include="dataproviders\ModesDescriptions.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
     </ClInclude>
     <ClInclude Include="dataFormats\formats.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
+    </ClInclude>
+    <ClInclude Include="dataproviders\sqldataprovider.h">
+      <Filter>Header Files\Model\Datacore</Filter>
+    </ClInclude>
+    <ClInclude Include="dataproviders\ModesDescriptions.h">
+      <Filter>Header Files\Model\Datacore</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\AbsEntity.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\BarcodeEntity.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\PricedBarcodeEntity.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\ShortBarcodeEntity.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\UtilityEntities.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="dataproviders\TableHandlers.h">
+      <Filter>Header Files\Model\Datacore</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\utils\ElementsStyles.h">
+      <Filter>Header Files\util\globals</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\utils\GlobalAppSettings.h">
+      <Filter>Header Files\util\globals</Filter>
     </ClInclude>
     <ClInclude Include="widgets\utils\client_specific_defaults.h">
-      <Filter>Header Files\util</Filter>
+      <Filter>Header Files\util\globals</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\ControlsMiniwidgets\QuantityControl.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\ProductEntity.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\ControlsMiniwidgets\ControlManager.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\EntityQuickHash.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="Wrappers\PrinterWrapper.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="debug\moc_predefs.h.cbt">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="release\moc_predefs.h.cbt">
-      <Filter>Generated Files</Filter>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="translations\Romanian.qm">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="translations\Russian.qm">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\back.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\barcode.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\deleteData.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\editable.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\exit.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\find.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\forward.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="music\found.wav">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\inventory.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\logs.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\minus.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\netDownload.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\netUpload.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\new.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="music\notfound.wav">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\pen.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\pencil.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\plus.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\rec.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\refresh.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <QtRcc Include="resources.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
-    <None Include="res\scanner.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\sent.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\settings.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\single.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\submit.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\unsent.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\upload.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\url.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\viaFile.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\viaNet.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\viaTcp.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
@@ -1057,6 +1044,18 @@
     <None Include="CameraSurface.qml">
       <Filter>qml</Filter>
     </None>
+    <None Include="CameraSurface.qml">
+      <Filter>qml</Filter>
+    </None>
+    <None Include="translations\unaretail_en.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="translations\unaretail_ro.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="translations\unaretail_ru.qm">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="android-sources\AndroidManifest.xml">
@@ -1066,12 +1065,6 @@
       <Filter>Distribution Files</Filter>
     </None>
     <None Include="android-sources\res\drawable-hdpi\icon.png">
-      <Filter>Distribution Files</Filter>
-    </None>
-    <None Include="android-sources\res\drawable-ldpi\icon.png">
-      <Filter>Distribution Files</Filter>
-    </None>
-    <None Include="android-sources\res\drawable-mdpi\icon.png">
       <Filter>Distribution Files</Filter>
     </None>
   </ItemGroup>
@@ -1505,184 +1498,454 @@
     <ClInclude Include="qzxing-master\src\zxing\zxing\ZXing.h">
       <Filter>Header Files\QZXing</Filter>
     </ClInclude>
-    <ClInclude Include="widgets\utils\GlobalAppSettings.h">
-      <Filter>Header Files\util</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="widgets\CoreWidget.h">
-      <Filter>Header Files\widgets</Filter>
+      <Filter>Header Files\View</Filter>
     </QtMoc>
     <QtMoc Include="widgets\utils\EventsAndFilters.h">
       <Filter>Header Files\util</Filter>
     </QtMoc>
     <QtMoc Include="externalCommunication\tohttp.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
     </QtMoc>
     <QtMoc Include="externalCommunication\tolocalmemory.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
     </QtMoc>
     <QtMoc Include="widgets\parents\AbstractCameraWidget.h">
-      <Filter>Header Files\widgets\parents</Filter>
+      <Filter>Header Files\View\parents</Filter>
     </QtMoc>
     <QtMoc Include="widgets\parents\AbstractScaningWidget.h">
-      <Filter>Header Files\widgets\parents</Filter>
+      <Filter>Header Files\View\parents</Filter>
     </QtMoc>
     <QtMoc Include="widgets\parents\inframedWidget.h">
-      <Filter>Header Files\widgets\parents</Filter>
+      <Filter>Header Files\View\parents</Filter>
     </QtMoc>
     <QtMoc Include="widgets\parents\BranchRootWidget.h">
-      <Filter>Header Files\widgets\parents</Filter>
+      <Filter>Header Files\View\parents</Filter>
     </QtMoc>
     <QtMoc Include="widgets\utils\BigButtonsSpinbox.h">
-      <Filter>Header Files\widgets\elements</Filter>
+      <Filter>Header Files\View\elements</Filter>
     </QtMoc>
     <QtMoc Include="widgets\utils\MegaIconButton.h">
-      <Filter>Header Files\widgets\elements</Filter>
+      <Filter>Header Files\View\elements</Filter>
     </QtMoc>
     <QtMoc Include="widgets\utils\VirtualBarcodeKeyboard.h">
-      <Filter>Header Files\widgets\elements</Filter>
+      <Filter>Header Files\View\elements</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\BarcodeRedactingWidget.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
+      <Filter>Header Files\View\Multibranch</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\ReceiveWidget.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
+      <Filter>Header Files\View\Multibranch</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\ScanedStorageWidget.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
+      <Filter>Header Files\View\Multibranch</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\SendingDataPickerWidget.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
+      <Filter>Header Files\View\Multibranch</Filter>
     </QtMoc>
     <QtMoc Include="widgets\CameraBranch\CameraWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\InventoryBranch\InventoryWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\SimpleBranch\SimpleBranchWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\SupplyBranch\SuppliesWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\SearchBranch\SearchWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\PriceBranch\PriceBranchWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
-    </QtMoc>
-    <QtMoc Include="Datacore\DataEntities.h">
-      <Filter>Header Files\Datacore</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\utils\BarcodeObserver.h">
       <Filter>Header Files\util</Filter>
     </QtMoc>
-    <QtMoc Include="dataproviders\DataAsyncLoader.h">
-      <Filter>Header Files\commcore</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\abs_control.h">
-      <Filter>Header Files\widgets\elements</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\DateTimeControl.h">
-      <Filter>Header Files\widgets\elements</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\StringControl.h">
-      <Filter>Header Files\widgets\elements</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\ControlTranslator.h">
-      <Filter>Header Files\widgets\elements</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\utils\ZebraListItemDelegate.h">
-      <Filter>Header Files\widgets\elements</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\MultibranchWidgets\innerSettingsForm.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\ScaningSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\DatabaseSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\MultibranchWidgets\SendSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\QuickSendSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\SerializationSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsForm.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\GeneralSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\SearchDatabaseSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\ViewSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\MultibranchWidgets\Redactors\Abs_Redactor.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\MultibranchWidgets\Redactors\PricedBarcodeRedactorForm.h">
-      <Filter>Header Files\widgets\Multibranch</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\DatabaseLoadSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.h">
-      <Filter>Header Files\widgets\elements</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\ExtraSendSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\ExtraScaningSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\LoginSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\InvoiceBranch\InvoiceBranchWidget.h">
-      <Filter>Header Files\widgets\Roots</Filter>
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
     <QtMoc Include="widgets\PriceBranch\PriceScaningWidget.h">
-      <Filter>Header Files\widgets\ScaningRelated</Filter>
+      <Filter>Header Files\View\ScaningRelated</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\ScaningWidget.h">
-      <Filter>Header Files\widgets\ScaningRelated</Filter>
+      <Filter>Header Files\View\ScaningRelated</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\ScaningCameraWidget.h">
-      <Filter>Header Files\widgets\ScaningRelated</Filter>
+      <Filter>Header Files\View\ScaningRelated</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\UpdateableScaningWidget.h">
-      <Filter>Header Files\widgets\ScaningRelated</Filter>
+      <Filter>Header Files\View\ScaningRelated</Filter>
     </QtMoc>
     <QtMoc Include="externalCommunication\AsyncRequestEngine.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
     </QtMoc>
     <QtMoc Include="externalCommunication\communicationCore.h">
-      <Filter>Header Files\commcore</Filter>
+      <Filter>Header Files\Model\commcore</Filter>
     </QtMoc>
     <QtMoc Include="widgets\UtilityElements\ExtendedLabels.h">
-      <Filter>Header Files\widgets\elements</Filter>
+      <Filter>Header Files\View\elements</Filter>
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\RestScaningWidget.h">
-      <Filter>Header Files\widgets\ScaningRelated</Filter>
+      <Filter>Header Files\View\ScaningRelated</Filter>
     </QtMoc>
     <QtMoc Include="widgets\UtilityElements\ExtendedDialogs.h">
-      <Filter>Header Files\widgets\elements</Filter>
+      <Filter>Header Files\View\elements</Filter>
+    </QtMoc>
+    <QtMoc Include="Datacore\DataEntities.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\ControlsMiniwidgets\abs_control.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\ControlsMiniwidgets\DateTimeControl.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\ControlsMiniwidgets\ControlTranslator.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\ControlsMiniwidgets\StringControl.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.h">
+      <Filter>Header Files\View\elements\delegates</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\utils\ZebraListItemDelegate.h">
+      <Filter>Header Files\View\elements\delegates</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\Redactors\Abs_Redactor.h">
+      <Filter>Header Files\View\Multibranch\Redactors</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.h">
+      <Filter>Header Files\View\Multibranch\Redactors</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\Redactors\PricedBarcodeRedactorForm.h">
+      <Filter>Header Files\View\Multibranch\Redactors</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\GeneralSettings.h">
+      <Filter>Header Files\View\SettingsScreens\MainPageSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\DatabaseLoadSettings.h">
+      <Filter>Header Files\View\SettingsScreens\MainPageSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\SearchDatabaseSettings.h">
+      <Filter>Header Files\View\SettingsScreens\MainPageSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\ViewSettings.h">
+      <Filter>Header Files\View\SettingsScreens\MainPageSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsForm.h">
+      <Filter>Header Files\View\SettingsScreens\MainPageSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\innerSettingsForm.h">
+      <Filter>Header Files\View\SettingsScreens\InModeSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\ScaningSettings.h">
+      <Filter>Header Files\View\SettingsScreens\InModeSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\DatabaseSettings.h">
+      <Filter>Header Files\View\SettingsScreens\InModeSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\ExtraScaningSettings.h">
+      <Filter>Header Files\View\SettingsScreens\InModeSettings</Filter>
     </QtMoc>
     <QtMoc Include="widgets\SettingsWidgets\TaxInvoiceSettings.h">
-      <Filter>Header Files\widgets\SettingsScreens</Filter>
+      <Filter>Header Files\View\SettingsScreens\InModeSettings</Filter>
     </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\ExtraSendSettings.h">
+      <Filter>Header Files\View\SettingsScreens\SendingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\LoginSettings.h">
+      <Filter>Header Files\View\SettingsScreens\SendingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\QuickSendSettings.h">
+      <Filter>Header Files\View\SettingsScreens\SendingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\SendSettings.h">
+      <Filter>Header Files\View\SettingsScreens\SendingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\SerializationSettings.h">
+      <Filter>Header Files\View\SettingsScreens\SendingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="dataproviders\DataAsyncLoader.h">
+      <Filter>Header Files\Model\Datacore</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SalesAccountingBranch\SalesAccounting.h">
+      <Filter>Header Files\View\Roots</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\RoleBoundScaningWidget.h">
+      <Filter>Header Files\View\ScaningRelated</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.h">
+      <Filter>Header Files\View\Multibranch\Redactors</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.h">
+      <Filter>Header Files\View\Roots</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.h">
+      <Filter>Header Files\View\ScaningRelated</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="uaMobi.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\add.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\alreadySent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\barchart.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\barcode.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\best.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\camera.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cameradoc.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cash.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\check.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\contract.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cursor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\data.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\data2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\deleteData.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\downarrow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\download.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\editable.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\education_file-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\eng.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\exit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\find.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\find2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\find3 (2).png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\find3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\forward.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icn-cloud-blocked-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\images.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\info.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\inventory.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\invz.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\key.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\logs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\minus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\netDownload.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\netUpload.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\new.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\pen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\pen2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\pencil.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\pencil2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\plus.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\presentation.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\profile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\quality.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rec.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rec2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\refresh.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ribon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ro.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ru.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\scanner.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\sent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo2-25-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo2-32-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo3-18-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo3-21-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo3-89-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo-11-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\seo-80-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\settings2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\single.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\stats.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\stats2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\submit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\substract.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\text_files-512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\time.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toinput.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\unsent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\uparrow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\upload.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\url.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\url2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\viaFile.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\viaNet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\viaTcp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\video.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\wifi.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\found.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="music\notfound.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="resources.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>

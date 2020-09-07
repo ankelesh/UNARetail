@@ -3,7 +3,9 @@
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/utils/BarcodeObserver.h"
 #include "widgets/utils/GlobalAppSettings.h"
-
+#include "widgets/utils/MegaIconButton.h"
+#include <QSpinBox>
+#include <QFormLayout>
 
 
 void Capturer::keyReleaseEvent(QKeyEvent* kev)
@@ -19,14 +21,14 @@ Capturer::Capturer(QWidget* parent)
 
 }
 
-ScaningSettings::ScaningSettings(QWidget* parent)
+ScaningSettings::ScaningSettings(Modes cmode, QWidget* parent)
 	: QWidget(parent), mainLayout(new QFormLayout(this)),
 	prefixCapturer(new QSpinBox(this)), 
 	suffixCapturer(new QSpinBox(this)),
 	scanButtonCapturer(new Capturer(this)),
 	additionInputElements(new MegaIconButton(this)),
 	navigationElements(new MegaIconButton(this)),
-	historyButton(new MegaIconButton(this))
+	historyButton(new MegaIconButton(this)), currentMode(cmode)
 {
 	mainLayout->addRow(tr("Enter prefix code"), prefixCapturer);
 	mainLayout->addRow(tr("Enter suffix code"), suffixCapturer);
@@ -52,7 +54,7 @@ ScaningSettings::ScaningSettings(QWidget* parent)
 	navigationElements->setIcon(QIcon(":/res/forward.png"));
 
 	historyButton->setCheckable(true);
-	historyButton->setChecked(AppSettings->showHistory);
+	historyButton->setChecked(AppSettings->getModeDescription(cmode).isHistoryRequired());
 	historyButton->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
 	historyButton->setIcon(QIcon(":/res/pen2.png"));
 
@@ -70,7 +72,7 @@ void ScaningSettings::extractAndSave()
 	AppSettings->navigationElements = navigationElements->isChecked();
 	AppSettings->scanPrefix = prefixCapturer->value();
 	AppSettings->scanSuffix = suffixCapturer->value();
-	AppSettings->showHistory = historyButton->isChecked();
+	AppSettings->getModeDescription(currentMode).setHistoryRequire(historyButton->isChecked());
 	BarcodeObs->resetCapture(AppSettings->scanPrefix, AppSettings->scanSuffix, AppSettings->scanButtonCode);
 }
 

@@ -1,7 +1,7 @@
 #include "RestScaningWidget.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "externalCommunication/AsyncRequestEngine.h"
-
+#include "widgets/UtilityElements/ExtendedLabels.h"
 
 
 void RestScaningWidget::_emplaceBarcode(QString barcode, ShortBarcode info)

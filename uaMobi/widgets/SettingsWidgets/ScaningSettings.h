@@ -1,13 +1,7 @@
 #pragma once
 #include <QWidget>
-#include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
-#include <QComboBox>
 #include <QLineEdit>
-#include <QSpinBox>
-#include <QFormLayout>
-#include <QLabel>
-#include <dataproviders/sqldataprovider.h>
+#include "dataproviders/ModesDescriptions.h"
 
 class Capturer : public QLineEdit
 {
@@ -20,7 +14,9 @@ signals:
 	void keyCaptured(int keycode);
 };
 
-
+class QFormLayout;
+class QSpinBox;
+class MegaIconButton;
 class ScaningSettings : public QWidget
 {
 	Q_OBJECT
@@ -32,8 +28,9 @@ protected:
 	MegaIconButton* additionInputElements;
 	MegaIconButton* navigationElements;
 	MegaIconButton* historyButton;
+	Modes currentMode;
 public:
-	ScaningSettings( QWidget* parent);
+	ScaningSettings(Modes cmode, QWidget* parent);
 	void extractAndSave();
 protected slots:
 	void scanKeyPressed(int keycode);

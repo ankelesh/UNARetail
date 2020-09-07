@@ -1,5 +1,8 @@
 #include "BarcodeRedactorForm.h"
-
+#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include <QFormLayout>
+#include "Datacore/DataEntities.h"
+#include <QLabel>
 BarcodeRedactorForm::BarcodeRedactorForm(QWidget* parent)
 	:Abs_Redactor(parent), quantityEdit(new QuantityControl(true,
 		tr("Quantity"),

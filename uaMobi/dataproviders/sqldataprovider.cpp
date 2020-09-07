@@ -12,9 +12,11 @@
 #define QStringLiteral(A) QString::fromUtf8("" A "", sizeof(A) - 1)
 #endif
 #include "widgets/utils/GlobalAppSettings.h"
+#include "dataproviders/TableHandlers.h"
+#include "dataproviders/BackupingEngine.h"
 
-
-
+#include "dataFormats/dataformater.h"
+#include "Datacore/DataEntities.h"
 
 QString formatTableName(Modes mode, Entity prototype, TableNames tab)
 {
@@ -30,6 +32,7 @@ QHash<Modes, Entity> _initModenamesLinker()
 	temp.insert(Modes::Supplies, entityLinker[barcodeUtil::barcodetypes::uniformBc]);
 	temp.insert(Modes::Prices, entityLinker[barcodeUtil::barcodetypes::pricedBc]);
 	temp.insert(Modes::Invoices, entityLinker[barcodeUtil::barcodetypes::uniformBc]);
+	temp.insert(Modes::SalesAccounting, entityLinker[barcodeUtil::barcodetypes::product]);
 	return temp;
 };
 const QHash<Modes, Entity> modenamesLinker(_initModenamesLinker());
@@ -188,6 +191,7 @@ bool SqlDataProvider::createDefaultTables()
 // creates lists of default tables and databases and initiates it's creation
 {
 	_assertAndOpenSession();
+	mainDb.transaction();
     QList<Modes> modes;
     modes << Modes::Inventory << Modes::Simple << Modes::Supplies << Modes::Invoices;
     QList<TableNames> tabs;
@@ -207,6 +211,7 @@ bool SqlDataProvider::createDefaultTables()
 	while (tabname != tabs.end())
 	{
 		checkAndRefreshTable(*tabname, entityLinker[barcodeUtil::barcodetypes::pricedBc], Modes::Prices);
+		checkAndRefreshTable(*tabname, modenamesLinker[Modes::SalesAccounting], Modes::SalesAccounting);
 		++tabname;
 	}
 	mainDb.commit();
@@ -284,15 +289,25 @@ bool SqlDataProvider::pushEntityList(EntityList& scanned, Modes mode, TableNames
 		return false;
 	_assertAndOpenSession();
 	EntityList::iterator start = scanned.begin();
+	mainDb.transaction();
+	QSqlQuery* insertionQuery = new QSqlQuery(mainDb);
+	insertionQuery->prepare(modenamesLinker[mode]->getAssociatedTable()->preparedInsertQuery());
 	while (start != scanned.end())
 	{
-		if (!postEntityInto(tab, *start, mode))
-		{
+		(*start)->fillPreparedQuery(insertionQuery);
+		insertionQuery->exec();
+		if (insertionQuery->lastError().isValid()) {
+#ifdef DEBUG
+			detrace_METHPERROR("DBEXECUTE: " << insertionQuery->lastQuery() << "\n", " : " 
+				+ insertionQuery->lastError().text());
+#endif
+			mainDb.commit();
 			_assertAndCloseSession();
 			return false;
 		}
 		++start;
 	}
+	mainDb.commit();
 	_assertAndCloseSession();
 	return true;
 }
@@ -351,14 +366,40 @@ bool SqlDataProvider::pushIntoDownloaded(QLinkedList<QSharedPointer<ShortBarcode
 		recreateDownloadTable();
 	}
 	QLinkedList<QSharedPointer<ShortBarcodeEntity>>::iterator begin = l.begin();
+	QSqlQuery* insertionQuery = new QSqlQuery(mainDb);
+	insertionQuery->prepare(ShortBarcodeEntity::getTableHandler()->preparedInsertQuery());
+	int iter = 0;
 	while (begin != l.end())
 	{
-		execInSession((*begin)->getAssociatedTable()->insert((*begin)->asSqlInsertion()));
+		(*begin)->GUID = iter;
+		(*begin)->fillPreparedQuery(insertionQuery);
+		insertionQuery->exec();
+#ifdef DEBUG
+		if (insertionQuery->lastError().isValid()) {
+			detrace_METHPERROR("DBEXECUTE: " << insertionQuery->lastQuery() << "\n", " : "
+				+ insertionQuery->lastError().text());
+		}
+#endif
 		++begin;
+		++iter;
 	}
 	mainDb.commit();
 	_assertAndCloseSession();
 	return true;
+}
+
+void SqlDataProvider::removeFromDownloaded(ShortBarcode bc)
+{
+	_assertAndOpenSession();
+	mainDb.transaction();
+	QueryPtr q = runQuery(bc->getAssociatedTable()->delete_by_primary_key(QString::number(bc->GUID)));
+	if (q != Q_NULLPTR)
+	{
+		q->exec();
+	}
+	mainDb.commit();
+	_assertAndCloseSession();
+	
 }
 Entity SqlDataProvider::barcodeInfo(QString code)
 //This method is searching for barcode in downLoadedDB

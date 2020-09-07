@@ -1,5 +1,8 @@
 #include "AbsEntity.h"
 #include <QDateTime>
+
+
+
 bool AbsEntity::deepCompare(AbsEntity* bc) const
 {
 	return mytype == bc->myType() && getId() == bc->getId();
@@ -12,6 +15,11 @@ void AbsEntity::_setEnumerable(int role, double value)
 int AbsEntity::_getHeight() const
 {
 	return _getName().count("\n") + 1;
+}
+
+void AbsEntity::_concatenate(const AbsEntity* other)
+{
+
 }
 
 AbsEntity::AbsEntity(int type)
@@ -69,6 +77,16 @@ bool AbsEntity::operator==(AbsEntity* bc) const
 bool AbsEntity::operator==(QSharedPointer<AbsEntity> bc) const
 {
 	return deepCompare(&(*bc));
+}
+
+void AbsEntity::concatenate(const Entity& other)
+{
+	_concatenate(other.data());
+}
+
+void AbsEntity::concatenate(const AbsEntity* other)
+{
+	_concatenate(other);
 }
 
 int AbsEntity::myType() const
@@ -133,6 +151,32 @@ long long int AbsEntity::getId() const
 QString AbsEntity::serializeId() const
 {
 	return QString::number(GUID);
+}
+
+void AbsEntity::fillPreparedQuery(QSqlQuery*q) const
+{
+	if (q != Q_NULLPTR)
+		fillPrepQuery(q);
+}
+
+void AbsEntity::setWriteable(int role, QString text)
+{
+	return _setWriteable(role, text);
+}
+
+QString AbsEntity::getWriteable(int role) const
+{
+	return _getWriteable(role);
+}
+
+int AbsEntity::getFieldNumberForRole(int role) const
+{
+	return _getFieldNumberForRole(role);
+}
+
+void AbsEntity::erase()
+{
+	_erase();
 }
 
 

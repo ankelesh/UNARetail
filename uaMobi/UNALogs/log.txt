@@ -1,5 +1,21 @@
--->	Method called: initializeGlobalAppSettings in object 10802832
+-->	Method called: initializeGlobalAppSettings in object 20818488
 if errors: 0
+-->	Method called: translate control price5 | in object 9543600
+][	Created object control-like of type 4 on address 115504800
+-->	Method called: translate control Кол-во6 | in object 9543600
+][	Created object control-like of type 4 on address 115509552
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
 ***	method execing query: PRAGMA TABLE_INFO(simbarcodesscan)called
@@ -9,19 +25,46 @@ if errors: 0
 ***	method execing query: PRAGMA TABLE_INFO(ordbarcodesscan)called
 ***	method execing query: PRAGMA TABLE_INFO(ordbarcodesupld)called
 ***	method execing query: PRAGMA TABLE_INFO(pripricedbcsscan)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsscan)called
 ***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
-***	method execing query: SELECT count(*) from shortbcscalled
--->	Method called: dumpGlobalAppSettings in object 10802832
-if errors: 0
--->	Method called: dumpGlobalAppSettings in object 10802832
-if errors: 0
-***	method execing query: SELECT count(*) from pripricedbcsupldcalled
-***	method execing query: SELECT count(*) from pripricedbcsscancalled
-***	method execing query: SELECT count(*) from pripricedbcsupldcalled
-***	method execing query: SELECT count(*) from pripricedbcsscancalled
--->	Method called: dumpGlobalAppSettings in object 10802832
-if errors: 0
-***	method execing query: SELECT count(*) from pripricedbcsupldcalled
-***	method execing query: SELECT count(*) from pripricedbcsscancalled
-***	method execing query: SELECT count(*) from pripricedbcsupldcalled
-***	method execing query: SELECT count(*) from pripricedbcsscancalled
+***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
+***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '234523452435'called
+***	method execing query: SELECT sum(uploaded) from slaproductsscan where barcode = 234523452435called
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '124'called
+***	method execing query: SELECT sum(uploaded) from slaproductsscan where barcode = 124called
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '124'called
+***	method execing query: SELECT sum(uploaded) from slaproductsscan where barcode = 124called
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '124'called
+***	method execing query: SELECT sum(uploaded) from slaproductsscan where barcode = 124called
+***	method key release captured with textcalled
+-->	Method called: PrinterWrapper::printReceipt in object 116120704
+printing entity of type 5 with data 124            |1*43
+printing entity of type 5 with data 234523452435   |54*43
+***	method execing query: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612768323798,'234523452435' , '04.09.2020 17.53.39', 0 , '' , 54 , 43 , 0)called
+
+***	method execing query: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612775469129,'124' , '04.09.2020 17.53.46', 0 , '' , 1 , 43 , 0)called
+
+***	method execing query: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612780557545,'124' , '04.09.2020 17.53.51', 0 , '' , -5 , 43 , 0)called
+
+***	method execing query: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612788920539,'124' , '04.09.2020 17.53.59', 0 , '' , 1 , 43 , 0)called
+

@@ -2,6 +2,15 @@
 #include <QMessageBox>
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/UtilityElements/ExtendedDialogs.h"
+#include <qlabel.h>
+#include <QBoxLayout>
+#include "widgets/utils/GlobalAppSettings.h"
+#include "externalCommunication/tohttp.h"
+#include "externalCommunication/tolocalmemory.h"
+#include "widgets/utils/MegaIconButton.h"
+#include <QTimer>
+#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "dataproviders/sqldataprovider.h"
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
@@ -29,8 +38,8 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 	LocalAddress(new QLabel(this)),
 	useHttpButton(new MegaIconButton(this)), useLocalButton(new MegaIconButton(this)),
 	backButton(new MegaIconButton(this)),
-	http(mode),
-	tolocal(mode), awaiting(false), currentMode(mode), timeoutTimer(new QTimer(this))
+	http(new toHttp(mode, this)),
+	tolocal(new toLocalMemory(mode,this)), awaiting(false), currentMode(mode), timeoutTimer(new QTimer(this))
 {
 	this->setLayout(mainLayout);
 	mainLayout->addWidget(semaphor);
@@ -52,8 +61,8 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 	semaphor->setFixedHeight(calculateAdaptiveButtonHeight(0.1));
 	semaphor->setText(tr("Sending state"));
 
-	http.setAddress(AppSettings->httpIn.toString());
-	tolocal.addressChanged(AppSettings->localfile);
+	http->setAddress(AppSettings->httpIn.toString());
+	tolocal->addressChanged(AppSettings->localfile);
 
 	mainLayout->setSpacing(0);				//	Spacing removed
 	mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -79,10 +88,10 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 #ifdef QT_VERSION5X
 	QObject::connect(useHttpButton, &QPushButton::pressed, this, &ReceiveWidget::httpChosen);
 	QObject::connect(useLocalButton, &QPushButton::pressed, this, &ReceiveWidget::localChosen);
-	QObject::connect(&http, &toHttp::sendSuccesfull, this, &ReceiveWidget::requestEnd);
-	QObject::connect(&http, &toHttp::errorReceived, this, &ReceiveWidget::requestFail);
-	QObject::connect(&tolocal, &toLocalMemory::operationDone, this, &ReceiveWidget::requestEnd);
-	QObject::connect(&tolocal, &toLocalMemory::addressInvalid, this, &ReceiveWidget::localFail);
+	QObject::connect(http, &toHttp::sendSuccesfull, this, &ReceiveWidget::requestEnd);
+	QObject::connect(http, &toHttp::errorReceived, this, &ReceiveWidget::requestFail);
+	QObject::connect(tolocal, &toLocalMemory::operationDone, this, &ReceiveWidget::requestEnd);
+	QObject::connect(tolocal, &toLocalMemory::addressInvalid, this, &ReceiveWidget::localFail);
 	QObject::connect(backButton, &MegaIconButton::clicked, this, &ReceiveWidget::backRequired);
 	QObject::connect(timeoutTimer, &QTimer::timeout, this, &ReceiveWidget::requestTimeout);
 	QObject::connect(this, &ReceiveWidget::sendStateChanged, semaphor, &SemaphorLabel::setState);
@@ -208,7 +217,7 @@ void ReceiveWidget::httpChosen()
 	if (AppSettings->sendLogin)
 		if (!_verifyLoginPass())
 			return;
-	if (!http.send(mode, AppSettings->sendingFormat))
+	if (!http->send(mode, AppSettings->sendingFormat))
 		return;
 	timeoutTimer->start();
 	emit sendStateChanged(SemaphorLabel::awaiting);
@@ -216,8 +225,8 @@ void ReceiveWidget::httpChosen()
 
 void ReceiveWidget::localChosen()
 {
-	tolocal.addressChanged(AppSettings->localfile); // Updating address
-	tolocal.send(mode, AppSettings->sendingFormat);
+	tolocal->addressChanged(AppSettings->localfile); // Updating address
+	tolocal->send(mode, AppSettings->sendingFormat);
 	timeoutTimer->start();
 	emit sendStateChanged(SemaphorLabel::awaiting);
 }

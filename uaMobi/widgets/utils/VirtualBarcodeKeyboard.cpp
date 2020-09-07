@@ -3,6 +3,10 @@
 #include "debugtrace.h"
 #endif
 #include "widgets/utils/ElementsStyles.h"
+#include <QPushButton>
+#include <qgridlayout.h>
+#include <QLineEdit>
+
 
 VirtualBarcodeKeyboard::VirtualBarcodeKeyboard(QWidget* parent)
 	: inframedWidget(parent),

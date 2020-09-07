@@ -3,12 +3,19 @@
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
-
 #include <QMessageBox>
 #include "widgets/utils/ElementsStyles.h"
+#include <qboxlayout.h>
+#include "externalCommunication/tohttp.h"
+#include "widgets/utils/GlobalAppSettings.h"
+#include "widgets/utils/EventsAndFilters.h"
+#include "widgets/utils/MegaIconButton.h"
+#include "widgets/SettingsWidgets/GeneralSettings.h"
+#include "widgets/SettingsWidgets/SearchDatabaseSettings.h"
+#include "widgets/SettingsWidgets/ViewSettings.h"
+#include "widgets/SettingsWidgets/DatabaseLoadSettings.h"
 
-
-
+#include <qtabwidget.h>
 
 
 SettingsForm::SettingsForm( QWidget* parent)
@@ -39,6 +46,7 @@ SettingsForm::SettingsForm( QWidget* parent)
 #ifdef QT_VERSION5X
 	QObject::connect(backButton, &MegaIconButton::clicked, this, &SettingsForm::saveAndExit);
 	QObject::connect(generalSettings, &GeneralSettings::retranslated, this, &SettingsForm::retranslation);
+	QObject::connect(databaseSettings, &SearchDatabaseSettings::innerBranchSwitched, this, &SettingsForm::toggleOverlay);
 #else
 	QObject::connect(backButton, SIGNAL(clicked()), this, SLOT(saveAndExit()));
 	QObject::connect(generalSettings, SIGNAL(retranslated()), this, SLOT(retranslation()));
@@ -68,6 +76,18 @@ void SettingsForm::saveAndExit()
 	AppSettings->Save();
 	emit backRequired();
 	emit fontsChanged();
+}
+
+void SettingsForm::toggleOverlay(bool require)
+{
+	if (require)
+	{
+		backButton->hide();
+	}
+	else
+	{
+		backButton->show();
+	}
 }
 
 

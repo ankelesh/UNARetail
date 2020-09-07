@@ -1,4 +1,9 @@
 #include "SimpleBranchWidget.h"
+#include "widgets/MultibranchWidgets/innerSettingsForm.h"
+#include "widgets/MultibranchWidgets/ScaningWidget.h"
+#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include <QLabel>
+#include "widgets/utils/GlobalAppSettings.h"
 
 SimpleBranchWidget::SimpleBranchWidget( QWidget* parent)
 	: BranchRootWidget( Modes::Simple, parent)

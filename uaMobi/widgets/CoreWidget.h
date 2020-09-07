@@ -12,7 +12,7 @@
 #include <QtCore/QPointer>
 #include <QGridLayout>
 #include "widgets/parents/abstractNodeInterface.h"
-
+#include "widgets/utils/MegaIconButton.h"
 
 class IndexedButton : public MegaIconButton
 {
@@ -27,7 +27,7 @@ signals:
 	void iclicked(int index);
 };
 namespace mpw {
-	enum mainPageWidgets { Inventory, Supplies, Search, Simple, Invoice, Prices };
+	enum mainPageWidgets { Inventory, Supplies, Search, Simple, Invoice, Prices, SalesAccounting, DatabaseOps};
 }
 
 class CoreWidget : public QWidget, abstractDynamicNode
@@ -41,6 +41,8 @@ private:
 	IndexedButton* simple;
 	IndexedButton* invoice;
 	IndexedButton* prices;
+	IndexedButton* salesAcc;
+	IndexedButton* dbOperations;
 	QHBoxLayout* controlPanel;			
 	IgnorantButton* exitButton;			//	quits app
 	MegaIconButton* settingsButton;		//	opens settings screen 

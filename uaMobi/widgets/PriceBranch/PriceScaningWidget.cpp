@@ -3,10 +3,14 @@
 #include <algorithm>
 #include "widgets/utils/ElementsStyles.h"
 #include <QtCore/QTimer>
+#include "widgets/ControlsMiniwidgets/QuantityControl.h"
 #include <QInputMethod>
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
+#include <QLabel>
+#include "Datacore/DataEntities.h"
+#include "widgets/utils/MegaIconButton.h"
 #include "widgets/utils/GlobalAppSettings.h"
 PriceScaningWidget::PriceScaningWidget(QWidget* parent)
 	: AbstractScaningWidget(Modes::Prices, parent),
@@ -45,7 +49,7 @@ PriceScaningWidget::PriceScaningWidget(QWidget* parent)
 	{
 		okButton->hide();
 	}
-
+	
 	generalPrice->show();
 	discountPrice->show();
 #ifdef QT_VERSION5X
@@ -75,13 +79,20 @@ void PriceScaningWidget::_emplaceBarcode(QString barcode, ShortBarcode info)
 {
 	if (!barcode.isEmpty())
 	{
-		barcode = _extractionCheck(barcode);
         pendingBarcode.clear();
         pendingBarcode = PricedBarcode(new PricedBarcodeEntity(barcode));
 		barcodeInput->setText(barcode);
 		if (info != Q_NULLPTR)
 		{
-			barcodeInfo->setText(info->info);
+			if (info->price > 0)
+			{
+				barcodeInfo->setText(
+					QString::number(info->price) + " "
+					+ info->info
+				);
+			}
+			else
+				barcodeInfo->setText(info->info);
 			pendingBarcode->comment = info->info;
 		}
 		else
@@ -166,6 +177,20 @@ void PriceScaningWidget::handleCameraBarcode(QString value)
     barcodeConfirmed(value);
 }
 #endif
+void PriceScaningWidget::renameControls(int index, QString new_name)
+{
+	switch (index)
+	{
+	case 0:
+		generalPrice->renameControl(new_name);
+		break;
+	case 1:
+		discountPrice->renameControl(new_name);
+		break;
+	default:
+		break;
+	}
+}
 void PriceScaningWidget::setLen()
 {
 	lengthCounter->setText(tr("price_scaning_widget_LEN:") + " |" + QString::number(pendingBarcode->barcode.length()));

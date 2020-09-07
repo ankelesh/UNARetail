@@ -1,8 +1,8 @@
 #pragma once
-#include <QThread>
 #include <QObject>
 #include "Datacore/DataEntities.h"
-#include "dataproviders/sqldataprovider.h"
+#include "dataproviders/ModesDescriptions.h"
+
 /*
 	This class is creating new database connection and loads list of entities described by mode and table
 	This list will arrive via queed connection, then you can delete this object. List is passed by value, it's ok

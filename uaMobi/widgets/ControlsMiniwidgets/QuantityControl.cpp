@@ -8,6 +8,16 @@
 #include "debugtrace.h"
 #endif
 
+#include "widgets/utils/BigButtonsSpinbox.h"
+void QuantityControl::_setEnumerableMinimum(double val) 
+{
+	innerSpinbox->setMinimum(val);
+
+}
+void QuantityControl::_setEnumerableValue(double v)
+{
+	innerSpinbox->setDValue(v);
+}
 QString QuantityControl::prepareAndReturnValue() const
 {
     return QString::number(innerSpinbox->dvalue());
@@ -28,6 +38,7 @@ bool QuantityControl::parseAndSetValue(QString str)
 void QuantityControl::clear()
 {
 	innerSpinbox->setValue(0);
+	innerSpinbox->update();
 }
 
 bool QuantityControl::valueAvailable() const
@@ -55,6 +66,25 @@ QuantityControl::QuantityControl(bool isInt, const QString& cname, QWidget* Pare
 	hide();
 }
 
+QuantityControl::QuantityControl(int precision, const QString& cname, QWidget* parent)
+	: abs_control(parent, InputControlEntity::Float, cname),
+	innerSpinbox(new BigButtonsSpinbox(
+		BigButtonsSpinbox::floatspin, parent))
+{
+	innerSpinbox->setMinimum(0);
+	innerSpinbox->setMaximum(10000);
+	innerSpinbox->setPrecision(precision);
+	innerSpinbox->setValue(0);
+	innerSpinbox->setInfo(label);
+	innerSpinbox->setStyleSheet(FOCUSED_SPINBOX_STYLESHEET);
+#ifdef QT_VERSION5X
+	QObject::connect(innerSpinbox, &BigButtonsSpinbox::returnPressed, this, &QuantityControl::subcontrolEditingFinished);
+#else
+	QObject::connect(innerSpinbox, SIGNAL(returnPressed()), this, SLOT(subcontrolEditingFinished()));
+#endif
+	hide();
+}
+
 
 
 QuantityControl::~QuantityControl()
@@ -67,6 +97,11 @@ QuantityControl::~QuantityControl()
 QWidget* QuantityControl::getInnerWidget() const
 {
 	return innerSpinbox;
+}
+
+double QuantityControl::_getEnumerableValue() const
+{
+	return innerSpinbox->dvalue();
 }
 
 void QuantityControl::setFocus() const
@@ -83,9 +118,20 @@ void QuantityControl::setMinimum(double min)
 	innerSpinbox->setMinimum(min);
 }
 
+void QuantityControl::setMaximum(double max)
+{
+	innerSpinbox->setMaximum(max);
+}
+
 double QuantityControl::getPureValue()const
 {
 	return innerSpinbox->dvalue();
+}
+
+void QuantityControl::renameControl(QString newName)
+{
+	label = newName;
+	innerSpinbox->setInfo(label);
 }
 
 void QuantityControl::show()

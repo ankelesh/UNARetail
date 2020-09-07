@@ -23,7 +23,7 @@ protected:
 	QStringList table_fields;	//	field names
 	int primaryKeyField;		//	which field is used as primary key
 	int table_type;				//	renundant type, can be used again in case of additional templates
-
+	QString fields_placeholder;
 	// checks name, returns valid one
 	const QString& assertAnotherName(const QString& another_name) const noexcept;
 
@@ -57,6 +57,8 @@ public:
 	QString allFieldsDeclaration() const noexcept;
 	// makes insertion query from provided values
 	QString insert(const QString& values, const QString another_name = QString::null) const noexcept;
+
+	QString preparedInsertQuery(const QString another_name = QString::null) const noexcept;
 	// creates index for this table
 	QString makeIndex(const QString& another_name = QString::null) const noexcept;
 	// creates copy of this handler with another name

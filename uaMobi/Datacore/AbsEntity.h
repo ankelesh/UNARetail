@@ -1,10 +1,9 @@
 #pragma once
 #include <QString>
-#include "dataproviders/TableHandlers.h"
 #include <QVector>
 #include <qmetatype.h>
 #include <qsharedpointer.h>
-
+#include "dataproviders/TableHandlers.h"
 #ifndef QStringLiteral
 #define QStringLiteral(A) QString::fromUtf8("" A "" , sizeof(A)-1)
 #endif
@@ -35,22 +34,24 @@ namespace barcodeUtil
 #endif
     barcodetypes {
 		// binds entities types to barcodes
-		abstractBc, uniformBc, pricedBc, shortBc , separatorNotBC};
-	enum barcodeenumerables { 
-		// binds roles for easier access, deprecated
-		quantity, generalPrice, discountPrice };
-    inline uint qHash(barcodeUtil::barcodeenumerables a)
-    {
-        return uint(a);
-    }
+		abstractBc, uniformBc, pricedBc, shortBc , separatorNotBC, product};
     inline uint qHash(barcodeUtil::barcodetypes a)
     {
         return uint(a);
     }
 
 }
-
+namespace Roles
+{
+	enum common {
+		barcode = 1024,
+		comment = 2048,
+		date = 4096
+	};
+}
 class QSqlQuery;
+class AbsEntity;
+typedef QSharedPointer<AbsEntity> Entity;
 class AbsEntity
 {
 protected:
@@ -86,7 +87,18 @@ protected:
 	virtual const QStringList& _getFields() const = 0;
 	//must return comparation query for this entity. Deprecated
 	virtual QString _fullComparationQuery() const = 0;
-	// describes which particular entity is this
+	// fills query with data of this entity
+	virtual void fillPrepQuery(QSqlQuery*) const = 0;
+	// sets text values in entity. Fills only non-enumerables, to fill enumerable use _setEnumerable. Zero role equals fill name
+	virtual void _setWriteable(int role, QString text) = 0;
+	// returns any value in this entity in it's text representation
+	virtual QString _getWriteable(int role) const = 0;
+	// clears everything in entity and drops id
+	virtual void _erase() = 0;
+	// returns field number for any role, if role is absent, returns id number
+	virtual int _getFieldNumberForRole(int role) const = 0;
+
+	virtual void _concatenate(const AbsEntity* other);
 	int mytype;
 	// used for database interactions
 public:
@@ -106,6 +118,8 @@ public:
 	bool isValid() const;
 	bool operator==(AbsEntity* bc) const;
 	bool operator==(QSharedPointer<AbsEntity> bc) const;
+	void concatenate(const Entity& other);
+	void concatenate(const AbsEntity* other);
 	int myType() const;
 	bool fromSql(QSqlQuery*);
 	AbsEntity* clone() const;
@@ -118,6 +132,11 @@ public:
 	static long long int makeGUID();
 	long long int getId() const;
 	QString serializeId() const;
+	void fillPreparedQuery(QSqlQuery*) const;
+	void setWriteable(int role, QString text);
+	QString getWriteable(int role) const;
+	int getFieldNumberForRole(int role) const;
+	void erase();
 	// must be virtual for correct polymorhic cleaning
     virtual ~AbsEntity(){}
 };

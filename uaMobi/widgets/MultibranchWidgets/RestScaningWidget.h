@@ -1,7 +1,7 @@
 #pragma once
 #include "UpdateableScaningWidget.h"
 
-
+class ClickableTLCounterLabel;
 class RestScaningWidget : public UpdateableScaningWidget
 {
 	Q_OBJECT

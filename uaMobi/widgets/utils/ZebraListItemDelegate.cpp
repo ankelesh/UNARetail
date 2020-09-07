@@ -1,5 +1,6 @@
 #include "ZebraListItemDelegate.h"
 #include "Datacore/DataEntities.h"
+#include <QtGui/QPainter>
 
 #ifndef QStringLiteral
 #define QStringLiteral(A) QString::fromUtf8("" A "" + sizeof(A) - 1)
@@ -8,7 +9,7 @@ ZebraItemDelegate::ZebraItemDelegate(QObject* parent)
 	: QStyledItemDelegate(parent)
 {
 }
-static QString separator(QStringLiteral("|"));
+static QString separator(QStringLiteral("| "));
 
 void ZebraItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
@@ -68,7 +69,7 @@ void ShortZebraItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem
 		painter->setBrush(option.palette.background());
 	}
 	painter->drawRect(rct);
-	painter->drawText(rct, Qt::AlignCenter | Qt::TextWordWrap, ent->formatedView(separator, datetimeDBEncoding).left(20));
+	painter->drawText(rct, Qt::AlignCenter | Qt::TextWordWrap, ent->formatedView(separator, datetimeDBEncoding).left(30));
     if (option.state.testFlag(QStyle::State_Selected))
     {
         painter->setBrush(option.palette.highlight());

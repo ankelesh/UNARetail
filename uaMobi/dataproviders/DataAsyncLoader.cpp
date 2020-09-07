@@ -1,4 +1,9 @@
 #include "DataAsyncLoader.h"
+#include "dataproviders/sqldataprovider.h"
+#include <QSqlQuery>
+#include <Datacore/AbsEntity.h>
+#include <QThread>
+
 
 DataAsyncLoader::DataAsyncLoader(QObject * parent)
 	: QObject(parent)

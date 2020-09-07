@@ -1,10 +1,9 @@
 #pragma once
 #include "abs_control.h"
-#include "widgets/utils/BigButtonsSpinbox.h"
 
 
 
-
+class BigButtonsSpinbox;
 class DateTimeControl : public abs_control
 {
 	Q_OBJECT

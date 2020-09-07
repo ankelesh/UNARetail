@@ -1,5 +1,8 @@
 #pragma once
-#include "externalCommunication/communicationCore.h"
+#include <QObject>
+#include <QByteArray>
+#include <QString>
+#include "dataproviders/ModesDescriptions.h"
 
 /*
 		This commcore child is masking with commcore interface to store data in file.

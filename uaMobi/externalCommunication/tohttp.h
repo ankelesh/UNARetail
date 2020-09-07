@@ -1,10 +1,8 @@
 #pragma once
-
-#include "externalCommunication/communicationCore.h"
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkReply>
 #include <QLinkedList>
-
+#include <QFuture>
+#include "Datacore/ShortBarcodeEntity.h"
+#include "dataproviders/ModesDescriptions.h"
 /*
 	This child of commcore is creating http-connection for implementation of send\get pair
 	It is creating networkAccessManager and NetworkReply for networking and some variables for
@@ -19,6 +17,7 @@
 */
 class QTextDecoder;
 class QTextCodec;
+class QNetworkReply;
 class toHttp : public QObject
 {
 	Q_OBJECT
@@ -31,12 +30,14 @@ private:
 	QString input;							//	here is stored input
 
 	QLinkedList<ShortBarcode> loaded;
+	QLinkedList<QFuture<QLinkedList<ShortBarcode> > > threadResults;
 
 	int currentlyAwaiting;
 	QTextDecoder * decoder;
 	int page;
 	int sessionCounter;
 	QString stored_place_code;
+	long long int sessionId;
 	enum {
 		notAwaiting,
 		awaitingPlaces,
@@ -52,7 +53,7 @@ private:
 	bool _product_list_receiving_end();
 	bool _send_get_products();
 public:
-	toHttp(Modes mode);
+	toHttp(Modes mode, QObject * parent = Q_NULLPTR);
 	~toHttp();
 	void setAddress(QString newAddress);
 
@@ -62,6 +63,7 @@ public:
 	bool getPlacelist();
 	bool getProductList( QString place_code);
 	void clear();
+	void productListPostClean();
 	int count();
 private slots:
 	void uploadResponce();	//	is triggered when upload responce came

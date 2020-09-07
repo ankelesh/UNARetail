@@ -1,14 +1,6 @@
 #pragma once
 #include <QWidget>
-#include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
-#include <QComboBox>
-#include <QLineEdit>
-#include <QSpinBox>
-#include <QFormLayout>
-#include <QLabel>
-#include <QListView>
-#include <QValidator>
+#include <qvalidator.h>
 
 class LoginPassValidator : public QValidator
 {
@@ -19,7 +11,9 @@ public:
 	LoginPassValidator(QObject* parent);
 };
 
-
+class QFormLayout;
+class MegaIconButton;
+class QLineEdit;
 class LoginSettings : public QWidget
 {
 	Q_OBJECT

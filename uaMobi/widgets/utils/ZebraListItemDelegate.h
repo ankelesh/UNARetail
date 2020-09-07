@@ -1,6 +1,6 @@
 #pragma once
 #include <QStyledItemDelegate>
-#include <QtGui/QPainter>
+
 
 /*
 	This class is realization of simple zebra-like delegate which is coloring odd rows in
@@ -10,7 +10,7 @@
 		Now this delegate checks for separating line in value. If it is found, delegate will paint it with blue
 
 */
-
+class QPainter;
 class ZebraItemDelegate : public QStyledItemDelegate
 {
 	Q_OBJECT

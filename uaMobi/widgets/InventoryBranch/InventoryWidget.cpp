@@ -1,5 +1,8 @@
 #include "InventoryWidget.h"
-
+#include "widgets/MultibranchWidgets/innerSettingsForm.h"
+#include "widgets/MultibranchWidgets/ScaningWidget.h"
+#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include <QLabel>
 InventoryWidget::InventoryWidget(QWidget* parent)
 	: BranchRootWidget(Modes::Inventory, parent)
 {

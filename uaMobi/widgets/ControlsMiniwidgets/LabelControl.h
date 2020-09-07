@@ -1,7 +1,7 @@
 #pragma once
 #include "abs_control.h"
 #include <QLabel>
-
+#include <QKeyEvent>
 namespace specwidgets
 {
 	class unfocusableLabel : public QLabel

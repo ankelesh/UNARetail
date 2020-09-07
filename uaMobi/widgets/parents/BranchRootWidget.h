@@ -1,12 +1,8 @@
 #pragma once
-#include "inframedWidget.h"
 #include "widgets/parents/inframedWidget.h"
-#include "widgets/MultibranchWidgets/innerSettingsForm.h"
-#include "widgets/MultibranchWidgets/ScaningWidget.h"
-#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
-#include "widgets/MultibranchWidgets/SendingDataPickerWidget.h"
-#include <QtCore/QHash>
-
+#include "widgets/parents/abstractNodeInterface.h"
+#include "Datacore/AbsEntity.h"
+#include "dataproviders/ModesDescriptions.h"
 /*
 	This widget is creating similar interface for branches which differ only by data processing.
 	It gives standard branches - scanner, scanned list and receive, so as the settings widget. It is
@@ -30,7 +26,8 @@
 		Additional vector of barcodes added - it stores sent barcodes
 		Changes into refreshing - now additional refresh is provided when barcodes are sent
 */
-
+class QLabel;
+class MegaIconButton;
 class BranchRootWidget :
 	public inframedWidget, abstractDynamicNode
 {
@@ -63,5 +60,5 @@ protected slots:					//	button slots
 	void settingsPressed();
 public slots:					//	newBarcodesArrived is collecting barcodes into Vector
 	virtual void backRequire();
-	void newBarcodeArrived(Entity);	//	This slot is hiding current and opens widget same as Expecting control
+	virtual void newBarcodeArrived(Entity);	//	This slot is hiding current and opens widget same as Expecting control
 };

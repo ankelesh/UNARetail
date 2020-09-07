@@ -1,6 +1,11 @@
 #include "LoginSettings.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/utils/ElementsStyles.h"
+
+#include "widgets/utils/MegaIconButton.h"
+#include <QLineEdit>
+#include <QFormLayout>
+
 void LoginSettings::_setLoginPass()
 {
 	loginField->setEnabled(enableLoginSend->isChecked());

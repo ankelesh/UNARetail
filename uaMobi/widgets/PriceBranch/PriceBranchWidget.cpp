@@ -1,6 +1,8 @@
 #include "PriceBranchWidget.h"
 #include "PriceScaningWidget.h"
-
+#include "widgets/MultibranchWidgets/innerSettingsForm.h"
+#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include <QLabel>
 PriceBranchWidget::PriceBranchWidget( QWidget* parent)
 	: BranchRootWidget(Modes::Prices, parent)
 {

@@ -1,5 +1,12 @@
 #include "Abs_Redactor.h"
 #include "widgets/utils/ElementsStyles.h"
+
+#include "widgets/utils/BigButtonsSpinbox.h"
+#include "widgets/utils/MegaIconButton.h"
+#include <QLabel>
+#include <QFormLayout>
+
+
 Abs_Redactor::Abs_Redactor(QWidget* parent)
 	:QWidget(parent), mainLayout(new QFormLayout(this)),
 	barcodeInfo(new QLabel(this)), additionalInfo(new QLabel(this))

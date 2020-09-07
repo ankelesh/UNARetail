@@ -2,6 +2,23 @@
 #include "AbsEntity.h"
 #include <QtCore/QDateTime>
 
+namespace Roles
+{
+	namespace PricedBarcode {
+		enum Enumerables
+		{
+			general = 64,
+			discount,
+			secondary,
+			unnecessary
+		};
+		enum Writeables
+		{
+			expDate = 128
+		};
+	}
+}
+
 class PricedBarcodeEntity : public AbsEntity
 {
 protected:
@@ -22,6 +39,11 @@ protected:
 	virtual const QStringList& _getFields() const override;
 	virtual QString _fullComparationQuery() const override;
 	virtual void _setEnumerable(int role, double value) override;
+	virtual void fillPrepQuery(QSqlQuery*) const override;
+	virtual void _setWriteable(int role, QString text) override;
+	virtual QString _getWriteable(int role) const override;
+	virtual void _erase() override;
+	virtual int _getFieldNumberForRole(int role) const override;
 public:
 	QString barcode;			//	String representation of barcode. Is used to distinct one barcode from another.
 	QDateTime addDate;		//	datetime when barcode was scanned. If it was scanned multiple times - only first stays
@@ -36,6 +58,8 @@ public:
 		QDateTime adddt = QDateTime::currentDateTime(),
 		QDateTime expdt = QDateTime::currentDateTime(),
 		QString comm = "", double gP = 0, double dP = 0, double sP = 0, double unP = 0);
+
+	// Inherited via AbsEntity
 };
 
 typedef QSharedPointer<PricedBarcodeEntity> PricedBarcode;

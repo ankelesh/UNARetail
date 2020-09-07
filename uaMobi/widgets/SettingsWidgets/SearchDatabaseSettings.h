@@ -1,17 +1,20 @@
 #pragma once
 #include <QWidget>
-#include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
-#include <QComboBox>
-#include <QLineEdit>
-#include <QSpinBox>
-#include <QFormLayout>
-#include <QLabel>
-#include <qprogressbar.h>
-#include <qlistwidget.h>
-#include "externalCommunication/tohttp.h"
 #include "widgets/parents/abstractNodeInterface.h"
+#include <QString>
+#include <QStringList>
 
+class QVBoxLayout;
+class inframedWidget;
+class QFormLayout;
+class QLabel;
+class MegaIconButton;
+class QLineEdit;
+class QProgressBar;
+class toHttp;
+class QListWidget;
+class QTimer;
+class QListWidgetItem;
 class SearchDatabaseSettings : public QWidget,  abstractNode
 {
 	Q_OBJECT
@@ -27,7 +30,7 @@ protected:
 	MegaIconButton* deletePlaceButton;
 	MegaIconButton* downloadNow;
 	QProgressBar* downloadProgress;
-	toHttp downloadcenter;
+	toHttp* downloadcenter;
 	QTimer* timeoutTimer;
 
 	inframedWidget* placeSelectionWidget;
@@ -60,4 +63,6 @@ protected slots:
 	void downloadStateChanged(QString);
 	void downloadError();
 	void deletePlace();
+signals:
+	void innerBranchSwitched(bool);
 };

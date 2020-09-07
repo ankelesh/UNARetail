@@ -2,6 +2,14 @@
 #include "widgets/utils/GlobalAppSettings.h"
 #include <QApplication>
 #include <QTextCodec>
+
+#include "widgets/utils/MegaIconButton.h"
+#include <QComboBox>
+#include <QLineEdit>
+#include <QFormLayout>
+#include <QLabel>
+
+
 static QString filepaths[3] = { ":/res/ro.png", ":/res/ru.png", ":/res/eng.png" };
 
 static QString langnames[3] = { "Romanian", "Russian", "English" };

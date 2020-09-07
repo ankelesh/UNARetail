@@ -1,9 +1,9 @@
 #pragma once
 #include "abs_control.h"
-#include <QLineEdit>
-#include <QLabel>
-#include <QBoxLayout>
 
+class QVBoxLayout;
+class QLabel;
+class QLineEdit;
 class StringControl : public abs_control
 {
 	Q_OBJECT

@@ -5,7 +5,8 @@
 #include "debugtrace.h"
 #endif
 #include "dataFormats/formats.h"
-
+#include "dataproviders/sqldataprovider.h"
+#include <QDate>
 bool toLocalMemory::checkAdress(QString& adress)
 {
 	if (adress.isEmpty())

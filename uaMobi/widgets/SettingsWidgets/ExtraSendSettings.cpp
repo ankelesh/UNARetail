@@ -1,5 +1,8 @@
 #include "ExtraSendSettings.h"
 #include "widgets/utils/GlobalAppSettings.h"
+#include <QFormLayout>
+#include <QComboBox>
+#include <QSpinBox>
 
 
 QStringList sysfeedPseudonims;

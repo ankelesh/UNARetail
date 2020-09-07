@@ -7,16 +7,31 @@
 #endif
 #include "client_specific_defaults.h"
 
-const float VERSION = 0.836f;
+const float VERSION = 0.838f;
 #ifdef LINELLA
 const char* SUFFIX = "linella_release";
+#else 
+#ifdef BEMOL
+const char* SUFFIX = "bemol_beta";
+#else
+#ifdef ETALONUS
+const char* SUFFIX = "etalonus_release";
 #else
 const char* SUFFIX = "nigthly";
+#endif
+#endif
 #endif
 
 static ModeDescription defaultMode;
 
 GlobalAppSettings::GlobalAppSettings()
+	: modes(), netEncoding(), localfile(), httpIn(),
+	localDatabase(), additionalControlElements(), navigationElements(),
+	autoSearch(), simpleSending(), sendingFormat(), scanPrefix(), scanSuffix(),
+	scanButtonCode(), language(),qt_translator(Q_NULLPTR), fontMinHeight(), fontMaxHeight(),
+	fontPercent(), separatorCode(), deserializationOrder(), deserializationPoints(),
+	placeAsItem(), placeAsCode(), extrasearchPrefix(), clearScanBuffer(), sendLogin(), userLogin(),
+	userPass(), autoFillQuantity(), taxInvoiceTemporary()
 {
 #ifdef DEBUG
 	detrace_METHCALL("initializeGlobalAppSettings");
@@ -42,7 +57,6 @@ GlobalAppSettings::GlobalAppSettings()
 	scanPrefix = settings.value("scanPrefix", QVariant(int('$'))).toInt();
 	scanSuffix = settings.value("scanSuffix", QVariant(int('\n'))).toInt();
 	navigationElements = settings.value("navigation", QVariant(true)).toBool();
-	showHistory = settings.value("showHistory", QVariant(false)).toBool();
 	scanButtonCode = settings.value("scanButtonCode", QVariant(int('`'))).toInt();
 	localDatabase = settings.value("localDatabase", QVariant()).toString();
 	fontMaxHeight = settings.value("fontMaxHeight", QVariant(30)).toInt();
@@ -132,7 +146,6 @@ void GlobalAppSettings::Save()
 	settings.setValue("fontMaxHeight", fontMaxHeight);
 	settings.setValue("fontMinHeight", fontMinHeight);
 	settings.setValue("fontPercent", fontPercent);
-	settings.setValue("showHistory", showHistory);
 	settings.setValue("separatorCode", separatorCode);
 	a.clear();
 	for (int i = 0; i < deserializationOrder.count(); ++i)

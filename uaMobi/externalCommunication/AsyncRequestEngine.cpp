@@ -7,6 +7,8 @@
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
+
+
 bool AsyncRequestEngine::_setReply(QNetworkReply* reply)
 {
 	if (awaitedReply != Q_NULLPTR)

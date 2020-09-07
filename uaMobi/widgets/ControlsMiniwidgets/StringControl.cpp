@@ -1,5 +1,8 @@
 #include "StringControl.h"
 #include "widgets/utils/ElementsStyles.h"
+#include <QLineEdit>
+#include <QLabel>
+#include <QBoxLayout>
 
 
 QString StringControl::prepareAndReturnValue() const

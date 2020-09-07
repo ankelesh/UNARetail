@@ -1,17 +1,14 @@
 #pragma once
-#include <QBoxLayout>
-#include <QComboBox>
-#include <QLabel>
-
-
-#include "widgets/utils/MegaIconButton.h"
-#include "widgets/utils/ElementsStyles.h"
 #include "widgets/parents/inframedWidget.h"
-#include "widgets/utils/GlobalAppSettings.h"
-#include "widgets/SettingsWidgets/QuickSendSettings.h"
-#include "widgets/SettingsWidgets/SerializationSettings.h"
-#include "widgets/SettingsWidgets/ExtraSendSettings.h"
-#include "widgets/SettingsWidgets/LoginSettings.h"
+#include "dataproviders/ModesDescriptions.h"
+#include "Datacore/AbsEntity.h"
+class QVBoxLayout;
+class QTabWidget;
+class QuickSendSettings;
+class SerializationSettings;
+class ExtraSendSettings;
+class LoginSettings;
+class MegaIconButton;
 class SendSettings : public inframedWidget
 {
 	Q_OBJECT

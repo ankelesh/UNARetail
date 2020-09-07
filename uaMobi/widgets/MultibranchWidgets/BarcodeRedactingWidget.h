@@ -3,7 +3,6 @@
 #include "widgets/MultibranchWidgets/Redactors/PricedBarcodeRedactorForm.h"
 #include "widgets/parents/inframedWidget.h"
 #include "dataproviders/sqldataprovider.h"
-#include <QGridLayout>
 /*
 	This class responds for redacting barcode entry. It has signals
 		barcodeCommited() - holds new barcode entry
@@ -26,7 +25,8 @@
 		Now back key is successfully working on all the widget
 
 */
-
+class QGridLayout;
+class MegaIconButton;
 class BarcodeRedactingWidget : public inframedWidget
 {
 	Q_OBJECT

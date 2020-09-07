@@ -1,12 +1,9 @@
 #pragma once
-#include <QWidget>
-#include <QFormLayout>
-#include <QLabel>
-#include <QComboBox>
-#include "widgets/utils/MegaIconButton.h"
-#include <QListWidget>
 #include "Datacore/DataEntities.h"
 #include "dataproviders/ModesDescriptions.h"
+#include <QWidget>
+class QVBoxLayout;
+class QListWidget;
 
 class SerializationSettings : public QWidget
 {

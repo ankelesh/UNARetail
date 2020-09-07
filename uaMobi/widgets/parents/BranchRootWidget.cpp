@@ -1,6 +1,12 @@
 #include "BranchRootWidget.h"
 #include "widgets/utils/ElementsStyles.h"
-
+#include "widgets/MultibranchWidgets/innerSettingsForm.h"
+#include "widgets/MultibranchWidgets/ScaningWidget.h"
+#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include "widgets/MultibranchWidgets/SendingDataPickerWidget.h"
+#include <QLabel>
+#include "widgets/utils/MegaIconButton.h"
+#include "dataproviders/BackupingEngine.h"
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif

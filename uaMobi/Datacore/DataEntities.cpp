@@ -1,6 +1,5 @@
 #include "DataEntities.h"
 #include <QWidget>
-
 DataEntityListModel::DataEntityListModel(const QVector<Entity>& entities, QWidget* parent)
 	: QAbstractListModel(parent), innerList(entities)
 {
@@ -112,6 +111,18 @@ void DataEntityListModel::appendDataEntity(Entity e)
 	endInsertRows();
 }
 
+QVector<Entity> DataEntityListModel::releaseData()
+{
+	QVector<Entity> temp = innerList;
+	innerList.clear();
+	return temp;
+}
+
+const Entity& DataEntityListModel::directAccessByFlatIndex(int findex) const
+{
+	return innerList.at(findex);
+}
+
 void DataEntityListModel::reset()
 {
 	beginResetModel();
@@ -131,6 +142,7 @@ QHash<barcodeUtil::barcodetypes, Entity> _initentityLinker()
     t.insert(barcodeUtil::barcodetypes::uniformBc, Entity(new BarcodeEntity()));
     t.insert(barcodeUtil::barcodetypes::pricedBc, Entity(new PricedBarcodeEntity()));
     t.insert( barcodeUtil:: barcodetypes::shortBc, Entity(new ShortBarcodeEntity()));
+	t.insert(barcodeUtil::barcodetypes::product, Entity(new ProductEntity()));
     return t;
 }
 

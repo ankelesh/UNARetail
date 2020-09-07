@@ -1,14 +1,18 @@
 #pragma once
-#include "widgets/MultibranchWidgets/ReceiveWidget.h"
-#include "widgets/MultibranchWidgets/SendSettings.h"
 #include "widgets/parents/abstractNodeInterface.h"
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "widgets/parents/inframedWidget.h"
+#include "dataproviders/ModesDescriptions.h"
 /*
 	This class represents widget used to pick which data must be sent. It has a child ReceiveWidget,
 	so it represents one subbranch
 
 */
-
+class QVBoxLayout;
+class SemaphorLabel;
+class MegaIconButton;
+class CounterLabel;
+class ReceiveWidget;
+class SendSettings;
 class SendingDataPickerWidget : public inframedWidget, abstractNode
 	//	Subbranch used for sending data
 {

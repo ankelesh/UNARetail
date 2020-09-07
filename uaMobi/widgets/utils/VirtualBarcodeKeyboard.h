@@ -1,7 +1,4 @@
 #pragma once
-#include <QPushButton>
-#include <qgridlayout.h>
-#include <QLineEdit>
 #include "widgets/parents/inframedWidget.h"
 
 /*
@@ -17,7 +14,9 @@
 
 */
 
-
+class QGridLayout;
+class QPushButton;
+class QLineEdit;
 class VirtualBarcodeKeyboard : public inframedWidget
 	//	Keyboard with number buttons
 {

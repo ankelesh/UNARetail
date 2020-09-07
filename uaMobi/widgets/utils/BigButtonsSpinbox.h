@@ -115,8 +115,8 @@ private:
 public:
 	BigButtonsSpinbox(spintype type, QWidget* parent, double adaptH = 0.125);
 	//	methods of QSpinBox interface
-	void setMinimum(int min);	// sets maximum
-	void setMaximum(int max);	// sets minimum
+	void setMinimum(double min);	// sets maximum
+	void setMaximum(double max);	// sets minimum
 	void setValue(int val);		//	sets current value
 	void setDValue(double val);
 	int value() const;				//	returns current value
@@ -135,6 +135,7 @@ public:
 	void setInfo(QString&);
 	void selectAll();
 	void setStyleSheet(const QString&);
+	void setPrecision(int prec);
 private slots:
 	void intValueChanged(int);				//	These slots are wrapping slots of inner spinbox
 	void timeValueChanged(const QTime& t);

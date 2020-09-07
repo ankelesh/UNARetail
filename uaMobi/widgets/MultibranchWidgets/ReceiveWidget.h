@@ -1,13 +1,6 @@
 #pragma once
-#include <qlabel.h>
-#include <QBoxLayout>
 #include "widgets/parents/inframedWidget.h"
-#include "widgets/utils/GlobalAppSettings.h"
-#include "externalCommunication/tohttp.h"
-#include "externalCommunication/tolocalmemory.h"
-#include "widgets/utils/MegaIconButton.h"
-#include <QTimer>
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "dataproviders/ModesDescriptions.h"
 /*
 		This widget is made to be connected to totcp\tohttp connections, but no functional is provided now
 
@@ -28,7 +21,15 @@
 		Update:
 			removed toTcp renundant buttons etc. Removed awaiting-block if user does not confirmed sending
 */
-
+class QHBoxLayout;
+class QVBoxLayout;
+class QLabel;
+class QVBoxLayout;
+class SemaphorLabel;
+class MegaIconButton;
+class toHttp;
+class toLocalMemory;
+class QTimer;
 class ReceiveWidget : public inframedWidget
 {
 	Q_OBJECT
@@ -47,8 +48,8 @@ private:
 	MegaIconButton* useLocalButton;
 	MegaIconButton* backButton;
 
-	toHttp http;
-	toLocalMemory tolocal;
+	toHttp* http;
+	toLocalMemory* tolocal;
 
 	bool awaiting;
 	Modes currentMode;

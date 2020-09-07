@@ -1,5 +1,5 @@
 #include "TableHandlers.h"
-
+#include <QStringBuilder>
 #ifndef QStringLiteral
 #define QStringLiteral(A) QString::fromUtf8("" A "" , sizeof(A) - 1)
 #endif
@@ -13,14 +13,22 @@ const QString& TemplatedTableHandler::assertAnotherName(const QString& another_n
 }
 
 TemplatedTableHandler::TemplatedTableHandler()
-	: table_definition(), table_declaration(), table_fields(), primaryKeyField(-1), table_type(0)
+	: table_definition(), table_declaration(), table_fields(), primaryKeyField(-1), table_type(0),
+	fields_placeholder()
 {
 }
 
 TemplatedTableHandler::TemplatedTableHandler(QString t_decl, QString t_def, QStringList tfields, int primarykey)
 	: table_definition(t_def), table_declaration(t_decl), table_fields(tfields), primaryKeyField(primarykey),
-	table_type(1)
+	table_type(1), fields_placeholder()
 {
+	fields_placeholder.reserve(200);
+	QStringList::iterator begin = table_fields.begin();
+	while (begin != table_fields.end())
+	{
+		fields_placeholder += ":" % *(begin++) % ", ";
+	}
+	fields_placeholder.chop(2);
 }
 
 QString TemplatedTableHandler::declaration() const noexcept
@@ -31,19 +39,19 @@ QString TemplatedTableHandler::declaration() const noexcept
 QString TemplatedTableHandler::definition(const QString another_name) const noexcept
 {
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("create table ") + name + QStringLiteral(" ") + table_definition;
+	return QStringLiteral("create table ") % name % QStringLiteral(" ") % table_definition;
 }
 
 QString TemplatedTableHandler::select_all(const QString another_name) const noexcept
 {
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("select ") + allFieldsDeclaration() + QStringLiteral(" from ") + name;
+	return QStringLiteral("select ") % allFieldsDeclaration() % QStringLiteral(" from ") % name;
 }
 
 QString TemplatedTableHandler::select_filtered(const QString& filter, const QString another_name) const noexcept
 {
 	const QString& name = assertAnotherName(another_name);
-	return select_all(name) + QStringLiteral(" where ") + filter;
+	return select_all(name) % QStringLiteral(" where ") % filter;
 }
 
 QString TemplatedTableHandler::select_by_primary_key(const QString pkeyvalue, const QString another_name) const noexcept
@@ -51,8 +59,8 @@ QString TemplatedTableHandler::select_by_primary_key(const QString pkeyvalue, co
 	if (primaryKeyField == -1)
 		return QString::null;
 	const QString& name = assertAnotherName(another_name);
-	return select_all(name) + QStringLiteral(" where ") + table_fields.at(primaryKeyField)
-		+ QStringLiteral(" = ") + pkeyvalue;
+	return select_all(name) % QStringLiteral(" where ") % table_fields.at(primaryKeyField)
+		% QStringLiteral(" = ") % pkeyvalue;
 }
 
 QString TemplatedTableHandler::select_some_fields(const QList<int>& indexes, const QString another_name) const noexcept
@@ -68,12 +76,12 @@ QString TemplatedTableHandler::select_some_fields(const QList<int>& indexes, con
 	{
 		if (*index >= 0 && *index < table_fields.count())
 		{
-			fields += table_fields.at(*index) + ",";
+			fields += table_fields.at(*index) % ",";
 		}
 		++index;
 	}
 	fields.chop(1);
-	return QStringLiteral("select ") + fields + QStringLiteral(" from ") + name;
+	return QStringLiteral("select ") % fields + QStringLiteral(" from ") % name;
 }
 
 QString TemplatedTableHandler::select_some_fields_filtered(const QString& filter, const QList<int>& indexes, const QString another_name) const noexcept
@@ -89,32 +97,32 @@ QString TemplatedTableHandler::select_some_fields_filtered(const QString& filter
 	{
 		if (*index >= 0 && *index < table_fields.count())
 		{
-			fields += table_fields.at(*index) + ",";
+			fields += table_fields.at(*index) % ",";
 		}
 		++index;
 	}
 	fields.chop(1);
-	return QStringLiteral("select ") + fields + QStringLiteral(" from ") + name + QStringLiteral(" where ")
-		+ filter;
+	return QStringLiteral("select ") % fields % QStringLiteral(" from ") % name % QStringLiteral(" where ")
+		% filter;
 }
 
 QString TemplatedTableHandler::update(const QString& values, const QString another_name) const noexcept
 {
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("update ") + name + QStringLiteral(" ") + values;
+	return QStringLiteral("update ") % name % QStringLiteral(" ") % values;
 }
 
 QString TemplatedTableHandler::replace(const QString& values, const QString& another_name) const noexcept
 {
 	const QString& name = (another_name.isNull()) ? table_declaration : another_name;
-	return QStringLiteral("REPLACE INTO ") + name + QStringLiteral(" ( ")
-		+ allFieldsDeclaration() + QStringLiteral(" ) VALUES ") + values;
+	return QStringLiteral("REPLACE INTO ") % name % QStringLiteral(" ( ")
+		% allFieldsDeclaration() % QStringLiteral(" ) VALUES ") % values;
 }
 
 QString TemplatedTableHandler::delete_filtered(const QString& filter, const QString another_name) const noexcept
 {
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("delete from ") + name + QStringLiteral(" where ") + filter;
+	return QStringLiteral("delete from ") % name % QStringLiteral(" where ") % filter;
 }
 
 QString TemplatedTableHandler::delete_by_primary_key(const QString& pkeyvalue, const QString another_name) const noexcept
@@ -122,14 +130,14 @@ QString TemplatedTableHandler::delete_by_primary_key(const QString& pkeyvalue, c
 	if (primaryKeyField == -1)
 		return QString::null;
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("DELETE FROM ") + name + QStringLiteral(" where ")
-		+ table_fields.at(primaryKeyField) + " = " + pkeyvalue;
+	return QStringLiteral("DELETE FROM ") % name % QStringLiteral(" where ")
+		% table_fields.at(primaryKeyField) % " = " % pkeyvalue;
 }
 
 QString TemplatedTableHandler::drop(const QString another_name) const noexcept
 {
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("drop table ") + name;
+	return QStringLiteral("drop table ") % name;
 }
 
 QString TemplatedTableHandler::allFieldsDeclaration() const noexcept
@@ -142,14 +150,24 @@ QString TemplatedTableHandler::insert(const QString& values, const QString anoth
 	const QString& name = assertAnotherName(another_name);
 	if (values.startsWith("select"))
 	{
-		return QStringLiteral("insert into ") + name + QStringLiteral(" (")
-			+ allFieldsDeclaration() + QStringLiteral(") ") + values;
+		return QStringLiteral("insert into ") % name % QStringLiteral(" (")
+			% allFieldsDeclaration() % QStringLiteral(") ") % values;
 	}
 	else
 	{
-		return QStringLiteral("insert into ") + name + QStringLiteral(" (")
-			+ allFieldsDeclaration() + QStringLiteral(") values ") + values;
+		return QStringLiteral("insert into ") % name % QStringLiteral(" (")
+			% allFieldsDeclaration() % QStringLiteral(") values ") % values;
 	}
+}
+
+QString TemplatedTableHandler::preparedInsertQuery(const QString another_name) const noexcept
+{
+	const QString& name = assertAnotherName(another_name);
+	QString out;
+	out.reserve(150);
+	out = QStringLiteral("insert into ") % name % QStringLiteral(" (")
+		% allFieldsDeclaration() % QStringLiteral(") values (") % fields_placeholder % QStringLiteral(")");
+	return out;
 }
 
 QString TemplatedTableHandler::makeIndex(const QString& another_name) const noexcept
@@ -157,8 +175,8 @@ QString TemplatedTableHandler::makeIndex(const QString& another_name) const noex
 	if (primaryKeyField == -1)
 		return QString::null;
 	const QString& name = assertAnotherName(another_name);
-	return QStringLiteral("CREATE INDEX ") + name + QStringLiteral("_index ON ")
-		+ name + "(" + table_fields.at(primaryKeyField) + ")";
+	return QStringLiteral("CREATE INDEX ") % name + QStringLiteral("_index ON ")
+		% name % "(" + table_fields.at(primaryKeyField) % ")";
 }
 
 TemplatedTableHandler TemplatedTableHandler::clone(QString newName)
@@ -174,31 +192,31 @@ QStringList TemplatedTableHandler::getFields() const noexcept
 QString TemplatedTableHandler::count(const QString& newName) const noexcept
 {
 	const QString& name = assertAnotherName(newName);
-	return "SELECT count(*) from " + name;
+	return "SELECT count(*) from " % name;
 }
 
 QString TemplatedTableHandler::sum(const QString field, const QString& newName) const noexcept
 {
 	const QString& name = assertAnotherName(newName);
 	if (!table_fields.contains(field))
-		return  "SELECT sum(" + table_fields.at(0) + ") from " + name;
-	return "SELECT sum(" + field + ") from " + name;
+		return  "SELECT sum(" % table_fields.at(0) % ") from " % name;
+	return "SELECT sum(" % field % ") from " % name;
 }
 
 QString TemplatedTableHandler::sum(unsigned int index, const QString& newName) const noexcept
 {
 	const QString& name = assertAnotherName(newName);
 	if (index >= table_fields.count())
-		return "SELECT sum(" + table_fields.at(0) + ") from " + name;
-	return "SELECT sum(" + table_fields.at(index) + ") from " + name;
+		return "SELECT sum(" % table_fields.at(0) % ") from " % name;
+	return "SELECT sum(" % table_fields.at(index) % ") from " % name;
 }
 
 QString TemplatedTableHandler::sumFieldFiltered(unsigned int index, const QString& value, const QString& newName) const noexcept
 {
 	const QString& name = assertAnotherName(newName);
 	if (index >= table_fields.count())
-		return "SELECT sum(" + table_fields.at(0) + ") from " + name + " where " + table_fields.at(1) + " = " + value;
-	return "SELECT sum(" + table_fields.at(index) + ") from " + name + " where " + table_fields.at(1) + " = " + value;
+		return "SELECT sum(" % table_fields.at(0) % ") from " % name % " where " % table_fields.at(1) % " = " % value;
+	return "SELECT sum(" % table_fields.at(index) % ") from " % name % " where " % table_fields.at(1) % " = " % value;
 }
 
 QString TemplatedTableHandler::countUnique(const QString field, const QString& newName) const noexcept
@@ -207,16 +225,16 @@ QString TemplatedTableHandler::countUnique(const QString field, const QString& n
 	if (field.isEmpty())
 	{
 		if (primaryKeyField != -1)
-			return QStringLiteral("SELECT count(DISTINCT ") +
-			table_fields.at(primaryKeyField) + QStringLiteral(") from ") + name;
+			return QStringLiteral("SELECT count(DISTINCT ") %
+			table_fields.at(primaryKeyField) % QStringLiteral(") from ") % name;
 		else
-			return QStringLiteral("SELECT count(DISTINCT ") +
-			table_fields.first() + QStringLiteral(") from ") + name;
+			return QStringLiteral("SELECT count(DISTINCT ") %
+			table_fields.first() % QStringLiteral(") from ") % name;
 	}
 	else
 	{
 		if (table_fields.contains(field))
-			return QStringLiteral("SELECT count(DISTINCT ") + field + QStringLiteral(") from ") + name;
+			return QStringLiteral("SELECT count(DISTINCT ") % field % QStringLiteral(") from ") % name;
 		else
 			return QString();
 	}

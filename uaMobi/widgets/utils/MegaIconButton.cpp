@@ -24,6 +24,12 @@ MegaIconButton::MegaIconButton(QWidget* parent)
 	setMinimumHeight(calculateAdaptiveButtonHeight());	//	Now adaptive height is used by default
 }
 
+MegaIconButton::MegaIconButton(QString text, QWidget* parent)
+	: QPushButton(text, parent), ico(), imageCoefficient()
+{
+	setMinimumHeight(calculateAdaptiveButtonHeight());
+}
+
 MegaIconButton::MegaIconButton(QIcon ic, const double imageCoef, const QString txt, QWidget* parent)
 	: QPushButton(txt, parent), ico(ic), imageCoefficient(imageCoef)
 {

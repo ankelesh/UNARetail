@@ -1,16 +1,9 @@
 #pragma once
 #include <QWidget>
-#include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
-#include <QComboBox>
-#include <QLineEdit>
-#include <QSpinBox>
-#include <QFormLayout>
-#include <QLabel>
-#include "dataproviders/sqldataprovider.h"
+#include "dataproviders/ModesDescriptions.h"
 
-
-
+class QVBoxLayout;
+class MegaIconButton;
 class DatabaseSettings : public QWidget
 {
 	Q_OBJECT

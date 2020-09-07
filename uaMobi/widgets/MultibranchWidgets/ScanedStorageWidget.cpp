@@ -8,8 +8,17 @@
 #include "debugtrace.h"
 #endif
 #include <qmessagebox.h>
-
-
+#include <qlistview.h>
+#include <qboxlayout.h>
+#include <QLabel>
+#include "widgets/utils/EventsAndFilters.h"
+#include "widgets/utils/MegaIconButton.h"
+#include "Datacore/DataEntities.h"
+#include "dataproviders/sqldataprovider.h"
+#include "dataproviders/DataAsyncLoader.h"
+#include "BarcodeRedactingWidget.h"
+#include <QThread>
+#include "dataproviders/BackupingEngine.h"
 ScanedStorageWidget::ScanedStorageWidget(Modes mode, QWidget* parent)
 	: inframedWidget(parent), abstractNode(), mainLayout(new QVBoxLayout(this)),
 	innerWidget(new inframedWidget(this)), innerLayout(new QVBoxLayout(innerWidget)),
@@ -182,9 +191,18 @@ void ScanedStorageWidget::deleteCurrent()
 
 void ScanedStorageWidget::editingCompleted(Entity oldOne, Entity newOne)
 {
-	AppData->replaceEntityIn(currentMode, oldOne, newOne, TableNames::Scanned);
-	AppBackup->pushOperation(OpType::EDIT, int(currentMode), newOne);
-	model->replaceDataEntity(newOne);
+	if (!newOne->isValid())
+	{
+		AppData->removeEntityFrom(TableNames::Scanned, oldOne, currentMode);
+		AppBackup->pushOperation(OpType::DELE, int(currentMode), newOne);
+		model->removeDataEntity(oldOne);
+	}
+	else
+	{
+		AppData->replaceEntityIn(currentMode, oldOne, newOne, TableNames::Scanned);
+		AppBackup->pushOperation(OpType::EDIT, int(currentMode), newOne);
+		model->replaceDataEntity(newOne);
+	}
 }
 
 void ScanedStorageWidget::hideCurrent()

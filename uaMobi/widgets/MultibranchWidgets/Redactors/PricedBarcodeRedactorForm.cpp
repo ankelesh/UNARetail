@@ -1,5 +1,9 @@
 #include "PricedBarcodeRedactorForm.h"
-
+#include <QFormLayout>
+#include <QLabel>
+#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include <QFormLayout>
+#include "Datacore/DataEntities.h"
 PricedBarcodeRedactorForm::PricedBarcodeRedactorForm(QWidget* parent)
 	: Abs_Redactor(parent),
 	genPrice(new QuantityControl(

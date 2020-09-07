@@ -43,7 +43,6 @@ public:
 	int fontMaxHeight;
 	double fontPercent;
 
-	bool showHistory;
 
 	QChar separatorCode;
 

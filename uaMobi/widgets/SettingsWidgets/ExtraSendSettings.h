@@ -1,12 +1,10 @@
 #pragma once
 #include <QWidget>
-#include <QBoxLayout>
-#include <QFormLayout>
-#include <QComboBox>
-#include <QSpinBox>
-#include "dataproviders/sqldataprovider.h"
+#include "dataproviders/ModesDescriptions.h"
 
-
+class QFormLayout;
+class QComboBox;
+class QSpinBox;
 class ExtraSendSettings : public QWidget
 {
 	Q_OBJECT

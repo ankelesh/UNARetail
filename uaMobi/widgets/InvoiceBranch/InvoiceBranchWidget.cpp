@@ -1,6 +1,11 @@
 #include "InvoiceBranchWidget.h"
 #include "widgets/MultibranchWidgets/RestScaningWidget.h"
 
+#include "widgets/MultibranchWidgets/innerSettingsForm.h"
+#include "widgets/MultibranchWidgets/ScaningWidget.h"
+#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include <QLabel>
+#include "widgets/utils/GlobalAppSettings.h"
 
 inframedWidget* InvoiceBranchWidget::_allocateScaning()
 {

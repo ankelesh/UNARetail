@@ -8,19 +8,21 @@ bool hasModifiableSysfeed(Modes m)
 	{
 	case Modes::Invoices:
 	case Modes::Simple:
+	case Modes::SalesAccounting:
 		return true;
 	default:
 		return false;
 	}
 }
-const int MODES_TOTAL = 6;
+const int MODES_TOTAL = 7;
  const QString ModePrefixes[MODES_TOTAL] = {
 	QStringLiteral("src"),
 	QStringLiteral("inv"),
 	QStringLiteral("sup"),
 	QStringLiteral("sim"),
 	QStringLiteral("pri"),
-	QStringLiteral("ord")
+	QStringLiteral("ord"),
+	QStringLiteral("sla")
 };
 
 const QString TableSuffixes[MODES_TOTAL] =
@@ -39,6 +41,8 @@ bool ModeDescription::_deserialize(const QString& str)
 	switch (temp.count())
 	{
 	default:
+	case 10:
+		historyRequired = temp.at(9).startsWith("t");
 	case 9:
 		newBCMustHaveTaxInvoiceNumber = temp.at(8).startsWith("t");
 	case 8:
@@ -104,6 +108,7 @@ QString ModeDescription::_serialize() const
 	txt << QChar(30) << ((clearBeforeAttachingNewData) ? "true" : "false");
 	txt << QChar(30) << ((allowInsertingTaxInvoiceNumber) ? "true" : "false");
 	txt << QChar(30) << ((newBCMustHaveTaxInvoiceNumber) ? "true" : "false");
+	txt << QChar(30) << ((historyRequired) ? "true" : "false");
 	txt.flush();
 	return buffer;
 }
@@ -111,14 +116,15 @@ QString ModeDescription::_serialize() const
 ModeDescription::ModeDescription()
 	:mode(Modes::Search), sysfeed(-1), serializationOrder(), floatControl(false),
 	previousDocument(0), attachNewDataToPrevious(false), clearBeforeAttachingNewData(false),
-	allowInsertingTaxInvoiceNumber(false), newBCMustHaveTaxInvoiceNumber(false)
+	allowInsertingTaxInvoiceNumber(false), newBCMustHaveTaxInvoiceNumber(false),
+	historyRequired(false)
 {
 }
 
 ModeDescription::ModeDescription(Modes md)
 	: mode(md), sysfeed(-1), serializationOrder(), floatControl(false),
 	previousDocument(0), attachNewDataToPrevious(false), clearBeforeAttachingNewData(false),
-	allowInsertingTaxInvoiceNumber(false), newBCMustHaveTaxInvoiceNumber(false)
+	allowInsertingTaxInvoiceNumber(false), newBCMustHaveTaxInvoiceNumber(false), historyRequired(false)
 {
 	switch (md)
 	{
@@ -132,22 +138,26 @@ ModeDescription::ModeDescription(Modes md)
 			sysfeed = 12095;
 		}
 		break;
+		case Modes::SalesAccounting:
+		{
+			historyRequired = true;
+		}
 	}
 }
 
 ModeDescription::ModeDescription(QString& serialized)
 	: mode(Modes::Search), sysfeed(-1), serializationOrder(), floatControl(false),
 	previousDocument(0), attachNewDataToPrevious(false), clearBeforeAttachingNewData(false),
-	allowInsertingTaxInvoiceNumber(false), newBCMustHaveTaxInvoiceNumber(false)
+	allowInsertingTaxInvoiceNumber(false), newBCMustHaveTaxInvoiceNumber(false), historyRequired(false)
 {
 	deserialize(serialized);
 }
 
 ModeDescription::ModeDescription(Modes m, int sf, QList<int>& sO, bool fc, long long int prevdoc, 
-	bool andtp, bool cband, bool aITIN, bool NBMHTIN)
+	bool andtp, bool cband, bool aITIN, bool NBMHTIN, bool hIR)
 	: mode(m), sysfeed(sf), serializationOrder(sO), floatControl(fc), previousDocument(prevdoc),
 	attachNewDataToPrevious(andtp), clearBeforeAttachingNewData(cband),
-	allowInsertingTaxInvoiceNumber(aITIN), newBCMustHaveTaxInvoiceNumber(NBMHTIN)
+	allowInsertingTaxInvoiceNumber(aITIN), newBCMustHaveTaxInvoiceNumber(NBMHTIN), historyRequired(false)
 {
 }
 
@@ -206,6 +216,11 @@ bool ModeDescription::isForbiddenInsertingWithoutTaxInvoice() const
 	return newBCMustHaveTaxInvoiceNumber;
 }
 
+bool ModeDescription::isHistoryRequired() const
+{
+	return historyRequired;
+}
+
 void ModeDescription::setSysfeed(int sf)
 {
 	sysfeed = sf;
@@ -244,4 +259,9 @@ void ModeDescription::setInsertingTaxNumber(bool aITIN)
 void ModeDescription::setForbiddingInsertingWithoutTaxInvoice(bool nBCNHTIN)
 {
 	newBCMustHaveTaxInvoiceNumber = nBCNHTIN;
+}
+
+void ModeDescription::setHistoryRequire(bool i)
+{
+	historyRequired = i;
 }

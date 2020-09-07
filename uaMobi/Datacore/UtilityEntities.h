@@ -21,7 +21,16 @@ protected:
 	virtual void _invalidate() override;
 	virtual const QStringList& _getFields() const override;
 	virtual QString _fullComparationQuery() const override;
+	virtual void fillPrepQuery(QSqlQuery*) const override;
+	// Inherited via AbsEntity
+	virtual int _getFieldNumberForRole(int role) const override;
+
+	// Inherited via AbsEntity
+	virtual void _setWriteable(int role, QString text) override;
+	virtual QString _getWriteable(int role) const override;
+	virtual void _erase() override;
 public:
 	SeparatorEntity();
 	virtual ~SeparatorEntity();
+
 };

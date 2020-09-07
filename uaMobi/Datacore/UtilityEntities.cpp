@@ -1,6 +1,6 @@
 #include "UtilityEntities.h"
 #include "widgets/utils/ElementsStyles.h"
-
+#include "dataproviders/TableHandlers.h"
 
 
 QString SeparatorEntity::_toSql() const
@@ -70,6 +70,10 @@ QString SeparatorEntity::_fullComparationQuery() const
 	return QString();
 }
 
+void SeparatorEntity::fillPrepQuery(QSqlQuery*) const
+{
+}
+
 SeparatorEntity::SeparatorEntity()
 	: AbsEntity(int(barcodeUtil::barcodetypes::separatorNotBC))
 {
@@ -77,4 +81,22 @@ SeparatorEntity::SeparatorEntity()
 
 SeparatorEntity::~SeparatorEntity()
 {
+}
+
+void SeparatorEntity::_setWriteable(int role, QString text)
+{
+}
+
+QString SeparatorEntity::_getWriteable(int role) const
+{
+	return QString();
+}
+
+void SeparatorEntity::_erase()
+{
+}
+
+int SeparatorEntity::_getFieldNumberForRole(int role) const
+{
+	return 0;
 }

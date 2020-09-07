@@ -1,8 +1,9 @@
 #pragma once
 #include "widgets/parents/AbstractScaningWidget.h"
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "Datacore/PricedBarcodeEntity.h"
 
-
+class MegaIconButton;
+class QuantityControl;
 class PriceScaningWidget :
 	public AbstractScaningWidget
 {
@@ -32,6 +33,7 @@ protected:
 public:
 	PriceScaningWidget(QWidget* parent);
 	
+	void renameControls(int index, QString new_name);
 	void setLen();
 	void setTotal(int total);
 	virtual void show() override;

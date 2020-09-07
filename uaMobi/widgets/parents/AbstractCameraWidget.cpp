@@ -3,6 +3,10 @@
 #include <QQMLError>
 #include <QtQuick/qquickitem.h>
 #include <widgets/utils/ElementsStyles.h>
+#include <QBoxLayout>
+#include "widgets/utils/MegaIconButton.h"
+#include "widgets/utils/GlobalAppSettings.h"
+#include <QQuickView>
 
 AbstractCameraWidget::AbstractCameraWidget(QString qmlcamPath, QWidget* parent)
 	: inframedWidget(parent), mainLayout(new QVBoxLayout(this)),

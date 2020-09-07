@@ -1,10 +1,16 @@
 #pragma once
 #include <QObject>
-#include "dataproviders/sqldataprovider.h"
 #include <QNetworkRequest>
+
+
+
+// This singletone class is used to incapsulate everything used for networking - 
+// device name, global timeout variables, network manager
+// and 
+
 class QNetworkAccessManager;
 class QNetworkReply;
-class communicationCore : public QObject	//	Child of QObject to use signals
+class communicationCore : public QObject	
 {
 	Q_OBJECT
 protected:

@@ -1,60 +1,36 @@
 #include "ControlManager.h"
 #include "QuantityControl.h"
 #include "DateTimeControl.h"
-#include "LabelControl.h"
-#include "BarcodeControl.h"
 #include "StringControl.h"
+#include <QLayout>
+#include <QFormLayout>
 
 
-
-abs_control* fabricateControl(InputControl control, QBoxLayout* layout, QWidget* parent)
+abs_control* fabricateControl(InputControlEntity::ControlTypes control, QString name, QLayout* layout, QWidget* parent)
 {
-	switch (control->getAttachedNumber())
+	abs_control* new_c = Q_NULLPTR;
+	switch (control)
 	{
 	case InputControlEntity::Float:
-	{
-		QuantityControl* qc = new QuantityControl(false, control->getTitle(), parent);
-		layout->insertWidget(layout->count() - 1, qc->myWidget());
-		qc->setValue(control->defaultValue);
-		return qc;
-	}
+		new_c = new QuantityControl(false, name, parent);
+		break;
 	case InputControlEntity::Int:
-	{
-		QuantityControl* qc = new QuantityControl(true, control->getTitle(), parent);
-		layout->insertWidget(layout->count() - 1, qc->myWidget());
-		qc->setValue(control->defaultValue);
-		return qc;
-	}
+		new_c = new QuantityControl(true, name, parent);
+		break;
 	case InputControlEntity::Date:
-	{
-		DateTimeControl* dc = new DateTimeControl(false, control->getTitle(), parent);
-		layout->insertWidget(layout->count() - 1, dc->myWidget());
-		dc->setValue(control->defaultValue);
-		return dc;
-	}
-	case InputControlEntity::Label:
-	{
-		LabelControl* lc = new LabelControl(control->getTitle(), parent);
-		layout->insertWidget(layout->count() - 1, lc->myWidget());
-		lc->setValue(control->defaultValue);
-		return lc;
-	}
-	case InputControlEntity::Barcode:
-	{
-		BarcodeControl* bc = new BarcodeControl(control->getTitle(), parent);
-		layout->insertWidget(layout->count() - 1, bc->myWidget());
-		bc->setValue(control->defaultValue);
-		return bc;
-	}
+		new_c = new DateTimeControl(false, name, parent);
+		break;
 	case InputControlEntity::String:
-	{
-		StringControl* sc = new StringControl(control->getTitle(), parent);
-		layout->insertWidget(layout->count() - 1, sc->myWidget());
-		sc->setValue(control->defaultValue);
-		return sc;
-	}
+		new_c = new StringControl(name, parent);
+		break;
+	case InputControlEntity::Decimals:
+		new_c = new QuantityControl(2, name, parent);
+		break;
 	case InputControlEntity::None:
 	default:
 		return Q_NULLPTR;
 	}
+	layout->addWidget(new_c->myWidget());
+	return new_c;
 }
+

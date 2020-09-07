@@ -2,6 +2,10 @@
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include <QLineEdit>
+#include <QFormLayout>
+#include <QLabel>
+#include <QComboBox>
+#include "widgets/utils/MegaIconButton.h"
 
 QuickSendSettings::QuickSendSettings(Modes mode, QWidget* parent)
 	: QWidget(parent), mainLayout(new QFormLayout(this)),

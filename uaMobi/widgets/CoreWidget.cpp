@@ -2,10 +2,14 @@
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/PriceBranch/PriceBranchWidget.h"
 #include "widgets/InvoiceBranch/InvoiceBranchWidget.h"
+#include "widgets/SalesAccountingBranch/SalesAccounting.h"
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
 #include "widgets/UtilityElements/ExtendedDialogs.h"
+#include "widgets/utils/GlobalAppSettings.h"
+#include "widgets/DatabaseOperationBranch/DatabaseOperationsWidget.h"
+
 CoreWidget::CoreWidget(QWidget* parent)
 	: QWidget(parent), abstractDynamicNode( new inframedWidget(this), new QVBoxLayout(this)),
 	innerLayout(new QGridLayout(untouchable)),
@@ -13,6 +17,8 @@ CoreWidget::CoreWidget(QWidget* parent)
 	search(new IndexedButton(2,untouchable)), simple(new IndexedButton(3, untouchable)),
 	invoice(new IndexedButton(4, untouchable)), 
 	prices(new IndexedButton(5, untouchable)),
+	salesAcc(new IndexedButton(6, untouchable)),
+	dbOperations(new IndexedButton(7, untouchable)),
 	controlPanel(new QHBoxLayout(untouchable)), exitButton(new IgnorantButton(untouchable)),
 	settingsButton(new MegaIconButton(untouchable)), lock(false)
 {
@@ -35,8 +41,10 @@ CoreWidget::CoreWidget(QWidget* parent)
 	innerLayout->addWidget(prices, 1, 2);
 	innerLayout->addWidget(simple, 1, 0);
 	innerLayout->addWidget(invoice, 1, 1);
+	innerLayout->addWidget(salesAcc,2, 0);
+	innerLayout->addWidget(dbOperations, 2, 1);
 	setFont(AppGenFont);
-	innerLayout->addLayout(controlPanel, 2, 0, 2, 0);
+	innerLayout->addLayout(controlPanel, 3, 0, 2, 0);
 	controlPanel->addWidget(settingsButton);
 	controlPanel->addWidget(exitButton);
 	
@@ -47,6 +55,8 @@ CoreWidget::CoreWidget(QWidget* parent)
 	simple->setIcon(QIcon(":/res/pen.png"));
 	invoice->setIcon(QIcon(":/res/best.png"));
 	prices->setIcon(QIcon(":/res/cash.png"));
+	salesAcc->setIcon(QIcon(":/res/contract.png"));
+	dbOperations->setIcon(QIcon(":/res/url2.png"));
 
 	inventory->setText(tr("inventory"));
 	supplies->setText(tr("supplies"));
@@ -54,6 +64,8 @@ CoreWidget::CoreWidget(QWidget* parent)
 	simple->setText(tr("simple"));
 	invoice->setText(tr("invoice"));
 	prices->setText(tr("prices_mode"));
+	salesAcc->setText(tr("sales_accounting"));
+	dbOperations->setText(tr("db_operations"));
 
 
 	QSizePolicy sizePol(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
@@ -63,13 +75,12 @@ CoreWidget::CoreWidget(QWidget* parent)
 	simple->setSizePolicy(sizePol);
 	prices->setSizePolicy(sizePol);
 	invoice->setSizePolicy(sizePol);
-
+	salesAcc->setSizePolicy(sizePol);
+	dbOperations->setSizePolicy(sizePol);
 	settingsButton->setIcon(QIcon(":/res/settings.png"));
 	exitButton->setIcon(QIcon(":/res/exit.png"));
 	settingsButton->setMinimumHeight(calculateAdaptiveButtonHeight());
-	exitButton->setMinimumHeight(calculateAdaptiveButtonHeight());
-	inventory->setMaximumWidth(calculateAdaptiveWidth(0.333));
-	supplies->setMaximumWidth(calculateAdaptiveWidth(0.333));
+    exitButton->setMinimumHeight(calculateAdaptiveButtonHeight());
 #ifdef QT_VERSION5X
 	QObject::connect(settingsButton, &QPushButton::clicked, this, &CoreWidget::settingsPressed);
 	QObject::connect(exitButton, &QPushButton::clicked, this, &CoreWidget::exitPressed);
@@ -79,6 +90,8 @@ CoreWidget::CoreWidget(QWidget* parent)
 	QObject::connect(simple, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
 	QObject::connect(prices, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
 	QObject::connect(invoice, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
+	QObject::connect(salesAcc, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
+	QObject::connect(dbOperations, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
 #else
 	QObject::connect(settingsButton, SIGNAL(clicked()), this, SLOT(settingsPressed()));
 	QObject::connect(exitButton, SIGNAL(clicked()), this, SLOT(exitPressed()));
@@ -154,6 +167,12 @@ void CoreWidget::branchRequired(int number)
 	case (mpw::mainPageWidgets::Prices):
 		_hideAndDeleteCurrent(new PriceBranchWidget(this));
 		break;
+	case (mpw::SalesAccounting):
+		_hideAndDeleteCurrent(new SalesAccountingBranchWidget(this));
+		break;
+	case mpw::DatabaseOps:
+		_hideAndDeleteCurrent(new DatabaseOperationsWidget(this));
+		break;
 	default:
 		break;
 	}
@@ -192,6 +211,8 @@ void CoreWidget::retranslate()
 	simple->setText(tr("simple"));
 	invoice->setText(tr("invoice"));
 	prices->setText(tr("prices_mode"));
+    salesAcc->setText(tr("sales_accounting"));
+	dbOperations->setText(tr("db_operations"));
 }
 
 void CoreWidget::refreshFonts()

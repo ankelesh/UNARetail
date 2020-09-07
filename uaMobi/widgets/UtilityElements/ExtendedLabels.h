@@ -2,27 +2,48 @@
 #include <QLabel>
 #include <cmath>
 
+namespace labels_private {
+	class abs_counter_label : public QLabel
+	{
+		Q_OBJECT
+	protected:
+		QFont textFont;
+		QFont counterFont;
+		virtual void _setText(const QString&) = 0;
+		virtual void _setValue(const double& val) = 0;
+		virtual void _clearValue() = 0;
+		virtual double _getValue() const = 0;
+	public:
+		abs_counter_label(QWidget* parent = Q_NULLPTR);
+		abs_counter_label(QFont tF, QFont cF, QWidget* parent = Q_NULLPTR) 
+			: QLabel(parent), textFont(tF), counterFont(cF) {}
+		double getValue() const;
+		void setFonts(double txtpercent, double counterpercent);
+	public slots:
+		void setText(const QString&);
+		void setValue(const double& val);
+		void clearValue();
+	};
 
-
-
-class TwoLevelCounterLabel : public QLabel
+}
+class TwoLevelCounterLabel : public labels_private::abs_counter_label
 {
 	Q_OBJECT
 protected:
 	QString text;
 	double value;
 	QString textValue;
-	QFont textFont;
-	QFont counterFont;
 	virtual void paintEvent(QPaintEvent*)override;
+	// Inherited via abs_counter_label
+	virtual void _setText(const QString&) override;
+	virtual void _setValue(const double& val) override;
+	virtual void _clearValue() override;
+	virtual double _getValue() const override;
 public:
     TwoLevelCounterLabel(QString explanation = QString(), double value = std::nan(""), QWidget* parent = Q_NULLPTR);
-	void setFonts(double txtpercent, double counterpercent);
 
-public slots:
-	void setText(const QString&);
-	void setValue(const double& val);
-	void clearValue();
+
+
 
 };
 class ClickableTLCounterLabel : public TwoLevelCounterLabel
@@ -47,15 +68,19 @@ signals:
 	void clicked();
 };
 
-class CounterLabel : public QLabel
+class CounterLabel : public labels_private::abs_counter_label
 {
 	Q_OBJECT
 protected:
 	QString counter;
-	void paintEvent(QPaintEvent*);
+	virtual void paintEvent(QPaintEvent*) override;
+	// Inherited via abs_counter_label
+	virtual void _setText(const QString&) override;
+	virtual void _setValue(const double& val) override;
+	virtual void _clearValue() override;
+	virtual double _getValue() const override;
 public:
 	CounterLabel(QWidget* parent);
-	void setCounter(int cnt);
 };
 
 

@@ -1,6 +1,4 @@
 #pragma once
-
-#include <QtCore/QPointer>
 #include <QLayout>
 #include "widgets/parents/inframedWidget.h"
 /*

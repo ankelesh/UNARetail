@@ -39,36 +39,31 @@ void TwoLevelCounterLabel::paintEvent(QPaintEvent* pev)
 }
 
 TwoLevelCounterLabel::TwoLevelCounterLabel(QString explanation, double val, QWidget* parent)
-	: QLabel(parent), text(explanation), value(val),textValue(QString::number(val)),
-	textFont(AppGenFont), counterFont(AppFonts->makeFont(3.0))
+	: labels_private::abs_counter_label(AppGenFont, AppFonts->makeFont(3.0), parent), text(explanation),
+	value(val),textValue(QString::number(val))
 {
 }
 
-void TwoLevelCounterLabel::setFonts(double txtpercent, double counterpercent)
-{
-	textFont = AppFonts->makeIndependentFont(0, 100, txtpercent);
-	counterFont = AppFonts->makeIndependentFont(0, 100, counterpercent);
-	update();
-}
-
-void TwoLevelCounterLabel::setText(const QString& txt)
+void TwoLevelCounterLabel::_setText(const QString& txt)
 {
 	text = txt;
-	update();
 }
 
-void TwoLevelCounterLabel::setValue(const double& val)
+void TwoLevelCounterLabel::_setValue(const double& val)
 {
 	value = val;
 	textValue = QString::number(val);
-	update();
 }
 
-void TwoLevelCounterLabel::clearValue()
+void TwoLevelCounterLabel::_clearValue()
 {
-    value = qQNaN();
+	value = qQNaN();
 	textValue.clear();
-    update();
+}
+
+double TwoLevelCounterLabel::_getValue() const
+{
+	return value;
 }
 
 void ClickableTLCounterLabel::mouseReleaseEvent(QMouseEvent* qme)
@@ -114,23 +109,38 @@ void CounterLabel::paintEvent(QPaintEvent* pev)
 	spainter.setBrush(Qt::white);
 	spainter.setPen(QPen(Qt::black, 3));
 	spainter.drawRect(counterRect);
-	spainter.setFont(AppFonts->makeFont(3.0));
+	spainter.setFont(counterFont);
 	spainter.drawItemText(counterRect, Qt::TextWordWrap | Qt::AlignCenter, opt.palette, true, counter);
 	spainter.end();
 
 }
 
 CounterLabel::CounterLabel(QWidget* parent)
-	: QLabel(parent), counter()
+	: labels_private::abs_counter_label(parent), counter()
 {
 
 
 }
 
-void CounterLabel::setCounter(int cnt)
+
+void CounterLabel::_setText(const QString& txt)
 {
-	counter = QString::number(cnt);
-	update();
+	QLabel::setText(txt);
+}
+
+void CounterLabel::_setValue(const double& val)
+{
+	counter = QString::number(val);
+}
+
+void CounterLabel::_clearValue()
+{
+	counter.clear();
+}
+
+double CounterLabel::_getValue() const
+{
+	return counter.toDouble();
 }
 
 void SemaphorLabel::_recolor()
@@ -162,4 +172,39 @@ void SemaphorLabel::setState(int newState)
 {
 	currentState = newState;
 	_recolor();
+}
+
+labels_private::abs_counter_label::abs_counter_label(QWidget* parent)
+	:QLabel(parent), textFont(AppGenFont), counterFont(AppFonts->makeFont(3.0))
+{
+}
+
+double labels_private::abs_counter_label::getValue() const
+{
+	return _getValue();
+}
+
+void labels_private::abs_counter_label::setFonts(double txtpercent, double counterpercent)
+{
+	textFont = AppFonts->makeIndependentFont(0, 100, txtpercent);
+	counterFont = AppFonts->makeIndependentFont(0, 100, counterpercent);
+	update();
+}
+
+void labels_private::abs_counter_label::setText(const QString& s)
+{
+	_setText(s);
+	update();
+}
+
+void labels_private::abs_counter_label::setValue(const double& val)
+{
+	_setValue(val);
+	update();
+}
+
+void labels_private::abs_counter_label::clearValue()
+{
+	_clearValue();
+	update();
 }

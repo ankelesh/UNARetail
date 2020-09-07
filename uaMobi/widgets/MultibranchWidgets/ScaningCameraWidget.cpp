@@ -1,6 +1,7 @@
 #include "ScaningCameraWidget.h"
 #ifdef CAMERA_SUPPORT
 #include <QtQuick/QQuickItem>
+#include <QQuickView>
 void ScaningCameraWidget::show()
 {
 	inframedWidget::show();

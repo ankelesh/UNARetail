@@ -8,10 +8,11 @@
 #include "debugtrace.h"
 #endif
 
+#include "dataproviders/sqldataprovider.h"
 
 communicationCore::communicationCore(QObject* parent)
 	: QObject(parent), deviceName(), manager(new QNetworkAccessManager(this)),
-	timeoutInterval(60000)
+	timeoutInterval(240000)
 {
 
 }

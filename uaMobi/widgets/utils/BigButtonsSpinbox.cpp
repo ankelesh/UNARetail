@@ -207,7 +207,7 @@ BigButtonsSpinbox::BigButtonsSpinbox(spintype type, QWidget* parent, double adap
 
 }
 
-void BigButtonsSpinbox::setMinimum(int min)
+void BigButtonsSpinbox::setMinimum(double min)
 {
 	switch (sptype)
 	{		// }
@@ -234,7 +234,7 @@ void BigButtonsSpinbox::setMinimum(int min)
 	}
 }
 
-void BigButtonsSpinbox::setMaximum(int max)
+void BigButtonsSpinbox::setMaximum(double max)
 {
 	switch (sptype)
 	{		// }
@@ -471,6 +471,21 @@ void BigButtonsSpinbox::selectAll()
 void BigButtonsSpinbox::setStyleSheet(const QString& st)
 {
 	coreSpinbox->setStyleSheet(st);
+}
+
+void BigButtonsSpinbox::setPrecision(int prec)
+{
+	switch (sptype)
+	{
+	case floatspin:
+	{	ReturnReactingDoubleSpinBox* dsp = qobject_cast<ReturnReactingDoubleSpinBox*>(coreSpinbox);
+	if (dsp != Q_NULLPTR)
+	{
+		dsp->setDecimals(prec);
+	}
+	break;
+	}
+	}
 }
 
 

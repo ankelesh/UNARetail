@@ -2,7 +2,10 @@
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include <QMessageBox>
-
+#include <QBoxLayout>
+#include "widgets/utils/MegaIconButton.h"
+#include "dataproviders/sqldataprovider.h"
+#include "dataproviders/BackupingEngine.h"
 
 DatabaseSettings::DatabaseSettings(Modes mode, QWidget* parent)
 	:QWidget(parent), mainLayout(new QVBoxLayout(this)), 

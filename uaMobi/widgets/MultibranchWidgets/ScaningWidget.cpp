@@ -10,6 +10,10 @@
 #endif
 #include <qmessagebox.h>
 #include <cmath>
+#include <QtCore/QHash>
+#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "widgets/utils/MegaIconButton.h"
 ScaningWidget::ScaningWidget(Modes mode, QWidget* parent)
 	: AbstractScaningWidget(mode, parent),
     lengthInfo(new TwoLevelCounterLabel(tr("scaning_widget_LEN:"), qQNaN(), untouchable)),
@@ -213,7 +217,6 @@ void ScaningWidget::_emplaceBarcode(QString barcode, ShortBarcode info)
 {
 	if (!barcode.isEmpty())
 	{
-		barcode = _extractionCheck(barcode);
         pendingBarcode.clear();
         pendingBarcode = Barcode(new BarcodeEntity(barcode));
 		quantityControl->setFocus();
@@ -224,7 +227,15 @@ void ScaningWidget::_emplaceBarcode(QString barcode, ShortBarcode info)
 		barcodeInput->setText(barcode);
 		if (info != Q_NULLPTR)
 		{
-			barcodeInfo->setText(info->info);
+			if (info->price > 0)
+			{
+				barcodeInfo->setText(
+					QString::number(info->price) + " "
+					+ info->info
+				);
+			}
+			else
+				barcodeInfo->setText(info->info);
 			pendingBarcode->comment = info->info;
 		}
 		else

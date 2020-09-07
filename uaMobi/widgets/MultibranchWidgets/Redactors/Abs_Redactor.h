@@ -1,12 +1,9 @@
 #pragma once
 #include <QWidget>
-#include <QFormLayout>
-#include "widgets/utils/BigButtonsSpinbox.h"
-#include "widgets/utils/MegaIconButton.h"
-#include <QLabel>
-#include "Datacore/DataEntities.h"
+#include "Datacore/AbsEntity.h"
 
-
+class QFormLayout;
+class QLabel;
 class Abs_Redactor : public QWidget
 {
 	Q_OBJECT

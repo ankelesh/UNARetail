@@ -1,7 +1,8 @@
 #pragma once
 #include "Abs_Redactor.h"
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "Datacore/BarcodeEntity.h"
 
+class QuantityControl;
 
 class BarcodeRedactorForm : public Abs_Redactor
 {

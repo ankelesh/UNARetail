@@ -10,6 +10,13 @@
 #include "widgets/utils/ZebraListItemDelegate.h"
 #include "widgets/utils/GlobalAppSettings.h"
 
+#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "widgets/utils/EventsAndFilters.h"
+#include "widgets/MultibranchWidgets/ScaningCameraWidget.h"
+#include "widgets/utils/VirtualBarcodeKeyboard.h"
+#include "widgets/utils/MegaIconButton.h"
+#include "widgets/utils/BarcodeObserver.h"
+#include "Datacore/DataEntities.h"
 
 AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	: inframedWidget(parent), abstractDynamicNode(new inframedWidget(this), new QVBoxLayout(this)),
@@ -45,7 +52,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	innerLayout->addLayout(counterLayout);
 	innerLayout->addLayout(controlLayout);
 
-	if (AppSettings->showHistory)
+	if (AppSettings->getModeDescription(currentMode).isHistoryRequired())
 	{
 		barcodeModel = new DataEntityListModel(this);
 		historyView = new QListView(this);
@@ -121,7 +128,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	{
 		backButton->hide();
 	}
-
+	modeName->hide();
 #ifdef DEBUG
 	QTimer* dtimer(new QTimer(this));
 	dtimer->setInterval(200);
@@ -186,8 +193,9 @@ void AbstractScaningWidget::barcodeConfirmed(QString barcode)
 {
 	if (_validateBarcode(barcode)) 
 	{
-		_emplaceBarcode(barcode, _barcodeSearch(barcode));
+		barcode = _extractionCheck(barcode);
 		_clearControls();
+		_emplaceBarcode(barcode, _barcodeSearch(barcode));
 	}
 }
 #ifdef CAMERA_SUPPORT

@@ -1,12 +1,12 @@
 #pragma once
 #include <QWidget>
-#include <QFormLayout>
-#include <QLabel>
-#include <QComboBox>
-#include "widgets/utils/MegaIconButton.h"
 #include "dataproviders/ModesDescriptions.h"
 
-
+class QFormLayout;
+class QLabel;
+class QComboBox;
+class MegaIconButton;
+class QLineEdit;
 class QuickSendSettings : public QWidget
 {
 	Q_OBJECT

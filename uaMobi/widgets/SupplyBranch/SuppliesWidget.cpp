@@ -1,4 +1,9 @@
 #include "SuppliesWidget.h"
+#include "widgets/MultibranchWidgets/innerSettingsForm.h"
+#include "widgets/MultibranchWidgets/ScaningWidget.h"
+#include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include <QLabel>
+
 
 SuppliesWidget::SuppliesWidget(QWidget* parent) :
 	BranchRootWidget(Modes::Supplies, parent)

@@ -67,7 +67,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -76,7 +76,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -86,7 +86,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\Qt5MultimediaWidgets.lib;$(QTDIR)\lib\Qt5Multimedia.lib;$(QTDIR)\lib\Qt5QuickWidgets.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Quick.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Sql.lib;$(QTDIR)\lib\Qt5Qml.lib;$(QTDIR)\lib\Qt5Network.lib;$(QTDIR)\lib\Qt5Xml.lib;$(QTDIR)\lib\Qt5Core.lib;$(QTDIR)\lib\qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Qml.lib;Qt5Sql.lib;Qt5Widgets.lib;Qt5Quick.lib;Qt5Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QTDIR)\lib\Qt5MultimediaWidgets.lib;$(QTDIR)\lib\Qt5Multimedia.lib;$(QTDIR)\lib\Qt5QuickWidgets.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Quick.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Sql.lib;$(QTDIR)\lib\Qt5Qml.lib;$(QTDIR)\lib\Qt5Network.lib;$(QTDIR)\lib\Qt5Xml.lib;$(QTDIR)\lib\Qt5Core.lib;$(QTDIR)\lib\qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Qml.lib;Qt5Sql.lib;Qt5Widgets.lib;Qt5Quick.lib;Qt5Network.lib;Qt5Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -109,16 +109,16 @@
     <QtMoc>
       <QTDIR>$(QTDIR)</QTDIR>
       <OutputFile>$(Configuration)\moc_%(Filename).cpp</OutputFile>
-      <Define>QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+      <Define>QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
       <CompilerFlavor>msvc</CompilerFlavor>
       <Include>./$(Configuration)/moc_predefs.h</Include>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
       <InputFile>%(FullPath)</InputFile>
       <DynamicSource>output</DynamicSource>
-      <IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</IncludePath>
     </QtMoc>
     <QtRcc>
-      <OutputFile>$(Configuration)\qrc_%(Filename).cpp</OutputFile>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
       <Compression>default</Compression>
       <QTDIR>$(QTDIR)</QTDIR>
       <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -137,7 +137,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -147,7 +147,7 @@
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\Qt5MultimediaWidgetsd.lib;$(QTDIR)\lib\Qt5Multimediad.lib;$(QTDIR)\lib\Qt5QuickWidgetsd.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Quickd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Sqld.lib;$(QTDIR)\lib\Qt5Qmld.lib;$(QTDIR)\lib\Qt5Networkd.lib;$(QTDIR)\lib\Qt5Xmld.lib;$(QTDIR)\lib\Qt5Cored.lib;$(QTDIR)\lib\qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Multimediad.lib;Qt5Qmld.lib;Qt5Sqld.lib;Qt5Widgetsd.lib;Qt5Quickd.lib;Qt5Networkd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QTDIR)\lib\Qt5MultimediaWidgetsd.lib;$(QTDIR)\lib\Qt5Multimediad.lib;$(QTDIR)\lib\Qt5QuickWidgetsd.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Quickd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Sqld.lib;$(QTDIR)\lib\Qt5Qmld.lib;$(QTDIR)\lib\Qt5Networkd.lib;$(QTDIR)\lib\Qt5Xmld.lib;$(QTDIR)\lib\Qt5Cored.lib;$(QTDIR)\lib\qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Multimediad.lib;Qt5Qmld.lib;Qt5Sqld.lib;Qt5Widgetsd.lib;Qt5Quickd.lib;Qt5Networkd.lib;Qt5Concurrentd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -168,7 +168,7 @@
     </ResourceCompile>
     <QtRcc>
       <QTDIR>$(QTDIR)</QTDIR>
-      <OutputFile>$(Configuration)\qrc_%(Filename).cpp</OutputFile>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
       <InputFile>%(FullPath)</InputFile>
       <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
       <Compression>default</Compression>
@@ -177,20 +177,22 @@
     <QtMoc>
       <QTDIR>$(QTDIR)</QTDIR>
       <OutputFile>$(Configuration)\moc_%(Filename).cpp</OutputFile>
-      <Define>DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+      <Define>DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_QUICK_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
       <CompilerFlavor>msvc</CompilerFlavor>
       <Include>./$(Configuration)/moc_predefs.h</Include>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
       <InputFile>%(FullPath)</InputFile>
       <DynamicSource>output</DynamicSource>
-      <IncludePath>.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <IncludePath>.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;qzxing-master\src;qzxing-master\src\zxing;qzxing-master\src\zxing\win32\zxing;qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</IncludePath>
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Datacore\AbsEntity.cpp" />
     <ClCompile Include="Datacore\BarcodeEntity.cpp" />
     <ClCompile Include="Datacore\DataEntities.cpp" />
+    <ClCompile Include="Datacore\EntityQuickHash.cpp" />
     <ClCompile Include="Datacore\PricedBarcodeEntity.cpp" />
+    <ClCompile Include="Datacore\ProductEntity.cpp" />
     <ClCompile Include="Datacore\ShortBarcodeEntity.cpp" />
     <ClCompile Include="Datacore\UtilityEntities.cpp" />
     <ClCompile Include="dataFormats\formats.cpp" />
@@ -217,10 +219,12 @@
     <ClCompile Include="qzxing-master\src\zxing\zxing\aztec\AztecReader.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\BarcodeFormat.cpp" />
     <ClCompile Include="widgets\ControlsMiniwidgets\abs_control.cpp" />
+    <ClCompile Include="widgets\ControlsMiniwidgets\ControlManager.cpp" />
     <ClCompile Include="widgets\ControlsMiniwidgets\ControlTranslator.cpp" />
     <ClCompile Include="widgets\ControlsMiniwidgets\DateTimeControl.cpp" />
     <ClCompile Include="widgets\ControlsMiniwidgets\QuantityControl.cpp" />
     <ClCompile Include="widgets\ControlsMiniwidgets\StringControl.cpp" />
+    <ClCompile Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.cpp" />
     <ClCompile Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.cpp" />
     <ClCompile Include="widgets\InvoiceBranch\InvoiceBranchWidget.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\BarcodeRedactingWidget.cpp" />
@@ -237,10 +241,13 @@
     <ClCompile Include="qzxing-master\src\zxing\zxing\common\BitMatrix.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\common\BitSource.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\BlockParsedResult.cpp" />
+    <ClCompile Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\Redactors\Abs_Redactor.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\Redactors\PricedBarcodeRedactorForm.cpp" />
+    <ClCompile Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\RestScaningWidget.cpp" />
+    <ClCompile Include="widgets\MultibranchWidgets\RoleBoundScaningWidget.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\ScaningCameraWidget.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\SendingDataPickerWidget.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\SendSettings.cpp" />
@@ -311,6 +318,7 @@
     <ClCompile Include="widgets\parents\inframedWidget.cpp" />
     <ClCompile Include="widgets\PriceBranch\PriceBranchWidget.cpp" />
     <ClCompile Include="widgets\PriceBranch\PriceScaningWidget.cpp" />
+    <ClCompile Include="widgets\SalesAccountingBranch\SalesAccounting.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\DatabaseLoadSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\DatabaseSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\ExtraScaningSettings.cpp" />
@@ -414,12 +422,16 @@
     <ClCompile Include="qzxing-master\src\zxing\win32\zxing\win_iconv.c" />
     <ClCompile Include="widgets\utils\VirtualBarcodeKeyboard.cpp" />
     <ClCompile Include="widgets\utils\ZebraListItemDelegate.cpp" />
+    <ClCompile Include="Wrappers\PrinterWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Datacore\AbsEntity.h" />
     <ClInclude Include="Datacore\BarcodeEntity.h" />
+    <ClInclude Include="Wrappers\PrinterWrapper.h" />
     <QtMoc Include="Datacore\DataEntities.h" />
+    <ClInclude Include="Datacore\EntityQuickHash.h" />
     <ClInclude Include="Datacore\PricedBarcodeEntity.h" />
+    <ClInclude Include="Datacore\ProductEntity.h" />
     <ClInclude Include="Datacore\ShortBarcodeEntity.h" />
     <ClInclude Include="Datacore\UtilityEntities.h" />
     <ClInclude Include="dataFormats\formats.h">
@@ -460,6 +472,8 @@
     <QtMoc Include="widgets\ControlsMiniwidgets\abs_control.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\DateTimeControl.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\ControlTranslator.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="widgets\ControlsMiniwidgets\ControlManager.h" />
     <ClInclude Include="widgets\ControlsMiniwidgets\QuantityControl.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\StringControl.h" />
     <QtMoc Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.h">
@@ -489,6 +503,22 @@
     <QtMoc Include="widgets\MultibranchWidgets\RestScaningWidget.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\RoleBoundScaningWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+    </QtMoc>
+    <QtMoc Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+    </QtMoc>
+    <QtMoc Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
     </QtMoc>
     <ClInclude Include="widgets\parents\abstractNodeInterface.h" />
     <QtMoc Include="widgets\SettingsWidgets\ScaningSettings.h" />
@@ -611,6 +641,10 @@
     <QtMoc Include="widgets\SettingsWidgets\TaxInvoiceSettings.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <QtMoc Include="widgets\SalesAccountingBranch\SalesAccounting.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
     </QtMoc>
     <ClInclude Include="widgets\utils\client_specific_defaults.h" />
     <ClInclude Include="widgets\utils\ElementsStyles.h" />
@@ -742,68 +776,246 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="debug\moc_predefs.h.cbt">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generate moc_predefs.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\moc_predefs.h;%(Outputs)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="release\moc_predefs.h.cbt">
-      <FileType>Document</FileType>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generate moc_predefs.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\moc_predefs.h;%(Outputs)</Outputs>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="CameraSurface.qml" />
     <None Include="cpp.hint" />
     <None Include="ScaningCameraSurface.qml" />
-    <None Include="translations\Romanian.qm" />
-    <None Include="translations\Russian.qm" />
-    <None Include="res\back.png" />
-    <None Include="res\barcode.png" />
-    <None Include="res\deleteData.png" />
-    <None Include="res\editable.png" />
-    <None Include="res\exit.png" />
-    <None Include="res\find.png" />
-    <None Include="res\forward.png" />
-    <None Include="music\found.wav" />
-    <None Include="res\inventory.png" />
-    <None Include="res\logs.png" />
-    <None Include="res\minus.png" />
-    <None Include="res\netDownload.png" />
-    <None Include="res\netUpload.png" />
-    <None Include="res\new.png" />
-    <None Include="music\notfound.wav" />
-    <None Include="res\pen.png" />
-    <None Include="res\pencil.png" />
-    <None Include="res\plus.png" />
-    <None Include="res\rec.png" />
-    <None Include="res\refresh.png" />
-    <QtRcc Include="resources.qrc">
-    </QtRcc>
-    <None Include="res\scanner.png" />
-    <None Include="res\sent.png" />
-    <None Include="res\settings.png" />
-    <None Include="res\single.png" />
-    <None Include="res\submit.png" />
-    <None Include="res\unsent.png" />
-    <None Include="res\upload.png" />
-    <None Include="res\url.png" />
-    <None Include="res\viaFile.png" />
-    <None Include="res\viaNet.png" />
-    <None Include="res\viaTcp.png" />
+    <None Include="translations\unaretail_en.qm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="translations\unaretail_ro.qm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="translations\unaretail_ru.qm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="android-sources\AndroidManifest.xml" />
     <None Include="android-sources\res\drawable-hdpi\icon.png" />
-    <None Include="android-sources\res\drawable-ldpi\icon.png" />
-    <None Include="android-sources\res\drawable-mdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="uaMobi.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\add.png" />
+    <Image Include="res\alreadySent.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\back.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\barchart.png" />
+    <Image Include="res\barcode.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\best.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\camera.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\cameradoc.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\cash.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\check.png" />
+    <Image Include="res\contract.png" />
+    <Image Include="res\cursor.png" />
+    <Image Include="res\data.png" />
+    <Image Include="res\data2.png" />
+    <Image Include="res\deleteData.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\downarrow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\download.png" />
+    <Image Include="res\editable.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\education_file-512.png" />
+    <Image Include="res\eng.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\exit.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\find.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\find2.png" />
+    <Image Include="res\find3 (2).png" />
+    <Image Include="res\find3.png" />
+    <Image Include="res\forward.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\icn-cloud-blocked-512.png" />
+    <Image Include="res\images.png" />
+    <Image Include="res\info.png" />
+    <Image Include="res\inventory.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\invz.png" />
+    <Image Include="res\key.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\logs.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\minus.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\netDownload.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\netUpload.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\new.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\pen.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\pen2.png" />
+    <Image Include="res\pencil.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\pencil2.png" />
+    <Image Include="res\plus.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\presentation.png" />
+    <Image Include="res\profile.png" />
+    <Image Include="res\quality.png" />
+    <Image Include="res\rec.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\rec2.png" />
+    <Image Include="res\refresh.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\ribon.png" />
+    <Image Include="res\ro.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\ru.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\scanner.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\sent.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\seo-11-512.png" />
+    <Image Include="res\seo-80-512.png" />
+    <Image Include="res\seo2-25-512.png" />
+    <Image Include="res\seo2-32-512.png" />
+    <Image Include="res\seo3-18-512.png" />
+    <Image Include="res\seo3-21-512.png" />
+    <Image Include="res\seo3-89-512.png" />
+    <Image Include="res\settings.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\settings2.png" />
+    <Image Include="res\single.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\stats.png" />
+    <Image Include="res\stats2.png" />
+    <Image Include="res\submit.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\substract.png" />
+    <Image Include="res\text_files-512.png" />
+    <Image Include="res\time.png" />
+    <Image Include="res\toinput.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\unsent.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\uparrow.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\upload.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\url.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\url2.png" />
+    <Image Include="res\viaFile.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\viaNet.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\viaTcp.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Image>
+    <Image Include="res\video.png" />
+    <Image Include="res\wifi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="resources.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\found.wav">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Media>
+    <Media Include="music\notfound.wav">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </Media>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

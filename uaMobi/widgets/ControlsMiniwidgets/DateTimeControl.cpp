@@ -1,7 +1,8 @@
 #include "DateTimeControl.h"
 #include "Datacore/AbsEntity.h"
 #include "widgets/utils/ElementsStyles.h"
-
+#include "widgets/utils/BigButtonsSpinbox.h"
+#include <QDate>
 QString DateTimeControl::prepareAndReturnValue() const
 {
 	if (type == InputControlEntity::Date)

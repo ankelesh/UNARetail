@@ -1,12 +1,8 @@
 #pragma once
-
 #include <QObject>
 #include <QSqlDatabase>
 #include <exception>
-#include "dataFormats/dataformater.h"
-#include "Datacore/DataEntities.h"
-#include "dataproviders/TableHandlers.h"
-#include "dataproviders/BackupingEngine.h"
+#include "Datacore/ShortBarcodeEntity.h"
 #include "dataproviders/ModesDescriptions.h"
 /*
 		This class is responsible for storing data in inner database. It assigns to each mode 3 tables:
@@ -103,6 +99,8 @@ public:
 	bool clearSendingSelector(Modes, Entity);		//	sets state to 1 for all barcodes in scanned
 	bool pushIntoDownloaded(ShortBarcodeEntity&);    // posts barcode into downloaded table directly
 	bool pushIntoDownloaded(QLinkedList<QSharedPointer<ShortBarcodeEntity> >&);
+	void removeFromDownloaded(ShortBarcode);
+
 
 	bool downloadFullList(QString upload);	//	uses string as a value part for sql insert query
 	
