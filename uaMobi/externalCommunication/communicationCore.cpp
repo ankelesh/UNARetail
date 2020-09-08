@@ -42,12 +42,28 @@ QNetworkReply* communicationCore::get(QUrl url)
 	return manager->get(QNetworkRequest(url));
 }
 
-QNetworkReply* communicationCore::post(QNetworkRequest& request, QByteArray& data)
+QNetworkReply* communicationCore::post(QNetworkRequest& request,const QByteArray& data)
 {
 #ifdef DEBUG
 	detrace_NETREQSENT("commcore::get", request.url().toString(), QString::fromUtf8(data));
 #endif
-	return manager->post(request, data);
+    return manager->post(request, data);
+}
+
+QNetworkReply *communicationCore::sendUnboundRequest(QString url, QNetworkAccessManager::Operation op, QByteArray * data)
+{
+    switch(op)
+    {
+    case (QNetworkAccessManager::PostOperation):
+    {
+        QNetworkRequest temp (QUrl::fromUserInput(url));
+        return instanse()->post(temp, (data == Q_NULLPTR) ? QByteArray() : *data);
+    }
+    case QNetworkAccessManager::GetOperation:
+        return instanse()->get(QUrl::fromUserInput(url));
+    default:
+        return Q_NULLPTR;
+    }
 }
 
 QNetworkReply* communicationCore::sendGETRequest(QString url)
@@ -60,7 +76,7 @@ QNetworkReply* communicationCore::sendGETRequest(QUrl url)
 	return instanse()->get(url);
 }
 
-QNetworkReply* communicationCore::sendPOSTRequest(QNetworkRequest& request, QByteArray& data)
+QNetworkReply* communicationCore::sendPOSTRequest(QNetworkRequest& request, const QByteArray& data)
 {
 	return instanse()->post(request, data);
 }

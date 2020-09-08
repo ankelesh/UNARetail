@@ -339,6 +339,9 @@ RoleBoundScaningWidget::RoleBoundScaningWidget(Modes mode, int counter_role,
 
 		++cbind;
 	}
+#ifdef Q_OS_ANDROID
+    QObject::connect(controlList.last(), &abs_control::editingFinished, qApp->inputMethod(),&QInputMethod::hide);
+#endif
 	if (barcodeModel != Q_NULLPTR)
 		historyUniqueTracking.reserve(50);
 #ifdef QT_VERSION5X

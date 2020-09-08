@@ -1,14 +1,13 @@
 #pragma once
 #include <QObject>
 #include <QNetworkRequest>
-
+#include <QNetworkAccessManager>
 
 
 // This singletone class is used to incapsulate everything used for networking - 
 // device name, global timeout variables, network manager
 // and 
 
-class QNetworkAccessManager;
 class QNetworkReply;
 class communicationCore : public QObject	
 {
@@ -24,14 +23,17 @@ public:
 	QNetworkReply* get(QString url);
 	QNetworkReply* get(QUrl url);
 
-	QNetworkReply* post(QNetworkRequest& request, QByteArray& data);
+    QNetworkReply* post(QNetworkRequest& request,const QByteArray& data);
 	QString& getDeviceName() {
 		return deviceName;
 	}
 	int getTimeoutInterval() {
 		return timeoutInterval;
 	}
+    static QNetworkReply* sendUnboundRequest(QString url,
+                                             QNetworkAccessManager::Operation = QNetworkAccessManager::GetOperation,
+                                             QByteArray* data = Q_NULLPTR);
 	static QNetworkReply* sendGETRequest(QString url);
 	static QNetworkReply* sendGETRequest(QUrl url);
-	static QNetworkReply* sendPOSTRequest(QNetworkRequest& request, QByteArray& data);
+    static QNetworkReply* sendPOSTRequest(QNetworkRequest& request,const QByteArray& data);
 };

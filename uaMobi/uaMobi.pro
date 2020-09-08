@@ -5,7 +5,7 @@
 QT       += core gui sql network xml multimedia multimediawidgets quickwidgets qml quick concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+android : QT += androidextras
 CONFIG += release
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
@@ -38,6 +38,7 @@ DISTFILES += \
     android-sources/res/drawable-ldpi/icon.png \
     android-sources/res/drawable-mdpi/icon.png \ \
     android-sources/res/values/libs.xml \
+    android-sources/src/una/unamd/unaretail/EmailIntenter.java \
     uamobi_en.qm \
     uamobi_en.ts \
     uamobi_ro.qm \
@@ -58,6 +59,7 @@ HEADERS += \
     Datacore/ShortBarcodeEntity.h \
     Datacore/UtilityEntities.h \
     Wrappers/PrinterWrapper.h \
+    Wrappers/androidservicewrapper.h \
     dataFormats/dataformatcore.h \
     dataFormats/dataformater.h \
     dataFormats/formats.h \
@@ -150,6 +152,7 @@ SOURCES += \
     Datacore/ShortBarcodeEntity.cpp \
     Datacore/UtilityEntities.cpp \
     Wrappers/PrinterWrapper.cpp \
+    Wrappers/androidservicewrapper.cpp \
     dataFormats/dataformatcore.cpp \
     dataFormats/dataformater.cpp \
     dataFormats/formats.cpp \

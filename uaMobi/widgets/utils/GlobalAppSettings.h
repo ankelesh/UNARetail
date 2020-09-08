@@ -64,6 +64,11 @@ public:
 
 	bool autoFillQuantity;
 	QString taxInvoiceTemporary;
+
+    QString printerIp;
+    int printerPort;
+    QString printerPassword;
+
 	void SetTranslator();				//	Sets translator. Can be used any time
 	void Save();						//	Forse save
 	ModeDescription& getModeDescription(Modes m);

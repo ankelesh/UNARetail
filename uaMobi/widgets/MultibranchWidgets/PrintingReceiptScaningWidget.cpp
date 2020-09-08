@@ -4,7 +4,7 @@
 #include "Datacore/DataEntities.h"
 #include "Wrappers/PrinterWrapper.h"
 #include "Datacore/EntityQuickHash.h"
-
+#include "Wrappers/androidservicewrapper.h"
 void PrintingReceiptScaningWidget::barcodeReady()
 {
 	blockSignals(true);
@@ -26,6 +26,7 @@ PrintingReceiptScaningWidget::PrintingReceiptScaningWidget(Modes mode, int count
 	{
 		barcodeModel = new DataEntityListModel(this);
 	}
+    PrinterWrapper::init();
 	QObject::connect(printAndExitButton, &MegaIconButton::clicked, this,&PrintingReceiptScaningWidget::printAndAxitPressed);
 
 }
@@ -48,13 +49,20 @@ void PrintingReceiptScaningWidget::printAndAxitPressed()
 	}
 	QSharedPointer<QVector<Entity>> valuesToPrint( new QVector<Entity>());
 	valuesToPrint->reserve(uniques.size());
+    QString receiptContent;
+    QTextStream receiptOutput(&receiptContent);
 	for (QHash<EntityHash, Entity>::iterator pair = uniques.begin(); pair != uniques.end(); ++pair)
 	{
 		if (pair.value()->isValid())
-			valuesToPrint->push_back(pair.value());
+        {
+            valuesToPrint->push_back(pair.value());
+            receiptOutput << pair.value()->maximizedView("|","") << '\n';
+        }
 	}
+    receiptOutput.flush();
 	emit receiptDataFinished(valuesToPrint);
 	PrinterWrapper::instance().printReceipt(valuesToPrint);
+    AndroidServiceWrapper::instance().sendEmailIntent("Header of the receipt", receiptContent );
     okPressed();
 }
 
