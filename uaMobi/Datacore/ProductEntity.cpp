@@ -48,6 +48,7 @@ namespace ProductEntityPrivate
 }
 
 
+QString DEFAULT_RECEIPT_LINE_REPRESENTATION = QStringLiteral("%0__%1*%2 = %3\n");
 QString ProductEntity::_toSql() const
 {
 	return "(" % 
@@ -92,7 +93,12 @@ QString ProductEntity::_normalizedCsvView() const
 	return barcodeUtil::CSV_BARCODE_STR_TEMPLATE.arg(barcode).arg(addDate.toString(datetimeDBEncoding)).arg(
 		quantity).arg("").arg(
 			comment).arg(price).arg(discount).arg(
-				"").arg("").arg("");
+                "").arg("").arg("");
+}
+
+QString ProductEntity::_receiptView() const
+{
+    return DEFAULT_RECEIPT_LINE_REPRESENTATION.arg(comment).arg(price).arg(quantity).arg(price * quantity);
 }
 
 bool ProductEntity::_isValid() const

@@ -6,7 +6,7 @@ QT       += core gui sql network xml multimedia multimediawidgets quickwidgets q
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 android : QT += androidextras
-CONFIG += release
+CONFIG += debug
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
 CONFIG += c++17
@@ -38,7 +38,6 @@ DISTFILES += \
     android-sources/res/drawable-ldpi/icon.png \
     android-sources/res/drawable-mdpi/icon.png \ \
     android-sources/res/values/libs.xml \
-    android-sources/src/una/unamd/unaretail/EmailIntenter.java \
     uamobi_en.qm \
     uamobi_en.ts \
     uamobi_ro.qm \
@@ -113,14 +112,17 @@ HEADERS += \
     widgets/SettingsForm.h \
     widgets/SettingsWidgets/DatabaseLoadSettings.h \
     widgets/SettingsWidgets/DatabaseSettings.h \
+    widgets/SettingsWidgets/EmailSettings.h \
     widgets/SettingsWidgets/ExtraScaningSettings.h \
     widgets/SettingsWidgets/ExtraSendSettings.h \
     widgets/SettingsWidgets/GeneralSettings.h \
     widgets/SettingsWidgets/LoginSettings.h \
+    widgets/SettingsWidgets/PrinterSettings.h \
     widgets/SettingsWidgets/QuickSendSettings.h \
     widgets/SettingsWidgets/ScaningSettings.h \
     widgets/SettingsWidgets/SearchDatabaseSettings.h \
     widgets/SettingsWidgets/SerializationSettings.h \
+    widgets/SettingsWidgets/SpecialActionsSettings.h \
     widgets/SettingsWidgets/TaxInvoiceSettings.h \
     widgets/SettingsWidgets/ViewSettings.h \
     widgets/SimpleBranch/SimpleBranchWidget.h \
@@ -207,14 +209,17 @@ SOURCES += \
     widgets/SettingsForm.cpp \
     widgets/SettingsWidgets/DatabaseLoadSettings.cpp \
     widgets/SettingsWidgets/DatabaseSettings.cpp \
+    widgets/SettingsWidgets/EmailSettings.cpp \
     widgets/SettingsWidgets/ExtraScaningSettings.cpp \
     widgets/SettingsWidgets/ExtraSendSettings.cpp \
     widgets/SettingsWidgets/GeneralSettings.cpp \
     widgets/SettingsWidgets/LoginSettings.cpp \
+    widgets/SettingsWidgets/PrinterSettings.cpp \
     widgets/SettingsWidgets/QuickSendSettings.cpp \
     widgets/SettingsWidgets/ScaningSettings.cpp \
     widgets/SettingsWidgets/SearchDatabaseSettings.cpp \
     widgets/SettingsWidgets/SerializationSettings.cpp \
+    widgets/SettingsWidgets/SpecialActionsSettings.cpp \
     widgets/SettingsWidgets/TaxInvoiceSettings.cpp \
     widgets/SettingsWidgets/ViewSettings.cpp \
     widgets/SimpleBranch/SimpleBranchWidget.cpp \

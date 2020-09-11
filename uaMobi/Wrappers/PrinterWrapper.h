@@ -18,6 +18,8 @@ private:
     bool serverAvailable;
     QQueue<QSharedPointer<EntityList> > PrintQueue;
     QSharedPointer<EntityList> currentReceipt;
+    double summToPay;
+    int attemtsToReconnect;
     PrinterWrapper();
 	static PrinterWrapper* _instance;
 
@@ -26,6 +28,7 @@ private:
     void _setGood();
     void _setPay();
     void _finishReceipt();
+    void _cleanAwaited();
 public:
 	static PrinterWrapper& instance();
     static void init();
@@ -38,4 +41,7 @@ protected slots:
     void onConnectResponse();
     void onPrintProcessResponse();
     void onReceiptOpened();
+    void onGoodSet();
+    void onPaySet();
+    void onReceiptFinished();
 };

@@ -6,22 +6,31 @@
 #include <QNetworkReply>
 #include "externalCommunication/communicationCore.h"
 #include "widgets/utils/GlobalAppSettings.h"
+#include "Datacore/DataEntities.h"
+#include "Datacore/ProductEntity.h"
 PrinterWrapper* PrinterWrapper::_instance = Q_NULLPTR;
-
 PrinterWrapper::PrinterWrapper() : QObject(Q_NULLPTR), awaited(Q_NULLPTR),
 timeoutTimer(new QTimer(this)),
 deviceUrl("http://localhost:4444/"),
 currentOp(PWConnect)
 {
-    awaited = communicationCore::sendUnboundRequest(deviceUrl +
-         QStringLiteral("Settings(com=,baud=,tcp=1,ip=%0,port=%1,password=%2)")
+    if (!AppSettings->printOnlyToFile)
+    {
+        awaited = communicationCore::sendUnboundRequest(deviceUrl +
+             QStringLiteral("Settings(com=,baud=,tcp=1,ip=%0,port=%1,password=%2)")
            .arg(AppSettings->printerIp).arg(AppSettings->printerPort).arg(AppSettings->printerPassword));
-    QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onConnectResponse);
-    QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
+        QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onConnectResponse);
+        QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
+    }
 }
 
 void PrinterWrapper::_processQueue()
 {
+    if (currentReceipt.isNull() && PrintQueue.isEmpty())
+    {
+        currentOp = NoOp;
+        return;
+    }
     switch (currentOp) {
     case NoOp:
     case PWOpenReceipt:
@@ -47,7 +56,7 @@ void PrinterWrapper::_openReceipt()
     currentOp = PWOpenReceipt;
     awaited = communicationCore::sendUnboundRequest(deviceUrl +
          QStringLiteral("OpenReceipt(OperNum=%0,OperPass=%1,OptionReceiptFormat=0,OptionFiscalRcpPrintType=2)")
-           .arg("0101").arg(""));
+           .arg(AppSettings->operatorNumber).arg(AppSettings->operatorPassword));
     QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onReceiptOpened);
     QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
 
@@ -55,17 +64,39 @@ void PrinterWrapper::_openReceipt()
 
 void PrinterWrapper::_setGood()
 {
-
+    Product p(currentReceipt->last().staticCast<ProductEntity>());
+    awaited = communicationCore::sendUnboundRequest(deviceUrl +
+         QStringLiteral("SellPLUwithSpecifiedVAT(NamePLU=%0,OptionVATClass=%1,Price=%2,Quantity=%3,DiscAddP=%4,DiscAddV=%5,NamePLUextension=%6)")
+           .arg("ArticleName").arg("A").arg(p->price).arg(p->quantity).arg("00").arg("00").arg(""));
+    summToPay += p->price * p->quantity;
+    QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onGoodSet);
+    QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
 }
 
 void PrinterWrapper::_setPay()
 {
-
+    Product p(currentReceipt->last().staticCast<ProductEntity>());
+    awaited = communicationCore::sendUnboundRequest(deviceUrl +
+         QStringLiteral("Payment(OptionPaymentType=%0,OptionChange=%1,Amount=%2,OptionChangeType=%3)")
+           .arg("0").arg("1").arg(summToPay).arg("1"));
+    QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onPaySet);
+    QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
 }
 
 void PrinterWrapper::_finishReceipt()
 {
+    awaited = communicationCore::sendUnboundRequest(deviceUrl +
+         QStringLiteral("CashPayCloseReceipt()"));
+    QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onReceiptFinished);
+    QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
+}
 
+void PrinterWrapper::_cleanAwaited()
+{
+    if (awaited != Q_NULLPTR)
+    {
+        awaited = Q_NULLPTR;
+    }
 }
 
 PrinterWrapper& PrinterWrapper::instance()
@@ -87,6 +118,8 @@ void PrinterWrapper::init()
 
 bool PrinterWrapper::printerReady()
 {
+    if (AppSettings->printOnlyToFile)
+        return true;
     return serverAvailable;
 }
 
@@ -106,6 +139,21 @@ bool PrinterWrapper::printReceipt(QSharedPointer<QVector<Entity>> data)
 		detrace_METHEXPL("printing entity of type " << (*ent)->myType() << " with data " << (*ent)->formatedView("|", ""));
     }
 #endif
+    if (AppSettings->printOnlyToFile)
+    {
+        QString receiptname = "/receipt_" + QDateTime::currentDateTime().toString() + "_" + AppSettings->operatorNumber + ".txt";
+        QFile outfile(AppSettings->toFilePrintFilepath + "/" + receiptname);
+        QTextStream text(&outfile);
+        Product p;
+        for (EntityList::iterator ent = data->begin(); ent != data->end(); ++ent)
+        {
+            p = upcastEntity<ProductEntity>(*ent);
+            text << DEFAULT_RECEIPT_LINE_REPRESENTATION.arg(p->comment).arg(p->price).arg(p->quantity).arg(p->price * p->quantity);
+        }
+        text.flush();
+        outfile.close();
+        return true;
+    }
     if (!serverAvailable)
         return false;
     PrintQueue.push_back(data);
@@ -118,28 +166,35 @@ bool PrinterWrapper::printReceipt(QSharedPointer<QVector<Entity>> data)
 
 void PrinterWrapper::timeout()
 {
-    if (currentOp == PWConnect)
+    if (attemtsToReconnect > 5)
     {
-        if (awaited != Q_NULLPTR)
-        {
-            ErrorMessageDialog::showErrorInfo(tr("error"), tr("can not connect to printer"), false,
-                                              QString::fromUtf8(awaited->readAll()));
-        }
-        else
-        {
-            ErrorMessageDialog::showErrorInfo(tr("error"), tr("can not connect to printer"), false);
-        }
+        ErrorMessageDialog::showErrorInfo(tr("no connection"), tr("Can not connect for too much attempts. Stop attempts."));
+        currentOp = NoOp;
+        return;
     }
+    if (awaited != Q_NULLPTR)
+    {
+        ErrorMessageDialog::showErrorInfo(tr("error"), tr("can not connect to printer, retrying"), false,
+                                           QString::fromUtf8(awaited->readAll()));
+    }
+    else
+    {
+       ErrorMessageDialog::showErrorInfo(tr("error"), tr("can not connect to printer, retrying"), false);
+    }
+    _processQueue();
+
 }
 
 void PrinterWrapper::onPrinterResponse()
 {
     QString resp = QString::fromUtf8(awaited->readAll());
+    _cleanAwaited();
 
 }
 
 void PrinterWrapper::onConnectResponse()
 {
+    _cleanAwaited();
     currentOp = NoOp;
     serverAvailable = true;
 }
@@ -151,12 +206,48 @@ void PrinterWrapper::onPrintProcessResponse()
 
 void PrinterWrapper::onReceiptOpened()
 {
+    _cleanAwaited();
     if (PrintQueue.isEmpty())
     {
         currentOp = NoOp;
         return;
     }
-    currentReceipt = PrintQueue.head();
+    currentOp = PWSetGood;
+    currentReceipt = PrintQueue.takeFirst();
+    _setGood();
+}
 
+void PrinterWrapper::onGoodSet()
+{
+    _cleanAwaited();
+    currentReceipt->takeLast();
+    if (currentReceipt.isNull() || currentReceipt->isEmpty())
+    {
+        currentOp = PWSetPay;
+        _setPay();
+    }
+    else
+    {
+        _setGood();
+    }
+}
 
+void PrinterWrapper::onPaySet()
+{
+    currentOp = PWFinish;
+    _cleanAwaited();
+    _finishReceipt();
+}
+
+void PrinterWrapper::onReceiptFinished()
+{
+    _cleanAwaited();
+    if (!PrintQueue.isEmpty())
+    {
+        _processQueue();
+    }
+    else
+    {
+        currentOp = NoOp;
+    }
 }

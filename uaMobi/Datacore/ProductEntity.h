@@ -22,6 +22,7 @@ protected:
 	virtual QString _formatedView(QString sep, QString dform) const override;
 	virtual QString _maximumInfoView(QString sep, QString dform) const override;
 	virtual QString _normalizedCsvView() const override;
+    virtual QString _receiptView() const override;
 	virtual bool _isValid() const override;
 	virtual bool _fromSql(QSqlQuery*) override;
 	virtual AbsEntity* _clone() const override;
@@ -60,3 +61,4 @@ public:
 
 typedef QSharedPointer<ProductEntity> Product;
 typedef QVector<Product> ProductList;
+extern QString DEFAULT_RECEIPT_LINE_REPRESENTATION;

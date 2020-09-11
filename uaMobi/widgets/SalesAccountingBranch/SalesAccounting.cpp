@@ -6,15 +6,15 @@
 #include "Datacore/ProductEntity.h"
 #include "Datacore/DataEntities.h"
 #include <cmath>
-
-
+#include "widgets/utils/MegaIconButton.h"
+#include "widgets/SettingsWidgets/SpecialActionsSettings.h"
 double summSpentMoney(Entity e, double previous)
 {
 	Product p = upcastEntity<ProductEntity>(e);
 	if (p.isNull())
 		return qQNaN();
 	else
-		if (isnan(previous))
+        if (qIsNaN(previous))
 			return  p->price * p->quantity;
 		else
 			return previous + p->price * p->quantity;
@@ -81,12 +81,26 @@ bool set_price_comment_as_previous(Entity pendingBarcode,EntityHash hash, QVecto
 }
 
 SalesAccountingBranchWidget::SalesAccountingBranchWidget(QWidget* parent)
-	: BranchRootWidget(Modes::SalesAccounting, parent), bounds(), prototype(new ProductEntity())
+    : BranchRootWidget(Modes::SalesAccounting, parent), bounds(), prototype(new ProductEntity()),
+      extraSettings(), extraSettingsButton(new MegaIconButton(this))
 {
 	pageName->setText(tr("Sales Accounting"));
 	bounds << control_bind(InputControlEntity::Decimals,  Roles::Product::price, false, tr("price"));
 	bounds << control_bind(InputControlEntity::Float,  Roles::Product::quantity, false, tr("sold"));
+    extraSettingsButton->setIcon(QIcon(":/res/settings2.png"));
+    extraSettingsButton->setText(tr("Extra settings"));
+    QObject::connect(extraSettingsButton, &MegaIconButton::clicked, this, &SalesAccountingBranchWidget::extraSettingsRequired);
+    innerLayout->removeWidget(backButton);
+    innerLayout->addWidget(extraSettingsButton);
+    innerLayout->addWidget(backButton);
 
+}
+
+void SalesAccountingBranchWidget::extraSettingsRequired()
+{
+    extraSettings = new SpecialActionsSettings(this);
+    QObject::connect(extraSettings, &SpecialActionsSettings::backRequired, this, &SalesAccountingBranchWidget::backRequire);
+    _hideAndDeleteCurrent(extraSettings);
 }
 
 inframedWidget* SalesAccountingBranchWidget::_allocateSettings()

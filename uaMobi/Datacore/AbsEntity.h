@@ -63,6 +63,8 @@ protected:
 	virtual QString _formatedView(QString sep, QString dform) const = 0;
 	// must return full description
 	virtual QString _maximumInfoView(QString sep, QString dform) const = 0;
+
+    virtual QString _receiptView() const;
 	// must return filled CSV_BARCODE_STR_TEMPLATE
 	virtual QString _normalizedCsvView() const = 0;
 	// must return validity for this entity
@@ -113,6 +115,7 @@ public:
 	QString asSqlInsertion() const;
 	QString maximizedView(QString sep, QString dform) const;
 	QString formatedView(QString sep, QString dform) const;
+    QString receiptView() const;
 	QString normalizedCsvView() const;
 	QString fullComparationQuery() const;
 	bool isValid() const;

@@ -40,7 +40,7 @@ protected:
 	MegaIconButton* receive;
 	MegaIconButton* settings;
 	MegaIconButton* backButton;
-
+    using abstractDynamicNode::_hideAndDeleteCurrent;
 	Modes currentMode;		//	This is the name of mode
 
 	virtual inframedWidget* _allocateScaning() = 0;

@@ -9,9 +9,13 @@ protected:
 	// Inherited via BranchRootWidget
 	QVector<control_bind> bounds;
 	Entity prototype;
+    inframedWidget* extraSettings;
+    MegaIconButton* extraSettingsButton;
 	virtual inframedWidget* _allocateScaning() override;
 	virtual inframedWidget* _allocateStorage() override;
 	virtual inframedWidget* _allocateSettings() override;
 public:
 	SalesAccountingBranchWidget(QWidget* parent);
+protected slots:
+    void extraSettingsRequired();
 };

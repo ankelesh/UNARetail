@@ -68,6 +68,15 @@ public:
     QString printerIp;
     int printerPort;
     QString printerPassword;
+    QString printerUsername;
+    int operatorNumber;
+    QString operatorPassword;
+    bool printOnlyToFile;
+    QString toFilePrintFilepath;
+
+    bool sendToEmailByIntent;
+    QStringList emailDestinations;
+    bool sendAsMessageByIntent;
 
 	void SetTranslator();				//	Sets translator. Can be used any time
 	void Save();						//	Forse save

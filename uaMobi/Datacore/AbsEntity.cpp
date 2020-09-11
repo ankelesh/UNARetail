@@ -3,6 +3,11 @@
 
 
 
+QString AbsEntity::_receiptView() const
+{
+    return _maximumInfoView("|", "");
+}
+
 bool AbsEntity::deepCompare(AbsEntity* bc) const
 {
 	return mytype == bc->myType() && getId() == bc->getId();
@@ -50,7 +55,12 @@ QString AbsEntity::maximizedView(QString sep, QString dform) const
 
 QString AbsEntity::formatedView(QString sep, QString dform) const
 {
-	return _formatedView(sep,dform);
+    return _formatedView(sep,dform);
+}
+
+QString AbsEntity::receiptView() const
+{
+    return _receiptView();
 }
 
 QString AbsEntity::normalizedCsvView() const

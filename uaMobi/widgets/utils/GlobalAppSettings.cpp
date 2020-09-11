@@ -2,6 +2,7 @@
 #include <QtCore/qsettings.h>
 #include <QApplication>
 #include <QVector>
+#include <QDir>
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
@@ -19,6 +20,16 @@ const char* SUFFIX = "etalonus_release";
 #else
 const char* SUFFIX = "nigthly";
 #endif
+#endif
+#endif
+QString rootFilePath =
+#ifdef Q_OS_ANDROID
+    "storage/emulated/0/";
+#else
+#ifdef Q_OS_WINCE
+    "/Documents/";
+#else
+    QDir::currentPath();
 #endif
 #endif
 
@@ -101,6 +112,21 @@ GlobalAppSettings::GlobalAppSettings()
 	SetTranslator();
 	autoFillQuantity = settings.value("autoFillQuantity", QVariant(false)).toBool();
 	netEncoding = settings.value("netEncoding", QVariant("CP1251")).toByteArray();
+    settings.beginGroup("printer");
+    printerIp = settings.value("printerIp", QVariant()).toString();
+    printerPort = settings.value("printerPort", QVariant(4040)).toInt();
+    printerUsername = settings.value("printerUsername", QVariant()).toString();
+    printerPassword = settings.value("printerPassword", QVariant()).toString();
+    operatorNumber = settings.value("operatorNumber", QVariant(12)).toInt();
+    operatorPassword = settings.value("operatorPassword", QVariant()).toString();
+    printOnlyToFile = settings.value("printOnlyToFile", QVariant(false)).toBool();
+    toFilePrintFilepath = settings.value("toFilePrintFilepath", QVariant(QString(rootFilePath))).toString();
+    settings.endGroup();
+    settings.beginGroup("email");
+    sendToEmailByIntent = settings.value("sendToEmailByIntent", QVariant(false)).toBool();
+    emailDestinations = settings.value("emailDestinations", QVariant()).toStringList();
+    sendAsMessageByIntent = settings.value("sendAsMessageByIntent", QVariant(false)).toBool();
+    settings.endGroup();
 }
 
 void GlobalAppSettings::SetTranslator()
@@ -177,6 +203,22 @@ void GlobalAppSettings::Save()
 	settings.setValue("modesSettings", serializedModes);
 	settings.setValue("autoFillQuantity", autoFillQuantity);
 	settings.setValue("netEncoding", netEncoding);
+
+    settings.beginGroup("printer");
+    settings.setValue("printerIp", printerIp);
+    settings.setValue("printerPort", printerPort);
+    settings.setValue("printerUsername", printerUsername);
+    settings.setValue("printerPassword", printerPassword);
+    settings.setValue("operatorNumber", operatorNumber);
+    settings.setValue("operatorPassword", operatorPassword);
+    settings.setValue("printOnlyToFile", printOnlyToFile);
+    settings.setValue("toFilePrintFilepath", toFilePrintFilepath);
+    settings.endGroup();
+    settings.beginGroup("email");
+    settings.setValue("sendToEmailByIntent", sendToEmailByIntent);
+    settings.setValue("emailDestinations", emailDestinations);
+    settings.setValue("sendAsMessageByIntent", sendAsMessageByIntent);
+    settings.endGroup();
 }
 
 ModeDescription& GlobalAppSettings::getModeDescription(Modes m)

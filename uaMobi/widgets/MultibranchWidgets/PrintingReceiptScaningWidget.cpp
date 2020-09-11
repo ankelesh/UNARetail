@@ -5,6 +5,7 @@
 #include "Wrappers/PrinterWrapper.h"
 #include "Datacore/EntityQuickHash.h"
 #include "Wrappers/androidservicewrapper.h"
+#include "widgets/utils/GlobalAppSettings.h"
 void PrintingReceiptScaningWidget::barcodeReady()
 {
 	blockSignals(true);
@@ -48,21 +49,30 @@ void PrintingReceiptScaningWidget::printAndAxitPressed()
 		}
 	}
 	QSharedPointer<QVector<Entity>> valuesToPrint( new QVector<Entity>());
-	valuesToPrint->reserve(uniques.size());
-    QString receiptContent;
-    QTextStream receiptOutput(&receiptContent);
-	for (QHash<EntityHash, Entity>::iterator pair = uniques.begin(); pair != uniques.end(); ++pair)
-	{
-		if (pair.value()->isValid())
+    valuesToPrint->reserve(uniques.size());
+    for (QHash<EntityHash, Entity>::iterator pair = uniques.begin(); pair != uniques.end(); ++pair)
+    {
+        if (pair.value()->isValid())
         {
             valuesToPrint->push_back(pair.value());
-            receiptOutput << pair.value()->maximizedView("|","") << '\n';
         }
-	}
-    receiptOutput.flush();
+    }
 	emit receiptDataFinished(valuesToPrint);
-	PrinterWrapper::instance().printReceipt(valuesToPrint);
-    AndroidServiceWrapper::instance().sendEmailIntent("Header of the receipt", receiptContent );
+    PrinterWrapper::instance().printReceipt(valuesToPrint);
+    if (AppSettings->sendToEmailByIntent || AppSettings->sendAsMessageByIntent)
+    {
+        QString receiptContent;
+        QTextStream receiptOutput(&receiptContent);
+        for (EntityList::iterator ent = valuesToPrint->begin(); ent < valuesToPrint->end(); ++ent )
+        {
+            receiptOutput << (*ent)->receiptView();
+        }
+        receiptOutput.flush();
+        if (AppSettings->sendToEmailByIntent)
+           AndroidServiceWrapper::instance().sendEmailIntent("Header of the receipt", receiptContent , AppSettings->emailDestinations);
+        if (AppSettings->sendAsMessageByIntent)
+            AndroidServiceWrapper::instance().sendMessageIntent(receiptContent);
+    }
     okPressed();
 }
 
