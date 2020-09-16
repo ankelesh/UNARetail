@@ -1,2 +1,0 @@
--->!<--	Error possible in object 121782888 in method DBEXECUTE: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1638492699414610,'23452345' , '14.09.2020 16.35.26', 0 , '' , 7 , 6 , 0)
-with context:  : table slaproductsscan has no column named expComment Unable to execute statement

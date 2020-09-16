@@ -1,61 +1,6 @@
--->	Method called: initializeGlobalAppSettings in object 22742192
+-->	Method called: initializeGlobalAppSettings in object 12612768
 if errors: 0
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
--->	Method called: dumpGlobalAppSettings in object 22742192
-if errors: 0
--->	Method called: translate control price5 | in object 5824644
-][	Created object control-like of type 4 on address 120501776
--->	Method called: translate control Кол-во6 | in object 5824644
-][	Created object control-like of type 4 on address 120507824
-
-
-
-
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
-***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
-***	method execing query: PRAGMA TABLE_INFO(simbarcodesscan)called
-***	method execing query: PRAGMA TABLE_INFO(simbarcodesupld)called
-***	method execing query: PRAGMA TABLE_INFO(supbarcodesscan)called
-***	method execing query: PRAGMA TABLE_INFO(supbarcodesupld)called
-***	method execing query: PRAGMA TABLE_INFO(ordbarcodesscan)called
-***	method execing query: PRAGMA TABLE_INFO(ordbarcodesupld)called
-***	method execing query: PRAGMA TABLE_INFO(pripricedbcsscan)called
-***	method execing query: PRAGMA TABLE_INFO(slaproductsscan)called
-***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
-***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
-***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '23452345'called
-***	method execing query: SELECT sum(uploaded) from slaproductsscan where barcode = 23452345called
-***	method key release captured with textcalled
-***	method key release captured with textcalled
--->	Method called: PrinterWrapper::printReceipt in object 121246920
-printing entity of type 5 with data 23452345       |7*6
-
-***	method execing query: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1638492699414610,'23452345' , '14.09.2020 16.35.26', 0 , '' , 7 , 6 , 0)called
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-->	Method called: translate control price5 | in object 10617012
+][	Created object control-like of type 4 on address 97414128
+-->	Method called: translate control Кол-во6 | in object 10617012
+][	Created object control-like of type 4 on address 97419384

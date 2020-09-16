@@ -5,6 +5,7 @@
 
 
 class PrinterSettings;
+class PrinterConnectionSettings;
 class EmailSettings;
 class MegaIconButton;
 class QVBoxLayout;
@@ -20,6 +21,7 @@ class SpecialActionsSettings : public inframedWidget
     MegaIconButton* backButton;
     PrinterSettings* pSettings;
     EmailSettings* eSettings;
+    PrinterConnectionSettings* pcSettings;
 public:
     explicit SpecialActionsSettings(QWidget *parent = Q_NULLPTR);
 protected slots:

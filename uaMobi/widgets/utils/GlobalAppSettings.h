@@ -73,6 +73,8 @@ public:
     QString operatorPassword;
     bool printOnlyToFile;
     QString toFilePrintFilepath;
+	QString printerServerPath;
+	bool useComInsteadOfIp;
 
     bool sendToEmailByIntent;
     QStringList emailDestinations;

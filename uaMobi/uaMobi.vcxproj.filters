@@ -889,6 +889,9 @@
     <ClCompile Include="Wrappers\androidservicewrapper.cpp">
       <Filter>Header Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\PrinterConnectionSettings.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1715,6 +1718,9 @@
     </QtMoc>
     <QtMoc Include="Wrappers\PrinterWrapper.h">
       <Filter>Header Files\Model</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\PrinterConnectionSettings.h">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

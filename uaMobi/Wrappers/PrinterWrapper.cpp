@@ -16,11 +16,18 @@ currentOp(PWConnect)
 {
     if (!AppSettings->printOnlyToFile)
     {
-      /*  awaited = communicationCore::sendUnboundRequest(deviceUrl +
-             QStringLiteral("Settings(com=,baud=,tcp=1,ip=%0,port=%1,password=%2)")
-           .arg(AppSettings->printerIp).arg(AppSettings->printerPort).arg(AppSettings->printerPassword));*/
-        awaited = communicationCore::sendUnboundRequest(deviceUrl +
-            QStringLiteral("Settings(com=COM3,baud=9000,tcp=0,ip=,port=,password=123456)"));
+        if (AppSettings->useComInsteadOfIp)
+        {
+            awaited = communicationCore::sendUnboundRequest(deviceUrl +
+                QStringLiteral("Settings(com=%0,baud=9000,tcp=0,ip=,port=,password=%1)")
+            .arg("COM" + QString::number(AppSettings->printerPort)).arg(AppSettings->printerPassword));
+        }
+        else
+        {
+            awaited = communicationCore::sendUnboundRequest(deviceUrl +
+                QStringLiteral("Settings(com=,baud=,tcp=1,ip=%0,port=%1,password=%2)")
+                .arg(AppSettings->printerIp).arg(AppSettings->printerPort).arg(AppSettings->printerPassword));
+        }
         QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onConnectResponse);
         QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
     }
@@ -69,7 +76,7 @@ void PrinterWrapper::_setGood()
     Product p(currentReceipt->last().staticCast<ProductEntity>());
     awaited = communicationCore::sendUnboundRequest(deviceUrl +
          QStringLiteral("SellPLUwithSpecifiedVAT(NamePLU=%0,OptionVATClass=%1,Price=%2,Quantity=%3,DiscAddP=%4,DiscAddV=%5,NamePLUextension=%6)")
-           .arg("ArticleName").arg("A").arg(p->price).arg(p->quantity).arg("00").arg("00").arg(""));
+           .arg(p->comment).arg("1").arg(p->price).arg(p->quantity).arg("00").arg("00").arg(""));
     summToPay += p->price * p->quantity;
     QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onGoodSet);
     QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);

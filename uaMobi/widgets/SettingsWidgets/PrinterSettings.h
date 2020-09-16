@@ -22,11 +22,8 @@ class PrinterSettings : public QWidget
     Q_OBJECT
 private:
     QFormLayout * mainLayout;
-    QLineEdit* printerIp;
-    QSpinBox* printerPort;
     QLineEdit* userName;
-    QLineEdit* printerPassword;
-    QSpinBox * operatorNumber;
+    QSpinBox* operatorNumber;
     QLineEdit* operatorPassword;
     MegaIconButton* toFile;
     QLineEdit* filePath;

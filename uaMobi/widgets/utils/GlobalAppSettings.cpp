@@ -121,6 +121,8 @@ GlobalAppSettings::GlobalAppSettings()
     operatorPassword = settings.value("operatorPassword", QVariant()).toString();
     printOnlyToFile = settings.value("printOnlyToFile", QVariant(false)).toBool();
     toFilePrintFilepath = settings.value("toFilePrintFilepath", QVariant(QString(rootFilePath))).toString();
+	printerServerPath = settings.value("printerServerPath", QVariant("http://localhost:4444/")).toString();
+	useComInsteadOfIp = settings.value("useComInsteadOfIp", QVariant(false)).toBool();
     settings.endGroup();
     settings.beginGroup("email");
     sendToEmailByIntent = settings.value("sendToEmailByIntent", QVariant(false)).toBool();
@@ -213,6 +215,8 @@ void GlobalAppSettings::Save()
     settings.setValue("operatorPassword", operatorPassword);
     settings.setValue("printOnlyToFile", printOnlyToFile);
     settings.setValue("toFilePrintFilepath", toFilePrintFilepath);
+	settings.setValue("printerServerPath", printerServerPath);
+	settings.setValue("useComInsteadOfIp", useComInsteadOfIp);
     settings.endGroup();
     settings.beginGroup("email");
     settings.setValue("sendToEmailByIntent", sendToEmailByIntent);
