@@ -4,6 +4,7 @@
 #include <QTabWidget>
 #include <QBoxLayout>
 #include "widgets/utils/MegaIconButton.h"
+#include "widgets/utils/GlobalAppSettings.h"
 SpecialActionsSettings::SpecialActionsSettings(QWidget *parent) : inframedWidget(parent),
     mainLayout(new QVBoxLayout(this)),
     buttonLayout(new QHBoxLayout(this)),
@@ -29,5 +30,6 @@ void SpecialActionsSettings::saveAndExit()
 {
     pSettings->extractAndSave();
     eSettings->extractAndSave();
+    AppSettings->Save();
     emit backRequired();
 }

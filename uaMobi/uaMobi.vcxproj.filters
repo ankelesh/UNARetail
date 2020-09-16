@@ -164,6 +164,9 @@
     <Filter Include="Source Files\View\SettingScreens\SendingSettings">
       <UniqueIdentifier>{de1e7efe-9ea8-43b6-8734-270f9934ad1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\View\SettingsScreens\ExtraSettings">
+      <UniqueIdentifier>{fb8e163d-98ea-49ca-a354-abead8b5a390}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -874,6 +877,18 @@
     <ClCompile Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\EmailSettings.cpp">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\PrinterSettings.cpp">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\SpecialActionsSettings.cpp">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\androidservicewrapper.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -998,9 +1013,6 @@
     </ClInclude>
     <ClInclude Include="Datacore\EntityQuickHash.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
-    </ClInclude>
-    <ClInclude Include="Wrappers\PrinterWrapper.h">
-      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1688,6 +1700,21 @@
     </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.h">
       <Filter>Header Files\View\ScaningRelated</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\EmailSettings.h">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\PrinterSettings.h">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\SpecialActionsSettings.h">
+      <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\androidservicewrapper.h">
+      <Filter>Header Files\Model</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrapper.h">
+      <Filter>Header Files\Model</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

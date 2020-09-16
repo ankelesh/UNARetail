@@ -82,5 +82,5 @@ void PrintingReceiptScaningWidget::okPressed()
 	{
 		emit barcodeReceived(barcodeModel->directAccessByFlatIndex(i));
 	}
-	RoleBoundScaningWidget::okPressed();
+	emit backRequired();
 }

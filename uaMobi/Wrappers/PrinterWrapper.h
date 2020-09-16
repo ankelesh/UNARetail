@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QNetworkReply>
 #include <QQueue>
+
 class PrinterWrapper : public  QObject
 {
     Q_OBJECT

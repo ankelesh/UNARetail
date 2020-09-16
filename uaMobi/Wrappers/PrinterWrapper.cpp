@@ -16,9 +16,11 @@ currentOp(PWConnect)
 {
     if (!AppSettings->printOnlyToFile)
     {
-        awaited = communicationCore::sendUnboundRequest(deviceUrl +
+      /*  awaited = communicationCore::sendUnboundRequest(deviceUrl +
              QStringLiteral("Settings(com=,baud=,tcp=1,ip=%0,port=%1,password=%2)")
-           .arg(AppSettings->printerIp).arg(AppSettings->printerPort).arg(AppSettings->printerPassword));
+           .arg(AppSettings->printerIp).arg(AppSettings->printerPort).arg(AppSettings->printerPassword));*/
+        awaited = communicationCore::sendUnboundRequest(deviceUrl +
+            QStringLiteral("Settings(com=COM3,baud=9000,tcp=0,ip=,port=,password=123456)"));
         QObject::connect(awaited, &QNetworkReply::finished, this, &PrinterWrapper::onConnectResponse);
         QObject::connect(awaited, QOverload<>::of(&QNetworkReply::error), this, &PrinterWrapper::timeout);
     }
@@ -75,7 +77,6 @@ void PrinterWrapper::_setGood()
 
 void PrinterWrapper::_setPay()
 {
-    Product p(currentReceipt->last().staticCast<ProductEntity>());
     awaited = communicationCore::sendUnboundRequest(deviceUrl +
          QStringLiteral("Payment(OptionPaymentType=%0,OptionChange=%1,Amount=%2,OptionChangeType=%3)")
            .arg("0").arg("1").arg(summToPay).arg("1"));
@@ -141,14 +142,13 @@ bool PrinterWrapper::printReceipt(QSharedPointer<QVector<Entity>> data)
 #endif
     if (AppSettings->printOnlyToFile)
     {
-        QString receiptname = "/receipt_" + QDateTime::currentDateTime().toString() + "_" + AppSettings->operatorNumber + ".txt";
-        QFile outfile(AppSettings->toFilePrintFilepath + "/" + receiptname);
+        QString receiptname = "/receipt_" + QDateTime::currentDateTime().toString("dd_MM_yyyy hh_mm_ss") + "_" + QString::number(AppSettings->operatorNumber) + ".txt";
+        QFile outfile(AppSettings->toFilePrintFilepath + receiptname);
+        outfile.open(QIODevice::WriteOnly);
         QTextStream text(&outfile);
-        Product p;
         for (EntityList::iterator ent = data->begin(); ent != data->end(); ++ent)
         {
-            p = upcastEntity<ProductEntity>(*ent);
-            text << DEFAULT_RECEIPT_LINE_REPRESENTATION.arg(p->comment).arg(p->price).arg(p->quantity).arg(p->price * p->quantity);
+            text << (*ent)->receiptView();
         }
         text.flush();
         outfile.close();
@@ -194,6 +194,9 @@ void PrinterWrapper::onPrinterResponse()
 
 void PrinterWrapper::onConnectResponse()
 {
+#ifdef DEBUG
+    detrace_NETRESPARR(QString::fromUtf8(awaited->readAll()), awaited->errorString(), 0);
+#endif
     _cleanAwaited();
     currentOp = NoOp;
     serverAvailable = true;
@@ -206,6 +209,9 @@ void PrinterWrapper::onPrintProcessResponse()
 
 void PrinterWrapper::onReceiptOpened()
 {
+#ifdef DEBUG
+    detrace_NETRESPARR(QString::fromUtf8(awaited->readAll()), awaited->errorString(), 0);
+#endif
     _cleanAwaited();
     if (PrintQueue.isEmpty())
     {
@@ -219,6 +225,9 @@ void PrinterWrapper::onReceiptOpened()
 
 void PrinterWrapper::onGoodSet()
 {
+#ifdef DEBUG
+    detrace_NETRESPARR(QString::fromUtf8(awaited->readAll()), awaited->errorString(), 0);
+#endif
     _cleanAwaited();
     currentReceipt->takeLast();
     if (currentReceipt.isNull() || currentReceipt->isEmpty())
@@ -234,6 +243,9 @@ void PrinterWrapper::onGoodSet()
 
 void PrinterWrapper::onPaySet()
 {
+#ifdef DEBUG
+    detrace_NETRESPARR(QString::fromUtf8(awaited->readAll()), awaited->errorString(), 0);
+#endif
     currentOp = PWFinish;
     _cleanAwaited();
     _finishReceipt();
@@ -241,6 +253,9 @@ void PrinterWrapper::onPaySet()
 
 void PrinterWrapper::onReceiptFinished()
 {
+#ifdef DEBUG
+    detrace_NETRESPARR(QString::fromUtf8(awaited->readAll()), awaited->errorString(), 0);
+#endif
     _cleanAwaited();
     if (!PrintQueue.isEmpty())
     {

@@ -1,8 +1,2 @@
--->!<--	Error possible in object 117578216 in method DBEXECUTE: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612768323798,'234523452435' , '04.09.2020 17.53.39', 0 , '' , 54 , 43 , 0)
-with context:  : table slaproductsscan has no column named expComment Unable to execute statement
--->!<--	Error possible in object 117578216 in method DBEXECUTE: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612775469129,'124' , '04.09.2020 17.53.46', 0 , '' , 1 , 43 , 0)
-with context:  : table slaproductsscan has no column named expComment Unable to execute statement
--->!<--	Error possible in object 117578216 in method DBEXECUTE: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612780557545,'124' , '04.09.2020 17.53.51', 0 , '' , -5 , 43 , 0)
-with context:  : table slaproductsscan has no column named expComment Unable to execute statement
--->!<--	Error possible in object 117578216 in method DBEXECUTE: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1637612788920539,'124' , '04.09.2020 17.53.59', 0 , '' , 1 , 43 , 0)
+-->!<--	Error possible in object 121782888 in method DBEXECUTE: insert into slaproductsscan (id , barcode , scanedtime , uploaded , expComment , quantity , price , discount) values (1638492699414610,'23452345' , '14.09.2020 16.35.26', 0 , '' , 7 , 6 , 0)
 with context:  : table slaproductsscan has no column named expComment Unable to execute statement
