@@ -81,6 +81,7 @@ QList<int> DatabaseLoadSettings::_extractPoints()
 
 void DatabaseLoadSettings::_addToBarcode(int index, ShortBarcode & shb,const QString& parsedColumn)
 {
+	
 	switch (index)
 	{
 	case 0:
@@ -97,6 +98,12 @@ void DatabaseLoadSettings::_addToBarcode(int index, ShortBarcode & shb,const QSt
 		break;
 	case 4:
 		shb->count += parsedColumn;
+		break;
+	case 5:
+		shb->price += parsedColumn.toDouble();
+		break;
+	case 6:
+		shb->price += parsedColumn.toDouble();
 		break;
 	case -2:
 		break;
@@ -237,6 +244,7 @@ void DatabaseLoadSettings::loadDatabaseFromFile()
 	}
 	else
 	{
+		auto p = databasePath->toPlainText();
 		QFile f(databasePath->toPlainText());
 		f.open(QIODevice::ReadOnly);
 		if (!f.isOpen() || !f.isReadable())

@@ -1,6 +1,26 @@
--->	Method called: initializeGlobalAppSettings in object 12612768
+-->	Method called: initializeGlobalAppSettings in object 19004928
 if errors: 0
--->	Method called: translate control price5 | in object 10617012
-][	Created object control-like of type 4 on address 97414128
--->	Method called: translate control Кол-во6 | in object 10617012
-][	Created object control-like of type 4 on address 97419384
+***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(simbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(simbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(supbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(supbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(ordbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(ordbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(pripricedbcsscan)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsscan)called
+***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
+***	method execing query: SELECT count(*) from shortbcscalled
+***	method execing query: drop table shortbcscalled
+***	method execing query: create table shortbcs (id number PRIMARY KEY NOT NULL,barcode TEXT,code number,info TEXT,count TEXT,price number,discprice number)called
+-->	Method called: dumpGlobalAppSettings in object 19004928
+if errors: 0
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '4810226014493'called
+***	method key release captured with textcalled
+***	method key release captured with textcalled
+-->	Method called: dumpGlobalAppSettings in object 19004928
+if errors: 0
