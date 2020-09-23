@@ -26,7 +26,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	additionalInputLayout(new QHBoxLayout(untouchable)),
 	modeName(new QLabel(untouchable)),
 #ifdef DEBUG
-	debugInfo(new QLabel(untouchable)),
+	//debugInfo(new QLabel(untouchable)),
 #endif
 	barcodeInfo(new ReturnableTextEdit(untouchable)),
 	barcodeInput(new ReturnEatingLineEdit(untouchable)),
@@ -44,8 +44,8 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	untouchable->setLayout(innerLayout);
 	innerLayout->addWidget(modeName);
 #ifdef DEBUG
-	innerLayout->addWidget(debugInfo);
-	debugInfo->setWordWrap(true);
+	//innerLayout->addWidget(debugInfo);
+	//debugInfo->setWordWrap(true);
 #endif
 	innerLayout->addWidget(barcodeInput);
 	innerLayout->addWidget(barcodeInfo);
@@ -210,7 +210,7 @@ void AbstractScaningWidget::cameraRequired()
 #ifdef DEBUG
 void AbstractScaningWidget::refreshDebugState()
 {
-	debugInfo->setText(barcodeInfo->debugLine);
+//	debugInfo->setText(barcodeInfo->debugLine);
 }
 #endif
 void AbstractScaningWidget::keyboardRequired()
@@ -321,6 +321,13 @@ ShortBarcode AbstractScaningWidget::_barcodeSearch(QString barcode)
 		return upcastEntity<ShortBarcodeEntity>(AppData->barcodeInfo(barcode));
 	}
 	return ShortBarcode();
+}
+
+void AbstractScaningWidget::focusInEvent(QFocusEvent* event)
+{
+	inframedWidget::focusInEvent(event);
+	if (AppSettings->scanPrefix == 0)
+		barcodeInput->setFocus();
 }
 
 bool checkBarcodeIntegrity(const QString& bc)

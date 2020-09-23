@@ -5,6 +5,11 @@
 #endif
 #include <QLabel>
 #include "widgets/UtilityElements/ExtendedLabels.h"
+void SearchWidget::show()
+{
+	inframedWidget::show();
+	barcodeInput->setFocus();
+}
 SearchWidget::SearchWidget(QWidget* parent)
 	: AbstractScaningWidget( Modes::Search, parent), priceCounter(new TwoLevelCounterLabel(tr("Price"),
 		std::nan(""),this)),
@@ -27,11 +32,11 @@ SearchWidget::SearchWidget(QWidget* parent)
 	innerLayout->removeItem(buttonLayout);
 	innerLayout->removeItem(counterLayout);
 	innerLayout->removeWidget(barcodeInfo);
+	innerLayout->removeItem(innerLayout->itemAt(innerLayout->count() - 1));
 	innerLayout->addItem(counterLayout);
 	innerLayout->addWidget(barcodeInfo);
 	innerLayout->addLayout(additionalInputLayout);
 	innerLayout->addLayout(buttonLayout);
-
 	counterLayout->addWidget(priceCounter);
 	counterLayout->addWidget(discountCounter);
 }
@@ -60,6 +65,8 @@ void SearchWidget::_emplaceBarcode(QString barcode, ShortBarcode e)
 		priceCounter->setValue(e->price);
 		discountCounter->setValue(e->discount);
 	}
+	barcodeInput->setFocus();
+	barcodeInput->selectAll();
 }
 #ifdef CAMERA_SUPPORT
 void SearchWidget::handleCameraBarcode(QString value)

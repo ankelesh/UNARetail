@@ -16,6 +16,9 @@ protected:
 	virtual void handleCameraBarcode(QString value) override;
 #endif
 	virtual void _clearControls() override;
+
+
 public:
+	virtual void show() override;
 	SearchWidget(QWidget* parent);
 };

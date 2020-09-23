@@ -52,7 +52,7 @@ protected:
 		//	widgets requested - such as keyboard or camera
 	QLabel* modeName;
 #ifdef DEBUG
-	QLabel* debugInfo;
+//	QLabel* debugInfo;
 #endif
 	ReturnableTextEdit* barcodeInfo;
 	ReturnEatingLineEdit* barcodeInput;		//	field for manual barcode input
@@ -72,6 +72,8 @@ protected:
 	virtual bool _validateBarcode(QString barcode);
 	virtual QString _extractionCheck(QString barcode);
 	virtual ShortBarcode _barcodeSearch(QString barcode);
+
+	virtual void focusInEvent(QFocusEvent* event) override;
 public:
 	AbstractScaningWidget(Modes mode, QWidget* parent = Q_NULLPTR);
 	
