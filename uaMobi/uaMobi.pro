@@ -6,7 +6,7 @@ QT       += core gui sql network xml multimedia multimediawidgets quickwidgets q
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 android : QT += androidextras
-CONFIG += debug
+CONFIG += release
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
 CONFIG += c++17
@@ -14,7 +14,7 @@ include(qzxing-master/src/qzxing.pri)
 
 TARGET = UNARetail
 TEMPLATE = app
-DEFINES += QT_VERSION5X CAMERA_SUPPORT DEBUG
+DEFINES += QT_VERSION5X CAMERA_SUPPORT DEBUG ETALONUS
 # Default rules for deployment.
 DEPENDPATH += .
 TRANSLATIONS += translations/unaretail_ru.ts \
@@ -22,8 +22,8 @@ TRANSLATIONS += translations/unaretail_ru.ts \
     translations/unaretail_en.ts
 
 QMAKE_LFLAGS += -lstdc++
-QML_IMPORT_PATH = D:\Lib\Qt\5.12.2
-QML_DESIGNER_IMPORT_PATH =D:\Lib\Qt\5.12.2
+QML_IMPORT_PATH = E:\Lib\Qt\5.12.5
+QML_DESIGNER_IMPORT_PATH =E:\Lib\Qt\5.12.5
 RESOURCES += resources.qrc
 
 
@@ -117,6 +117,7 @@ HEADERS += \
     widgets/SettingsWidgets/ExtraSendSettings.h \
     widgets/SettingsWidgets/GeneralSettings.h \
     widgets/SettingsWidgets/LoginSettings.h \
+    widgets/SettingsWidgets/PrinterConnectionSettings.h \
     widgets/SettingsWidgets/PrinterSettings.h \
     widgets/SettingsWidgets/QuickSendSettings.h \
     widgets/SettingsWidgets/ScaningSettings.h \
@@ -214,6 +215,7 @@ SOURCES += \
     widgets/SettingsWidgets/ExtraSendSettings.cpp \
     widgets/SettingsWidgets/GeneralSettings.cpp \
     widgets/SettingsWidgets/LoginSettings.cpp \
+    widgets/SettingsWidgets/PrinterConnectionSettings.cpp \
     widgets/SettingsWidgets/PrinterSettings.cpp \
     widgets/SettingsWidgets/QuickSendSettings.cpp \
     widgets/SettingsWidgets/ScaningSettings.cpp \

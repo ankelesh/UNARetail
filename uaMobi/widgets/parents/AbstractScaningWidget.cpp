@@ -342,7 +342,6 @@ bool checkBarcodeIntegrity(const QString& bc)
 
 void ReturnableTextEdit::focusInEvent(QFocusEvent* fev)
 {
-	debugLine += "F";
 	QTextEdit::focusInEvent(fev);
     qApp->inputMethod()->show();
 }

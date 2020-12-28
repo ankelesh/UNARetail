@@ -60,6 +60,7 @@ void abstractDynamicNode::_hideAndDeleteCurrent(inframedWidget* replacement)
 	{
 		mainLayout->removeWidget(currentlyOpened);
 		currentlyOpened->hide();
+        untouchable->setFocus();
 		currentlyOpened->deleteLater();
 		if (replacement != untouchable)
 		{
@@ -77,6 +78,7 @@ void abstractDynamicNode::_hideAndDeleteCurrent(inframedWidget* replacement)
 		currentlyOpened = replacement;
 		currentlyOpened->setFocus();
 	}
+    currentlyOpened->update();
 }
 
 void abstractDynamicNode::_hideAnyWithDelete(inframedWidget* replacement)
@@ -102,6 +104,7 @@ void abstractDynamicNode::_hideAnyWithDelete(inframedWidget* replacement)
 		currentlyOpened = replacement;
 		currentlyOpened->setFocus();
 	}
+    currentlyOpened->update();
 }
 
 const char *CastFailedException::what() const
