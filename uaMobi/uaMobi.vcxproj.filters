@@ -167,6 +167,12 @@
     <Filter Include="Header Files\View\SettingsScreens\ExtraSettings">
       <UniqueIdentifier>{fb8e163d-98ea-49ca-a354-abead8b5a390}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\util\Wrappers">
+      <UniqueIdentifier>{c9fe90fd-d606-4aa7-ad7c-d4dd658e0439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util\Wrappers">
+      <UniqueIdentifier>{5f191b95-48b3-417b-8d52-bbfa03136004}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -871,9 +877,6 @@
     <ClCompile Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrapper.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -891,6 +894,27 @@
     </ClCompile>
     <ClCompile Include="widgets\SettingsWidgets\PrinterConnectionSettings.cpp">
       <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\FiscalPrinterWrapper.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.cpp">
+      <Filter>Source Files\util\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\NullPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1016,6 +1040,12 @@
     </ClInclude>
     <ClInclude Include="Datacore\EntityQuickHash.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h">
+      <Filter>Header Files\View\Roots</Filter>
+    </ClInclude>
+    <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
+      <Filter>Header Files\util\Wrappers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1716,11 +1746,23 @@
     <QtMoc Include="Wrappers\androidservicewrapper.h">
       <Filter>Header Files\Model</Filter>
     </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrapper.h">
-      <Filter>Header Files\Model</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\SettingsWidgets\PrinterConnectionSettings.h">
       <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\FiscalPrinterWrapper.h">
+      <Filter>Header Files\Model</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

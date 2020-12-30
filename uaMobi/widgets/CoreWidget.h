@@ -26,8 +26,12 @@ private slots:
 signals:
 	void iclicked(int index);
 };
+
 namespace mpw {
-	enum mainPageWidgets { Inventory, Supplies, Search, Simple, Invoice, Prices, SalesAccounting, DatabaseOps};
+	enum mainPageWidgets { Inventory, Supplies, Search, 
+		Simple, Invoice, Prices,
+		SalesAccounting, DatabaseOps, TagPrinting
+	};
 }
 
 class CoreWidget : public QWidget, abstractDynamicNode
@@ -43,6 +47,7 @@ private:
 	IndexedButton* prices;
 	IndexedButton* salesAcc;
 	IndexedButton* dbOperations;
+	IndexedButton* printTags;
 	QHBoxLayout* controlPanel;			
 	IgnorantButton* exitButton;			//	quits app
 	MegaIconButton* settingsButton;		//	opens settings screen 

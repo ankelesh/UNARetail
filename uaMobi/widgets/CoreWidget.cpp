@@ -9,6 +9,7 @@
 #include "widgets/UtilityElements/ExtendedDialogs.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/DatabaseOperationBranch/DatabaseOperationsWidget.h"
+#include "widgets/TagPrintingBranch/PriceTagPrintingWidget.h"
 
 CoreWidget::CoreWidget(QWidget* parent)
 	: QWidget(parent), abstractDynamicNode( new inframedWidget(this), new QVBoxLayout(this)),
@@ -19,6 +20,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	prices(new IndexedButton(5, untouchable)),
 	salesAcc(new IndexedButton(6, untouchable)),
 	dbOperations(new IndexedButton(7, untouchable)),
+	printTags(new IndexedButton(8, untouchable)),
 	controlPanel(new QHBoxLayout(untouchable)), exitButton(new IgnorantButton(untouchable)),
 	settingsButton(new MegaIconButton(untouchable)), lock(false)
 {
@@ -43,6 +45,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	innerLayout->addWidget(invoice, 1, 1);
 	innerLayout->addWidget(salesAcc,2, 0);
 	innerLayout->addWidget(dbOperations, 2, 1);
+	innerLayout->addWidget(printTags, 2, 2);
 	setFont(AppGenFont);
 	innerLayout->addLayout(controlPanel, 3, 0, 2, 0);
 	controlPanel->addWidget(settingsButton);
@@ -57,6 +60,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	prices->setIcon(QIcon(":/res/cash.png"));
 	salesAcc->setIcon(QIcon(":/res/contract.png"));
 	dbOperations->setIcon(QIcon(":/res/url2.png"));
+	printTags->setIcon(QIcon(":/res/pencil.png"));
 
 	inventory->setText(tr("inventory"));
 	supplies->setText(tr("supplies"));
@@ -66,6 +70,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	prices->setText(tr("prices_mode"));
 	salesAcc->setText(tr("sales_accounting"));
 	dbOperations->setText(tr("db_operations"));
+	printTags->setText(tr("tags"));
 
 
 	QSizePolicy sizePol(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
@@ -77,6 +82,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	invoice->setSizePolicy(sizePol);
 	salesAcc->setSizePolicy(sizePol);
 	dbOperations->setSizePolicy(sizePol);
+	printTags->setSizePolicy(sizePol);
 	settingsButton->setIcon(QIcon(":/res/settings.png"));
 	exitButton->setIcon(QIcon(":/res/exit.png"));
 	settingsButton->setMinimumHeight(calculateAdaptiveButtonHeight());
@@ -92,6 +98,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	QObject::connect(invoice, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
 	QObject::connect(salesAcc, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
 	QObject::connect(dbOperations, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
+	QObject::connect(printTags, &IndexedButton::iclicked, this, &CoreWidget::branchRequired);
 #else
 	QObject::connect(settingsButton, SIGNAL(clicked()), this, SLOT(settingsPressed()));
 	QObject::connect(exitButton, SIGNAL(clicked()), this, SLOT(exitPressed()));
@@ -100,6 +107,10 @@ CoreWidget::CoreWidget(QWidget* parent)
 	QObject::connect(search, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
 	QObject::connect(simple, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
 	QObject::connect(prices, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
+	QObject::connect(invoice, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
+	QObject::connect(salesAcc, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
+	QObject::connect(dbOperations, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
+	QObject::connect(printTags, SIGNAL(iclicked(int)), this, SLOT(branchRequired(int)));
 #endif
 
 }
@@ -172,6 +183,9 @@ void CoreWidget::branchRequired(int number)
 		break;
 	case mpw::DatabaseOps:
 		_hideAndDeleteCurrent(new DatabaseOperationsWidget(this));
+		break;
+	case mpw::TagPrinting:
+		_hideAndDeleteCurrent(new PriceTagPrintingWidget(this));
 		break;
 	default:
 		break;

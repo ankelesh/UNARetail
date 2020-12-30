@@ -2,10 +2,11 @@
 #include "widgets/utils/MegaIconButton.h"
 #include "widgets/utils/ElementsStyles.h"
 #include "Datacore/DataEntities.h"
-#include "Wrappers/PrinterWrapper.h"
+#include "Wrappers/FiscalPrinterWrapper.h"
 #include "Datacore/EntityQuickHash.h"
 #include "Wrappers/androidservicewrapper.h"
 #include "widgets/utils/GlobalAppSettings.h"
+
 void PrintingReceiptScaningWidget::barcodeReady()
 {
 	blockSignals(true);
@@ -27,7 +28,7 @@ PrintingReceiptScaningWidget::PrintingReceiptScaningWidget(Modes mode, int count
 	{
 		barcodeModel = new DataEntityListModel(this);
 	}
-    PrinterWrapper::init();
+    FiscalPrinterWrapper::init();
 	QObject::connect(printAndExitButton, &MegaIconButton::clicked, this,&PrintingReceiptScaningWidget::printAndAxitPressed);
 
 }
@@ -58,7 +59,7 @@ void PrintingReceiptScaningWidget::printAndAxitPressed()
         }
     }
 	emit receiptDataFinished(valuesToPrint);
-    PrinterWrapper::instance().printReceipt(valuesToPrint);
+    FiscalPrinterWrapper::instance().printReceipt(valuesToPrint);
     if (AppSettings->sendToEmailByIntent || AppSettings->sendAsMessageByIntent)
     {
         QString receiptContent;

@@ -1,6 +1,5 @@
--->	Method called: initializeGlobalAppSettings in object 22217840
+-->	Method called: initializeGlobalAppSettings in object 13140112
 if errors: 0
-***	method key release captured with textcalled
 ***	method key release captured with textcalled
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
@@ -14,188 +13,21 @@ if errors: 0
 ***	method execing query: PRAGMA TABLE_INFO(slaproductsscan)called
 ***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
 ***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
-***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '4810226004944'called
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
-***	method key release captured with textcalled
+***	method execing query: select id , barcode , code , info , count , price , discprice from shortbcs where barcode = '1'called
+***	method execing query: SELECT count(*) from shortbcscalled
+
+
+
+
+
+
+
+
+***	method execing query: drop table shortbcscalled
+***	method execing query: create table shortbcs (id number PRIMARY KEY NOT NULL,barcode TEXT,code number,info TEXT,count TEXT,price number,discprice number)called
+***	method execing query: SELECT count(*) from shortbcscalled
+
+-->	Method called: dumpGlobalAppSettings in object 13140112
+if errors: 0
+-->	Method called: dumpGlobalAppSettings in object 13140112
+if errors: 0

@@ -1,0 +1,9 @@
+>>	411990755383766 method commcore::get sent request http://92.115.237.226:60080/um/prices_uniback.php?c=list_products&place=141550&page=0&call_id=1647963021436012 supplied with 
+<<	411990755611310 received response going to searchDatabaseLoad containing text:|
+	
+	and error text |
+>>	411990755611474 method commcore::get sent request http://92.115.237.226:60080/um/prices_uniback.php?c=list_products&place=141550&page=1&call_id=1647963021436012 supplied with 
+<<	411990755686800 received response going to searchDatabaseLoad containing text:|
+	
+	and error text |
+>>	411990755941705 method commcore::get sent request http://92.115.237.226:60080/um/prices_uniback.php?c=list_products&place=141550&page=1000&call_id=1647963021436012 supplied with 
