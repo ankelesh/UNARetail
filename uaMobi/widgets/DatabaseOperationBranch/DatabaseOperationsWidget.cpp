@@ -72,6 +72,7 @@ void DatabaseOperationsWidget::addPressed()
 		return;
 	if (searchResult.isNull())
 	{
+
 		AppData->pushIntoDownloaded(*pendingEntity);
 	}
 	else

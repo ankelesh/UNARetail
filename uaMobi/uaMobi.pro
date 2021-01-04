@@ -5,16 +5,15 @@
 QT       += core gui sql network xml multimedia multimediawidgets quickwidgets qml quick concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-android : QT += androidextras
-CONFIG += release
+android : QT += androidextras bluetooth
+CONFIG += debug
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
-CONFIG += c++17
 include(qzxing-master/src/qzxing.pri)
 
 TARGET = UNARetail
 TEMPLATE = app
-DEFINES += QT_VERSION5X CAMERA_SUPPORT DEBUG ETALONUS
+DEFINES += QT_VERSION5X CAMERA_SUPPORT DEBUG
 # Default rules for deployment.
 DEPENDPATH += .
 TRANSLATIONS += translations/unaretail_ru.ts \
@@ -57,7 +56,12 @@ HEADERS += \
     Datacore/ProductEntity.h \
     Datacore/ShortBarcodeEntity.h \
     Datacore/UtilityEntities.h \
-    Wrappers/PrinterWrapper.h \
+    Wrappers/FiscalPrinterWrapper.h \
+    Wrappers/PrinterWrappers/AbsPrinterWrapper.h \
+    Wrappers/PrinterWrappers/AndroidBluetoothPrinterWrapper.h \
+    Wrappers/PrinterWrappers/FTRCOMPrinterWrapper.h \
+    Wrappers/PrinterWrappers/NullPrinterWrapper.h \
+    Wrappers/PrinterWrappers/PrinterWrapperFactory.h \
     Wrappers/androidservicewrapper.h \
     dataFormats/dataformatcore.h \
     dataFormats/dataformater.h \
@@ -128,6 +132,7 @@ HEADERS += \
     widgets/SettingsWidgets/ViewSettings.h \
     widgets/SimpleBranch/SimpleBranchWidget.h \
     widgets/SupplyBranch/SuppliesWidget.h \
+    widgets/TagPrintingBranch/PriceTagPrintingWidget.h \
     widgets/UtilityElements/ExtendedDialogs.h \
     widgets/UtilityElements/ExtendedLabels.h \
     widgets/parents/AbstractCameraWidget.h \
@@ -154,7 +159,12 @@ SOURCES += \
     Datacore/ProductEntity.cpp \
     Datacore/ShortBarcodeEntity.cpp \
     Datacore/UtilityEntities.cpp \
-    Wrappers/PrinterWrapper.cpp \
+    Wrappers/FiscalPrinterWrapper.cpp \
+    Wrappers/PrinterWrappers/AbsPrinterWrapper.cpp \
+    Wrappers/PrinterWrappers/AndroidBluetoothPrinterWrapper.cpp \
+    Wrappers/PrinterWrappers/FTRCOMPrinterWrapper.cpp \
+    Wrappers/PrinterWrappers/NullPrinterWrapper.cpp \
+    Wrappers/PrinterWrappers/PrinterWrapperFactory.cpp \
     Wrappers/androidservicewrapper.cpp \
     dataFormats/dataformatcore.cpp \
     dataFormats/dataformater.cpp \
@@ -226,6 +236,7 @@ SOURCES += \
     widgets/SettingsWidgets/ViewSettings.cpp \
     widgets/SimpleBranch/SimpleBranchWidget.cpp \
     widgets/SupplyBranch/SuppliesWidget.cpp \
+    widgets/TagPrintingBranch/PriceTagPrintingWidget.cpp \
     widgets/UtilityElements/ExtendedDialogs.cpp \
     widgets/UtilityElements/ExtendedLabels.cpp \
     widgets/parents/AbstractCameraWidget.cpp \

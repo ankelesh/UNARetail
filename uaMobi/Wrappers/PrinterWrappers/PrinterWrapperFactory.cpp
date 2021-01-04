@@ -10,7 +10,7 @@ AbsPrinterWrapper* PrinterWrapperFactory::fabricate(QObject* parent, QString enc
 	return new FTRCOMPrinterWrapper(AppSettings->printerPortDesignation, AppSettings->printerPort, parent, encoding);
 #endif
 #ifdef Q_OS_ANDROID
-	return new AndroidBluetoothPrinterWrapper("zebra", QString(), QString(), parent, encoding);
+    return new AndroidBluetoothPrinterWrapper("z", QString(), QString(), parent, encoding);
 #endif
 
 	return new NullPrinterWrapper("D:/print.txt", parent, encoding);

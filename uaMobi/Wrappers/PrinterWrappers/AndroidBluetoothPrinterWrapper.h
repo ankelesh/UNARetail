@@ -4,6 +4,7 @@
 #include <QBluetoothServiceInfo>
 #include <QBluetoothSocket>
 #include <QBluetoothUuid>
+#include <QBluetoothServiceDiscoveryAgent>
 #endif
 
 class QBluetoothSocket;
@@ -50,6 +51,7 @@ protected slots:
 	void serviceFound(const QBluetoothServiceInfo& svc);
 	void socketReady();
 	void connectionError(QBluetoothSocket::SocketError err);
+    void devf_error(QBluetoothServiceDiscoveryAgent::Error err);
 #endif
 
 };

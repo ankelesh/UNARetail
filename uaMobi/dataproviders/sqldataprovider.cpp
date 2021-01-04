@@ -353,6 +353,10 @@ bool SqlDataProvider::clearSendingSelector(Modes mode, Entity prototype)
 }
 bool SqlDataProvider::pushIntoDownloaded(ShortBarcodeEntity& shb)
 {
+    if (!(mainDb.tables().contains(shb.getAssociatedTable()->declaration())))
+    {
+        recreateDownloadTable();
+    }
 	return DBexecute(shb.getAssociatedTable()->insert(shb.asSqlInsertion()));
 }
 bool SqlDataProvider::pushIntoDownloaded(QLinkedList<QSharedPointer<ShortBarcodeEntity>>& l)

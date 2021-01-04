@@ -5,6 +5,7 @@
 class AbsPrinterWrapper;
 class PriceTagPrintingWidget : public SearchWidget
 {
+    Q_OBJECT
 protected:
 	QLabel* connectionStatusLabel;
 	AbsPrinterWrapper* printerWrapper;

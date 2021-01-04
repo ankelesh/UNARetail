@@ -3,14 +3,15 @@
 #include "Wrappers/PrinterWrappers/PrinterWrapperFactory.h"
 
 
+
 static QString defaultTemplate(
-	QStringLiteral("!UF test.fmt\r\n%0\r\nPrice: %2 Discount: %3\r\n")
+    QStringLiteral("! UF test.fmt\r\n%0 %2 %3\r\n")
 );
 
 PriceTagPrintingWidget::PriceTagPrintingWidget(QWidget* parent) : 
 	SearchWidget(parent),
 	connectionStatusLabel(new QLabel("no connection", this)),
-	printerWrapper(PrinterWrapperFactory::fabricate(this))
+    printerWrapper(PrinterWrapperFactory::fabricate(this))
 {
 	innerLayout->insertWidget(0, connectionStatusLabel);
 #ifdef QT_VERSION5X
@@ -37,5 +38,5 @@ void PriceTagPrintingWidget::_emplaceBarcode(QString barcode, ShortBarcode info)
 {
 	SearchWidget::_emplaceBarcode(barcode, info);
 	if (!info.isNull())
-		printerWrapper->print(defaultTemplate.arg(info->info).arg(info->price).arg(info->discount));
+        printerWrapper->print(defaultTemplate.arg(info->info).arg(info->price).arg(info->discount));
 }
