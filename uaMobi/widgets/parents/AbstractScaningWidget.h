@@ -44,6 +44,8 @@ class AbstractScaningWidget : public inframedWidget, abstractDynamicNode
 	Q_OBJECT
 protected:
 	using abstractDynamicNode::untouchable;
+	using abstractDynamicNode::_hideAndDeleteCurrent;
+	
 	QVBoxLayout* innerLayout;		//	this layout is holding main widgets
 	QHBoxLayout* counterLayout;	//	This layout holds shortcuts-> to log and to manual input
 	QVBoxLayout* controlLayout;

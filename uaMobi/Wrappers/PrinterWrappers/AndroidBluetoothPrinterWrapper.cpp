@@ -143,8 +143,8 @@ AndroidBluetoothPrinterWrapper::~AndroidBluetoothPrinterWrapper()
 #ifdef Q_OS_ANDROID
     if (mainSocket->state() == QBluetoothSocket::ConnectedState)
     {
-        //AppSettings->lastPrinterBTMAC = targetService.device().address().toString();
-        //AppSettings->lastPrinterBTUUID = targetService.serviceUuid().toString();
+        AppSettings->lastPrinterBTMAC = targetService.device().address().toString();
+        AppSettings->lastPrinterBTUUID = targetService.serviceUuid().toString();
     }
     mainSocket->close();
     mainSocket->disconnectFromService();

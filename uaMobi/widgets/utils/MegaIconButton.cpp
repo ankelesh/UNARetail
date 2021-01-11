@@ -35,6 +35,11 @@ MegaIconButton::MegaIconButton(QIcon ic, const double imageCoef, const QString t
 {
 	setMinimumHeight(calculateAdaptiveButtonHeight());
 }
+MegaIconButton::MegaIconButton(const double height, QWidget* parent)
+	: QPushButton(parent), ico(), imageCoefficient(0.6)
+{
+	setMinimumHeight(calculateAdaptiveButtonHeight(height));
+}
 
 void MegaIconButton::setIcon(QIcon icon)
 {

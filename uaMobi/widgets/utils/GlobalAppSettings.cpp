@@ -24,7 +24,7 @@ const char* SUFFIX = "nigthly";
 #endif
 QString rootFilePath =
 #ifdef Q_OS_ANDROID
-    "storage/emulated/0/";
+    "/storage/emulated/0/";
 #else
 #ifdef Q_OS_WINCE
     "/Documents/";
@@ -129,6 +129,13 @@ GlobalAppSettings::GlobalAppSettings()
     emailDestinations = settings.value("emailDestinations", QVariant()).toStringList();
     sendAsMessageByIntent = settings.value("sendAsMessageByIntent", QVariant(false)).toBool();
     settings.endGroup();
+	settings.beginGroup("label_printer");
+	labelPrinterTemplateText = settings.value("labelPrinterTemplateText", QVariant()).toString();
+	labelPrinterTemplatePath = settings.value("labelPrinterTemplatePath", QVariant()).toString();
+	labelPrinterName = settings.value("labelPrinterName", QVariant("zebra")).toString();
+	lastPrinterBTMAC = settings.value("lastPrinterBTMAC", QVariant()).toString();
+	lastPrinterBTUUID = settings.value("lastPrinterBTUUID", QVariant()).toString();
+	settings.endGroup();
 }
 
 void GlobalAppSettings::SetTranslator()
@@ -223,6 +230,13 @@ void GlobalAppSettings::Save()
     settings.setValue("emailDestinations", emailDestinations);
     settings.setValue("sendAsMessageByIntent", sendAsMessageByIntent);
     settings.endGroup();
+	settings.beginGroup("label_printer");
+	settings.setValue("labelPrinterTemplateText", labelPrinterTemplateText);
+	settings.setValue("labelPrinterTemplatePath", labelPrinterTemplatePath);
+	settings.setValue("labelPrinterName", labelPrinterName);
+	settings.setValue("lastPrinterBTMAC", lastPrinterBTMAC);
+	settings.setValue("lastPrinterBTUUID", lastPrinterBTUUID);
+	settings.endGroup();
 }
 
 ModeDescription& GlobalAppSettings::getModeDescription(Modes m)

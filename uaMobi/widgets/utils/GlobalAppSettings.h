@@ -13,7 +13,7 @@ extern const float VERSION;
 extern const char* SUFFIX;
 
 #define AppSettings GlobalAppSettings::instanse()
-
+extern QString rootFilePath;
 class GlobalAppSettings	//	Holds main settings for data exchange. DO NOT MAKE MULTIPLE
 {
 private:
@@ -79,6 +79,13 @@ public:
     bool sendToEmailByIntent;
     QStringList emailDestinations;
     bool sendAsMessageByIntent;
+
+	// label printing
+	QString labelPrinterTemplateText;
+	QString	labelPrinterTemplatePath;
+	QString labelPrinterName;
+	QString lastPrinterBTMAC;
+	QString lastPrinterBTUUID;
 
 	void SetTranslator();				//	Sets translator. Can be used any time
 	void Save();						//	Forse save

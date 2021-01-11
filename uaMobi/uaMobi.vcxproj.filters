@@ -173,6 +173,9 @@
     <Filter Include="Source Files\util\Wrappers">
       <UniqueIdentifier>{5f191b95-48b3-417b-8d52-bbfa03136004}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\View\SettingScreens\PrintingSettings">
+      <UniqueIdentifier>{7661a3bc-ae84-41c6-8cd2-2c200fa28d9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -916,6 +919,12 @@
     <ClCompile Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.cpp">
       <Filter>Source Files\util\Wrappers</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\UtilityElements\AndroidFileDialog.cpp">
+      <Filter>Source Files\View\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\PrinterTemplatesSettings.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1040,9 +1049,6 @@
     </ClInclude>
     <ClInclude Include="Datacore\EntityQuickHash.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h">
-      <Filter>Header Files\View\Roots</Filter>
     </ClInclude>
     <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
       <Filter>Header Files\util\Wrappers</Filter>
@@ -1763,6 +1769,15 @@
     </QtMoc>
     <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h">
       <Filter>Header Files\util\Wrappers</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\UtilityElements\AndroidFileDialog.h">
+      <Filter>Header Files\View\elements</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\PrinterTemplatesSettings.h">
+      <Filter>Source Files\View\SettingScreens\PrintingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h">
+      <Filter>Header Files\View\Roots</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

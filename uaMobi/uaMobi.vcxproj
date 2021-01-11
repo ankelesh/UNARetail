@@ -328,6 +328,7 @@
     <ClCompile Include="widgets\SettingsWidgets\LoginSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\PrinterConnectionSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\PrinterSettings.cpp" />
+    <ClCompile Include="widgets\SettingsWidgets\PrinterTemplatesSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\QuickSendSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\ScaningSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\SearchDatabaseSettings.cpp" />
@@ -336,6 +337,7 @@
     <ClCompile Include="widgets\SettingsWidgets\TaxInvoiceSettings.cpp" />
     <ClCompile Include="widgets\SettingsWidgets\ViewSettings.cpp" />
     <ClCompile Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.cpp" />
+    <ClCompile Include="widgets\UtilityElements\AndroidFileDialog.cpp" />
     <ClCompile Include="widgets\UtilityElements\ExtendedDialogs.cpp" />
     <ClCompile Include="widgets\UtilityElements\ExtendedLabels.cpp" />
     <ClCompile Include="widgets\utils\BarcodeObserver.cpp" />
@@ -438,6 +440,14 @@
   <ItemGroup>
     <ClInclude Include="Datacore\AbsEntity.h" />
     <ClInclude Include="Datacore\BarcodeEntity.h" />
+    <QtMoc Include="widgets\SettingsWidgets\PrinterTemplatesSettings.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+    </QtMoc>
+    <QtMoc Include="widgets\UtilityElements\AndroidFileDialog.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+    </QtMoc>
     <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h" />
     <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
@@ -697,7 +707,10 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
     </QtMoc>
-    <ClInclude Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h" />
+    <QtMoc Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent</IncludePath>
+    </QtMoc>
     <ClInclude Include="widgets\utils\client_specific_defaults.h" />
     <ClInclude Include="widgets\utils\ElementsStyles.h" />
     <ClInclude Include="qzxing-master\src\zxing\zxing\EncodeHint.h" />

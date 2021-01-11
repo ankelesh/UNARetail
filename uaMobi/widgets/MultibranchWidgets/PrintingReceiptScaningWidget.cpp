@@ -6,7 +6,7 @@
 #include "Datacore/EntityQuickHash.h"
 #include "Wrappers/androidservicewrapper.h"
 #include "widgets/utils/GlobalAppSettings.h"
-
+#include "widgets/SettingsWidgets/PrinterTemplatesSettings.h"
 void PrintingReceiptScaningWidget::barcodeReady()
 {
 	blockSignals(true);
@@ -30,7 +30,7 @@ PrintingReceiptScaningWidget::PrintingReceiptScaningWidget(Modes mode, int count
 	}
     FiscalPrinterWrapper::init();
 	QObject::connect(printAndExitButton, &MegaIconButton::clicked, this,&PrintingReceiptScaningWidget::printAndAxitPressed);
-
+	
 }
 
 void PrintingReceiptScaningWidget::printAndAxitPressed()
@@ -85,3 +85,4 @@ void PrintingReceiptScaningWidget::okPressed()
 	}
 	emit backRequired();
 }
+

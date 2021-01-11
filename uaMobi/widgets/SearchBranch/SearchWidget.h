@@ -6,6 +6,8 @@ class SearchWidget : public AbstractScaningWidget
 {
 	Q_OBJECT
 protected:
+	using AbstractScaningWidget::_hideAndDeleteCurrent;
+	using AbstractScaningWidget::untouchable;
 	TwoLevelCounterLabel* priceCounter;
 	TwoLevelCounterLabel* discountCounter;
 	virtual void handleScanButton() override;		//	handles scan press
