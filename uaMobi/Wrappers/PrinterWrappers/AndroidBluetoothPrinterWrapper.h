@@ -52,6 +52,9 @@ protected slots:
 	void socketReady();
 	void connectionError(QBluetoothSocket::SocketError err);
     void devf_error(QBluetoothServiceDiscoveryAgent::Error err);
+    void devf_cancel();
+    void devf_finish();
+    void refreshSearch();
 #endif
 
 };

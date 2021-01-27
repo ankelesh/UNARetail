@@ -9,7 +9,7 @@
 #endif
 #include "widgets/utils/ZebraListItemDelegate.h"
 #include "widgets/utils/GlobalAppSettings.h"
-
+#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 #include "widgets/UtilityElements/ExtendedLabels.h"
 #include "widgets/utils/EventsAndFilters.h"
 #include "widgets/MultibranchWidgets/ScaningCameraWidget.h"
@@ -193,6 +193,7 @@ void AbstractScaningWidget::barcodeConfirmed(QString barcode)
 {
 	if (_validateBarcode(barcode)) 
 	{
+        AppSounds->play(0);
 		barcode = _extractionCheck(barcode);
 		_clearControls();
 		_emplaceBarcode(barcode, _barcodeSearch(barcode));

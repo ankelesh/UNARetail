@@ -6,7 +6,7 @@ QT       += core gui sql network xml multimedia multimediawidgets quickwidgets q
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 android : QT += androidextras bluetooth
-CONFIG += debug
+CONFIG += release
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
 include(qzxing-master/src/qzxing.pri)
@@ -37,6 +37,7 @@ DISTFILES += \
     android-sources/res/drawable-ldpi/icon.png \
     android-sources/res/drawable-mdpi/icon.png \ \
     android-sources/res/values/libs.xml \
+    android-sources/src/una/unamd/QBroadcastCatcher.java \
     uamobi_en.qm \
     uamobi_en.ts \
     uamobi_ro.qm \
@@ -62,6 +63,12 @@ HEADERS += \
     Wrappers/PrinterWrappers/FTRCOMPrinterWrapper.h \
     Wrappers/PrinterWrappers/NullPrinterWrapper.h \
     Wrappers/PrinterWrappers/PrinterWrapperFactory.h \
+    Wrappers/QBroadcastCatcher.h \
+    Wrappers/SoundWrappers/AbsSoundWrapper.h \
+    Wrappers/SoundWrappers/ModernQtSoundWrapper.h \
+    Wrappers/SoundWrappers/PhononSoundWrapper.h \
+    Wrappers/SoundWrappers/SoundEffectPlayer.h \
+    Wrappers/SoundWrappers/WinCEUnpackWrapper.h \
     Wrappers/androidservicewrapper.h \
     dataFormats/dataformatcore.h \
     dataFormats/dataformater.h \
@@ -123,6 +130,7 @@ HEADERS += \
     widgets/SettingsWidgets/LoginSettings.h \
     widgets/SettingsWidgets/PrinterConnectionSettings.h \
     widgets/SettingsWidgets/PrinterSettings.h \
+    widgets/SettingsWidgets/PrinterTemplatesSettings.h \
     widgets/SettingsWidgets/QuickSendSettings.h \
     widgets/SettingsWidgets/ScaningSettings.h \
     widgets/SettingsWidgets/SearchDatabaseSettings.h \
@@ -133,6 +141,7 @@ HEADERS += \
     widgets/SimpleBranch/SimpleBranchWidget.h \
     widgets/SupplyBranch/SuppliesWidget.h \
     widgets/TagPrintingBranch/PriceTagPrintingWidget.h \
+    widgets/UtilityElements/AndroidFileDialog.h \
     widgets/UtilityElements/ExtendedDialogs.h \
     widgets/UtilityElements/ExtendedLabels.h \
     widgets/parents/AbstractCameraWidget.h \
@@ -165,6 +174,12 @@ SOURCES += \
     Wrappers/PrinterWrappers/FTRCOMPrinterWrapper.cpp \
     Wrappers/PrinterWrappers/NullPrinterWrapper.cpp \
     Wrappers/PrinterWrappers/PrinterWrapperFactory.cpp \
+    Wrappers/QBroadcastCatcher.cpp \
+    Wrappers/SoundWrappers/AbsSoundWrapper.cpp \
+    Wrappers/SoundWrappers/ModernQtSoundWrapper.cpp \
+    Wrappers/SoundWrappers/PhononSoundWrapper.cpp \
+    Wrappers/SoundWrappers/SoundEffectPlayer.cpp \
+    Wrappers/SoundWrappers/WinCEUnpackWrapper.cpp \
     Wrappers/androidservicewrapper.cpp \
     dataFormats/dataformatcore.cpp \
     dataFormats/dataformater.cpp \
@@ -227,6 +242,7 @@ SOURCES += \
     widgets/SettingsWidgets/LoginSettings.cpp \
     widgets/SettingsWidgets/PrinterConnectionSettings.cpp \
     widgets/SettingsWidgets/PrinterSettings.cpp \
+    widgets/SettingsWidgets/PrinterTemplatesSettings.cpp \
     widgets/SettingsWidgets/QuickSendSettings.cpp \
     widgets/SettingsWidgets/ScaningSettings.cpp \
     widgets/SettingsWidgets/SearchDatabaseSettings.cpp \
@@ -237,6 +253,7 @@ SOURCES += \
     widgets/SimpleBranch/SimpleBranchWidget.cpp \
     widgets/SupplyBranch/SuppliesWidget.cpp \
     widgets/TagPrintingBranch/PriceTagPrintingWidget.cpp \
+    widgets/UtilityElements/AndroidFileDialog.cpp \
     widgets/UtilityElements/ExtendedDialogs.cpp \
     widgets/UtilityElements/ExtendedLabels.cpp \
     widgets/parents/AbstractCameraWidget.cpp \

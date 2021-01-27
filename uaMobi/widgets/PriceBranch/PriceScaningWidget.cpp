@@ -12,6 +12,7 @@
 #include "Datacore/DataEntities.h"
 #include "widgets/utils/MegaIconButton.h"
 #include "widgets/utils/GlobalAppSettings.h"
+#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 PriceScaningWidget::PriceScaningWidget(QWidget* parent)
 	: AbstractScaningWidget(Modes::Prices, parent),
 	lengthCounter(new QLabel(untouchable)),
@@ -142,6 +143,7 @@ void PriceScaningWidget::barcodeReady()
 	{
 		pendingBarcode->comment = barcodeInfo->toPlainText();
 		_pushToHistory(pendingBarcode);
+        AppSounds->play(1);
 		emit barcodeReceived(pendingBarcode);
         QString tname = pendingBarcode->barcode;
         pendingBarcode.clear();

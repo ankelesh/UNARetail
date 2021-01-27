@@ -49,5 +49,7 @@
         <file>translations/unaretail_ru.qm</file>
         <file>res/best.png</file>
         <file>res/contract.png</file>
+        <file>res/beep-08b.wav</file>
+        <file>res/beep-02.wav</file>
     </qresource>
 </RCC>

@@ -87,6 +87,8 @@ public:
 	QString lastPrinterBTMAC;
 	QString lastPrinterBTUUID;
 
+    unsigned int notificationsVolume;
+
 	void SetTranslator();				//	Sets translator. Can be used any time
 	void Save();						//	Forse save
 	ModeDescription& getModeDescription(Modes m);

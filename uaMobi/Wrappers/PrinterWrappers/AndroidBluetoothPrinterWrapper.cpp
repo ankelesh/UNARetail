@@ -5,6 +5,7 @@
 #include <QBluetoothLocalDevice>
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothSocket>
+#include <QTimer>
 #endif
 #ifdef DEBUG
 #include "debugtrace.h"
@@ -47,7 +48,9 @@ void AndroidBluetoothPrinterWrapper::_print(QString data)
         emit error(errorOutput);
         return;
     }
+    data += "\r\n";
     mainSocket->write(encoder.fromUnicode(data));
+    detrace_METHPERROR("_print", "attempt to print data "  << data);
 #else
 #ifdef DEBUG
     detrace_METHPERROR("_print", "attempt to print without a/b support data "  << data);
@@ -132,9 +135,15 @@ AndroidBluetoothPrinterWrapper::AndroidBluetoothPrinterWrapper(QString device_na
 #ifdef Q_OS_ANDROID
     if (lmac.isEmpty() || luuid.isEmpty())
         connectionMode = NEWCONN;
+    QTimer* reftimer = new QTimer(this);
+    reftimer->setInterval(1000);
+    QObject::connect(reftimer, &QTimer::timeout, this, &AndroidBluetoothPrinterWrapper::refreshSearch);
     QObject::connect(serviceDiscAgent, &QBluetoothServiceDiscoveryAgent::serviceDiscovered,
          this, &AndroidBluetoothPrinterWrapper::serviceFound);
     QObject::connect(serviceDiscAgent, QOverload<QBluetoothServiceDiscoveryAgent::Error>::of(&QBluetoothServiceDiscoveryAgent::error), this, &AndroidBluetoothPrinterWrapper::devf_error);
+    QObject::connect(serviceDiscAgent, &QBluetoothServiceDiscoveryAgent::canceled, this, &AndroidBluetoothPrinterWrapper::devf_cancel);
+    QObject::connect(serviceDiscAgent, &QBluetoothServiceDiscoveryAgent::finished, this, &AndroidBluetoothPrinterWrapper::devf_finish);
+  //  reftimer->start();
 #endif
 }
 
@@ -196,6 +205,30 @@ void AndroidBluetoothPrinterWrapper::devf_error(QBluetoothServiceDiscoveryAgent:
     emit error("Device discovery failed: " + serviceDiscAgent->errorString());
 }
 
+void AndroidBluetoothPrinterWrapper::devf_cancel()
+{
+#ifdef DEBUG
+    detrace_METHEXPL("device found cancelled,restarting");
+#endif
+     serviceDiscAgent->start(QBluetoothServiceDiscoveryAgent::FullDiscovery);
+
+}
+
+void AndroidBluetoothPrinterWrapper::devf_finish()
+{
+#ifdef DEBUG
+    detrace_METHEXPL("device found finished,restarting");
+#endif
+    if (!blocker)
+        serviceDiscAgent->start(QBluetoothServiceDiscoveryAgent::FullDiscovery);
+}
+
+void AndroidBluetoothPrinterWrapper::refreshSearch()
+{
+    if (!blocker)
+        serviceDiscAgent->start(QBluetoothServiceDiscoveryAgent::FullDiscovery);
+}
+
 #endif
 void AndroidBluetoothPrinterWrapper::_establishConnection()
 {
@@ -218,7 +251,8 @@ void AndroidBluetoothPrinterWrapper::_establishConnection()
             _openConnection();
             break;
         case NEWCONN:
-            serviceDiscAgent->start(QBluetoothServiceDiscoveryAgent::FullDiscovery);
+
+                serviceDiscAgent->start(QBluetoothServiceDiscoveryAgent::FullDiscovery);
             break;
         default: break;
         }

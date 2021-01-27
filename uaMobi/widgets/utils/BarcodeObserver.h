@@ -22,7 +22,7 @@ protected:
 
 	bool eventFilter(QObject* object, QEvent* event);
 	BarcodeObserver(QChar pref, QChar suff, QChar scanb,  QObject* parent = Q_NULLPTR);
-
+    void _handleBarcodeCatch(QString bc);
 public:
 	void resetCapture(QChar pref, QChar suff, int scanb);
 	void activate();
@@ -35,6 +35,8 @@ signals:
 	void suffixCaught();
 	void scanButtonPress();
 	void backButtonPress();
+protected slots:
+    void handleIntentBarcode(uint nhash, QString iname, QString barcode);
 };
 
 

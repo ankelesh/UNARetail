@@ -13,7 +13,9 @@ namespace ShortBarcodePrivate {
 		"info TEXT,"
 		"count TEXT,"
 		"price number,"
-		"discprice number"
+        "discprice number,"
+        "nameAlt TEXT,"
+        "unitPrice TEXT"
 		")"));
 
 	QStringList _initTSBF()
@@ -26,7 +28,9 @@ namespace ShortBarcodePrivate {
 			QStringLiteral("info") <<
 			QStringLiteral("count") <<
 			QStringLiteral("price") <<
-			QStringLiteral("discprice");
+            QStringLiteral("discprice") <<
+            QStringLiteral("nameAlt")<<
+            QStringLiteral("unitPrice");
 		return t;
 	}
 	static QStringList tableFields(_initTSBF());
@@ -81,20 +85,33 @@ QSharedPointer<ShortBarcodeEntity> ShortBarcodeEntity::extractFromLine(QString l
 	QStringList split2lvl = line.split(",");
 	switch (split2lvl.count())
 	{
+    case 8:
+        if (!split2lvl.at(7).isEmpty())
+            toReturn->unitPrice = split2lvl.at(7).toDouble();
+        Q_FALLTHROUGH();
+    case 7:
+        if (!split2lvl.at(6).isEmpty())
+            toReturn->nameAlt = split2lvl.at(6);
+        Q_FALLTHROUGH();
 	case 6:
-		toReturn->discount = split2lvl.at(5).toDouble();
+        if (!split2lvl.at(5).isEmpty())
+            toReturn->discount = split2lvl.at(5).toDouble();
 		Q_FALLTHROUGH();
 	case 5:
-		toReturn->price = split2lvl.at(4).toDouble();
+        if (!split2lvl.at(4).isEmpty())
+            toReturn->price = split2lvl.at(4).toDouble();
 		Q_FALLTHROUGH();
 	case 4:
-		toReturn->count = split2lvl.at(3);
+        if (!split2lvl.at(3).isEmpty())
+            toReturn->count = split2lvl.at(3);
 		Q_FALLTHROUGH();
 	case 3:
-		toReturn->info = split2lvl.at(2);
+        if (!split2lvl.at(2).isEmpty())
+            toReturn->info = split2lvl.at(2);
 		Q_FALLTHROUGH();
 	case 2:
-		toReturn->code = split2lvl.at(1).toInt();
+        if (!split2lvl.at(1).isEmpty())
+            toReturn->code = split2lvl.at(1).toInt();
 		Q_FALLTHROUGH();
 	case 1:
 		toReturn->barcode = split2lvl.at(0);
@@ -125,6 +142,10 @@ int ShortBarcodeEntity::_getFieldNumberForRole(int role) const
 		return 5;
 	case Roles::comment:
 		return 3;
+    case Roles::ShortBarcode::nameAlt:
+        return 7;
+    case Roles::ShortBarcode::unitPrice:
+        return 8;
 	default:
 		return 0;
 	}
@@ -144,6 +165,9 @@ void ShortBarcodeEntity::_setWriteable(int role, QString text)
 	case Roles::ShortBarcode::Writeables::count:
 		count = text;
 		break;
+    case Roles::ShortBarcode::nameAlt:
+        nameAlt = text;
+        break;
 	default: break;
 	}
 }
@@ -161,7 +185,8 @@ QString ShortBarcodeEntity::_getWriteable(int role) const
 		
 	case Roles::ShortBarcode::Writeables::count:
 		return count;
-		
+    case Roles::ShortBarcode::Writeables::nameAlt:
+        return nameAlt;
 	default: return QString();
 	}
 }
@@ -187,6 +212,8 @@ double ShortBarcodeEntity::_getEnumerable(int role) const
 		return code;
 	case Roles::ShortBarcode::discount:
 		return discount;
+    case Roles::ShortBarcode::unitPrice:
+        return unitPrice;
 	default:
 		return 0;
 	}
@@ -206,6 +233,9 @@ void ShortBarcodeEntity::_setEnumerable(int role, double value)
 	case Roles::ShortBarcode::discount:
 		discount = value;
 		break;
+    case Roles::ShortBarcode::unitPrice:
+        unitPrice = value;
+        break;
 	default:
 		break;
 	}
@@ -240,12 +270,14 @@ void ShortBarcodeEntity::fillPrepQuery(QSqlQuery*q) const
 	q->bindValue(4, count);
 	q->bindValue(5, price);
 	q->bindValue(6, discount);
+    q->bindValue(7, nameAlt);
+    q->bindValue(8, unitPrice);
 }
 
 QString ShortBarcodeEntity::_toSql() const
 {
 	return "( " % serializeId() % ",'" % barcode % "'," % QString::number(code) % ",'" % info % "','"
-		% count %"'," % QString::number(price)% "," % QString::number(discount) % ")";
+        % count %"'," % QString::number(price)% "," % QString::number(discount) % ",'"%nameAlt%"',"%QString::number(unitPrice)%")";
 }
 
 const TemplatedTableHandler* ShortBarcodeEntity::_assocTable() const
@@ -288,6 +320,8 @@ bool ShortBarcodeEntity::_fromSql(QSqlQuery* q)
 	count = q->value(4).toString();
 	price = q->value(5).toDouble();
 	discount = q->value(6).toDouble();
+    nameAlt = q->value(7).toString();
+    unitPrice = q->value(8).toDouble();
 	return true;
 }
 

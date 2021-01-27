@@ -7,7 +7,6 @@
 #include "debugtrace.h"
 #include <QtQml>
 #include <QProxyStyle>
-
 class WinCEProxyStyle : public QProxyStyle
 {
 

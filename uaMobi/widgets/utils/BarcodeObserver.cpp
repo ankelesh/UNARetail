@@ -4,8 +4,10 @@
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
-
-
+#ifdef Q_OS_ANDROID
+#include "Wrappers/QBroadcastCatcher.h"
+#endif
+#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 QKeySequence _initiateSequence(QChar ch)
 {
 	if (ch.isLetterOrNumber())
@@ -33,7 +35,7 @@ bool BarcodeObserver::eventFilter(QObject* object, QEvent* event)
 			if (temp->key() == suffix[0])
 			{
 				prefixFound = false;
-				emit barcodeCaught(buffer);
+                _handleBarcodeCatch(buffer);
 				emit suffixCaught();
 				event->accept();
 				buffer.clear();
@@ -94,6 +96,25 @@ BarcodeObserver::BarcodeObserver(QChar pref, QChar suff, QChar scanb ,QObject* p
 	suffix(_initiateSequence(suff)), scanButton(_initiateSequence(scanb)),
 	buffer(), prefixFound(false), active(false)
 {
+#ifdef Q_OS_ANDROID
+    // datalogic defaults
+    QBroadcastCatcher::listenForBroadcast("com.datalogic.decodewedge.decode_action",
+                                          "com.datalogic.decode.intentwedge.barcode_string",
+                                          "com.datalogic.decodewedge.decode_category" );
+    // newland defaults
+    QBroadcastCatcher::listenForBroadcast("nlscan.action.SCANNER_RESULT",
+                                          "SCAN_BARCODE1",
+                                          "" );
+   QObject::connect(QBroadcastCatcher::instanse(), &QBroadcastCatcher::intentCaptured, this, &BarcodeObserver::handleIntentBarcode);
+#endif
+}
+
+void BarcodeObserver::_handleBarcodeCatch(QString bc)
+{
+    if (active)
+    {
+        emit barcodeCaught(bc);
+    }
 }
 
 void BarcodeObserver::resetCapture(QChar pref, QChar suff, int scanb)
@@ -128,5 +149,13 @@ BarcodeObserver* BarcodeObserver::instanse()
 		_instanse = new BarcodeObserver(QChar(AppSettings->scanPrefix), 
 			QChar(AppSettings->scanSuffix), QChar(AppSettings->scanButtonCode), Q_NULLPTR);
 	}
-	return _instanse;
+    return _instanse;
+}
+
+void BarcodeObserver::handleIntentBarcode(uint nhash, QString iname, QString barcode)
+{
+#ifdef DEBUG
+    detrace_METHEXPL("obtained barcode by intent " << iname << " : " << barcode);
+#endif
+    _handleBarcodeCatch(barcode);
 }

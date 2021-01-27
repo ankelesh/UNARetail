@@ -17,7 +17,7 @@
 #include <exception>
 #include "widgets/ControlsMiniwidgets/ControlManager.h"
 #include <Datacore/DataEntities.h>
-
+#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 void null_post_search(Entity, ShortBarcode, QVector<abs_control*>&, QVector<labels_private::abs_counter_label*>&, QTextEdit*)
 {
 	return;
@@ -167,6 +167,7 @@ void RoleBoundScaningWidget::barcodeReady()
 			}
 		}
 		_pushToHistory(pendingBarcode);
+        AppSounds->play(1);
 		emit barcodeReceived(pendingBarcode);
 		_fill_counters();
 		_clearControls();

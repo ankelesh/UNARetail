@@ -37,6 +37,10 @@ void PrinterTemplateRedactor::_init_defaults()
 		if (QFile::exists(*templatePath))
 			_fill_editor(*templatePath);
 	}
+    else
+    {
+        bindingPathField->setText(rootFilePath);
+    }
 	if (!templateFileStatus)
 	{
 		if (templateText != Q_NULLPTR)
@@ -56,9 +60,10 @@ PrinterTemplateRedactor::PrinterTemplateRedactor(QString* template_text, QString
 	pathLayout->addWidget(fileDialogButton);
 	bindingLayout->addWidget(bindingTemplateField);
 	bindingLayout->addWidget(bindingInfo);
-	fileDialogButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.07));
-	bindingTemplateField->setMinimumHeight(calculateAdaptiveButtonHeight(0.5));
-	bindingInfo->setMinimumHeight(calculateAdaptiveButtonHeight(0.3));
+    fileDialogButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.03));
+    bindingTemplateField->setMinimumHeight(calculateAdaptiveButtonHeight(0.2));
+    bindingTemplateField->setMaximumHeight(calculateAdaptiveButtonHeight(0.4));
+    bindingInfo->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
 	_init_defaults();
 #ifdef Q_OS_ANDROID
 	QScroller::grabGesture(bindingInfo, QScroller::LeftMouseButtonGesture);
@@ -117,9 +122,9 @@ void PrinterTemplateRedactor::openByDialog()
 {		
 	QString path;
 	if (templatePath != Q_NULLPTR)
-		path = AndroidFileDialog::getFileName(*templatePath);
+        path = AndroidFileDialog::getFileName(bindingPathField->text());
 	else
-		path = AndroidFileDialog::getFileName(rootFilePath);
+        path = AndroidFileDialog::getFileName(bindingPathField->text());
 	if (!path.isEmpty())
 	{
 		_fill_editor(bindingPathField->text());

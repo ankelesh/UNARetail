@@ -9,11 +9,13 @@ namespace Roles
 		{
 			code = 64,
 			price,
-			discount
+            discount,
+            unitPrice
 		};
 		enum Writeables
 		{
-			count = 128
+            count = 128,
+            nameAlt
 		};
 	}
 }
@@ -49,6 +51,8 @@ public:
 	QString count;
 	double price;
 	double discount;
+    QString nameAlt;
+    double unitPrice;
 	explicit ShortBarcodeEntity(QString barcode = QString(),
 		int cod = 0,
 		QString info = QString(), QString count = QString(), double Price = 0.0, double discount = 0.0);

@@ -136,6 +136,8 @@ GlobalAppSettings::GlobalAppSettings()
 	lastPrinterBTMAC = settings.value("lastPrinterBTMAC", QVariant()).toString();
 	lastPrinterBTUUID = settings.value("lastPrinterBTUUID", QVariant()).toString();
 	settings.endGroup();
+    notificationsVolume = settings.value("notificationsVolume", QVariant(100U)).toUInt();
+
 }
 
 void GlobalAppSettings::SetTranslator()
@@ -237,6 +239,7 @@ void GlobalAppSettings::Save()
 	settings.setValue("lastPrinterBTMAC", lastPrinterBTMAC);
 	settings.setValue("lastPrinterBTUUID", lastPrinterBTUUID);
 	settings.endGroup();
+    settings.setValue("notificationsVolume", notificationsVolume);
 }
 
 ModeDescription& GlobalAppSettings::getModeDescription(Modes m)

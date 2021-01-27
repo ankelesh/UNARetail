@@ -11,6 +11,7 @@
 #include <qmessagebox.h>
 #include <cmath>
 #include <QtCore/QHash>
+#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 #include "widgets/ControlsMiniwidgets/QuantityControl.h"
 #include "widgets/UtilityElements/ExtendedLabels.h"
 #include "widgets/utils/MegaIconButton.h"
@@ -141,6 +142,7 @@ void ScaningWidget::barcodeReady()
 		}
 		pendingBarcode->comment = barcodeInfo->toPlainText();
 		_pushToHistory(pendingBarcode);
+        AppSounds->play(1);
 		emit barcodeReceived(pendingBarcode);
 		quantityControl->setValue("0");
 		setTotal(AppData->sumAllFilteredIn(currentMode, pendingBarcode->barcode,
