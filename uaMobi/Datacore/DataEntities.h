@@ -5,7 +5,7 @@
 #include "UtilityEntities.h"
 #include "ProductEntity.h"
 #include <QAbstractListModel>
-
+#include "PrinterTemplateEntity.h"
 /*
 	This file contains all entities includes and polymorthic model. Also here are stored some 
 	utility templates.
@@ -50,6 +50,7 @@ public:
 	void appendDataEntity(Entity);
 	QVector<Entity> releaseData();
 	const Entity& directAccessByFlatIndex(int findex) const;
+	QModelIndex findByGuid(long long int guid);
 	// empties model
 	void reset();
 public slots:
@@ -100,4 +101,26 @@ DataEntity* upcastEntity(QSharedPointer<DataEntity>& prototype, AbsEntity* e)
 		}
 	}
 	return Q_NULLPTR;
+}
+template<class DataEntity>
+QSharedPointer<DataEntity> upcastEntity(Entity prototype, Entity toCast)
+{
+	if (!(toCast.isNull()) && !(prototype.isNull()))
+	{
+		if (toCast->myType() == prototype->myType())
+		{
+			return toCast.staticCast<DataEntity>();
+		}
+	}
+	return QSharedPointer<DataEntity>();
+}
+template<class DataEntity>
+QVector<Entity> downcastEntityList(QVector<QSharedPointer<DataEntity> > list)
+{
+	QVector<Entity> downcasted;
+	for (QVector<QSharedPointer<DataEntity> >::iterator item = list.begin(); item != list.end(); ++item)
+	{
+		downcasted.push_back(Entity(*item));
+	}
+	return downcasted;
 }

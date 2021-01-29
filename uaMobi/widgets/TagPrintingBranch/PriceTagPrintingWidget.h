@@ -1,16 +1,19 @@
 #pragma once
 #include "widgets/SearchBranch/SearchWidget.h"
-
+#include "Datacore/PrinterTemplateEntity.h"
 
 class AbsPrinterWrapper;
 class PriceTagPrintingWidget : public SearchWidget
 {
     Q_OBJECT
 protected:
+	QHBoxLayout* statusLayout;
 	QLabel* connectionStatusLabel;
+	QLabel* templateNameLabel;
 	AbsPrinterWrapper* printerWrapper;
 	MegaIconButton* printSettingButton;
 	inframedWidget* printSettings;
+	PrinterTemplate usedTemplate;
 
 	QString _prepareTemplate(ShortBarcode info);
 	virtual void _emplaceBarcode(QString barcode, ShortBarcode info) override;

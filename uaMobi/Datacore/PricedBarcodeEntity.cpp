@@ -179,6 +179,7 @@ QString PricedBarcodeEntity::_getWriteable(int role) const
 		return expDate.toString(datetimeDBEncoding);
 		break;
 	default:
+		return QString();
 		break;
 	}
 }

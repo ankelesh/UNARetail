@@ -19,6 +19,7 @@
 #include "BarcodeRedactingWidget.h"
 #include <QThread>
 #include "dataproviders/BackupingEngine.h"
+
 ScanedStorageWidget::ScanedStorageWidget(Modes mode, QWidget* parent)
 	: inframedWidget(parent), abstractNode(), mainLayout(new QVBoxLayout(this)),
 	innerWidget(new inframedWidget(this)), innerLayout(new QVBoxLayout(innerWidget)),

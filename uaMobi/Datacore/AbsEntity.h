@@ -34,7 +34,9 @@ namespace barcodeUtil
 #endif
     barcodetypes {
 		// binds entities types to barcodes
-		abstractBc, uniformBc, pricedBc, shortBc , separatorNotBC, product};
+		abstractBc, uniformBc, pricedBc, shortBc , separatorNotBC, product,
+		printerTemplateNotBC
+	};
     inline uint qHash(barcodeUtil::barcodetypes a)
     {
         return uint(a);

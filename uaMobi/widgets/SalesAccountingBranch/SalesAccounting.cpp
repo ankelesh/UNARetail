@@ -36,7 +36,7 @@ void set_minimum_by_history(Entity current, EntityHash hash, QVector<abs_control
 	if (controls.count() != 2 || hashes.isEmpty())
 		return;
 	QVector<EntityHash>::iterator hiter = hashes.begin();
-	double summ;
+	double summ = 0.0;
 	bool found =false;
 	
 	while (hiter != hashes.end())

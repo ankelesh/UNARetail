@@ -131,7 +131,7 @@ GlobalAppSettings::GlobalAppSettings()
     settings.endGroup();
 	settings.beginGroup("label_printer");
 	labelPrinterTemplateText = settings.value("labelPrinterTemplateText", QVariant()).toString();
-	labelPrinterTemplatePath = settings.value("labelPrinterTemplatePath", QVariant()).toString();
+	labelPrinterTemplateGUID = settings.value("labelPrinterTemplateGUID", QVariant()).toLongLong();
 	labelPrinterName = settings.value("labelPrinterName", QVariant("zebra")).toString();
 	lastPrinterBTMAC = settings.value("lastPrinterBTMAC", QVariant()).toString();
 	lastPrinterBTUUID = settings.value("lastPrinterBTUUID", QVariant()).toString();
@@ -234,7 +234,7 @@ void GlobalAppSettings::Save()
     settings.endGroup();
 	settings.beginGroup("label_printer");
 	settings.setValue("labelPrinterTemplateText", labelPrinterTemplateText);
-	settings.setValue("labelPrinterTemplatePath", labelPrinterTemplatePath);
+	settings.setValue("labelPrinterTemplateGUID", labelPrinterTemplateGUID);
 	settings.setValue("labelPrinterName", labelPrinterName);
 	settings.setValue("lastPrinterBTMAC", lastPrinterBTMAC);
 	settings.setValue("lastPrinterBTUUID", lastPrinterBTUUID);

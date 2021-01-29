@@ -186,7 +186,9 @@ QString BarcodeEntity::_getWriteable(int role) const
 	case Roles::Barcode::taxInvoice:
 		return taxInvoiceNumber;
 		break;
-	default: break;
+	default: 
+		return QString();
+		break;
 
 	}
 }

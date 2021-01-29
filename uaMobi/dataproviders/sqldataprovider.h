@@ -4,6 +4,7 @@
 #include <exception>
 #include "Datacore/ShortBarcodeEntity.h"
 #include "dataproviders/ModesDescriptions.h"
+#include "Datacore/PrinterTemplateEntity.h"
 /*
 		This class is responsible for storing data in inner database. It assigns to each mode 3 tables:
 		scanned. uploaded and backup, using entity typename as base, tablename as suffix and modename as prefix.
@@ -107,6 +108,12 @@ public:
 	bool recreateDownloadTable();				//	drops and creates DownloadTable
 	bool createDefaultTables();							//	creates table with standard setup
 	bool createTablesOf(const QList<Modes> dbs, Entity prototype, const QList<TableNames>);		//	creates tables on all databases
+
+	bool preparePrinterTemplateTable();		//	ensure that printer template table is up and ready
+	PrinterTemplateList getPrinterTemplates();	//	loads all templates
+	bool deletePrinterTemplate(PrinterTemplate);	//	deletes template by id
+	bool addPrinterTemplate(PrinterTemplate);	//	adds new template by id
+	PrinterTemplate getTemplateByGUID(long long int GUID);
 
 	bool deleteEntity(Modes mode, Entity toDelete, TableNames tab);    // deletes entity by hard binding to it's guid. Use this in most cases
 	bool replaceEntityIn(Modes mode, Entity oldOne, Entity newOne, TableNames tab); // replaces entity by id binding. Prefer this over updateEntity

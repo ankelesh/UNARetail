@@ -23,6 +23,7 @@ QString formatTableName(Modes mode, Entity prototype, TableNames tab)
 	return ModePrefixes[int(mode)]
 		+ prototype->getAssociatedTable()->declaration() + TableSuffixes[int(tab)];
 }
+
 QHash<Modes, Entity> _initModenamesLinker()
 {
 	QHash<Modes, Entity> temp;
@@ -119,6 +120,105 @@ bool SqlDataProvider::createTablesOf(const QList<Modes> modes, Entity proto, con
 	_assertAndCloseSession();
 	return true;
 }
+bool SqlDataProvider::preparePrinterTemplateTable()
+{
+	_assertAndOpenSession();
+	mainDb.transaction();
+	Entity prototype = entityLinker.value(barcodeUtil::barcodetypes::printerTemplateNotBC);
+	if (!mainDb.tables().contains(prototype->getAssociatedTable()->declaration()))
+	{
+		if (!mainDb.tables().contains(prototype->getAssociatedTable()->declaration()))
+		{
+			if (!execInSession(prototype->getAssociatedTable()->definition()))
+			{
+				_assertAndCloseSession();
+				return false;
+			}
+		}
+	}
+	else
+	{
+		QueryPtr q = runQuery(
+			QStringLiteral("PRAGMA TABLE_INFO(") +
+			prototype->getAssociatedTable()->declaration() +
+			QStringLiteral(")")
+		);
+		if (q == Q_NULLPTR)
+		{
+			return false;
+		}
+		QStringList temp;
+		while (q->next())
+		{
+			temp << q->value(0).toString();
+		}
+		if (prototype->getAssociatedTable()->getFields().count() == temp.count())
+			return true;
+		else
+		{
+			if (!mainDb.tables().contains(prototype->getAssociatedTable()->declaration()))
+			{
+				_assertAndCloseSession();
+				return false;
+			}
+			execInSession(prototype->getAssociatedTable()->drop());			
+			if (!execInSession(prototype->getAssociatedTable()->definition()))
+			{
+				_assertAndCloseSession();
+				return false;
+			}
+			return true;
+		}
+	}
+	mainDb.commit();
+	_assertAndCloseSession();
+	return true;
+}
+PrinterTemplateList SqlDataProvider::getPrinterTemplates()
+{
+	PrinterTemplateList Entities;
+	Entity prototype = entityLinker.value(barcodeUtil::barcodetypes::printerTemplateNotBC);
+	_assertAndOpenSession();
+	QueryPtr q = runQuery(
+		prototype->getAssociatedTable()->select_all()
+	);
+	if (q == Q_NULLPTR)
+		return Entities;
+	while (prototype->fromSql(&(*q)))
+	{
+		Entities.push_back(upcastEntity<PrinterTemplateEntity>(prototype, Entity(prototype->clone())));
+	}
+	_assertAndCloseSession();
+	return Entities;
+}
+bool SqlDataProvider::deletePrinterTemplate(PrinterTemplate toDelete)
+{
+	return DBexecute(toDelete->getAssociatedTable()->delete_by_primary_key(
+		toDelete->serializeId(),
+		toDelete->getAssociatedTable()->declaration()
+	));
+}
+bool SqlDataProvider::addPrinterTemplate(PrinterTemplate newOne)
+{
+	return  DBexecute(newOne->getAssociatedTable()->insert(newOne->asSqlInsertion()));
+}
+PrinterTemplate SqlDataProvider::getTemplateByGUID(long long int GUID)
+{
+	PrinterTemplate prototype = PrinterTemplate(new PrinterTemplateEntity("not a template"));
+	_assertAndOpenSession();
+	QueryPtr q = runQuery(
+		prototype->getAssociatedTable()->select_by_primary_key(QString::number(GUID))
+	);
+	if (q == Q_NULLPTR)
+	{
+		_assertAndCloseSession();
+		return prototype;
+	}
+	if (!prototype->fromSql(&(*q)))
+		prototype->invalidate();
+	_assertAndCloseSession();
+	return prototype;
+}
 bool SqlDataProvider::deleteEntity(Modes mode, Entity toDelete, TableNames tab)
 {
 	QString fname = formatTableName(mode, toDelete, tab);
@@ -214,6 +314,7 @@ bool SqlDataProvider::createDefaultTables()
 		checkAndRefreshTable(*tabname, modenamesLinker[Modes::SalesAccounting], Modes::SalesAccounting);
 		++tabname;
 	}
+	preparePrinterTemplateTable();
 	mainDb.commit();
 	_assertAndCloseSession();
 	return true;
@@ -351,6 +452,7 @@ bool SqlDataProvider::clearSendingSelector(Modes mode, Entity prototype)
 		prototype->getAssociatedTable()->update(
 			" set uploaded = 1 where uploaded = 2", scanedTableName));
 }
+
 bool SqlDataProvider::pushIntoDownloaded(ShortBarcodeEntity& shb)
 {
     if (!(mainDb.tables().contains(shb.getAssociatedTable()->declaration())))
@@ -359,6 +461,7 @@ bool SqlDataProvider::pushIntoDownloaded(ShortBarcodeEntity& shb)
     }
 	return DBexecute(shb.getAssociatedTable()->insert(shb.asSqlInsertion()));
 }
+
 bool SqlDataProvider::pushIntoDownloaded(QLinkedList<QSharedPointer<ShortBarcodeEntity>>& l)
 {
 	if (l.isEmpty())
@@ -802,5 +905,3 @@ SqlDataProvider::~SqlDataProvider()
 {
 	QSqlDatabase::removeDatabase("maindb.db");
 }
-
-

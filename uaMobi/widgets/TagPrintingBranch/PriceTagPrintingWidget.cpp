@@ -56,6 +56,32 @@ QString normalizeFloatString(QString fs)
     return fs;
 }
 
+QString guessSymbology(QString bc)
+{
+    switch (bc.count())
+    {
+    default:
+    case 13:
+    case 14:
+    case 5:
+        return "EAN13";
+    case 8:
+        return "EAN8";
+    }
+}
+
+QString normalizeBarcode(QString bc)
+{
+    switch (bc.count())
+    {
+    case 5:
+        return AppSettings->extrasearchPrefix + bc + "000000";
+    default:
+        return bc;
+    }
+
+}
+
 QString _prepare_long_string(QString str, int mlen)
 {
     if (str.count() < mlen)
@@ -78,18 +104,27 @@ QString _prepare_long_string(QString str, int mlen)
 
 PriceTagPrintingWidget::PriceTagPrintingWidget(QWidget* parent) : 
 	SearchWidget(parent),
+    statusLayout(new QHBoxLayout(this)),
 	connectionStatusLabel(new QLabel("no connection", this)),
+    templateNameLabel(new QLabel(this)),
     printerWrapper(PrinterWrapperFactory::fabricate(this)),
 	printSettingButton(new MegaIconButton(this)),
 	printSettings()
 {
-	innerLayout->insertWidget(0, connectionStatusLabel);
+	innerLayout->insertLayout(0, statusLayout);
+    statusLayout->addWidget(connectionStatusLabel);
+    statusLayout->addWidget(templateNameLabel);
+    templateNameLabel->setAlignment(Qt::AlignRight);
+
 	buttonLayout->addWidget(printSettingButton);
-	if (AppSettings->labelPrinterTemplateText.isEmpty())
-		AppSettings->labelPrinterTemplateText = defaultTemplate;
 	printSettingButton->setText(tr("settings"));
 	printSettingButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 	printSettingButton->setIcon(QIcon(":/res/settings.png"));
+    usedTemplate = AppData->getTemplateByGUID(AppSettings->labelPrinterTemplateGUID);
+    if (usedTemplate->isValid())
+    {
+        templateNameLabel->setText(usedTemplate->templateName);
+    }
 #ifdef QT_VERSION5X
 	QObject::connect(printerWrapper, &AbsPrinterWrapper::error, this, &PriceTagPrintingWidget::onWrapperError);
 	QObject::connect(printerWrapper, &AbsPrinterWrapper::connected, this, &PriceTagPrintingWidget::onWrapperOk);
@@ -113,12 +148,15 @@ void PriceTagPrintingWidget::onWrapperError(QString error)
 
 QString PriceTagPrintingWidget::_prepareTemplate(ShortBarcode info)
 {
-	QString templ = AppSettings->labelPrinterTemplateText;
+    if (!usedTemplate->isValid())
+        return QString();
+	QString templ = usedTemplate->templateText;
 	templ.replace(
         "{price}", normalizeFloatString(QString::number(info->price)))
-        .replace("{name}", _prepare_long_string(info->info, 35))
+        .replace("{name}", _prepare_long_string(info->info, usedTemplate->width / 2.5))
         .replace("{discount}", normalizeFloatString(QString::number(info->discount)))
-        .replace("{barcode}", info->barcode)
+        .replace("{symbology}", guessSymbology(info->barcode))
+        .replace("{barcode}", normalizeBarcode(info->barcode))
         .replace("{altname}", info->nameAlt)
         .replace("{unitaryprice}", normalizeFloatString(QString::number(info->unitPrice)))
         .replace("{code}", QString::number(info->code))
@@ -145,4 +183,12 @@ void PriceTagPrintingWidget::settingsRequired()
 void PriceTagPrintingWidget::settingsCloseRequired()
 {
 	_hideAndDeleteCurrent(untouchable);
+    usedTemplate = AppData->getTemplateByGUID(AppSettings->labelPrinterTemplateGUID);
+    if (usedTemplate->isValid())
+    {
+        templateNameLabel->setText(usedTemplate->templateName);
+    }
+    else
+        templateNameLabel->clear();
+    
 }

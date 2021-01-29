@@ -82,7 +82,7 @@ public:
 
 	// label printing
 	QString labelPrinterTemplateText;
-	QString	labelPrinterTemplatePath;
+	long long int labelPrinterTemplateGUID;
 	QString labelPrinterName;
 	QString lastPrinterBTMAC;
 	QString lastPrinterBTUUID;

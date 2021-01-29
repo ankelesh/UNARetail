@@ -176,6 +176,12 @@
     <Filter Include="Source Files\View\SettingScreens\PrintingSettings">
       <UniqueIdentifier>{7661a3bc-ae84-41c6-8cd2-2c200fa28d9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\View\SettingsScreens\PrintingSettings">
+      <UniqueIdentifier>{c36612cc-7db5-45bd-b9d5-8a323095c86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util\Wrappers\Sound">
+      <UniqueIdentifier>{88dcefaf-f99e-4305-96a7-1b2fc0a13cda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -925,6 +931,27 @@
     <ClCompile Include="widgets\SettingsWidgets\PrinterTemplatesSettings.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="Datacore\PrinterTemplateEntity.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\TagPrintingBranch\PrinterTemplatesList.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\SoundWrappers\AbsSoundWrapper.cpp">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\SoundWrappers\ModernQtSoundWrapper.cpp">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\SoundWrappers\PhononSoundWrapper.cpp">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\SoundWrappers\SoundEffectPlayer.cpp">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\SoundWrappers\WinCEUnpackWrapper.cpp">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1052,6 +1079,9 @@
     </ClInclude>
     <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
       <Filter>Header Files\util\Wrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="Datacore\PrinterTemplateEntity.h">
+      <Filter>Header Files\Model\Datacore\DataEntities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1773,11 +1803,29 @@
     <QtMoc Include="widgets\UtilityElements\AndroidFileDialog.h">
       <Filter>Header Files\View\elements</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\SettingsWidgets\PrinterTemplatesSettings.h">
-      <Filter>Source Files\View\SettingScreens\PrintingSettings</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h">
       <Filter>Header Files\View\Roots</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\SettingsWidgets\PrinterTemplatesSettings.h">
+      <Filter>Header Files\View\SettingsScreens\PrintingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\TagPrintingBranch\PrinterTemplatesList.h">
+      <Filter>Header Files\View\SettingsScreens\PrintingSettings</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\SoundWrappers\AbsSoundWrapper.h">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\SoundWrappers\ModernQtSoundWrapper.h">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\SoundWrappers\PhononSoundWrapper.h">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\SoundWrappers\SoundEffectPlayer.h">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\SoundWrappers\WinCEUnpackWrapper.h">
+      <Filter>Header Files\util\Wrappers\Sound</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

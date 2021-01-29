@@ -123,6 +123,21 @@ const Entity& DataEntityListModel::directAccessByFlatIndex(int findex) const
 	return innerList.at(findex);
 }
 
+QModelIndex DataEntityListModel::findByGuid(long long int guid)
+{
+	for (EntityList::iterator entity = innerList.begin(); entity != innerList.end(); ++entity)
+	{
+		if (!entity->isNull())
+		{
+			if ((*entity)->GUID == guid)
+			{
+				return index(entity - innerList.begin());
+			}
+		}
+	}
+	return index(-1);
+}
+
 void DataEntityListModel::reset()
 {
 	beginResetModel();
@@ -143,6 +158,7 @@ QHash<barcodeUtil::barcodetypes, Entity> _initentityLinker()
     t.insert(barcodeUtil::barcodetypes::pricedBc, Entity(new PricedBarcodeEntity()));
     t.insert( barcodeUtil:: barcodetypes::shortBc, Entity(new ShortBarcodeEntity()));
 	t.insert(barcodeUtil::barcodetypes::product, Entity(new ProductEntity()));
+	t.insert(barcodeUtil::barcodetypes::printerTemplateNotBC, Entity(new PrinterTemplateEntity()));
     return t;
 }
 

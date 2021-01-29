@@ -1,7 +1,7 @@
 #pragma once
 #include "widgets/parents/inframedWidget.h"
-
-
+#include "Datacore/DataEntities.h"
+#include "widgets/TagPrintingBranch/PrinterTemplatesList.h"
 
 class QTabWidget;
 class MegaIconButton;
@@ -12,32 +12,6 @@ class QVBoxLayout;
 class QHBoxLayout;
 class QLabel;
 class QListWidget;
-
-class PrinterTemplateRedactor : public QWidget
-{
-	Q_OBJECT
-protected:
-	QVBoxLayout* bindingLayout;
-	QHBoxLayout* pathLayout;
-	QLineEdit* bindingPathField;
-	MegaIconButton* fileDialogButton;
-	QTextEdit* bindingTemplateField;
-	QListWidget* bindingInfo;
-	bool templateFileStatus;
-	QString currentFilePath;
-
-	QString * templateText;
-	QString * templatePath;
-
-	void _fill_editor(QString fname);
-	void _init_defaults();
-public:
-	PrinterTemplateRedactor(QString * template_text, QString * template_path, QWidget* parent);
-	void saveData();
-protected slots:
-	void openFile();
-	void openByDialog();
-};
 
 
 
@@ -53,7 +27,7 @@ protected:
 	QFormLayout* printerLayout;
 	QLineEdit* printerNameField;
 	
-	PrinterTemplateRedactor* bindingRedactor;
+	PrinterTemplatesListWidget* bindingRedactor;
 	MegaIconButton* backButton;
 public:
 	PrinterTemplatesSettings(QWidget* parent);

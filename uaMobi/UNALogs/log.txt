@@ -1,2 +1,20 @@
--->	Method called: initializeGlobalAppSettings in object 14446472
+-->	Method called: initializeGlobalAppSettings in object 18876336
 if errors: 0
+***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(simbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(simbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(supbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(supbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(ordbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(ordbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(pripricedbcsscan)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsscan)called
+***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
+***	method execing query: PRAGMA TABLE_INFO(PrinterTemplates)called
+***	method execing query: select id , templateName , templateText , tWidth , tHeight from PrinterTemplates where id = 1650538289988716called
+***	method execing query: select id , templateName , templateText , tWidth , tHeight from PrinterTemplatescalled
+-->	Method called: dumpGlobalAppSettings in object 18876336
+if errors: 0
+***	method execing query: select id , templateName , templateText , tWidth , tHeight from PrinterTemplates where id = 1650598865658070called
