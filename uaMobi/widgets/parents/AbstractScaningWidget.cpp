@@ -10,11 +10,11 @@
 #include "widgets/utils/ZebraListItemDelegate.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "widgets/utils/EventsAndFilters.h"
 #include "widgets/MultibranchWidgets/ScaningCameraWidget.h"
 #include "widgets/utils/VirtualBarcodeKeyboard.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/utils/BarcodeObserver.h"
 #include "Datacore/DataEntities.h"
 

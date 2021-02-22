@@ -1,5 +1,5 @@
 #include "PrintingReceiptScaningWidget.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/utils/ElementsStyles.h"
 #include "Datacore/DataEntities.h"
 #include "Wrappers/FiscalPrinterWrapper.h"

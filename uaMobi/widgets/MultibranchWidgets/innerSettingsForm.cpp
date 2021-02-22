@@ -2,7 +2,7 @@
 #include "widgets/utils/ElementsStyles.h"
 #include <qmessagebox.h>
 #include "widgets/utils/GlobalAppSettings.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/SettingsWidgets/ScaningSettings.h"
 #include "widgets/SettingsWidgets/DatabaseSettings.h"
 #include "widgets/SettingsWidgets/ExtraScaningSettings.h"
@@ -32,7 +32,7 @@ innerSettingsForm::innerSettingsForm(Modes mode, QWidget* parent)
 	mainLayout->addWidget(backButton);
 	mainLayout->setContentsMargins(0, 0, 0, 0);
 	mainLayout->setSpacing(0);
-	this->setFont(AppGenFont);
+	this->setFont(GENERAL_FONT);
 
 
 	backButton->setIcon(QIcon(":/res/back.png"));

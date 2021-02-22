@@ -182,6 +182,51 @@
     <Filter Include="Header Files\util\Wrappers\Sound">
       <UniqueIdentifier>{88dcefaf-f99e-4305-96a7-1b2fc0a13cda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\util\Wrappers\Printers">
+      <UniqueIdentifier>{94eb75b1-bf1c-4e4a-895c-bca828d5fd6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util\Wrappers\Sound">
+      <UniqueIdentifier>{1932d82b-4e5f-4626-8c02-f9099b45b44f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util\Wrappers\Printers">
+      <UniqueIdentifier>{f900a88c-c47c-44eb-a2f7-e4066ce4cf96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util\Wrappers\Printers\Fiscal">
+      <UniqueIdentifier>{07b4b4a8-4a62-4a92-8bf1-43c79550bea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util\Wrappers\Platform">
+      <UniqueIdentifier>{f20f52ab-2708-4087-8771-2b3fc61ef33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util\Wrappers\Platform">
+      <UniqueIdentifier>{8153ee3d-d3f7-4115-9510-5773ca53ba7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util\Wrappers\Printers\Fiscal">
+      <UniqueIdentifier>{93c7f1ad-cbb9-4b36-9c29-1b66252a03be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules">
+      <UniqueIdentifier>{2b8bd730-3efb-454d-9505-5f3334b3e3d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons">
+      <UniqueIdentifier>{313be7da-af56-43ae-af2b-ac1279fbebcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers">
+      <UniqueIdentifier>{cff01ebf-fe77-4fc1-b1be-da913d98b3ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources">
+      <UniqueIdentifier>{104ab8b8-c6b5-46af-8792-4b7b49e1def0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\widgets">
+      <UniqueIdentifier>{83837050-545b-43ce-8d1c-29e74765cc21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\widgets\UtilityElements">
+      <UniqueIdentifier>{62950d72-04dc-4b5b-8fcc-729d0edba0da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\widgets">
+      <UniqueIdentifier>{6cd2d4d0-5f07-4bd1-a35c-4b8c93f0f5a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\widgets\UtilityElements">
+      <UniqueIdentifier>{f04b6521-90b2-4d9d-9d28-98cd1d08a85e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -667,9 +712,6 @@
     <ClCompile Include="debugtrace.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="widgets\utils\MegaIconButton.cpp">
-      <Filter>Source Files\View\elements</Filter>
-    </ClCompile>
     <ClCompile Include="externalCommunication\tohttp.cpp">
       <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
@@ -723,9 +765,6 @@
     </ClCompile>
     <ClCompile Include="dataproviders\DataAsyncLoader.cpp">
       <Filter>Source Files\Model\Datacore</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\UtilityElements\ExtendedDialogs.cpp">
-      <Filter>Source Files\View\elements</Filter>
     </ClCompile>
     <ClCompile Include="externalCommunication\AsyncRequestEngine.cpp">
       <Filter>Source Files\Model\commcore</Filter>
@@ -786,9 +825,6 @@
     </ClCompile>
     <ClCompile Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.cpp">
       <Filter>Source Files\View\elements\delegates</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\UtilityElements\ExtendedLabels.cpp">
-      <Filter>Source Files\View\elements</Filter>
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\Redactors\Abs_Redactor.cpp">
       <Filter>Source Files\View\Multibranch\redactors</Filter>
@@ -868,26 +904,8 @@
     <ClCompile Include="widgets\SalesAccountingBranch\SalesAccounting.cpp">
       <Filter>Source Files\View\Root</Filter>
     </ClCompile>
-    <ClCompile Include="Datacore\ProductEntity.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\RoleBoundScaningWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\ControlsMiniwidgets\ControlManager.cpp">
       <Filter>Header Files\View\elements\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="Datacore\EntityQuickHash.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.cpp">
-      <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="widgets\SettingsWidgets\EmailSettings.cpp">
       <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
@@ -898,59 +916,86 @@
     <ClCompile Include="widgets\SettingsWidgets\SpecialActionsSettings.cpp">
       <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
     </ClCompile>
-    <ClCompile Include="Wrappers\androidservicewrapper.cpp">
-      <Filter>Header Files\Model</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\PrinterConnectionSettings.cpp">
-      <Filter>Generated Files</Filter>
+    <ClCompile Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.cpp">
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
     <ClCompile Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
-    <ClCompile Include="Wrappers\FiscalPrinterWrapper.cpp">
-      <Filter>Generated Files</Filter>
+    <ClCompile Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.cpp">
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.cpp">
-      <Filter>Source Files\util\Wrappers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\NullPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\UtilityElements\AndroidFileDialog.cpp">
-      <Filter>Source Files\View\elements</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\SettingsWidgets\PrinterTemplatesSettings.cpp">
-      <Filter>Generated Files</Filter>
+    <ClCompile Include="widgets\MultibranchWidgets\RoleBoundScaningWidget.cpp">
+      <Filter>Source Files\View\Multibranch</Filter>
     </ClCompile>
     <ClCompile Include="Datacore\PrinterTemplateEntity.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\ProductEntity.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="Datacore\EntityQuickHash.cpp">
+      <Filter>Source Files\Model\Datacore\DataEntities</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.cpp">
+      <Filter>Source Files\View\Multibranch\redactors</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\PrinterConnectionSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\PrintingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\SettingsWidgets\PrinterTemplatesSettings.cpp">
+      <Filter>Source Files\View\SettingScreens\PrintingSettings</Filter>
     </ClCompile>
     <ClCompile Include="widgets\TagPrintingBranch\PrinterTemplatesList.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files\View\SettingScreens\PrintingSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers\Printers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers\Printers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers\Printers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.cpp">
+      <Filter>Source Files\util\Wrappers\Printers</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\PrinterWrappers\NullPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers\Printers</Filter>
     </ClCompile>
     <ClCompile Include="Wrappers\SoundWrappers\AbsSoundWrapper.cpp">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
+      <Filter>Source Files\util\Wrappers\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Wrappers\SoundWrappers\ModernQtSoundWrapper.cpp">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
+      <Filter>Source Files\util\Wrappers\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Wrappers\SoundWrappers\PhononSoundWrapper.cpp">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
+      <Filter>Source Files\util\Wrappers\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Wrappers\SoundWrappers\SoundEffectPlayer.cpp">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
+      <Filter>Source Files\util\Wrappers\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Wrappers\SoundWrappers\WinCEUnpackWrapper.cpp">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
+      <Filter>Source Files\util\Wrappers\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\androidservicewrapper.cpp">
+      <Filter>Source Files\util\Wrappers\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Wrappers\FiscalPrinterWrapper.cpp">
+      <Filter>Source Files\util\Wrappers\Printers\Fiscal</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\AndroidFileDialog.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedDialogs.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedLabels.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\MegaIconButton.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1077,11 +1122,11 @@
     <ClInclude Include="Datacore\EntityQuickHash.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
     </ClInclude>
-    <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
-      <Filter>Header Files\util\Wrappers</Filter>
-    </ClInclude>
     <ClInclude Include="Datacore\PrinterTemplateEntity.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
+    </ClInclude>
+    <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
+      <Filter>Header Files\util\Wrappers\Printers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1608,9 +1653,6 @@
     <QtMoc Include="widgets\utils\BigButtonsSpinbox.h">
       <Filter>Header Files\View\elements</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\utils\MegaIconButton.h">
-      <Filter>Header Files\View\elements</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\utils\VirtualBarcodeKeyboard.h">
       <Filter>Header Files\View\elements</Filter>
     </QtMoc>
@@ -1668,14 +1710,8 @@
     <QtMoc Include="externalCommunication\communicationCore.h">
       <Filter>Header Files\Model\commcore</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\UtilityElements\ExtendedLabels.h">
-      <Filter>Header Files\View\elements</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\RestScaningWidget.h">
       <Filter>Header Files\View\ScaningRelated</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\UtilityElements\ExtendedDialogs.h">
-      <Filter>Header Files\View\elements</Filter>
     </QtMoc>
     <QtMoc Include="Datacore\DataEntities.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
@@ -1779,29 +1815,8 @@
     <QtMoc Include="widgets\SettingsWidgets\SpecialActionsSettings.h">
       <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
     </QtMoc>
-    <QtMoc Include="Wrappers\androidservicewrapper.h">
-      <Filter>Header Files\Model</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\SettingsWidgets\PrinterConnectionSettings.h">
       <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\FiscalPrinterWrapper.h">
-      <Filter>Header Files\Model</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\UtilityElements\AndroidFileDialog.h">
-      <Filter>Header Files\View\elements</Filter>
     </QtMoc>
     <QtMoc Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.h">
       <Filter>Header Files\View\Roots</Filter>
@@ -1826,6 +1841,36 @@
     </QtMoc>
     <QtMoc Include="Wrappers\SoundWrappers\WinCEUnpackWrapper.h">
       <Filter>Header Files\util\Wrappers\Sound</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers\Printers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers\Printers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers\Printers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers\Printers</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\FiscalPrinterWrapper.h">
+      <Filter>Header Files\util\Wrappers\Printers\Fiscal</Filter>
+    </QtMoc>
+    <QtMoc Include="Wrappers\androidservicewrapper.h">
+      <Filter>Header Files\util\Wrappers\Platform</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\AndroidFileDialog.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedDialogs.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedLabels.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\MegaIconButton.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

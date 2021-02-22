@@ -1,7 +1,7 @@
 #include "PrinterTemplatesList.h"
 #include "dataproviders/sqldataprovider.h"
-#include "widgets/UtilityElements/ExtendedDialogs.h"
-#include "widgets/UtilityElements/AndroidFileDialog.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/AndroidFileDialog.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #ifdef Q_OS_ANDROID
 #include "Wrappers/androidservicewrapper.h"
@@ -13,7 +13,7 @@
 #include <QTextEdit>
 #include <QLabel>
 #include <QScroller>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/utils/ElementsStyles.h"
 #include <qapplication.h>
 #include <QFile>

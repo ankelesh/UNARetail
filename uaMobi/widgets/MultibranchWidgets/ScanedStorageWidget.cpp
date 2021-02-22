@@ -12,7 +12,7 @@
 #include <qboxlayout.h>
 #include <QLabel>
 #include "widgets/utils/EventsAndFilters.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "Datacore/DataEntities.h"
 #include "dataproviders/sqldataprovider.h"
 #include "dataproviders/DataAsyncLoader.h"

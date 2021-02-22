@@ -20,7 +20,7 @@ ViewSettings::ViewSettings(QWidget* parent)
 	mainLayout->addRow(tr("Maximum:"), fontMax);
 	mainLayout->addRow(tr("Percent:"), fontPercent);
 	mainLayout->setRowWrapPolicy(QFormLayout::WrapAllRows);
-	example->setFont(AppGenFont);
+	example->setFont(GENERAL_FONT);
 	fontMin->setMinimum(5);
 	fontMin->setMaximum(calculateAdaptiveButtonHeight(0.03));
 	fontMin->setValue(AppFonts->getMinFontHeight());

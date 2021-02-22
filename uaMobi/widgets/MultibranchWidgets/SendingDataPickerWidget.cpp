@@ -4,9 +4,9 @@
 #include <QtCore/QTimer>
 #include "widgets/MultibranchWidgets/ReceiveWidget.h"
 #include "widgets/MultibranchWidgets/SendSettings.h"
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/ControlsMiniwidgets/QuantityControl.h"
 #include "dataproviders/sqldataprovider.h"
 #include "widgets/utils/GlobalAppSettings.h"

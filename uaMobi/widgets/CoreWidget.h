@@ -12,7 +12,7 @@
 #include <QtCore/QPointer>
 #include <QGridLayout>
 #include "widgets/parents/abstractNodeInterface.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 
 class IndexedButton : public MegaIconButton
 {
@@ -33,6 +33,15 @@ namespace mpw {
 		SalesAccounting, DatabaseOps, TagPrinting
 	};
 }
+class IgnorantButton : public MegaIconButton
+{
+	Q_OBJECT
+protected:
+	void keyPressEvent(QKeyEvent*) {};
+	void keyReleaseEvent(QKeyEvent*) {};
+public:
+	explicit IgnorantButton(QWidget* parent = Q_NULLPTR) : MegaIconButton(parent) {};
+};
 
 class CoreWidget : public QWidget, abstractDynamicNode
 {

@@ -2,7 +2,7 @@
 #include "widgets/utils/ElementsStyles.h"
 
 #include "widgets/utils/BigButtonsSpinbox.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QLabel>
 #include <QFormLayout>
 
@@ -15,7 +15,7 @@ Abs_Redactor::Abs_Redactor(QWidget* parent)
 	mainLayout->addWidget(barcodeInfo);
 	mainLayout->addWidget(additionalInfo);
 	barcodeInfo->setAlignment(Qt::AlignCenter);
-	this->setFont(AppGenFont);
+	this->setFont(GENERAL_FONT);
 	barcodeInfo->setFont(AppFonts->makeFont(3.5));
 	additionalInfo->setFont(AppFonts->makeFont(1.5));
 }

@@ -1,5 +1,5 @@
 #include "FiscalPrinterWrapper.h"
-#include "widgets/UtilityElements/ExtendedDialogs.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif

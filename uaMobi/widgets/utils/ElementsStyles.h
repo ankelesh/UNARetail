@@ -4,7 +4,7 @@
 #include <QScreen>
 #include <QString>
 
-#define AppGenFont *FontAdapter::general()
+#define GENERAL_FONT *FontAdapter::general()
 #define AppFonts FontAdapter::instanse()
 #ifdef QT_VERSION5X
 #include <QtWidgets/QApplication>

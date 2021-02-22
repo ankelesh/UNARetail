@@ -10,7 +10,7 @@
 #endif
 #include <QLabel>
 #include "Datacore/DataEntities.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 PriceScaningWidget::PriceScaningWidget(QWidget* parent)

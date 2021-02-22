@@ -6,7 +6,7 @@
 #ifdef DEBUG
 #include "debugtrace.h"
 #endif
-#include "widgets/UtilityElements/ExtendedDialogs.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/DatabaseOperationBranch/DatabaseOperationsWidget.h"
 #include "widgets/TagPrintingBranch/PriceTagPrintingWidget.h"
@@ -46,7 +46,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	innerLayout->addWidget(salesAcc,2, 0);
 	innerLayout->addWidget(dbOperations, 2, 1);
 	innerLayout->addWidget(printTags, 2, 2);
-	setFont(AppGenFont);
+	setFont(GENERAL_FONT);
 	innerLayout->addLayout(controlPanel, 3, 0, 2, 0);
 	controlPanel->addWidget(settingsButton);
 	controlPanel->addWidget(exitButton);
@@ -231,7 +231,7 @@ void CoreWidget::retranslate()
 
 void CoreWidget::refreshFonts()
 {
-	setFont(AppGenFont);
+	setFont(GENERAL_FONT);
 }
 
 IndexedButton::IndexedButton(int Index, QWidget* parent)

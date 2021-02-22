@@ -8,7 +8,7 @@
 #include <qscroller.h>
 #endif
 #include <QBoxLayout>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
@@ -17,7 +17,7 @@
 #include <qprogressbar.h>
 #include <qlistwidget.h>
 #include "externalCommunication/tohttp.h"
-#include "widgets/UtilityElements/ExtendedDialogs.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 
 QString SearchDatabaseSettings::_getCurrentPlace()
 {

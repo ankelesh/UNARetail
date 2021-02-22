@@ -6,7 +6,7 @@
 #include "Datacore/ProductEntity.h"
 #include "Datacore/DataEntities.h"
 #include <cmath>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/SettingsWidgets/SpecialActionsSettings.h"
 double summSpentMoney(Entity e, double previous)
 {

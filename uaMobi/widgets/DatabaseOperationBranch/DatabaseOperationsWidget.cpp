@@ -1,7 +1,7 @@
 #include "DatabaseOperationsWidget.h"
 #include "widgets/ControlsMiniwidgets/QuantityControl.h"
-#include "widgets/utils/MegaIconButton.h"
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "widgets/utils/ElementsStyles.h"
 
 DatabaseOperationsWidget::DatabaseOperationsWidget(QWidget* parent)

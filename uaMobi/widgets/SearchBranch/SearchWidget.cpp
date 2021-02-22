@@ -4,7 +4,7 @@
 #include "debugtrace.h"
 #endif
 #include <QLabel>
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 void SearchWidget::show()
 {
 	inframedWidget::show();

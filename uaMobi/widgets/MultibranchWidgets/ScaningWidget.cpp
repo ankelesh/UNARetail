@@ -13,8 +13,8 @@
 #include <QtCore/QHash>
 #include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
 #include "widgets/ControlsMiniwidgets/QuantityControl.h"
-#include "widgets/UtilityElements/ExtendedLabels.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 ScaningWidget::ScaningWidget(Modes mode, QWidget* parent)
 	: AbstractScaningWidget(mode, parent),
     lengthInfo(new TwoLevelCounterLabel(tr("scaning_widget_LEN:"), qQNaN(), untouchable)),

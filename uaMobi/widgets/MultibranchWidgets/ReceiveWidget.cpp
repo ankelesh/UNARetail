@@ -1,15 +1,15 @@
 #include "ReceiveWidget.h"
 #include <QMessageBox>
 #include "widgets/utils/ElementsStyles.h"
-#include "widgets/UtilityElements/ExtendedDialogs.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 #include <qlabel.h>
 #include <QBoxLayout>
 #include "widgets/utils/GlobalAppSettings.h"
 #include "externalCommunication/tohttp.h"
 #include "externalCommunication/tolocalmemory.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QTimer>
-#include "widgets/UtilityElements/ExtendedLabels.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "dataproviders/sqldataprovider.h"
 #ifdef DEBUG
 #include "debugtrace.h"
@@ -20,7 +20,7 @@ bool _verifyLoginPass()
 {
 	if (AppSettings->userLogin.isEmpty() || AppSettings->userPass.isEmpty())
 	{
-		return LoginPassDialog::ascLoginPass();
+		return LoginPassDialog::ascLoginPass(AppSettings->userLogin, AppSettings->userPass);
 	}
 	return true;
 }

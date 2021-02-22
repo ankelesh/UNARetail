@@ -8,7 +8,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QComboBox>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QListWidget>
 
 SerializationSettings::SerializationSettings(Modes mode, Entity Prototype, QWidget* parent)

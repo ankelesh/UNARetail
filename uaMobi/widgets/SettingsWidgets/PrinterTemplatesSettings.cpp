@@ -5,12 +5,12 @@
 #include <QTextEdit>
 #include <QLabel>
 #include <QScroller>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/utils/ElementsStyles.h"
 #include <qapplication.h>
 #include <QFile>
 #include <qmessagebox.h>
-#include "widgets/UtilityElements/AndroidFileDialog.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/AndroidFileDialog.h"
 #ifdef Q_OS_ANDROID
 #include <qinputmethod.h>
 #include <QScroller>

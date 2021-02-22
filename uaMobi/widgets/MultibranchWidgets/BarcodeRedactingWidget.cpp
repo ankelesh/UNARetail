@@ -1,6 +1,6 @@
 #include "BarcodeRedactingWidget.h"
 #include "widgets/utils/ElementsStyles.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QGridLayout>
 #include "widgets/MultibranchWidgets/Redactors/RoleBoundRedactor.h"
 Abs_Redactor* generateRedactor(Modes mode, QWidget* parent)

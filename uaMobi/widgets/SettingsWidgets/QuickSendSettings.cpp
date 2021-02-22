@@ -5,7 +5,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QComboBox>
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 
 QuickSendSettings::QuickSendSettings(Modes mode, QWidget* parent)
 	: QWidget(parent), mainLayout(new QFormLayout(this)),

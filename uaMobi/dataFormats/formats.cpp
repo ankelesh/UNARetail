@@ -9,7 +9,7 @@
 #include <QtCore/QVariant>
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/utils/ElementsStyles.h"
-#include "widgets/UtilityElements/ExtendedDialogs.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 QDomElement _XML_sqlColumnNames(QSqlRecord record, QDomDocument & xml)
 {
     QDomElement columns( xml.createElement("columns") );

@@ -9,7 +9,7 @@
 #include "externalCommunication/tohttp.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/utils/EventsAndFilters.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/SettingsWidgets/GeneralSettings.h"
 #include "widgets/SettingsWidgets/SearchDatabaseSettings.h"
 #include "widgets/SettingsWidgets/ViewSettings.h"
@@ -31,7 +31,7 @@ SettingsForm::SettingsForm( QWidget* parent)
 	mainLayout->addWidget(backButton);
 	mainLayout->setSpacing(0);
 	mainLayout->setContentsMargins(0, 0, 0, 0);
-	setFont(AppGenFont);
+	setFont(GENERAL_FONT);
 	innerWidget->setMinimumHeight(calculateAdaptiveButtonHeight(0.8));
 	innerWidget->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
 	innerWidget->setLayout(new QVBoxLayout(innerWidget));

@@ -3,7 +3,7 @@
 #include "widgets/utils/ElementsStyles.h"
 #include "widgets/utils/BarcodeObserver.h"
 #include "widgets/utils/GlobalAppSettings.h"
-#include "widgets/utils/MegaIconButton.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QSpinBox>
 #include <QFormLayout>
 
@@ -39,7 +39,7 @@ ScaningSettings::ScaningSettings(Modes cmode, QWidget* parent)
 	mainLayout->setContentsMargins(0, 0, 0, 0);
 	mainLayout->setSpacing(0);
 	mainLayout->setRowWrapPolicy(QFormLayout::WrapAllRows);
-	this->setFont(AppGenFont);
+	this->setFont(GENERAL_FONT);
 	scanButtonCapturer->setText(QString::number(AppSettings->scanButtonCode));
 	suffixCapturer->setValue(AppSettings->scanSuffix);
 	prefixCapturer->setValue(AppSettings->scanPrefix);
