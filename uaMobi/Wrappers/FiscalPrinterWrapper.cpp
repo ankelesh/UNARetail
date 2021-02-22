@@ -1,7 +1,7 @@
 #include "FiscalPrinterWrapper.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <QNetworkReply>
 #include "externalCommunication/communicationCore.h"

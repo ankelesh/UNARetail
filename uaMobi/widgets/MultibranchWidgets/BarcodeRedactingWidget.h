@@ -1,7 +1,7 @@
 #pragma once
 #include "widgets/MultibranchWidgets/Redactors/BarcodeRedactorForm.h"
 #include "widgets/MultibranchWidgets/Redactors/PricedBarcodeRedactorForm.h"
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 #include "dataproviders/sqldataprovider.h"
 /*
 	This class responds for redacting barcode entry. It has signals

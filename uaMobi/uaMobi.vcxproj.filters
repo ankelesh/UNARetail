@@ -227,6 +227,24 @@
     <Filter Include="Submodules\UNAQtCommons\Sources\widgets\UtilityElements">
       <UniqueIdentifier>{f04b6521-90b2-4d9d-9d28-98cd1d08a85e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\debug">
+      <UniqueIdentifier>{cfb9c502-3584-474e-8038-a1d0b8621d04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\widgets\parents">
+      <UniqueIdentifier>{5e5ba822-7ba1-4259-a405-60b2166962b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\widgets\parents">
+      <UniqueIdentifier>{287afdd2-49ba-4f5e-bcf9-a5f00dae4d0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\debug">
+      <UniqueIdentifier>{df967a34-8bf5-45a7-9eac-66fa6f0dff04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\barcodeHandling">
+      <UniqueIdentifier>{ab699db8-308a-405a-9105-d294d5c825af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\barcodeHandling">
+      <UniqueIdentifier>{053d7ece-9a7b-4ce7-9bdd-ba3dcacde972}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -709,9 +727,6 @@
     <ClCompile Include="dataFormats\dataformater.cpp">
       <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
-    <ClCompile Include="debugtrace.cpp">
-      <Filter>Source Files\util</Filter>
-    </ClCompile>
     <ClCompile Include="externalCommunication\tohttp.cpp">
       <Filter>Source Files\Model\commcore</Filter>
     </ClCompile>
@@ -723,9 +738,6 @@
     </ClCompile>
     <ClCompile Include="widgets\utils\EventsAndFilters.cpp">
       <Filter>Source Files\util</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\parents\inframedWidget.cpp">
-      <Filter>Source Files\View\parents</Filter>
     </ClCompile>
     <ClCompile Include="dataFormats\formats.cpp">
       <Filter>Source Files\Model\commcore</Filter>
@@ -802,9 +814,6 @@
     <ClCompile Include="widgets\utils\ElementsStyles.cpp">
       <Filter>Source Files\util\globals</Filter>
     </ClCompile>
-    <ClCompile Include="widgets\utils\BarcodeObserver.cpp">
-      <Filter>Source Files\util</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\ControlsMiniwidgets\abs_control.cpp">
       <Filter>Source Files\View\elements\controls</Filter>
     </ClCompile>
@@ -834,9 +843,6 @@
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.cpp">
       <Filter>Source Files\View\Multibranch\redactors</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\parents\abstractNodeInterface.cpp">
-      <Filter>Source Files\View\parents</Filter>
     </ClCompile>
     <ClCompile Include="widgets\MultibranchWidgets\ScaningWidget.cpp">
       <Filter>Source Files\View\ScaningRelated</Filter>
@@ -997,6 +1003,18 @@
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\MegaIconButton.cpp">
       <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
     </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\debug\debugtrace.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\parents\inframedWidget.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\parents</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\barcodeHandling\BarcodeObserver.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\barcodeHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\parents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1062,12 +1080,6 @@
     <ClInclude Include="dataFormats\dataformater.h">
       <Filter>Header Files\Model\commcore</Filter>
     </ClInclude>
-    <ClInclude Include="debugtrace.h">
-      <Filter>Header Files\util</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets\parents\abstractNodeInterface.h">
-      <Filter>Header Files\View\parents</Filter>
-    </ClInclude>
     <ClInclude Include="dataproviders\BackupingEngine.h">
       <Filter>Header Files\Model\commcore</Filter>
     </ClInclude>
@@ -1127,6 +1139,12 @@
     </ClInclude>
     <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
       <Filter>Header Files\util\Wrappers\Printers</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\debug\debugtrace.h">
+      <Filter>Submodules\UNAQtCommons\Headers\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\parents</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1644,9 +1662,6 @@
     <QtMoc Include="widgets\parents\AbstractScaningWidget.h">
       <Filter>Header Files\View\parents</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\parents\inframedWidget.h">
-      <Filter>Header Files\View\parents</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\parents\BranchRootWidget.h">
       <Filter>Header Files\View\parents</Filter>
     </QtMoc>
@@ -1685,9 +1700,6 @@
     </QtMoc>
     <QtMoc Include="widgets\PriceBranch\PriceBranchWidget.h">
       <Filter>Header Files\View\Roots</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\utils\BarcodeObserver.h">
-      <Filter>Header Files\util</Filter>
     </QtMoc>
     <QtMoc Include="widgets\InvoiceBranch\InvoiceBranchWidget.h">
       <Filter>Header Files\View\Roots</Filter>
@@ -1871,6 +1883,12 @@
     </QtMoc>
     <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\MegaIconButton.h">
       <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\parents\inframedWidget.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\parents</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\barcodeHandling\BarcodeObserver.h">
+      <Filter>Submodules\UNAQtCommons\Headers\barcodeHandling</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

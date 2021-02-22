@@ -5,7 +5,7 @@
 #include "widgets/utils/ElementsStyles.h"
 #include <QtCore/QTimer>
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include "widgets/utils/ZebraListItemDelegate.h"
 #include "widgets/utils/GlobalAppSettings.h"
@@ -15,7 +15,7 @@
 #include "widgets/MultibranchWidgets/ScaningCameraWidget.h"
 #include "widgets/utils/VirtualBarcodeKeyboard.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
-#include "widgets/utils/BarcodeObserver.h"
+#include "submodules/UNAQtCommons/barcodeHandling/BarcodeObserver.h"
 #include "Datacore/DataEntities.h"
 
 AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
@@ -141,16 +141,14 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	QObject::connect(keyboardButton, &MegaIconButton::clicked, this, &AbstractScaningWidget::keyboardRequired);
 	
 	QObject::connect(BarcodeObs, &BarcodeObserver::barcodeCaught, this, &AbstractScaningWidget::barcodeConfirmed);
-	QObject::connect(BarcodeObs, &BarcodeObserver::scanButtonPress, this, &AbstractScaningWidget::handleScanButton);
-	QObject::connect(BarcodeObs, &BarcodeObserver::backButtonPress, this, &AbstractScaningWidget::backRequired);
+	QObject::connect(BarcodeObs, &BarcodeObserver::escapeCaught, this, &AbstractScaningWidget::backRequired);
 	QObject::connect(barcodeInput, &QLineEdit::returnPressed, this, &AbstractScaningWidget::manualConfirmed);
 #else
 	QObject::connect(backButton, SIGNAL(clicked()), this, SIGNAL(backRequired()));
 	QObject::connect(keyboardButton, SIGNAL(clicked()), this, SLOT(keyboardRequired()));
 
 	QObject::connect(BarcodeObs, SIGNAL(barcodeCaught(QString)), this, SLOT(barcodeConfirmed(QString)));
-	QObject::connect(BarcodeObs, SIGNAL(scanButtonPress()), this, SLOT(handleScanButton()));
-	QObject::connect(BarcodeObs, SIGNAL(backButtonPress()), this, SIGNAL(backRequired()));
+	QObject::connect(BarcodeObs, SIGNAL(escapeCaught()), this, SIGNAL(backRequired()));
 	QObject::connect(barcodeInput, SIGNAL(returnPressed()), this, SLOT(manualConfirmed()));
 #endif
 }

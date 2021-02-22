@@ -8,7 +8,7 @@
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "dataproviders/BackupingEngine.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 
 BranchRootWidget::BranchRootWidget(Modes mode, QWidget* parent) :
@@ -57,6 +57,7 @@ BranchRootWidget::BranchRootWidget(Modes mode, QWidget* parent) :
 	receive->setSizePolicy(expandToAl);
 	settings->setSizePolicy(expandToAl);
 	setFocus();
+	_captureNumbers();
 	
 #ifdef QT_VERSION5X
 	QObject::connect(scanner, &QPushButton::clicked, this, &BranchRootWidget::scannerPressed);
@@ -73,18 +74,7 @@ BranchRootWidget::BranchRootWidget(Modes mode, QWidget* parent) :
 #endif
 }
 
-bool BranchRootWidget::giveSettings()
-{
-	if (currentlyOpened->giveSettings())
-		return true;
-	else
-	{
-		_hideAndDeleteCurrent( _allocateSettings());
-	}
-	return true;
-}
-
-bool BranchRootWidget::isExpectingControl(int contr)
+void BranchRootWidget::_numberReaction(int contr)
 {
 	if (currentlyOpened == untouchable)
 	{
@@ -106,7 +96,6 @@ bool BranchRootWidget::isExpectingControl(int contr)
 			break;
 		}
 	}
-	return true;
 }
 
 void BranchRootWidget::scannerPressed()

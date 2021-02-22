@@ -4,12 +4,13 @@
 #include "widgets/InvoiceBranch/InvoiceBranchWidget.h"
 #include "widgets/SalesAccountingBranch/SalesAccounting.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/DatabaseOperationBranch/DatabaseOperationsWidget.h"
 #include "widgets/TagPrintingBranch/PriceTagPrintingWidget.h"
+#include "submodules/UNAQtCommons/barcodeHandling/BarcodeObserver.h"
 
 CoreWidget::CoreWidget(QWidget* parent)
 	: QWidget(parent), abstractDynamicNode( new inframedWidget(this), new QVBoxLayout(this)),
@@ -87,6 +88,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	exitButton->setIcon(QIcon(":/res/exit.png"));
 	settingsButton->setMinimumHeight(calculateAdaptiveButtonHeight());
     exitButton->setMinimumHeight(calculateAdaptiveButtonHeight());
+	BarcodeObserver::init();
 #ifdef QT_VERSION5X
 	QObject::connect(settingsButton, &QPushButton::clicked, this, &CoreWidget::settingsPressed);
 	QObject::connect(exitButton, &QPushButton::clicked, this, &CoreWidget::exitPressed);
@@ -124,8 +126,7 @@ void CoreWidget::settingsPressed()
 {
 	if (currentlyOpened != untouchable)
 	{
-		if (!currentlyOpened->giveSettings())
-			_hideAndDeleteCurrent(untouchable);
+		_hideAndDeleteCurrent(untouchable);
 	}
 	else
 	{

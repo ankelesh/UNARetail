@@ -1,5 +1,5 @@
 #pragma once
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 #include "Datacore/DataEntities.h"
 #include "widgets/TagPrintingBranch/PrinterTemplatesList.h"
 

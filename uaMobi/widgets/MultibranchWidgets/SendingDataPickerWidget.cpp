@@ -69,6 +69,8 @@ SendingDataPickerWidget::SendingDataPickerWidget(Modes mode, QWidget* parent)
 	unsentButton->setText(tr("send_unsent_button"));
 	allButton->setText(tr("send_all_button"));
 	settingsButton->setText(tr("Settings"));
+	_captureNumbers();
+
 #ifdef QT_VERSION5X
 	QObject::connect(unsentButton, &MegaIconButton::clicked, this, &SendingDataPickerWidget::unsentChosen);
 	QObject::connect(sentButton, &MegaIconButton::clicked, this, &SendingDataPickerWidget::sentChosen);
@@ -98,31 +100,10 @@ void SendingDataPickerWidget::show()
 	inframedWidget::show();
 }
 
-bool SendingDataPickerWidget::back()
+
+
+void SendingDataPickerWidget::_numberReaction(int value)
 {
-
-	if (current->back())
-		return true;
-	else if (current != innerWidget)
-    {
-		hideCurrent();
-		return true;
-	}
-
-
-	return false;
-}
-
-bool SendingDataPickerWidget::isExpectingControl(int value)
-{
-	if (sendWidget->isExpectingControl(value))
-	{
-		return true;
-	}
-	if (innerWidget->isHidden())
-	{
-		return false;
-	}
 	switch (value)
 	{
 	case 0:
@@ -140,23 +121,9 @@ bool SendingDataPickerWidget::isExpectingControl(int value)
 	default:
 		break;
 	}
-	return true;
 }
 
-bool SendingDataPickerWidget::giveSettings()
-{
-	if (current->giveSettings())
-		return true;
-	if (current == innerWidget)
-	{
-		_hideAny(settingsWidget);
-	}
-	else
-	{
-		hideCurrent();
-	}
-	return true;
-}
+
 
 void SendingDataPickerWidget::set_info()
 {

@@ -4,7 +4,7 @@
 #include <QZXingFilter.h>
 #endif
 #include "widgets/CoreWidget.h"
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #include <QtQml>
 #include <QProxyStyle>
 class WinCEProxyStyle : public QProxyStyle

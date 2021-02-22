@@ -1,6 +1,6 @@
 #include "VirtualBarcodeKeyboard.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include "widgets/utils/ElementsStyles.h"
 #include <QPushButton>
@@ -69,6 +69,7 @@ VirtualBarcodeKeyboard::VirtualBarcodeKeyboard(QWidget* parent)
 	okButton->setMinimumHeight(calculateAdaptiveButtonHeight());
 	backButton->setMinimumHeight(calculateAdaptiveButtonHeight());
 	setFocus();
+	_captureNumbers();
 #ifdef QT_VERSION5X
 	QObject::connect(clearButton, &QPushButton::pressed, barcodeLine, &QLineEdit::clear);
 	QObject::connect(eraseButton, &QPushButton::pressed, barcodeLine, &QLineEdit::backspace);
@@ -82,19 +83,12 @@ VirtualBarcodeKeyboard::VirtualBarcodeKeyboard(QWidget* parent)
 #endif
 }
 
-bool VirtualBarcodeKeyboard::isExpectingControl(int contr)
+void VirtualBarcodeKeyboard::_numberReaction(int contr)
 {
-#ifdef DEBUG
-	detrace_METHCALL("isEcpectingControl with " << contr);
-
-#endif
-	++contr;
 	if (contr > 0 && contr < 10)
 	{
 		barcodeLine->setText(barcodeLine->text() + QString::number(contr));
-		return true;
 	}
-	return false;
 }
 
 void VirtualBarcodeKeyboard::okPressed()

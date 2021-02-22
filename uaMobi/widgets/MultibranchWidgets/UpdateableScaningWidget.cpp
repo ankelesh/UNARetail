@@ -2,7 +2,7 @@
 #include "externalCommunication/AsyncRequestEngine.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 
 

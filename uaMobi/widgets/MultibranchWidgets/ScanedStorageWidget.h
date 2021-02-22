@@ -1,8 +1,8 @@
 #pragma once
 #include "dataproviders/ModesDescriptions.h"
 #include "Datacore/AbsEntity.h"
-#include "widgets/parents/inframedWidget.h"
-#include "widgets/parents/abstractNodeInterface.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h"
 /*
 	This widget is made to provide access to barcode database with possibility to edit entries.
 	Each barcode is shown like a string with all info barcode is holding.
@@ -62,7 +62,6 @@ public:
     virtual ~ScanedStorageWidget();
 	void addEntity(Entity);
 	virtual void show() override;	//	auto-refresh on show
-	virtual bool back() override;
 	void refresh();
 protected slots:
 	void drop();

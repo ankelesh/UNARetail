@@ -1,7 +1,7 @@
 #include "SearchWidget.h"
 #include "widgets/utils/ElementsStyles.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <QLabel>
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"

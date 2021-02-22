@@ -4,7 +4,7 @@
 #include <QVector>
 #include <QDir>
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include "client_specific_defaults.h"
 

@@ -27,7 +27,7 @@ bool EntityHash::operator<(const EntityHash& other) const
 	return (
 		(type < other.type)
 		||
-		( barcodeHash > other.type)
+		( barcodeHash > other.barcodeHash)
 		);
 }
 

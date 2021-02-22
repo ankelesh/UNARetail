@@ -1,7 +1,7 @@
 #pragma once
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 #include "widgets/MultibranchWidgets/BarcodeRedactingWidget.h"
-#include "widgets/parents/abstractNodeInterface.h"
+#include "submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h"
 #include <QListView>
 #include <QTextEdit>
 #include <QLineEdit>

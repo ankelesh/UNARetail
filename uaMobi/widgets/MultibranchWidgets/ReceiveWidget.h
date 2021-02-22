@@ -1,5 +1,5 @@
 #pragma once
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 #include "dataproviders/ModesDescriptions.h"
 /*
 		This widget is made to be connected to totcp\tohttp connections, but no functional is provided now
@@ -59,7 +59,7 @@ public:
 	ReceiveWidget(Modes mode, QWidget* parent);
 
 	virtual void show();
-	virtual bool isExpectingControl(int value) override;
+	virtual void _numberReaction(int value) override;
 	virtual bool giveSettings();
 	void setMode(sendingMode);
 	void show_info();

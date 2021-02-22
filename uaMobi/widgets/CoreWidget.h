@@ -11,7 +11,7 @@
 #include <QKeyEvent>
 #include <QtCore/QPointer>
 #include <QGridLayout>
-#include "widgets/parents/abstractNodeInterface.h"
+#include "submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 
 class IndexedButton : public MegaIconButton

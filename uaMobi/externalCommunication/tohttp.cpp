@@ -1,6 +1,6 @@
 #include "tohttp.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <QApplication>
 #include <QtNetwork/QNetworkReply>

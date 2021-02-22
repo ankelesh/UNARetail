@@ -12,7 +12,7 @@ class EntityHash
 	uint writeablesHash;
 public:
 	EntityHash() : barcodeHash(0), type(-1), enumerablesHash(0), writeablesHash(0) {}
-	EntityHash(uint bHash, int t, long long int eH = 0, uint wH = 0, uint wRH = 0, uint eHs = 0)
+	EntityHash(uint bHash, int t, long long int eH = 0, uint wH = 0)
 		: barcodeHash(bHash), type(t), enumerablesHash(eH), writeablesHash(wH) {}
 	EntityHash& operator=(const EntityHash& other);
 	bool operator==(const EntityHash& other) const;

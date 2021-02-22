@@ -2,7 +2,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include "dataFormats/formats.h"
 #include "dataproviders/sqldataprovider.h"

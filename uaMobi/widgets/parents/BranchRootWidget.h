@@ -1,6 +1,6 @@
 #pragma once
-#include "widgets/parents/inframedWidget.h"
-#include "widgets/parents/abstractNodeInterface.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h"
 #include "Datacore/AbsEntity.h"
 #include "dataproviders/ModesDescriptions.h"
 /*
@@ -49,9 +49,8 @@ protected:
 public:
 	BranchRootWidget(Modes mode,
 		QWidget* parent = Q_NULLPTR);
-
-	virtual bool giveSettings() override;
-	virtual bool isExpectingControl(int contr) override;
+protected:
+	virtual void _numberReaction(int) override;
 
 protected slots:					//	button slots
 	void scannerPressed();

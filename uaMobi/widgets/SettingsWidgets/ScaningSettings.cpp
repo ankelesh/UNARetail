@@ -1,7 +1,7 @@
 #include "ScaningSettings.h"
 #include <QKeyEvent>
 #include "widgets/utils/ElementsStyles.h"
-#include "widgets/utils/BarcodeObserver.h"
+#include "submodules/UNAQtCommons/barcodeHandling/BarcodeObserver.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QSpinBox>
@@ -73,12 +73,12 @@ void ScaningSettings::extractAndSave()
 	AppSettings->scanPrefix = prefixCapturer->value();
 	AppSettings->scanSuffix = suffixCapturer->value();
 	AppSettings->getModeDescription(currentMode).setHistoryRequire(historyButton->isChecked());
-	BarcodeObs->resetCapture(AppSettings->scanPrefix, AppSettings->scanSuffix, AppSettings->scanButtonCode);
+	BarcodeObs->resetCapture(AppSettings->scanPrefix, AppSettings->scanSuffix);
 }
 
 void ScaningSettings::scanKeyPressed(int keycode)
 {
 	AppSettings->scanButtonCode = keycode;
-	BarcodeObs->resetCapture(AppSettings->scanPrefix, AppSettings->scanSuffix, AppSettings->scanButtonCode);
+	BarcodeObs->resetCapture(AppSettings->scanPrefix, AppSettings->scanSuffix);
 }
 

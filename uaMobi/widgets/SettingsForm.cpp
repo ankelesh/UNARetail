@@ -1,7 +1,7 @@
 #include "SettingsForm.h"
 
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <QMessageBox>
 #include "widgets/utils/ElementsStyles.h"

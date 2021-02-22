@@ -5,7 +5,7 @@
 #include <QtNetwork/QHostInfo>
 #include "dataFormats/formats.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 
 #include "dataproviders/sqldataprovider.h"

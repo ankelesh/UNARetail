@@ -5,7 +5,7 @@
 #endif
 #include "widgets/utils/ZebraListItemDelegate.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <qmessagebox.h>
 #include <qlistview.h>
@@ -140,11 +140,6 @@ void ScanedStorageWidget::show() // overriden - autorefresh added
 			AppData->countUniqueIn(
 				currentMode, TableNames::Uploaded)));
 	inframedWidget::show();
-}
-
-bool ScanedStorageWidget::back()
-{
-	return true;
 }
 
 void ScanedStorageWidget::dataLoaded(EntityList elist)

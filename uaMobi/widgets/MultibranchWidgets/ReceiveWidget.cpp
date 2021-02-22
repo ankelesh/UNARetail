@@ -12,7 +12,7 @@
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "dataproviders/sqldataprovider.h"
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 
 
@@ -85,6 +85,7 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 	uniqueBarcodes->setStyleSheet(COUNTERS_LABEL_STYLESHEET);
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 	cleanPreviousDocument->setIcon(QIcon(":/res/deleteData.png"));
+	_captureNumbers();
 #ifdef QT_VERSION5X
 	QObject::connect(useHttpButton, &QPushButton::pressed, this, &ReceiveWidget::httpChosen);
 	QObject::connect(useLocalButton, &QPushButton::pressed, this, &ReceiveWidget::localChosen);
@@ -120,10 +121,8 @@ void ReceiveWidget::show()
 	inframedWidget::show();
 }
 
-bool ReceiveWidget::isExpectingControl(int value)
+void ReceiveWidget::_numberReaction(int value)
 {
-	if (this->isHidden())
-		return false;
 	switch (value)
 	{
 	case 0:
@@ -138,7 +137,6 @@ bool ReceiveWidget::isExpectingControl(int value)
 	default:
 		break;
 	}
-	return true;
 }
 
 bool ReceiveWidget::giveSettings()

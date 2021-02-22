@@ -6,7 +6,7 @@
 #include "widgets/utils/GlobalAppSettings.h"
 #include <QInputMethod>
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <qmessagebox.h>
 #include <cmath>
@@ -406,7 +406,7 @@ void RoleBoundScaningWidget::setPreInsertingTrigger(PreInsertingTrigger tr)
 	pit = tr;
 }
 
-void RoleBoundScaningWidget::setTotal(int total)
+void RoleBoundScaningWidget::setTotal(int /*total*/)
 {
 	if (!totalInfo->isHidden())
 	{

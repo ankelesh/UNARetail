@@ -1,5 +1,5 @@
 #pragma once
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 
 /*
 
@@ -37,7 +37,7 @@ private:
 public:
 	explicit VirtualBarcodeKeyboard(QWidget* parent = Q_NULLPTR);
 
-	virtual bool isExpectingControl(int) override;
+	virtual void _numberReaction(int) override;
 
 private slots:
 	void numberPressed();

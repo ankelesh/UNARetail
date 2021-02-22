@@ -1,7 +1,7 @@
 #pragma once
 #ifndef SPECIALACTIONSSETTINGS_H
 #define SPECIALACTIONSSETTINGS_H
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 
 
 class PrinterSettings;

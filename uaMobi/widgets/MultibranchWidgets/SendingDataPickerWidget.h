@@ -1,6 +1,6 @@
 #pragma once
-#include "widgets/parents/abstractNodeInterface.h"
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 #include "dataproviders/ModesDescriptions.h"
 /*
 	This class represents widget used to pick which data must be sent. It has a child ReceiveWidget,
@@ -39,9 +39,7 @@ protected:
 public:
 	SendingDataPickerWidget( Modes mode,  QWidget* parent);
 	virtual void show() override;
-	virtual bool back() override;
-	virtual bool isExpectingControl(int) override;
-    virtual bool giveSettings() override;
+	virtual void _numberReaction(int) override;
 protected slots:
 	void unsentChosen();
 	void sentChosen();

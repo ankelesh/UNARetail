@@ -17,7 +17,7 @@ Abs_Redactor* generateRedactor(Modes mode, QWidget* parent)
 }
 
 
-BarcodeRedactingWidget::BarcodeRedactingWidget(Modes mode, QWidget* parent)
+BarcodeRedactingWidget::BarcodeRedactingWidget(Modes /*mode*/, QWidget* parent)
 	: inframedWidget(parent),
 	mainLayout(new QGridLayout(this)),
 	redactor(new RoleBoundRedactor(this)),

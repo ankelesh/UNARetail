@@ -1,6 +1,6 @@
 #pragma once
 #include <QWidget>
-#include "widgets/parents/abstractNodeInterface.h"
+#include "submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h"
 #include <QString>
 #include <QStringList>
 

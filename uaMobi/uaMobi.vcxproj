@@ -219,6 +219,10 @@
     <ClCompile Include="qzxing-master\src\zxing\zxing\aztec\AztecDetectorResult.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\aztec\AztecReader.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\BarcodeFormat.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\barcodeHandling\BarcodeObserver.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\debug\debugtrace.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\widgets\parents\inframedWidget.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\AndroidFileDialog.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedDialogs.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedLabels.cpp" />
@@ -258,7 +262,6 @@
     <ClCompile Include="widgets\MultibranchWidgets\SendSettings.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\UpdateableScaningWidget.cpp" />
     <ClCompile Include="widgets\parents\AbstractCameraWidget.cpp" />
-    <ClCompile Include="widgets\parents\abstractNodeInterface.cpp" />
     <ClCompile Include="widgets\parents\AbstractScaningWidget.cpp" />
     <ClCompile Include="widgets\parents\BranchRootWidget.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\multi\ByQuadrantReader.cpp" />
@@ -320,7 +323,6 @@
     <ClCompile Include="qzxing-master\src\zxing\zxing\LuminanceSource.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\qrcode\encoder\MaskUtil.cpp" />
     <ClCompile Include="qzxing-master\src\zxing\zxing\qrcode\encoder\MatrixUtil.cpp" />
-    <ClCompile Include="widgets\parents\inframedWidget.cpp" />
     <ClCompile Include="widgets\PriceBranch\PriceBranchWidget.cpp" />
     <ClCompile Include="widgets\PriceBranch\PriceScaningWidget.cpp" />
     <ClCompile Include="widgets\SalesAccountingBranch\SalesAccounting.cpp" />
@@ -343,7 +345,6 @@
     <ClCompile Include="widgets\SettingsWidgets\ViewSettings.cpp" />
     <ClCompile Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.cpp" />
     <ClCompile Include="widgets\TagPrintingBranch\PrinterTemplatesList.cpp" />
-    <ClCompile Include="widgets\utils\BarcodeObserver.cpp" />
     <ClCompile Include="widgets\utils\BigButtonsSpinbox.cpp" />
     <ClCompile Include="widgets\utils\ElementsStyles.cpp" />
     <ClCompile Include="widgets\utils\EventsAndFilters.cpp" />
@@ -422,7 +423,6 @@
     <ClCompile Include="qzxing-master\src\zxing\zxing\WriterException.cpp" />
     <ClCompile Include="externalCommunication\communicationCore.cpp" />
     <ClCompile Include="dataFormats\dataformater.cpp" />
-    <ClCompile Include="debugtrace.cpp" />
     <ClCompile Include="widgets\MultibranchWidgets\innerSettingsForm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="dataproviders\sqldataprovider.cpp" />
@@ -479,6 +479,20 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
     </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\barcodeHandling\BarcodeObserver.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <ClInclude Include="submodules\UNAQtCommons\debug\debugtrace.h" />
+    <QtMoc Include="submodules\UNAQtCommons\widgets\parents\inframedWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <ClInclude Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.h" />
     <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h" />
     <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h" />
     <QtMoc Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.h" />
@@ -526,7 +540,6 @@
     <QtMoc Include="widgets\PriceBranch\PriceBranchWidget.h" />
     <QtMoc Include="widgets\PriceBranch\PriceScaningWidget.h" />
     <QtMoc Include="widgets\MultibranchWidgets\SendSettings.h" />
-    <QtMoc Include="widgets\utils\BarcodeObserver.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\abs_control.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\DateTimeControl.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\ControlTranslator.h" />
@@ -545,7 +558,6 @@
     <QtMoc Include="widgets\MultibranchWidgets\Redactors\RoleBoundRedactor.h" />
     <QtMoc Include="widgets\DatabaseOperationBranch\DatabaseOperationsWidget.h" />
     <QtMoc Include="widgets\MultibranchWidgets\PrintingReceiptScaningWidget.h" />
-    <ClInclude Include="widgets\parents\abstractNodeInterface.h" />
     <QtMoc Include="widgets\SettingsWidgets\ScaningSettings.h" />
     <QtMoc Include="widgets\SettingsWidgets\DatabaseSettings.h" />
     <QtMoc Include="widgets\SettingsWidgets\QuickSendSettings.h" />
@@ -743,10 +755,7 @@
     <ClInclude Include="qzxing-master\src\zxing\zxing\ZXing.h" />
     <QtMoc Include="externalCommunication\communicationCore.h" />
     <ClInclude Include="dataFormats\dataformater.h" />
-    <ClInclude Include="debugtrace.h" />
     <ClInclude Include="qzxing-master\src\zxing\win32\zxing\iconv.h" />
-    <QtMoc Include="widgets\parents\inframedWidget.h">
-    </QtMoc>
     <QtMoc Include="widgets\MultibranchWidgets\innerSettingsForm.h">
     </QtMoc>
     <ClInclude Include="dataproviders\sqldataprovider.h" />

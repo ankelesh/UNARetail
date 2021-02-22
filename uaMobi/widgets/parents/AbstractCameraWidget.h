@@ -1,6 +1,6 @@
 #pragma once
 #ifdef CAMERA_SUPPORT
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 
 /*
 		This widget is core one for anything than interfaces with camera - it holds a view

@@ -1,5 +1,5 @@
 #pragma once
-#include "widgets/parents/inframedWidget.h"
+#include "submodules/UNAQtCommons/widgets/parents/inframedWidget.h"
 #include "dataproviders/ModesDescriptions.h"
 #include "Datacore/AbsEntity.h"
 class QVBoxLayout;

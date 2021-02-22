@@ -19,7 +19,7 @@
 #include <QListView>
 #include <QTextEdit>
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include "Datacore/DataEntities.h"
 #include <QFile>

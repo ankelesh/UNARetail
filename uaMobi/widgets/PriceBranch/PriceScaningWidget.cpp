@@ -6,7 +6,7 @@
 #include "widgets/ControlsMiniwidgets/QuantityControl.h"
 #include <QInputMethod>
 #ifdef DEBUG
-#include "debugtrace.h"
+#include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 #include <QLabel>
 #include "Datacore/DataEntities.h"
