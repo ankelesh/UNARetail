@@ -1,4 +1,2 @@
--->	Method called: initializeGlobalAppSettings in object 7348648
+-->	Method called: initializeGlobalAppSettings in object 20458616
 if errors: 0
--->	Method called: translate control Количество10 | in object 18050916
-][	Created object control-like of type 1 on address 119641288

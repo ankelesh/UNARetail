@@ -12,7 +12,7 @@
 #include "Datacore/DataEntities.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "widgets/utils/GlobalAppSettings.h"
-#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
+#include "submodules/UNAQtCommons/wrappers/Sound/SoundEffectPlayer.h"
 PriceScaningWidget::PriceScaningWidget(QWidget* parent)
 	: AbstractScaningWidget(Modes::Prices, parent),
 	lengthCounter(new QLabel(untouchable)),

@@ -4,7 +4,7 @@
 #include "submodules/UNAQtCommons/widgets/UtilityElements/AndroidFileDialog.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #ifdef Q_OS_ANDROID
-#include "Wrappers/androidservicewrapper.h"
+#include "submodules/UNAQtCommons/wrappers/Platform/Android/androidservicewrapper.h"
 #endif
 #include <QListView>
 #include <qlistwidget.h>

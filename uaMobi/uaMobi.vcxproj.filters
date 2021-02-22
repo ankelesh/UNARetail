@@ -179,14 +179,8 @@
     <Filter Include="Header Files\View\SettingsScreens\PrintingSettings">
       <UniqueIdentifier>{c36612cc-7db5-45bd-b9d5-8a323095c86f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\util\Wrappers\Sound">
-      <UniqueIdentifier>{88dcefaf-f99e-4305-96a7-1b2fc0a13cda}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\util\Wrappers\Printers">
       <UniqueIdentifier>{94eb75b1-bf1c-4e4a-895c-bca828d5fd6f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\util\Wrappers\Sound">
-      <UniqueIdentifier>{1932d82b-4e5f-4626-8c02-f9099b45b44f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\util\Wrappers\Printers">
       <UniqueIdentifier>{f900a88c-c47c-44eb-a2f7-e4066ce4cf96}</UniqueIdentifier>
@@ -196,9 +190,6 @@
     </Filter>
     <Filter Include="Header Files\util\Wrappers\Platform">
       <UniqueIdentifier>{f20f52ab-2708-4087-8771-2b3fc61ef33a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\util\Wrappers\Platform">
-      <UniqueIdentifier>{8153ee3d-d3f7-4115-9510-5773ca53ba7d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\util\Wrappers\Printers\Fiscal">
       <UniqueIdentifier>{93c7f1ad-cbb9-4b36-9c29-1b66252a03be}</UniqueIdentifier>
@@ -244,6 +235,30 @@
     </Filter>
     <Filter Include="Submodules\UNAQtCommons\Sources\barcodeHandling">
       <UniqueIdentifier>{053d7ece-9a7b-4ce7-9bdd-ba3dcacde972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\wrappers">
+      <UniqueIdentifier>{986571d0-ead5-4aa9-a505-cd704e281e8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\wrappers\platform">
+      <UniqueIdentifier>{40c05202-d4d6-406e-a836-b9882bf7a4be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\wrappers\platform\android">
+      <UniqueIdentifier>{6d87fb89-bc8a-4e92-8d77-d38b0ec1458f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\wrappers">
+      <UniqueIdentifier>{bceb0548-b88f-4ef4-a79b-6539b8e3bc79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\wrappers\platform">
+      <UniqueIdentifier>{d27a1c7a-ce1b-401c-a227-4724e47d87b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\wrappers\platform\android">
+      <UniqueIdentifier>{56271e73-be49-491d-bc8b-ccf99a390f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\wrappers\sound">
+      <UniqueIdentifier>{e1b981cd-68a3-4205-93a2-f66b8f38ebdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\wrappers\sound">
+      <UniqueIdentifier>{db328b60-26d5-4f2a-b4c8-5cc223c6886a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -970,24 +985,6 @@
     <ClCompile Include="Wrappers\PrinterWrappers\NullPrinterWrapper.cpp">
       <Filter>Source Files\util\Wrappers\Printers</Filter>
     </ClCompile>
-    <ClCompile Include="Wrappers\SoundWrappers\AbsSoundWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\SoundWrappers\ModernQtSoundWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\SoundWrappers\PhononSoundWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\SoundWrappers\SoundEffectPlayer.cpp">
-      <Filter>Source Files\util\Wrappers\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\SoundWrappers\WinCEUnpackWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\androidservicewrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Platform</Filter>
-    </ClCompile>
     <ClCompile Include="Wrappers\FiscalPrinterWrapper.cpp">
       <Filter>Source Files\util\Wrappers\Printers\Fiscal</Filter>
     </ClCompile>
@@ -1014,6 +1011,27 @@
     </ClCompile>
     <ClCompile Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.cpp">
       <Filter>Submodules\UNAQtCommons\Sources\widgets\parents</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Platform\Android\androidservicewrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\platform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Platform\Android\QBroadcastCatcher.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\platform\android</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\AbsSoundWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\ModernQtSoundWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\PhononSoundWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\SoundEffectPlayer.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\WinCEUnpackWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1839,21 +1857,6 @@
     <QtMoc Include="widgets\TagPrintingBranch\PrinterTemplatesList.h">
       <Filter>Header Files\View\SettingsScreens\PrintingSettings</Filter>
     </QtMoc>
-    <QtMoc Include="Wrappers\SoundWrappers\AbsSoundWrapper.h">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\SoundWrappers\ModernQtSoundWrapper.h">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\SoundWrappers\PhononSoundWrapper.h">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\SoundWrappers\SoundEffectPlayer.h">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\SoundWrappers\WinCEUnpackWrapper.h">
-      <Filter>Header Files\util\Wrappers\Sound</Filter>
-    </QtMoc>
     <QtMoc Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.h">
       <Filter>Header Files\util\Wrappers\Printers</Filter>
     </QtMoc>
@@ -1868,9 +1871,6 @@
     </QtMoc>
     <QtMoc Include="Wrappers\FiscalPrinterWrapper.h">
       <Filter>Header Files\util\Wrappers\Printers\Fiscal</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\androidservicewrapper.h">
-      <Filter>Header Files\util\Wrappers\Platform</Filter>
     </QtMoc>
     <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\AndroidFileDialog.h">
       <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
@@ -1889,6 +1889,27 @@
     </QtMoc>
     <QtMoc Include="submodules\UNAQtCommons\barcodeHandling\BarcodeObserver.h">
       <Filter>Submodules\UNAQtCommons\Headers\barcodeHandling</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Platform\Android\androidservicewrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\platform\android</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Platform\Android\QBroadcastCatcher.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\platform\android</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Sound\AbsSoundWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\sound</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Sound\ModernQtSoundWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\sound</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Sound\PhononSoundWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\sound</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Sound\SoundEffectPlayer.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\sound</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\Sound\WinCEUnpackWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\sound</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

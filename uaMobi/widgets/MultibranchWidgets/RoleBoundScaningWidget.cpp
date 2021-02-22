@@ -17,7 +17,7 @@
 #include <exception>
 #include "widgets/ControlsMiniwidgets/ControlManager.h"
 #include <Datacore/DataEntities.h>
-#include "Wrappers/SoundWrappers/SoundEffectPlayer.h"
+#include "submodules/UNAQtCommons/wrappers/Sound/SoundEffectPlayer.h"
 void null_post_search(Entity, ShortBarcode, QVector<abs_control*>&, QVector<labels_private::abs_counter_label*>&, QTextEdit*)
 {
 	return;

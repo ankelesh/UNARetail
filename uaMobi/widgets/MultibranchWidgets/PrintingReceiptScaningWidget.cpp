@@ -4,9 +4,10 @@
 #include "Datacore/DataEntities.h"
 #include "Wrappers/FiscalPrinterWrapper.h"
 #include "Datacore/EntityQuickHash.h"
-#include "Wrappers/androidservicewrapper.h"
+#include "submodules/UNAQtCommons/wrappers/Platform/Android/androidservicewrapper.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/SettingsWidgets/PrinterTemplatesSettings.h"
+
 void PrintingReceiptScaningWidget::barcodeReady()
 {
 	blockSignals(true);
