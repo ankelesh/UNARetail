@@ -1,0 +1,3 @@
+[submodule "uaMobi/submodules/UNAQtCommons"]
+	path = uaMobi/submodules/UNAQtCommons
+	url = https://github.com/ankelesh/UNAQtCommons
