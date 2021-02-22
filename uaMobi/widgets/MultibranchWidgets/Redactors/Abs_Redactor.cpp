@@ -1,7 +1,7 @@
 #include "Abs_Redactor.h"
 #include "widgets/utils/ElementsStyles.h"
 
-#include "widgets/utils/BigButtonsSpinbox.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/BigButtonsSpinbox.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <QLabel>
 #include <QFormLayout>

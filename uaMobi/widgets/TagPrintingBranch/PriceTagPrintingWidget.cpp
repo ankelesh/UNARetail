@@ -1,6 +1,6 @@
 #include "PriceTagPrintingWidget.h"
 #include <QLabel>
-#include "Wrappers/PrinterWrappers/PrinterWrapperFactory.h"
+#include "submodules/UNAQtCommons/wrappers/DirectConnectionPrinters/PrinterWrapperFactory.h"
 #include "widgets/utils/GlobalAppSettings.h"
 #include "widgets/SettingsWidgets/PrinterTemplatesSettings.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"

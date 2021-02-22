@@ -188,9 +188,6 @@
     <Filter Include="Header Files\util\Wrappers\Printers\Fiscal">
       <UniqueIdentifier>{07b4b4a8-4a62-4a92-8bf1-43c79550bea8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\util\Wrappers\Platform">
-      <UniqueIdentifier>{f20f52ab-2708-4087-8771-2b3fc61ef33a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\util\Wrappers\Printers\Fiscal">
       <UniqueIdentifier>{93c7f1ad-cbb9-4b36-9c29-1b66252a03be}</UniqueIdentifier>
     </Filter>
@@ -259,6 +256,12 @@
     </Filter>
     <Filter Include="Submodules\UNAQtCommons\Sources\wrappers\sound">
       <UniqueIdentifier>{db328b60-26d5-4f2a-b4c8-5cc223c6886a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters">
+      <UniqueIdentifier>{007fff76-a8fc-455a-a5df-3d9dcff9b0b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters">
+      <UniqueIdentifier>{14f9936a-03d6-489f-b71a-c1d00dc8a5b2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -727,9 +730,6 @@
     <ClCompile Include="widgets\parents\AbstractScaningWidget.cpp">
       <Filter>Source Files\View\parents</Filter>
     </ClCompile>
-    <ClCompile Include="widgets\utils\BigButtonsSpinbox.cpp">
-      <Filter>Source Files\View\elements</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\parents\BranchRootWidget.cpp">
       <Filter>Source Files\View\parents</Filter>
     </ClCompile>
@@ -970,21 +970,6 @@
     <ClCompile Include="widgets\TagPrintingBranch\PrinterTemplatesList.cpp">
       <Filter>Source Files\View\SettingScreens\PrintingSettings</Filter>
     </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Printers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Printers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Printers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.cpp">
-      <Filter>Source Files\util\Wrappers\Printers</Filter>
-    </ClCompile>
-    <ClCompile Include="Wrappers\PrinterWrappers\NullPrinterWrapper.cpp">
-      <Filter>Source Files\util\Wrappers\Printers</Filter>
-    </ClCompile>
     <ClCompile Include="Wrappers\FiscalPrinterWrapper.cpp">
       <Filter>Source Files\util\Wrappers\Printers\Fiscal</Filter>
     </ClCompile>
@@ -1032,6 +1017,24 @@
     </ClCompile>
     <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\WinCEUnpackWrapper.cpp">
       <Filter>Submodules\UNAQtCommons\Sources\wrappers\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AbsPrinterWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AndroidBluetoothPrinterWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\FTRCOMPrinterWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\NullPrinterWrapper.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1155,14 +1158,14 @@
     <ClInclude Include="Datacore\PrinterTemplateEntity.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
     </ClInclude>
-    <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h">
-      <Filter>Header Files\util\Wrappers\Printers</Filter>
-    </ClInclude>
     <ClInclude Include="submodules\UNAQtCommons\debug\debugtrace.h">
       <Filter>Submodules\UNAQtCommons\Headers\debug</Filter>
     </ClInclude>
     <ClInclude Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.h">
       <Filter>Submodules\UNAQtCommons\Headers\widgets\parents</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1683,9 +1686,6 @@
     <QtMoc Include="widgets\parents\BranchRootWidget.h">
       <Filter>Header Files\View\parents</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\utils\BigButtonsSpinbox.h">
-      <Filter>Header Files\View\elements</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\utils\VirtualBarcodeKeyboard.h">
       <Filter>Header Files\View\elements</Filter>
     </QtMoc>
@@ -1857,18 +1857,6 @@
     <QtMoc Include="widgets\TagPrintingBranch\PrinterTemplatesList.h">
       <Filter>Header Files\View\SettingsScreens\PrintingSettings</Filter>
     </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers\Printers</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers\Printers</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers\Printers</Filter>
-    </QtMoc>
-    <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h">
-      <Filter>Header Files\util\Wrappers\Printers</Filter>
-    </QtMoc>
     <QtMoc Include="Wrappers\FiscalPrinterWrapper.h">
       <Filter>Header Files\util\Wrappers\Printers\Fiscal</Filter>
     </QtMoc>
@@ -1910,6 +1898,21 @@
     </QtMoc>
     <QtMoc Include="submodules\UNAQtCommons\wrappers\Sound\WinCEUnpackWrapper.h">
       <Filter>Submodules\UNAQtCommons\Headers\wrappers\sound</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AbsPrinterWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AndroidBluetoothPrinterWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\FTRCOMPrinterWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\NullPrinterWrapper.h">
+      <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

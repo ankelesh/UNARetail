@@ -7,7 +7,7 @@
 #endif
 #include <QWidget>
 
-#include "widgets/utils/BigButtonsSpinbox.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/BigButtonsSpinbox.h"
 #include <QTime>
 
 double abs_control::_getEnumerableValue() const

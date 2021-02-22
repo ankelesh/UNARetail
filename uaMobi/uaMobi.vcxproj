@@ -224,9 +224,15 @@
     <ClCompile Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\parents\inframedWidget.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\AndroidFileDialog.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedDialogs.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedLabels.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\MegaIconButton.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AbsPrinterWrapper.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AndroidBluetoothPrinterWrapper.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\FTRCOMPrinterWrapper.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\NullPrinterWrapper.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\wrappers\Platform\Android\androidservicewrapper.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\wrappers\Platform\Android\QBroadcastCatcher.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\wrappers\Sound\AbsSoundWrapper.cpp" />
@@ -352,7 +358,6 @@
     <ClCompile Include="widgets\SettingsWidgets\ViewSettings.cpp" />
     <ClCompile Include="widgets\TagPrintingBranch\PriceTagPrintingWidget.cpp" />
     <ClCompile Include="widgets\TagPrintingBranch\PrinterTemplatesList.cpp" />
-    <ClCompile Include="widgets\utils\BigButtonsSpinbox.cpp" />
     <ClCompile Include="widgets\utils\ElementsStyles.cpp" />
     <ClCompile Include="widgets\utils\EventsAndFilters.cpp" />
     <ClCompile Include="widgets\utils\GlobalAppSettings.cpp" />
@@ -439,11 +444,6 @@
     <ClCompile Include="widgets\utils\VirtualBarcodeKeyboard.cpp" />
     <ClCompile Include="widgets\utils\ZebraListItemDelegate.cpp" />
     <ClCompile Include="Wrappers\FiscalPrinterWrapper.cpp" />
-    <ClCompile Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.cpp" />
-    <ClCompile Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.cpp" />
-    <ClCompile Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.cpp" />
-    <ClCompile Include="Wrappers\PrinterWrappers\NullPrinterWrapper.cpp" />
-    <ClCompile Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Datacore\AbsEntity.h" />
@@ -531,11 +531,6 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
     </QtMoc>
-    <ClInclude Include="Wrappers\PrinterWrappers\PrinterWrapperFactory.h" />
-    <QtMoc Include="Wrappers\PrinterWrappers\NullPrinterWrapper.h" />
-    <QtMoc Include="Wrappers\PrinterWrappers\FTRCOMPrinterWrapper.h" />
-    <QtMoc Include="Wrappers\PrinterWrappers\AndroidBluetoothPrinterWrapper.h" />
-    <QtMoc Include="Wrappers\PrinterWrappers\AbsPrinterWrapper.h" />
     <QtMoc Include="widgets\SettingsWidgets\EmailSettings.h" />
     <QtMoc Include="widgets\SettingsWidgets\PrinterSettings.h" />
     <QtMoc Include="widgets\SettingsWidgets\SpecialActionsSettings.h" />
@@ -581,6 +576,37 @@
     <QtMoc Include="widgets\ControlsMiniwidgets\DateTimeControl.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\ControlTranslator.h" />
     <ClInclude Include="resource.h" />
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AbsPrinterWrapper.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\AndroidBluetoothPrinterWrapper.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\FTRCOMPrinterWrapper.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\NullPrinterWrapper.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DEBUG;QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <ClInclude Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.h" />
     <ClInclude Include="widgets\ControlsMiniwidgets\ControlManager.h" />
     <ClInclude Include="widgets\ControlsMiniwidgets\QuantityControl.h" />
     <QtMoc Include="widgets\ControlsMiniwidgets\StringControl.h" />
@@ -672,7 +698,6 @@
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\EAN13Reader.h" />
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\EAN8Reader.h" />
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\EANManufacturerOrgSupport.h" />
-    <QtMoc Include="widgets\utils\BigButtonsSpinbox.h" />
     <QtMoc Include="widgets\SettingsWidgets\DatabaseLoadSettings.h" />
     <QtMoc Include="widgets\SettingsWidgets\ExtraSendSettings.h" />
     <QtMoc Include="widgets\SettingsWidgets\ExtraScaningSettings.h" />

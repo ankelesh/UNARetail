@@ -8,7 +8,7 @@
 #include "submodules/UNAQtCommons/debug/debugtrace.h"
 #endif
 
-#include "widgets/utils/BigButtonsSpinbox.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/BigButtonsSpinbox.h"
 void QuantityControl::_setEnumerableMinimum(double val) 
 {
 	innerSpinbox->setMinimum(val);

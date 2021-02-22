@@ -1,7 +1,7 @@
 #include "DateTimeControl.h"
 #include "Datacore/AbsEntity.h"
 #include "widgets/utils/ElementsStyles.h"
-#include "widgets/utils/BigButtonsSpinbox.h"
+#include "submodules/UNAQtCommons/widgets/UtilityElements/BigButtonsSpinbox.h"
 #include <QDate>
 QString DateTimeControl::prepareAndReturnValue() const
 {
