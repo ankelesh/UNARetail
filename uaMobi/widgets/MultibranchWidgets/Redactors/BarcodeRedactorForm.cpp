@@ -1,5 +1,5 @@
 #include "BarcodeRedactorForm.h"
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include <QFormLayout>
 #include "Datacore/DataEntities.h"
 #include <QLabel>
@@ -26,7 +26,7 @@ bool BarcodeRedactorForm::setRedacted(Entity e)
 		return false;
 	}
 	barcodeInfo->setText(redacted->barcode);
-	additionalInfo->setText(redacted->addDate.toString(datetimeDBEncoding));
+	additionalInfo->setText(redacted->addDate.toString(DATE_ENCODING_FORMAT));
 	quantityEdit->setValue(QString::number(redacted->quantity));
 	return true;
 }

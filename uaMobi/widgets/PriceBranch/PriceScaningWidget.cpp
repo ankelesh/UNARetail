@@ -3,7 +3,7 @@
 #include <algorithm>
 #include "widgets/utils/ElementsStyles.h"
 #include <QtCore/QTimer>
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include <QInputMethod>
 #ifdef DEBUG
 #include "submodules/UNAQtCommons/debug/debugtrace.h"

@@ -25,20 +25,19 @@ void RoleBoundRedactor::_clearControlList()
 RoleBoundRedactor::RoleBoundRedactor(QWidget* parent)
 	: Abs_Redactor(parent), redacted(), controlList(), roleBounds()
 {
-	using namespace InputControlEntity;
 	if (barcode_default_binds::langhash != qHash(AppSettings->language))
 	{
-		barcode_default_binds::barcodeBind << control_bind(String, Roles::comment, true, tr("comment"))
-			<< control_bind(Float, Roles::Barcode::quantity, false, tr("quantity"));
-		barcode_default_binds::pbbind << control_bind(String, Roles::comment, true, tr("comment"))
-			<< control_bind(Decimals, Roles::PricedBarcode::general, false, tr("general_price"))
-			<< control_bind(Decimals, Roles::PricedBarcode::discount, false, tr("discount_price"))
-			<< control_bind(Decimals, Roles::PricedBarcode::secondary, false, tr("secondary_price"))
-			<< control_bind(Decimals, Roles::PricedBarcode::unnecessary, false, tr("unnecessary_price"));
-		barcode_default_binds::productbind << control_bind(String, Roles::comment, true, tr("comment"))
-			<< control_bind(Float, Roles::Product::quantity, false, tr("quantity"))
-			<< control_bind(Decimals, Roles::Product::price, false, tr("price"))
-			<< control_bind(Decimals, Roles::Product::discount, false, tr("discount"));
+		barcode_default_binds::barcodeBind << control_bind(abs_control::String, Roles::comment, true, tr("comment"))
+			<< control_bind(abs_control::Float, Roles::Barcode::quantity, false, tr("quantity"));
+		barcode_default_binds::pbbind << control_bind(abs_control::String, Roles::comment, true, tr("comment"))
+			<< control_bind(abs_control::Decimals, Roles::PricedBarcode::general, false, tr("general_price"))
+			<< control_bind(abs_control::Decimals, Roles::PricedBarcode::discount, false, tr("discount_price"))
+			<< control_bind(abs_control::Decimals, Roles::PricedBarcode::secondary, false, tr("secondary_price"))
+			<< control_bind(abs_control::Decimals, Roles::PricedBarcode::unnecessary, false, tr("unnecessary_price"));
+		barcode_default_binds::productbind << control_bind(abs_control::String, Roles::comment, true, tr("comment"))
+			<< control_bind(abs_control::Float, Roles::Product::quantity, false, tr("quantity"))
+			<< control_bind(abs_control::Decimals, Roles::Product::price, false, tr("price"))
+			<< control_bind(abs_control::Decimals, Roles::Product::discount, false, tr("discount"));
 		barcode_default_binds::langhash = qHash(AppSettings->language);
 	}
 }

@@ -7,7 +7,7 @@
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include <QBoxLayout>
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include "dataproviders/sqldataprovider.h"
 #include "widgets/utils/GlobalAppSettings.h"
 

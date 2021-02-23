@@ -1,5 +1,5 @@
 #include "DatabaseOperationsWidget.h"
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "widgets/utils/ElementsStyles.h"

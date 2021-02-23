@@ -4,6 +4,7 @@
 #include <qmetatype.h>
 #include <qsharedpointer.h>
 #include "dataproviders/TableHandlers.h"
+#include "submodules/UNAQtCommons/consts/DatetimeConstants.h"
 #ifndef QStringLiteral
 #define QStringLiteral(A) QString::fromUtf8("" A "" , sizeof(A)-1)
 #endif
@@ -152,8 +153,3 @@ typedef QVector<Entity> EntityList;
 
 // can be used via QVariant
 Q_DECLARE_METATYPE(Entity);
-
-// used for storing dates and datetimes in database.
-extern const QString datetimeDBEncoding;
-extern const QString dateDBEncoding;
-extern const QString timeDBEncoding;

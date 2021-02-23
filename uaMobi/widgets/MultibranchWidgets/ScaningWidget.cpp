@@ -12,7 +12,7 @@
 #include <cmath>
 #include <QtCore/QHash>
 #include "submodules/UNAQtCommons/wrappers/Sound/SoundEffectPlayer.h"
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 ScaningWidget::ScaningWidget(Modes mode, QWidget* parent)

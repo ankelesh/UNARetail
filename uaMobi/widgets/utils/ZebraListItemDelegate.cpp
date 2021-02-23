@@ -33,7 +33,7 @@ void ZebraItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opt
 		painter->setBrush(QColor(209, 197, 237));
 	}
 	painter->drawRect(rct);
-	painter->drawText(rct, Qt::AlignCenter | Qt::TextWordWrap, ent->maximizedView(separator, timeDBEncoding));
+	painter->drawText(rct, Qt::AlignCenter | Qt::TextWordWrap, ent->maximizedView(separator, TIME_ENCODING_FORMAT));
 	if (option.state.testFlag(QStyle::State_Selected))
 	{
 		painter->setBrush(option.palette.highlight());
@@ -69,7 +69,7 @@ void ShortZebraItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem
 		painter->setBrush(option.palette.background());
 	}
 	painter->drawRect(rct);
-	painter->drawText(rct, Qt::AlignCenter | Qt::TextWordWrap, ent->formatedView(separator, datetimeDBEncoding).left(30));
+	painter->drawText(rct, Qt::AlignCenter | Qt::TextWordWrap, ent->formatedView(separator, DATE_ENCODING_FORMAT).left(30));
     if (option.state.testFlag(QStyle::State_Selected))
     {
         painter->setBrush(option.palette.highlight());

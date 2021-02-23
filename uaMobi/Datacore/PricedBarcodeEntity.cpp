@@ -57,12 +57,12 @@ QString normalizePrice(double num)
 
 QString PricedBarcodeEntity::_toSql() const
 {
-	return "( " % serializeId() % ",'" % barcode % "' , '" % addDate.toString(datetimeDBEncoding) % 
+	return "( " % serializeId() % ",'" % barcode % "' , '" % addDate.toString(DATETIME_ENCODING_FORMAT) % 
 		"' , " % QString::number(generalPrice) % " , "
 		% QString::number(discountPrice) % " , " %
 		QString::number(secondaryPrice) % " , " %
 		QString::number(unnecessaryPrice) % " , 1 , '" 
-		% expDate.toString(datetimeDBEncoding) % 
+		% expDate.toString(DATETIME_ENCODING_FORMAT) % 
 		"' , '" % QString(comment).replace("'", "''").replace("\"", "\"\"") % "')";
 }
 
@@ -87,7 +87,7 @@ QString PricedBarcodeEntity::_maximumInfoView(QString sep, QString dform) const
 		% sep % normalizePrice(unnecessaryPrice) % sep;
 	if (dform.isEmpty())
 	{
-		formated += expDate.toString(timeDBEncoding);
+		formated += expDate.toString(TIME_ENCODING_FORMAT);
 	}
 	else
 	{
@@ -99,8 +99,8 @@ QString PricedBarcodeEntity::_maximumInfoView(QString sep, QString dform) const
 
 QString PricedBarcodeEntity::_normalizedCsvView() const
 {
-	return barcodeUtil::CSV_BARCODE_STR_TEMPLATE.arg(barcode).arg(addDate.toString(datetimeDBEncoding)).arg(
-		generalPrice).arg(expDate.toString(datetimeDBEncoding)).arg(
+	return barcodeUtil::CSV_BARCODE_STR_TEMPLATE.arg(barcode).arg(addDate.toString(DATETIME_ENCODING_FORMAT)).arg(
+		generalPrice).arg(expDate.toString(DATETIME_ENCODING_FORMAT)).arg(
 			comment).arg(discountPrice).arg(secondaryPrice).arg(
 				unnecessaryPrice).arg("").arg("");
 }
@@ -116,12 +116,12 @@ bool PricedBarcodeEntity::_fromSql(QSqlQuery* q)
 		return false;
 	GUID = q->value(0).toLongLong();
 	barcode = q->value(1).toString();
-	addDate = QDateTime::fromString(q->value(2).toString(), datetimeDBEncoding);
+	addDate = QDateTime::fromString(q->value(2).toString(), DATETIME_ENCODING_FORMAT);
 	generalPrice = q->value(3).toDouble();
 	discountPrice = q->value(4).toDouble();
 	secondaryPrice = q->value(5).toDouble();
 	unnecessaryPrice = q->value(6).toDouble();
-	expDate = QDateTime::fromString(q->value(8).toString(), datetimeDBEncoding);
+	expDate = QDateTime::fromString(q->value(8).toString(), DATETIME_ENCODING_FORMAT);
 	comment = q->value(9).toString();
 	return true;
 }
@@ -151,10 +151,10 @@ void PricedBarcodeEntity::_setWriteable(int role, QString text)
 		comment = text;
 		break;
 	case Roles::common::date:
-		addDate = QDateTime::fromString(text, datetimeDBEncoding);
+		addDate = QDateTime::fromString(text, DATETIME_ENCODING_FORMAT);
 		break;
 	case Roles::PricedBarcode::Writeables::expDate:
-		expDate = QDateTime::fromString(text, datetimeDBEncoding);
+		expDate = QDateTime::fromString(text, DATETIME_ENCODING_FORMAT);
 		break;
 	default:
 		break;
@@ -173,10 +173,10 @@ QString PricedBarcodeEntity::_getWriteable(int role) const
 		return comment;
 		break;
 	case Roles::common::date:
-		return addDate.toString(datetimeDBEncoding);
+		return addDate.toString(DATETIME_ENCODING_FORMAT);
 		break;
 	case Roles::PricedBarcode::Writeables::expDate:
-		return expDate.toString(datetimeDBEncoding);
+		return expDate.toString(DATETIME_ENCODING_FORMAT);
 		break;
 	default:
 		return QString();
@@ -271,7 +271,7 @@ void PricedBarcodeEntity::_invalidate()
 int PricedBarcodeEntity::_getHeight() const
 {
 	return (std::ceil(double(barcode.count() + comment.count()
-		+ datetimeDBEncoding.count()
+		+ DATETIME_ENCODING_FORMAT.count()
 		) / double(AppFonts->howMuchCharacterFitsIntoScreen())) + comment.count("\n") + 2.0);
 }
 
@@ -311,12 +311,12 @@ void PricedBarcodeEntity::fillPrepQuery(QSqlQuery* q) const
 {
 	q->bindValue(0, GUID);
 	q->bindValue(1, barcode);
-	q->bindValue(2, addDate.toString(datetimeDBEncoding));
+	q->bindValue(2, addDate.toString(DATETIME_ENCODING_FORMAT));
 	q->bindValue(3, generalPrice);
 	q->bindValue(4, discountPrice);
 	q->bindValue(5, secondaryPrice);
 	q->bindValue(6, unnecessaryPrice);
 	q->bindValue(7, 1);
-	q->bindValue(8, expDate.toString(datetimeDBEncoding));
+	q->bindValue(8, expDate.toString(DATETIME_ENCODING_FORMAT));
 	q->bindValue(9, comment);
 }

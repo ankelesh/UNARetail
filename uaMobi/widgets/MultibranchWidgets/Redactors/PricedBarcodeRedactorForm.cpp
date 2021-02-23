@@ -1,7 +1,7 @@
 #include "PricedBarcodeRedactorForm.h"
 #include <QFormLayout>
 #include <QLabel>
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include <QFormLayout>
 #include "Datacore/DataEntities.h"
 PricedBarcodeRedactorForm::PricedBarcodeRedactorForm(QWidget* parent)
@@ -38,7 +38,7 @@ bool PricedBarcodeRedactorForm::setRedacted(Entity e)
 		return false;
 	}
 	barcodeInfo->setText(redacted->barcode);
-	additionalInfo->setText(redacted->addDate.toString(datetimeDBEncoding));
+	additionalInfo->setText(redacted->addDate.toString(DATETIME_ENCODING_FORMAT));
 	genPrice->setValue(QString::number(redacted->generalPrice));
 	discPrice->setValue(QString::number(redacted->discountPrice));
 	return true;

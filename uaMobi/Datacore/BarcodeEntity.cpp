@@ -50,9 +50,9 @@ namespace BarcodeEntityPrivate
 
 QString BarcodeEntity::_toSql() const
 {
-	return "(" % serializeId() % ",'" % barcode % "' , '" % addDate.toString(datetimeDBEncoding) 
+	return "(" % serializeId() % ",'" % barcode % "' , '" % addDate.toString(DATETIME_ENCODING_FORMAT) 
 		% "', " % QString::number(quantity)  % " , " % QString::number(isUploaded) % " , '" 
-		% expDate.toString(datetimeDBEncoding)
+		% expDate.toString(DATETIME_ENCODING_FORMAT)
 		 % "' , '" % QString(comment).replace("'", "''").replace("\"", "\"\"") % "','" 
 		% taxInvoiceNumber + "')";
 }
@@ -79,7 +79,7 @@ QString BarcodeEntity::_formatedView(QString sep, QString dform) const
 QString BarcodeEntity::_maximumInfoView(QString sep, QString dform) const
 {
 	return barcode % "\n" % sep % QString::number(quantity) % sep %
-		addDate.toString(datetimeDBEncoding) % "\n"
+		addDate.toString(DATETIME_ENCODING_FORMAT) % "\n"
 		% comment + "\n" % taxInvoiceNumber;
 }
 
@@ -153,10 +153,10 @@ void BarcodeEntity::_setWriteable(int role, QString text)
 		comment = text;
 		break;
 	case Roles::common::date:
-		addDate = QDateTime::fromString(text, datetimeDBEncoding);
+		addDate = QDateTime::fromString(text, DATETIME_ENCODING_FORMAT);
 		break;
 	case Roles::Barcode::expDate:
-		expDate = QDateTime::fromString(text, datetimeDBEncoding);
+		expDate = QDateTime::fromString(text, DATETIME_ENCODING_FORMAT);
 		break;
 	case Roles::Barcode::taxInvoice:
 		taxInvoiceNumber = text;
@@ -178,10 +178,10 @@ QString BarcodeEntity::_getWriteable(int role) const
 		return comment;
 		break;
 	case Roles::common::date:
-		return addDate.toString(datetimeDBEncoding);
+		return addDate.toString(DATETIME_ENCODING_FORMAT);
 		break;
 	case Roles::Barcode::expDate:
-		return expDate.toString(datetimeDBEncoding);
+		return expDate.toString(DATETIME_ENCODING_FORMAT);
 		break;
 	case Roles::Barcode::taxInvoice:
 		return taxInvoiceNumber;
@@ -243,7 +243,7 @@ void BarcodeEntity::_invalidate()
 int BarcodeEntity::_getHeight() const
 {
 	return (std::ceil(double(barcode.count() + comment.count() 
-		+ datetimeDBEncoding.count() 
+		+ DATETIME_ENCODING_FORMAT.count() 
 		)  / double(AppFonts->howMuchCharacterFitsIntoScreen())) + comment.count("\n") + 3);
 }
 
@@ -276,10 +276,10 @@ void BarcodeEntity::fillPrepQuery(QSqlQuery* q) const
 {
 	q->bindValue(0, GUID);
 	q->bindValue(1, barcode);
-	q->bindValue(2, addDate.toString(datetimeDBEncoding));
+	q->bindValue(2, addDate.toString(DATETIME_ENCODING_FORMAT));
 	q->bindValue(3, quantity);
 	q->bindValue(4, isUploaded);
-	q->bindValue(5, expDate.toString(datetimeDBEncoding));
+	q->bindValue(5, expDate.toString(DATETIME_ENCODING_FORMAT));
 	q->bindValue(6, comment);
 	q->bindValue(7, taxInvoiceNumber);
 }
@@ -291,11 +291,11 @@ bool BarcodeEntity::_fromSql(QSqlQuery* q)
 	GUID = q->value(0).toLongLong();
 	barcode = q->value(1).toString();
 	addDate =
-		QDateTime::fromString(q->value(2).toString(), datetimeDBEncoding);
+		QDateTime::fromString(q->value(2).toString(), DATETIME_ENCODING_FORMAT);
 	quantity = q->value(3).toDouble();
 	isUploaded = q->value(4).toInt();
 	expDate =
-		QDateTime::fromString(q->value(5).toString(), datetimeDBEncoding);
+		QDateTime::fromString(q->value(5).toString(), DATETIME_ENCODING_FORMAT);
 	comment = q->value(6).toString();
 	taxInvoiceNumber = q->value(7).toString();
 	return true;

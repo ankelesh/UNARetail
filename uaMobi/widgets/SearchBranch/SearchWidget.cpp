@@ -61,7 +61,7 @@ void SearchWidget::_emplaceBarcode(QString barcode, ShortBarcode e)
 	barcodeInput->setText(barcode);
 	if (e != Q_NULLPTR)
 	{
-		barcodeInfo->setText(e->formatedView("\n", dateDBEncoding));
+		barcodeInfo->setText(e->formatedView("\n", DATE_ENCODING_FORMAT));
 		priceCounter->setValue(e->price);
 		discountCounter->setValue(e->discount);
 	}

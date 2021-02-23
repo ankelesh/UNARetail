@@ -20,7 +20,7 @@ double summSpentMoney(Entity e, double previous)
 			return previous + p->price * p->quantity;
 }
 
-void autoinsert_price(Entity e, ShortBarcode sb, QVector<abs_control*>& c, QVector<labels_private::abs_counter_label*>&, QTextEdit* cc)
+void autoinsert_price(Entity e, ShortBarcode sb, QVector<abs_control*>& c, QVector<labels_private::abs_counter_label*>&, QTextEdit* /*cc*/)
 {
 	if (c.length() == 2 && !(sb.isNull()))
 	{
@@ -70,7 +70,7 @@ void set_minimum_by_history(Entity current, EntityHash hash, QVector<abs_control
 
 }
 
-bool set_price_comment_as_previous(Entity pendingBarcode,EntityHash hash, QVector<EntityHash>& hashes, DataEntityListModel* history, QVector<abs_control*>& controls)
+bool set_price_comment_as_previous(Entity pendingBarcode,EntityHash /*hash*/, QVector<EntityHash>& /*hashes*/, DataEntityListModel* /*history*/, QVector<abs_control*>& controls)
 {
 	if (!controls.isEmpty())
 	{
@@ -85,8 +85,8 @@ SalesAccountingBranchWidget::SalesAccountingBranchWidget(QWidget* parent)
       extraSettings(), extraSettingsButton(new MegaIconButton(this))
 {
 	pageName->setText(tr("Sales Accounting"));
-	bounds << control_bind(InputControlEntity::Decimals,  Roles::Product::price, false, tr("price"));
-	bounds << control_bind(InputControlEntity::Float,  Roles::Product::quantity, false, tr("sold"));
+	bounds << control_bind(abs_control::Decimals,  Roles::Product::price, false, tr("price"));
+	bounds << control_bind(abs_control::Float,  Roles::Product::quantity, false, tr("sold"));
     extraSettingsButton->setIcon(QIcon(":/res/settings2.png"));
     extraSettingsButton->setText(tr("Extra settings"));
     QObject::connect(extraSettingsButton, &MegaIconButton::clicked, this, &SalesAccountingBranchWidget::extraSettingsRequired);

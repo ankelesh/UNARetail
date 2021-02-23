@@ -263,6 +263,18 @@
     <Filter Include="Submodules\UNAQtCommons\Sources\wrappers\DirectConnectionPrinters">
       <UniqueIdentifier>{14f9936a-03d6-489f-b71a-c1d00dc8a5b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\widgets\controls">
+      <UniqueIdentifier>{21831914-34db-4a73-8fca-46c508ceadff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\widgets\controls">
+      <UniqueIdentifier>{b048ef2a-b8df-4bed-8e4a-080cc0972b81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\consts">
+      <UniqueIdentifier>{5271ef5e-e4ee-4264-8e56-0b3bd85f96f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\consts">
+      <UniqueIdentifier>{4554fdd5-3709-457c-854c-b6d8b0a4b15c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -829,21 +841,6 @@
     <ClCompile Include="widgets\utils\ElementsStyles.cpp">
       <Filter>Source Files\util\globals</Filter>
     </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\abs_control.cpp">
-      <Filter>Source Files\View\elements\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\ControlTranslator.cpp">
-      <Filter>Source Files\View\elements\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\DateTimeControl.cpp">
-      <Filter>Source Files\View\elements\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\QuantityControl.cpp">
-      <Filter>Source Files\View\elements\controls</Filter>
-    </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\StringControl.cpp">
-      <Filter>Source Files\View\elements\controls</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\utils\ZebraListItemDelegate.cpp">
       <Filter>Source Files\View\elements\delegates</Filter>
     </ClCompile>
@@ -1036,6 +1033,30 @@
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.cpp">
       <Filter>Submodules\UNAQtCommons\Sources\widgets\UtilityElements</Filter>
     </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\StringControl.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\QuantityControl.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\LabelControl.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\ControlTranslator.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\DateTimeControl.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\BarcodeControl.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\abs_control.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\consts\DatetimeConstants.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\consts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1140,9 +1161,6 @@
     <ClInclude Include="widgets\utils\client_specific_defaults.h">
       <Filter>Header Files\util\globals</Filter>
     </ClInclude>
-    <ClInclude Include="widgets\ControlsMiniwidgets\QuantityControl.h">
-      <Filter>Header Files\View\elements\controls</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1167,9 +1185,17 @@
     <ClInclude Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.h">
       <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
     </ClInclude>
+    <ClInclude Include="Datacore\ControlBinds.h">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\widgets\ControlsWidgets\QuantityControl.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\consts\DatetimeConstants.h">
+      <Filter>Submodules\UNAQtCommons\Headers\consts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
@@ -1220,6 +1246,9 @@
     </None>
     <None Include="translations\unaretail_ru.qm">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CameraSurface.qml">
+      <Filter>qml</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -1746,18 +1775,6 @@
     <QtMoc Include="Datacore\DataEntities.h">
       <Filter>Header Files\Model\Datacore\DataEntities</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\abs_control.h">
-      <Filter>Header Files\View\elements\controls</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\DateTimeControl.h">
-      <Filter>Header Files\View\elements\controls</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\ControlTranslator.h">
-      <Filter>Header Files\View\elements\controls</Filter>
-    </QtMoc>
-    <QtMoc Include="widgets\ControlsMiniwidgets\StringControl.h">
-      <Filter>Header Files\View\elements\controls</Filter>
-    </QtMoc>
     <QtMoc Include="widgets\ExtendedDelegates\ExtraSelectionDelegate.h">
       <Filter>Header Files\View\elements\delegates</Filter>
     </QtMoc>
@@ -1913,6 +1930,24 @@
     </QtMoc>
     <QtMoc Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.h">
       <Filter>Submodules\UNAQtCommons\Headers\widgets\UtilityElements</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\abs_control.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\BarcodeControl.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\ControlTranslator.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\DateTimeControl.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\LabelControl.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\StringControl.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

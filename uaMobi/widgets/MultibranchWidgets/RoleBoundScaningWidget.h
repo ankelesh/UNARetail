@@ -1,9 +1,9 @@
 #pragma once
 #include "widgets/parents/AbstractScaningWidget.h"
 #include <QVector>
-#include "widgets/ControlsMiniwidgets/abs_control.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/abs_control.h"
 #include "Datacore/EntityQuickHash.h"
-
+#include "Datacore/ControlBinds.h"
 
 class MegaIconButton;
 

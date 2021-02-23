@@ -190,9 +190,6 @@ void AbsEntity::erase()
 }
 
 
-const QString datetimeDBEncoding = "dd.MM.yyyy hh.mm.ss";
-const QString dateDBEncoding(QStringLiteral("dd.MM.yyyy"));
-const QString timeDBEncoding(QStringLiteral("hh.mm.ss"));
 namespace barcodeUtil {
     const int TOTAL_CSV_LEN = 12;
 

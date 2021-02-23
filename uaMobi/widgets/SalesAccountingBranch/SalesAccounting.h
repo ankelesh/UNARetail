@@ -1,7 +1,7 @@
 #pragma once
 #include "widgets/parents/BranchRootWidget.h"
 #include "widgets/MultibranchWidgets/RoleBoundScaningWidget.h"
-
+#include "Datacore/ControlBinds.h"
 class SalesAccountingBranchWidget : public BranchRootWidget
 {
 	Q_OBJECT

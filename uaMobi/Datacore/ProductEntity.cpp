@@ -54,7 +54,7 @@ QString ProductEntity::_toSql() const
 	return "(" % 
 		serializeId() % ",'" % 
 		barcode % "' , '" % 
-		addDate.toString(datetimeDBEncoding) % "', " % 
+		addDate.toString(DATETIME_ENCODING_FORMAT) % "', " % 
 		QString::number(isUploaded) %  " , '" % 
 		QString(comment).replace("'", "''").replace("\"", "\"\"")% "' , " % 
 		QString::number(quantity) % " , " %
@@ -84,13 +84,13 @@ QString ProductEntity::_formatedView(QString sep, QString dform) const
 QString ProductEntity::_maximumInfoView(QString sep, QString dform) const
 {
 	return barcode % "\n" % sep % QString::number(quantity) % sep % QString::number(price) % sep %
-		addDate.toString(datetimeDBEncoding) % "\n"
+		addDate.toString(DATETIME_ENCODING_FORMAT) % "\n"
 		% comment;
 }
 
 QString ProductEntity::_normalizedCsvView() const
 {
-	return barcodeUtil::CSV_BARCODE_STR_TEMPLATE.arg(barcode).arg(addDate.toString(datetimeDBEncoding)).arg(
+	return barcodeUtil::CSV_BARCODE_STR_TEMPLATE.arg(barcode).arg(addDate.toString(DATETIME_ENCODING_FORMAT)).arg(
 		quantity).arg("").arg(
 			comment).arg(price).arg(discount).arg(
                 "").arg("").arg("");
@@ -166,7 +166,7 @@ void ProductEntity::_setWriteable(int role, QString text)
 		break;
 	case 1:
 	case Roles::common::date:
-		addDate = QDateTime::fromString(text, datetimeDBEncoding);
+		addDate = QDateTime::fromString(text, DATETIME_ENCODING_FORMAT);
 		break;
 	case 2:
 	case Roles::common::comment:
@@ -187,7 +187,7 @@ QString ProductEntity::_getWriteable(int role) const
 		break;
 	case 1:
 	case Roles::common::date:
-		return addDate.toString(datetimeDBEncoding);
+		return addDate.toString(DATETIME_ENCODING_FORMAT);
 		break;
 	case 2:
 	case Roles::common::comment:
@@ -244,7 +244,7 @@ void ProductEntity::_invalidate()
 int ProductEntity::_getHeight() const
 {
 	return (std::ceil(double(barcode.count() + comment.count()
-		+ datetimeDBEncoding.count()
+		+ DATETIME_ENCODING_FORMAT.count()
 		) / double(AppFonts->howMuchCharacterFitsIntoScreen())) + comment.count("\n") + 2);
 }
 
@@ -283,7 +283,7 @@ void ProductEntity::fillPrepQuery(QSqlQuery* q) const
 {
 	q->bindValue(0, GUID);
 	q->bindValue(1, barcode);
-	q->bindValue(2, addDate.toString(datetimeDBEncoding));
+	q->bindValue(2, addDate.toString(DATETIME_ENCODING_FORMAT));
 	q->bindValue(3, isUploaded);
 	q->bindValue(4, comment);
 	q->bindValue(5, quantity);
@@ -297,7 +297,7 @@ bool ProductEntity::_fromSql(QSqlQuery* q)
 		return false;
 	GUID = q->value(0).toLongLong();
 	barcode = q->value(1).toString();
-	addDate = QDateTime::fromString(q->value(2).toString(), datetimeDBEncoding);
+	addDate = QDateTime::fromString(q->value(2).toString(), DATETIME_ENCODING_FORMAT);
 	isUploaded = q->value(3).toInt();
 	comment = q->value(4).toString();
 	quantity = q->value(5).toDouble();

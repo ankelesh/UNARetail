@@ -1,8 +1,8 @@
 #pragma once
 #include "widgets/MultibranchWidgets/Redactors/Abs_Redactor.h"
-#include "widgets/ControlsMiniwidgets/abs_control.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/abs_control.h"
 #include <QVector>
-
+#include "Datacore/ControlBinds.h"
 
 class RoleBoundRedactor : public Abs_Redactor
 {

@@ -11,7 +11,7 @@
 #include <qmessagebox.h>
 #include <cmath>
 #include <QtCore/QHash>
-#include "widgets/ControlsMiniwidgets/QuantityControl.h"
+#include "submodules/UNAQtCommons/widgets/ControlsWidgets/QuantityControl.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h"
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include <exception>
@@ -124,12 +124,12 @@ void RoleBoundScaningWidget::barcodeReady()
 	{
 		switch ((*control)->myType())
 		{
-		case InputControlEntity::Int:
-		case InputControlEntity::Float:
+		case abs_control::Int:
+		case abs_control::Float:
 			pendingBarcode->setEnumerable(*bind, (*control)->getEnumerableValue());
 			break;
-		case InputControlEntity::String:
-		case InputControlEntity::Date:
+		case abs_control::String:
+		case abs_control::Date:
 			pendingBarcode->setWriteable(*bind, (*control)->getValue());
 			break;
 		default:
