@@ -11,7 +11,7 @@ EmailSettings::EmailSettings(QWidget *parent) : QWidget(parent),
 {
     mainLayout->addRow(tr("Enable sending receipt to email by intent"), enableEmailingButton);
     mainLayout->addRow(tr("Send as message by intent"), enableMessageButton);
-    enableEmailingButton->setIcon(QIcon(":/res/wifi.png"));
+    enableEmailingButton->setIcon(QIcon(":/resources/wifi"));
     enableEmailingButton->setCheckable(true);
     enableEmailingButton->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
     enableEmailingButton->setChecked(AppSettings->sendToEmailByIntent);

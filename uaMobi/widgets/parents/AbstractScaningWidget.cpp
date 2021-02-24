@@ -79,7 +79,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	additionalInputLayout->addWidget(keyboardButton);
 #ifdef CAMERA_SUPPORT
 	additionalInputLayout->addWidget(cameraButton);
-	cameraButton->setIcon(QIcon(":/res/camera.png"));
+	cameraButton->setIcon(QIcon(":/resources/camera"));
 	QObject::connect(cameraButton, &QPushButton::clicked, this, &AbstractScaningWidget::cameraRequired);
 #endif
 
@@ -94,9 +94,9 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	controlLayout->setSpacing(0);
 	controlLayout->setContentsMargins(0, 0, 0, 0);
 	// Set up view
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	
-	keyboardButton->setIcon(QIcon(":/res/key.png"));
+	keyboardButton->setIcon(QIcon(":/resources/key"));
 
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 

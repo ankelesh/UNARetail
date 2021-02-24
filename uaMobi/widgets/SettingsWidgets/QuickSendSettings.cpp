@@ -47,16 +47,16 @@ QuickSendSettings::QuickSendSettings(Modes mode, QWidget* parent)
 	sendingFormatPicker->setCurrentIndex((AppSettings->sendingFormat >= 0 && AppSettings->sendingFormat < 4) ? AppSettings->sendingFormat : 0);
 	sendingFormatPicker->setEditable(false);
 
-	simpleSendingButton->setIcon(QIcon(":/res/icn-cloud-blocked-512.png"));
+	simpleSendingButton->setIcon(QIcon(":/resources/cblock"));
 	simpleSendingButton->setText(tr("send_settings_simple_sending"));
 	simpleSendingButton->setCheckable(true);
 	simpleSendingButton->setChecked(AppSettings->simpleSending);
 	simpleSendingButton->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	attachLastDoc->setIcon(QIcon(":/res/add.png"));
+	attachLastDoc->setIcon(QIcon(":/resources/add"));
 	attachLastDoc->setCheckable(true);;
 	attachLastDoc->setChecked(AppSettings->getModeDescription(mode).requiresAttachingToPreviousDoc());
 	attachLastDoc-> setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	cleanLastDoc->setIcon(QIcon(":/res/refresh.png"));
+	cleanLastDoc->setIcon(QIcon(":/resources/refresh"));
 	cleanLastDoc->setCheckable(true);
 	cleanLastDoc->setChecked(AppSettings->getModeDescription(mode).mustClearBeforeAttaching());
 	cleanLastDoc->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);

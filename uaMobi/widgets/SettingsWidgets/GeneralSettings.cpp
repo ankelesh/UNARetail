@@ -10,7 +10,7 @@
 #include <QLabel>
 
 
-static QString filepaths[3] = { ":/res/ro.png", ":/res/ru.png", ":/res/eng.png" };
+static QString filepaths[3] = { ":/resources/ro", ":/resources/ru", ":/resources/eng" };
 
 static QString langnames[3] = { "Romanian", "Russian", "English" };
 static int indFromLangStr(const QString& lng)

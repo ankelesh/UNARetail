@@ -57,15 +57,15 @@ ScanedStorageWidget::ScanedStorageWidget(Modes mode, QWidget* parent)
 	innerLayout->setSpacing(0);
 	innerLayout->setContentsMargins(0, 0, 0, 0);
 
-	editButton->setIcon(QIcon(":/res/editable.png"));
-	deleteButton->setIcon(QIcon(":/res/deleteData.png"));
+	editButton->setIcon(QIcon(":/resources/editable"));
+	deleteButton->setIcon(QIcon(":/resources/deleteData"));
 	editButton->setText(tr("Edit"));
 	deleteButton->setText(tr("Delete"));
 	editButton->setStyleSheet(CHANGE_BUTTONS_STYLESHEET);
 	deleteButton->setStyleSheet(DELETE_BUTTONS_STYLESHEET);
 
 
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setText(tr("branch_root_back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 

@@ -72,9 +72,9 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 	useHttpButton->setText(tr("send_widget_via HTTP"));
 	useLocalButton->setText(tr("send_widget_on local"));
 	backButton->setText(tr("branch_widget_back"));
-	useHttpButton->setIcon(QIcon(":/res/viaNet.png"));
-	useLocalButton->setIcon(QIcon(":/res/viaFile.png"));
-	backButton->setIcon(QIcon(":/res/back.png"));
+	useHttpButton->setIcon(QIcon(":/resources/viaNet"));
+	useLocalButton->setIcon(QIcon(":/resources/viaFile"));
+	backButton->setIcon(QIcon(":/resources/back"));
 
 	QSizePolicy sp(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 
@@ -84,7 +84,7 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 	totalQuantity->setStyleSheet(COUNTERS_LABEL_STYLESHEET);
 	uniqueBarcodes->setStyleSheet(COUNTERS_LABEL_STYLESHEET);
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
-	cleanPreviousDocument->setIcon(QIcon(":/res/deleteData.png"));
+	cleanPreviousDocument->setIcon(QIcon(":/resources/deleteData"));
 	_captureNumbers();
 #ifdef QT_VERSION5X
 	QObject::connect(useHttpButton, &QPushButton::pressed, this, &ReceiveWidget::httpChosen);

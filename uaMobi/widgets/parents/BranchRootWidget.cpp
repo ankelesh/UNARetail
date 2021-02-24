@@ -36,15 +36,15 @@ BranchRootWidget::BranchRootWidget(Modes mode, QWidget* parent) :
 	innerLayout->setSpacing(0);
 	innerLayout->setContentsMargins(0, 0, 0, 0);
 	
-	scanner->setIcon(QIcon(":/res/scanner.png"));
+	scanner->setIcon(QIcon(":/resources/scanner"));
 	scanner->setText(tr("branch_root_Scanner"));
-	scanned->setIcon(QIcon(":/res/logs.png"));
+	scanned->setIcon(QIcon(":/resources/logs"));
 	scanned->setText(tr("branch_root_Scanned"));
-	receive->setIcon(QIcon(":/res/upload.png"));
+	receive->setIcon(QIcon(":/resources/upload"));
 	receive->setText(tr("branch_root_Send"));
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setText(tr("branch_root_Back"));
-	settings->setIcon(QIcon(":/res/settings.png"));
+	settings->setIcon(QIcon(":/resources/settings"));
 	settings->setText(tr("Settings"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 

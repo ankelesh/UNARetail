@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
 {
 	QApplication a(argc, argv);
 	debugtrace::init(detr_supply::all, detr_supply::file);
+    detrace_APPSTART(VERSION, SUFFIX);
 #ifdef CAMERA_SUPPORT
 	QZXing::registerQMLTypes();
 	qmlRegisterType<QZXingFilter>("QZXing", 2, 3, "QZXingFilter");

@@ -102,9 +102,9 @@ PrinterTemplateRedactor::PrinterTemplateRedactor(QWidget* parent)
 	bindingInfo->setMaximumHeight(calculateAdaptiveHeight(0.1));
 	cancelButton->setText(tr("cancel"));
 	cancelButton->setStyleSheet(DELETE_BUTTONS_STYLESHEET);
-	cancelButton->setIcon(QIcon(":/res/data.png"));
+	cancelButton->setIcon(QIcon(":/resources/nodata"));
 	okButton->setText(tr("OK"));
-	okButton->setIcon(QIcon(":/res/ok.png"));
+	okButton->setIcon(QIcon(":/resources/ok"));
 	okButton->setStyleSheet(OK_BUTTONS_STYLESHEET);
 #ifdef Q_OS_ANDROID
 	QScroller::grabGesture(bindingInfo, QScroller::LeftMouseButtonGesture);
@@ -195,15 +195,15 @@ PrinterTemplatesListWidget::PrinterTemplatesListWidget(QWidget* parent)
 	buttonsLayout->addWidget(shareButton);
 	buttonsLayout->addWidget(editButton);
 	explanationLabel->setText("select template or add new");
-	newButton->setIcon(QIcon(":/res/plus.png"));
+	newButton->setIcon(QIcon(":/resources/plus"));
 	newButton->setText(tr("new"));
 	newButton->setMaximumHeight(calculateAdaptiveHeight(0.9));;
 	newButton->setMaximumWidth(calculateAdaptiveWidth(0.15));
-	deleteButton->setIcon(QIcon(":/res/data.png"));
+	deleteButton->setIcon(QIcon(":/resources/nodata"));
 	deleteButton->setText(tr("delete"));
 	shareButton->setIcon(QIcon(":/res/share.png"));
 	shareButton->setText(tr("share"));
-	editButton->setIcon(QIcon(":/res/pencil.png"));
+	editButton->setIcon(QIcon(":/resources/pencil"));
 	editButton->setText(tr("edit"));
 
 	model->insertData(downcastEntityList<PrinterTemplateEntity>(AppData->getPrinterTemplates()));

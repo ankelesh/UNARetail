@@ -57,8 +57,8 @@ VirtualBarcodeKeyboard::VirtualBarcodeKeyboard(QWidget* parent)
 
 	clearButton->setText("C");
 	eraseButton->setText("<<");
-	okButton->setIcon(QIcon(":/res/submit.png"));
-	backButton->setIcon(QIcon(":/res/back.png"));
+	okButton->setIcon(QIcon(":/resources/submit"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	okButton->setStyleSheet(OK_BUTTONS_STYLESHEET);
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 	clearButton->setStyleSheet(DELETE_BUTTONS_STYLESHEET);

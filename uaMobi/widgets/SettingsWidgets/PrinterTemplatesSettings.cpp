@@ -38,7 +38,7 @@ PrinterTemplatesSettings::PrinterTemplatesSettings(QWidget* parent)
 	tabs->addTab(bindingRedactor, tr("Template"));
 	mainLayout->addWidget(backButton);
 	backButton->setText(tr("back"));
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 	printerNameField->setText(AppSettings->labelPrinterName);
 	QObject::connect(backButton, &MegaIconButton::clicked, this, &PrinterTemplatesSettings::backPressed);

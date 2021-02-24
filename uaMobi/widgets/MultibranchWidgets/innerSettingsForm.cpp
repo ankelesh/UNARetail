@@ -35,7 +35,7 @@ innerSettingsForm::innerSettingsForm(Modes mode, QWidget* parent)
 	this->setFont(GENERAL_FONT);
 
 
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 	backButton->setText(tr("back"));
 #ifdef QT_VERSION5X

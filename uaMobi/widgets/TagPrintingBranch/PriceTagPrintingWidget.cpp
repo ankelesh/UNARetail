@@ -119,7 +119,7 @@ PriceTagPrintingWidget::PriceTagPrintingWidget(QWidget* parent) :
 	buttonLayout->addWidget(printSettingButton);
 	printSettingButton->setText(tr("settings"));
 	printSettingButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
-	printSettingButton->setIcon(QIcon(":/res/settings.png"));
+	printSettingButton->setIcon(QIcon(":/resources/settings"));
     usedTemplate = AppData->getTemplateByGUID(AppSettings->labelPrinterTemplateGUID);
     if (usedTemplate->isValid())
     {

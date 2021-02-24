@@ -26,7 +26,7 @@ LoginSettings::LoginSettings(QWidget* parent)
 	enableLoginSend->setCheckable(true);
 	enableLoginSend->setChecked(AppSettings->sendLogin);
 	enableLoginSend->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	enableLoginSend->setIcon(QIcon(":/res/toinput.png"));
+	enableLoginSend->setIcon(QIcon(":/resources/toinput"));
 	_setLoginPass();
 	
 	loginField->setText(AppSettings->userLogin);

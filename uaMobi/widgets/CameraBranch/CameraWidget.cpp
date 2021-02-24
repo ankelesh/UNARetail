@@ -9,7 +9,7 @@ CameraWidget::CameraWidget(QWidget* parent)
 	makeImageButton(new MegaIconButton(innerWidget))
 {
 	buttonLayout->addWidget(makeImageButton);
-	makeImageButton->setIcon(QIcon(":/res/new.png"));
+	makeImageButton->setIcon(QIcon(":/resources/new"));
 
 	makeImageButton->setStyleSheet(OK_BUTTONS_STYLESHEET);
 

@@ -41,7 +41,7 @@ SettingsForm::SettingsForm( QWidget* parent)
 	innerWidget->addTab(viewSettings, tr("View"));
 	innerWidget->addTab(dataloadSettings, tr("Load"));
 	backButton->setText(tr("back"));
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 #ifdef QT_VERSION5X
 	QObject::connect(backButton, &MegaIconButton::clicked, this, &SettingsForm::saveAndExit);

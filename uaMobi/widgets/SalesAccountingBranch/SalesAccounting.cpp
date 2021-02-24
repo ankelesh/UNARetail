@@ -87,7 +87,7 @@ SalesAccountingBranchWidget::SalesAccountingBranchWidget(QWidget* parent)
 	pageName->setText(tr("Sales Accounting"));
 	bounds << control_bind(abs_control::Decimals,  Roles::Product::price, false, tr("price"));
 	bounds << control_bind(abs_control::Float,  Roles::Product::quantity, false, tr("sold"));
-    extraSettingsButton->setIcon(QIcon(":/res/settings2.png"));
+    extraSettingsButton->setIcon(QIcon(":/resources/settings2"));
     extraSettingsButton->setText(tr("Extra settings"));
     QObject::connect(extraSettingsButton, &MegaIconButton::clicked, this, &SalesAccountingBranchWidget::extraSettingsRequired);
     innerLayout->removeWidget(backButton);

@@ -1,4 +1,23 @@
--->	Method called: initializeGlobalAppSettings in object 13048000
--->	Method called: load common part of AppSettings in object 13048000
+
+-->	Method called: initializeGlobalAppSettings in object 18998944
+-->	Method called: load common part of AppSettings in object 18998944
+if errors: 0
+if errors: 0
+***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(simbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(simbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(supbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(supbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(ordbarcodesscan)called
+***	method execing query: PRAGMA TABLE_INFO(ordbarcodesupld)called
+***	method execing query: PRAGMA TABLE_INFO(pripricedbcsscan)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsscan)called
+***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
+***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
+***	method execing query: PRAGMA TABLE_INFO(PrinterTemplates)called
+***	method execing query: SELECT count(*) from shortbcscalled
+
+-->	Method called: dump common settings in object 18998944
 if errors: 0
 if errors: 0

@@ -24,7 +24,7 @@ PrintingReceiptScaningWidget::PrintingReceiptScaningWidget(Modes mode, int count
 	buttonLayout->addWidget(okButton);
 	printAndExitButton->setText(tr("print_and_exit"));
 	printAndExitButton->setStyleSheet(OK_BUTTONS_STYLESHEET);
-	printAndExitButton->setIcon(QIcon(":/res/rec2.png"));
+	printAndExitButton->setIcon(QIcon(":/resources/rec2"));
 	if (barcodeModel == Q_NULLPTR)
 	{
 		barcodeModel = new DataEntityListModel(this);

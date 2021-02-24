@@ -86,13 +86,13 @@ SearchDatabaseSettings::SearchDatabaseSettings(QWidget* parent)
 	placeSelectionLayout->setSpacing(0);
 
 	downloadNow->setText(tr("Download"));
-	downloadNow->setIcon(QIcon(":/res/netDownload.png"));
+	downloadNow->setIcon(QIcon(":/resources/netdownload"));
 	downloadNow->setStyleSheet(DOWNLOAD_BUTTONS_STYLESHEET);
 
 	selectPlaceButton->setText(tr("Places"));
-	selectPlaceButton->setIcon(QIcon(":/res/rec2.png"));
+	selectPlaceButton->setIcon(QIcon(":/resources/rec2"));
 	deletePlaceButton->setText(tr("del"));
-	deletePlaceButton->setIcon(QIcon(":/res/data2.png"));
+	deletePlaceButton->setIcon(QIcon(":/resources/nodata2"));
 	httpDownloadUrl->setText(AppSettings->httpIn.toString());
 	downloadcenter->setAddress(AppSettings->httpIn.toString());
 	if (!currentPlace.isEmpty())
@@ -105,7 +105,7 @@ SearchDatabaseSettings::SearchDatabaseSettings(QWidget* parent)
 	}
 	backButton->setText(tr("back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 #ifdef Q_OS_ANDROID
 	QScroller::grabGesture(placeSelectionList, QScroller::LeftMouseButtonGesture);
 	placeSelectionList->setFont(AppFonts->makeFont(2.0));

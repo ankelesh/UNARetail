@@ -32,16 +32,16 @@ currentMode(mode)
 	clearScanBuffer->setCheckable(true);
 	clearScanBuffer->setChecked(AppSettings->clearScanBuffer);
 	clearScanBuffer->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	clearScanBuffer->setIcon(QIcon(":/res/data2.png"));
+	clearScanBuffer->setIcon(QIcon(":/resources/nodata2"));
 	prefixExtrabarcode->setEnabled(allowPrefixScaning->isChecked());
 	floatControl->setCheckable(true);
 	floatControl->setChecked(AppSettings->getModeDescription(currentMode).requiresFloatControl());
 	floatControl->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	floatControl->setIcon(QIcon(":/res/toinput.png"));
+	floatControl->setIcon(QIcon(":/resources/toinput"));
 	autoFillQuantity->setCheckable(true);
 	autoFillQuantity->setChecked(AppSettings->autoFillQuantity);
 	autoFillQuantity->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	autoFillQuantity->setIcon(QIcon(":/res/plus.png"));
+	autoFillQuantity->setIcon(QIcon(":/resources/plus"));
 #ifdef QT_VERSION5X
 	QObject::connect(allowPrefixScaning, &MegaIconButton::toggled, this, &ExtraScaningSettings::prefixScaningPressed);
 #endif

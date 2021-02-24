@@ -46,17 +46,17 @@ ScaningSettings::ScaningSettings(Modes cmode, QWidget* parent)
 	additionInputElements->setCheckable(true);
 	additionInputElements->setChecked(AppSettings->additionalControlElements);
 	additionInputElements->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	additionInputElements->setIcon(QIcon(":/res/toinput.png"));
+	additionInputElements->setIcon(QIcon(":/resources/toinput"));
 
 	navigationElements->setCheckable(true);
 	navigationElements->setChecked(AppSettings->navigationElements);
 	navigationElements->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	navigationElements->setIcon(QIcon(":/res/forward.png"));
+	navigationElements->setIcon(QIcon(":/resources/forward"));
 
 	historyButton->setCheckable(true);
 	historyButton->setChecked(AppSettings->getModeDescription(cmode).isHistoryRequired());
 	historyButton->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-	historyButton->setIcon(QIcon(":/res/pen2.png"));
+	historyButton->setIcon(QIcon(":/resources/pen2"));
 
 
 #ifdef QT_VERSION5X

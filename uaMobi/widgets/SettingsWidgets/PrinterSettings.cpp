@@ -28,7 +28,7 @@ PrinterSettings::PrinterSettings(QWidget* parent) : QWidget(parent),
     operatorPassword->setEchoMode(QLineEdit::Password);
     toFile->setCheckable(true);
     toFile->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-    toFile->setIcon(QIcon(":/res/viaFile.png"));
+    toFile->setIcon(QIcon(":/resources/viaFile"));
     toFile->setChecked(AppSettings->printOnlyToFile);
 }
 

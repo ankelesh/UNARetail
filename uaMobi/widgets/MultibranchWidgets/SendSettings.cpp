@@ -28,7 +28,7 @@ SendSettings::SendSettings(Modes cmode, Entity prototype, QWidget* parent)
 	innerWidget->addTab(loginSettings, tr("Login"));
 	mainLayout->addWidget(backButton);
 	
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setText(tr("back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 

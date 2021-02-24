@@ -26,11 +26,11 @@ SpecialActionsSettings::SpecialActionsSettings(QWidget *parent) : inframedWidget
     mainSettings->addTab(eSettings, tr("Email"));
     
     okButton->setText(tr("Ok"));
-    okButton->setIcon(QIcon(":/res/submit.png"));
+    okButton->setIcon(QIcon(":/resources/submit"));
     okButton->setStyleSheet(COMMIT_BUTTONS_STYLESHEET);
 
     backButton->setText(tr("back"));
-    backButton->setIcon(QIcon(":/res/back.png"));
+    backButton->setIcon(QIcon(":/resources/back"));
     backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
     QObject::connect(okButton, &MegaIconButton::clicked, this, &SpecialActionsSettings::saveAndExit);
     QObject::connect(backButton, &MegaIconButton::clicked, this, &SpecialActionsSettings::backRequired);

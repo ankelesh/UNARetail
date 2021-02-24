@@ -28,7 +28,7 @@ AbstractCameraWidget::AbstractCameraWidget(QString qmlcamPath, QWidget* parent)
 	innerLayout->setContentsMargins(0, 0, 0, 0);
 	buttonLayout->setDirection(QBoxLayout::RightToLeft);
 
-	backButton->setIcon(QIcon(":/res/back.png"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 
 	qmlCamera->setSource(QUrl(qmlcamPath));

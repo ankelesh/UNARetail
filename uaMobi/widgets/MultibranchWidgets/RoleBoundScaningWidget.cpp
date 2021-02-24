@@ -287,7 +287,7 @@ RoleBoundScaningWidget::RoleBoundScaningWidget(Modes mode, int counter_role,
 	counterLayout->addWidget(totalInfo);
 	buttonLayout->addWidget(okButton);
 
-	okButton->setIcon(QIcon(":/res/submit.png"));
+	okButton->setIcon(QIcon(":/resources/submit"));
 	okButton->setStyleSheet(QString(OK_BUTTONS_STYLESHEET));
 
 	totalInfo->show();

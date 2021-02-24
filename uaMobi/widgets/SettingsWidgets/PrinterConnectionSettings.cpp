@@ -29,7 +29,7 @@ PrinterConnectionSettings::PrinterConnectionSettings(QWidget* parent)
     printerPassword->setEchoMode(QLineEdit::Password);
     comInsteadTcp->setCheckable(true);
     comInsteadTcp->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
-    comInsteadTcp->setIcon(QIcon(":/res/viaFile.png"));
+    comInsteadTcp->setIcon(QIcon(":/resources/viaFile"));
     comInsteadTcp->setChecked(AppSettings->useComInsteadOfIp);
 
 }

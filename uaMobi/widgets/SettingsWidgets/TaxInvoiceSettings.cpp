@@ -11,8 +11,8 @@ TaxInvoiceSettings::TaxInvoiceSettings(Modes mode, QWidget* parent)
 {
 	mainLayout->addRow(tr("allow tax invoice"), allowTaxInvoice);
 	mainLayout->addRow(tr("require tax invoice"), requireTaxInvoice);
-	allowTaxInvoice->setIcon(QIcon(":/res/barcode.png"));
-	requireTaxInvoice->setIcon(QIcon(":/res/url2.png"));
+	allowTaxInvoice->setIcon(QIcon(":/resources/barcode"));
+	requireTaxInvoice->setIcon(QIcon(":/resources/url2"));
 	allowTaxInvoice->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
 	requireTaxInvoice->setStyleSheet(CHECKED_BUTTONS_STYLESHEET);
 	allowTaxInvoice->setCheckable(true);

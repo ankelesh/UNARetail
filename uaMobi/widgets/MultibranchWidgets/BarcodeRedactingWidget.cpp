@@ -34,8 +34,8 @@ BarcodeRedactingWidget::BarcodeRedactingWidget(Modes /*mode*/, QWidget* parent)
 	mainLayout->setContentsMargins(0, 0, 0, 0);
 
 	
-	okButton->setIcon(QIcon(":/res/submit.png"));
-	backButton->setIcon(QIcon(":/res/back.png"));
+	okButton->setIcon(QIcon(":/resources/submit"));
+	backButton->setIcon(QIcon(":/resources/back"));
 	
 	okButton->setStyleSheet(COMMIT_BUTTONS_STYLESHEET);
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);

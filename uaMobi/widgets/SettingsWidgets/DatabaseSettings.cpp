@@ -18,10 +18,10 @@ DatabaseSettings::DatabaseSettings(Modes mode, QWidget* parent)
 	mainLayout->addWidget(clearLogs);
 	mainLayout->addWidget(searchOnScan);
 
-	clearScanned->setIcon(QIcon(":/res/deleteData.png"));
-	wipeDatabase->setIcon(QIcon(":/res/data.png"));
-	clearLogs->setIcon(QIcon(":/res/minus.png"));
-	searchOnScan->setIcon(QIcon(":/res/find3 (2).png"));
+	clearScanned->setIcon(QIcon(":/resources/deleteData"));
+	wipeDatabase->setIcon(QIcon(":/resources/nodata"));
+	clearLogs->setIcon(QIcon(":/resources/minus"));
+	searchOnScan->setIcon(QIcon(":/resources/find4"));
 
 	clearScanned->setStyleSheet(DELETE_BUTTONS_STYLESHEET);
 	wipeDatabase->setStyleSheet(DELETE_BUTTONS_STYLESHEET);

@@ -151,18 +151,18 @@ fromFileLoad(new MegaIconButton(this))
 	mainLayout->setSpacing(0);
 
 	fromFileLoad->setText(tr("Load from local"));
-	fromFileLoad->setIcon(QIcon(":/res/viaFile.png"));
+	fromFileLoad->setIcon(QIcon(":/resources/viaFile"));
 	fromFileLoad->setStyleSheet(DOWNLOAD_BUTTONS_STYLESHEET);
 	dropDatabaseButton->setText(tr("Drop DB"));
-	dropDatabaseButton->setIcon(QIcon(":/res/deleteData.png"));
+	dropDatabaseButton->setIcon(QIcon(":/resources/deleteData"));
 	dropDatabaseButton->setStyleSheet(DELETE_BUTTONS_STYLESHEET);
 
 
 	databasePath->setText(AppSettings->localDatabase);
 	addButton->setText("+");
-	addButton->setIcon(QIcon(":/res/plus.png"));
-	deleteButton->setIcon(QIcon(":/res/minus.png"));
-	joinButton->setIcon(QIcon(":/res/pencil.png"));
+	addButton->setIcon(QIcon(":/resources/plus"));
+	deleteButton->setIcon(QIcon(":/resources/minus"));
+	joinButton->setIcon(QIcon(":/resources/pencil"));
 	deleteButton->setText("-");
 	joinButton->setText("&");
 

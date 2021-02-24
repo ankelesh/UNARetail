@@ -53,11 +53,11 @@ SendingDataPickerWidget::SendingDataPickerWidget(Modes mode, QWidget* parent)
 	sendWidget->hide();
 	settingsWidget->hide();
 
-	sentButton->setIcon(QIcon(":/res/alreadySent.png"));
-	unsentButton->setIcon(QIcon(":/res/viaNet.png"));
-	allButton->setIcon(QIcon(":/res/viaFile.png"));
-	backButton->setIcon(QIcon(":/res/back.png"));
-	settingsButton->setIcon(QIcon(":/res/settings.png"));
+	sentButton->setIcon(QIcon(":/resources/alreadySent"));
+	unsentButton->setIcon(QIcon(":/resources/viaNet"));
+	allButton->setIcon(QIcon(":/resources/viaFile"));
+	backButton->setIcon(QIcon(":/resources/back"));
+	settingsButton->setIcon(QIcon(":/resources/settings"));
 
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 	if (hasModifiableSysfeed(mode))

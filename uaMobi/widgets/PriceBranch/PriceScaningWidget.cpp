@@ -30,7 +30,7 @@ PriceScaningWidget::PriceScaningWidget(QWidget* parent)
 
 	buttonLayout->addWidget(okButton);
 
-	okButton->setIcon(QIcon(":/res/submit.png"));
+	okButton->setIcon(QIcon(":/resources/submit"));
 
 	okButton->setStyleSheet(QString(OK_BUTTONS_STYLESHEET));
 

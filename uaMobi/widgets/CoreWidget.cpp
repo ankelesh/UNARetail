@@ -53,15 +53,15 @@ CoreWidget::CoreWidget(QWidget* parent)
 	controlPanel->addWidget(exitButton);
 	
 	
-	inventory->setIcon(QIcon(":/res/inventory.png"));
-	supplies->setIcon(QIcon(":/res/rec.png"));
-	search->setIcon(QIcon(":/res/find.png"));
-	simple->setIcon(QIcon(":/res/pen.png"));
-	invoice->setIcon(QIcon(":/res/best.png"));
-	prices->setIcon(QIcon(":/res/cash.png"));
-	salesAcc->setIcon(QIcon(":/res/contract.png"));
-	dbOperations->setIcon(QIcon(":/res/url2.png"));
-	printTags->setIcon(QIcon(":/res/pencil.png"));
+	inventory->setIcon(QIcon(":/resources/inventory"));
+	supplies->setIcon(QIcon(":/resources/rec"));
+	search->setIcon(QIcon(":/resources/find"));
+	simple->setIcon(QIcon(":/resources/pen"));
+	invoice->setIcon(QIcon(":/resources/best"));
+	prices->setIcon(QIcon(":/resources/cash"));
+	salesAcc->setIcon(QIcon(":/resources/contract"));
+	dbOperations->setIcon(QIcon(":/resources/url2"));
+	printTags->setIcon(QIcon(":/resources/pencil"));
 
 	inventory->setText(tr("inventory"));
 	supplies->setText(tr("supplies"));
@@ -84,8 +84,8 @@ CoreWidget::CoreWidget(QWidget* parent)
 	salesAcc->setSizePolicy(sizePol);
 	dbOperations->setSizePolicy(sizePol);
 	printTags->setSizePolicy(sizePol);
-	settingsButton->setIcon(QIcon(":/res/settings.png"));
-	exitButton->setIcon(QIcon(":/res/exit.png"));
+	settingsButton->setIcon(QIcon(":/resources/settings"));
+	exitButton->setIcon(QIcon(":/resources/exit"));
 	settingsButton->setMinimumHeight(calculateAdaptiveHeight());
     exitButton->setMinimumHeight(calculateAdaptiveHeight());
 	BarcodeObserver::init();
