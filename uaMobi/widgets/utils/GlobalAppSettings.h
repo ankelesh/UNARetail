@@ -1,7 +1,7 @@
 #pragma once
-#include <QtCore/QString>
+#include "submodules/UNAQtCommons/settings/CommonAppSettings.h"
 #include <QtCore/qurl.h>
-#include <QtCore/QTranslator>
+
 #include <QtCore/QTextStream>
 #include <QVector>
 #include "dataproviders/ModesDescriptions.h"
@@ -13,36 +13,28 @@ extern const float VERSION;
 extern const char* SUFFIX;
 
 #define AppSettings GlobalAppSettings::instanse()
-extern QString rootFilePath;
-class GlobalAppSettings	//	Holds main settings for data exchange. DO NOT MAKE MULTIPLE
+class GlobalAppSettings	: public CommonAppSettings  //	Holds main settings for data exchange
 {
 private:
 	static GlobalAppSettings* _instanse;
 	QVector<ModeDescription> modes;
-	QByteArray netEncoding;
 	explicit GlobalAppSettings();		//	Explicit default constructor. All data is obtained automatically via file
+protected:
+	virtual p_QSettings _getSettingsFile() override;
+	virtual void _save(p_QSettings) override;
+	virtual void _load(p_QSettings) override;
 public:
 	QString localfile;		//	file for tolocalmemory
 	QUrl httpIn;			//	address for tohttp download
 	QString localDatabase;
 	bool additionalControlElements;	//	controls panel with camera\ keyboard shortcuts
 	bool navigationElements;
-
 	bool autoSearch;				//	enables search on new barcode
 	bool simpleSending;
 	int sendingDirection;
 	int sendingFormat;
 
-	int scanPrefix;
-	int scanSuffix;
 	int scanButtonCode;
-//	QList<QList<int>> serializationOrder;
-	QString language;					//	language of the application
-	QTranslator qt_translator;			//	global translator is stored here
-	int	fontMinHeight;
-	int fontMaxHeight;
-	double fontPercent;
-
 
 	QChar separatorCode;
 
@@ -52,9 +44,6 @@ public:
 	QString placeAsItem;
 	QString placeAsCode;
 
-//	QList<int> sysfeed;
-
-//	QList<bool> floatControl;
 	QString extrasearchPrefix;
 	bool clearScanBuffer;
 
@@ -83,22 +72,13 @@ public:
 	// label printing
 	QString labelPrinterTemplateText;
 	long long int labelPrinterTemplateGUID;
-	QString labelPrinterName;
-	QString lastPrinterBTMAC;
-	QString lastPrinterBTUUID;
 
-    unsigned int notificationsVolume;
-
-	void SetTranslator();				//	Sets translator. Can be used any time
-	void Save();						//	Forse save
 	ModeDescription& getModeDescription(Modes m);
 	ModeDescription& getModeDescription(int m);
-	const QByteArray& getNetworkEncoding();
-	void setNetworkEncoding(const QString&);
 	ModeDescription& operator[](Modes m);
 	ModeDescription& operator[](int m);
-	~GlobalAppSettings();				//	Dumping destructor. Saves state before exit
 	static GlobalAppSettings* instanse();
+	static void init();
 };
 template <class LItem>
 QStringList serializeLists(const QList < QList< LItem> > & list)

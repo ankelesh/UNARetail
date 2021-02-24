@@ -43,8 +43,8 @@ PriceScaningWidget::PriceScaningWidget(QWidget* parent)
 	lengthCounter->setFont(AppFonts->makeFont(2.5));
 	totalCounter->setFont(AppFonts->makeFont(2.5));
 #endif
-	totalCounter->setMinimumHeight(calculateAdaptiveButtonHeight());
-	lengthCounter->setMinimumHeight(calculateAdaptiveButtonHeight());
+	totalCounter->setMinimumHeight(calculateAdaptiveHeight());
+	lengthCounter->setMinimumHeight(calculateAdaptiveHeight());
 
 	if (!AppSettings->navigationElements)
 	{

@@ -180,7 +180,7 @@ QString getFormatedSqlAsXml(QSqlQuery query, QString dbname, int mode, Destinati
 	return xml.toString();
 }
 #ifdef QT_VERSION5X
-QString getFormatedSqlAsJson(QSqlQuery query, QString dbname, int mode, Destinations destination)
+QString getFormatedSqlAsJson(QSqlQuery query, QString dbname, int /*mode*/, Destinations /*destination*/)
 {
 		QJsonObject json;
 
@@ -195,7 +195,7 @@ QString getFormatedSqlAsJson(QSqlQuery query, QString dbname, int mode, Destinat
 		return doc.toJson();
 }
 #endif
-QString getFormatedSqlAsCsv(QSqlQuery query, QString dbname, int mode, Destinations destination)
+QString getFormatedSqlAsCsv(QSqlQuery query, QString dbname, int /*mode*/, Destinations /*destination*/)
 {
 		QString csv;
 		csv += _CSV_sqlColumnNames(query.record());
@@ -203,7 +203,7 @@ QString getFormatedSqlAsCsv(QSqlQuery query, QString dbname, int mode, Destinati
 	return "";
 }
 
-QString getFormatedSqlAsTxt(QSqlQuery query, QString dbname, int mode, Destinations destination)
+QString getFormatedSqlAsTxt(QSqlQuery query, QString dbname, int /*mode*/, Destinations /*destination*/)
 {
 	QString txt;
 		while (query.next())

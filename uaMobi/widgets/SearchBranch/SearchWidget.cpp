@@ -17,10 +17,10 @@ SearchWidget::SearchWidget(QWidget* parent)
 {
 	if (historyView != Q_NULLPTR)
 		historyView->hide();
-	barcodeInfo->setMinimumHeight(calculateAdaptiveButtonHeight(0.3));
-	barcodeInfo->setMaximumHeight(calculateAdaptiveButtonHeight(0.8));
+	barcodeInfo->setMinimumHeight(calculateAdaptiveHeight(0.3));
+	barcodeInfo->setMaximumHeight(calculateAdaptiveHeight(0.8));
 	barcodeInfo->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
-	discountCounter->setMinimumHeight(calculateAdaptiveButtonHeight(0.1));
+	discountCounter->setMinimumHeight(calculateAdaptiveHeight(0.1));
 
 	QPalette whitenedBG = discountCounter->palette();
 	whitenedBG.setColor(QPalette::Background, QColor(Qt::white));

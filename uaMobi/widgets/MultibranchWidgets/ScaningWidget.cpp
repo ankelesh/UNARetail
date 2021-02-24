@@ -52,8 +52,8 @@ ScaningWidget::ScaningWidget(Modes mode, QWidget* parent)
 	lengthInfo->setFont(AppFonts->makeFont(2.5));
 	totalInfo->setFont(AppFonts->makeFont(2.5));
 #endif
-	totalInfo->setMinimumHeight(calculateAdaptiveButtonHeight());
-	lengthInfo->setMinimumHeight(calculateAdaptiveButtonHeight());
+	totalInfo->setMinimumHeight(calculateAdaptiveHeight());
+	lengthInfo->setMinimumHeight(calculateAdaptiveHeight());
 	
 	if (!AppSettings->navigationElements)
 	{

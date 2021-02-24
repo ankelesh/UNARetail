@@ -66,8 +66,8 @@ VirtualBarcodeKeyboard::VirtualBarcodeKeyboard(QWidget* parent)
 
 	clearButton->setSizePolicy(bsp);
 	eraseButton->setSizePolicy(bsp);
-	okButton->setMinimumHeight(calculateAdaptiveButtonHeight());
-	backButton->setMinimumHeight(calculateAdaptiveButtonHeight());
+	okButton->setMinimumHeight(calculateAdaptiveHeight());
+	backButton->setMinimumHeight(calculateAdaptiveHeight());
 	setFocus();
 	_captureNumbers();
 #ifdef QT_VERSION5X

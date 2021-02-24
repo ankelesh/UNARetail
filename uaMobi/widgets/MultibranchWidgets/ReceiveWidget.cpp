@@ -58,7 +58,7 @@ ReceiveWidget::ReceiveWidget(Modes mode, QWidget* parent)
 	mainLayout->addWidget(backButton);
 
 
-	semaphor->setFixedHeight(calculateAdaptiveButtonHeight(0.1));
+	semaphor->setFixedHeight(calculateAdaptiveHeight(0.1));
 	semaphor->setText(tr("Sending state"));
 
 	http->setAddress(AppSettings->httpIn.toString());

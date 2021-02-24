@@ -383,7 +383,7 @@ bool SqlDataProvider::checkAndRefreshTable(TableNames tab, Modes mode)
 	return checkAndRefreshTable(tab, modenamesLinker[mode], mode);
 }
 
-bool SqlDataProvider::pushEntityList(EntityList& scanned, Modes mode, TableNames tab)
+bool SqlDataProvider::pushEntityList(EntityList& scanned, Modes mode, TableNames /*tab*/)
 //This method is saving barcodes using other methods
 {
 	if (scanned.isEmpty())

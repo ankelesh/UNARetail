@@ -10,12 +10,21 @@ inline void initialize_default_file(QSettings& settings)
 	if (!settings.allKeys().isEmpty())
 		return;
 	// settings default for all linella users
-	settings.setValue("httpAddressIn", QUrl::fromUserInput("http://92.115.237.226:60080/um/prices_uniback.php"));
-	settings.setValue("language", "Romanian");
-	settings.setValue("autoSearch", QVariant(true));
+	settings.beginGroup("interface");
 	settings.setValue("additionalElements", true);
-	settings.setValue("clearScanBuffer", QVariant(true));
+	settings.endGroup();
 
+	settings.beginGroup("behaviour");
+	settings.setValue("autoSearch", QVariant(true));
+	settings.setValue("clearScanBuffer", QVariant(true));
+	settings.endGroup();
+	settings.beginGroup("network");
+	settings.setValue("httpAddressIn", QUrl::fromUserInput("http://92.115.237.226:60080/um/prices_uniback.php"));
+	settings.endGroup();
+	settings.beginGroup("common");
+	settings.setValue("language", "Romanian");
+	settings.endGroup();
+	settings.beginGroup("modes");
 	QList<ModeDescription> modes;
 	for (int i = 0; i < MODES_TOTAL; ++i)
 	{
@@ -28,6 +37,7 @@ inline void initialize_default_file(QSettings& settings)
 		serializedModes << modes.at(i).serialize();
 	}
 	settings.setValue("modesSettings", serializedModes);
+	settings.endGroup();
 }
 #else
 #ifdef BEMOL
@@ -40,12 +50,20 @@ inline void initialize_default_file(QSettings& settings)
 {
 	if (!settings.allKeys().isEmpty())
 		return;
-	// settings default for all linella users
-	settings.setValue("httpAddressIn", QUrl::fromUserInput("http://178.168.80.129:1858/bemol.php"));
-	settings.setValue("language", "Romanian");
-	settings.setValue("autoSearch", QVariant(true));
+	// settings default for all bemol users
+	settings.beginGroup("interface");
 	settings.setValue("additionalElements", false);
+	settings.endGroup();
+	settings.beginGroup("behaviour");
+	settings.setValue("autoSearch", QVariant(true));
 	settings.setValue("clearScanBuffer", QVariant(false));
+	settings.endGroup();
+	settings.beginGroup("network");
+	settings.setValue("httpAddressIn", QUrl::fromUserInput("http://178.168.80.129:1858/bemol.php"));
+	settings.endGroup();
+	settings.beginGroup("common");
+	settings.setValue("language", "Romanian");
+	settings.endGroup();
 }
 #else
 #ifdef ETALONUS
@@ -59,12 +77,22 @@ inline void initialize_default_file(QSettings& settings)
 	if (!settings.allKeys().isEmpty())
 		return;
 	// settings default for all linella users
-	settings.setValue("httpAddressIn", QUrl::fromUserInput("http://uamobi.una.md/etalonusgrup.php"));
-	settings.setValue("language", "Romanian");
-	settings.setValue("autoSearch", QVariant(true));
-	settings.setValue("additionalElements", true);
-	settings.setValue("clearScanBuffer", QVariant(true));
 
+	settings.beginGroup("interface");
+	settings.setValue("additionalElements", true);
+	settings.endGroup();
+	settings.beginGroup("behaviour");
+	settings.setValue("autoSearch", QVariant(true));
+	settings.setValue("clearScanBuffer", QVariant(true));
+	settings.endGroup();
+	settings.beginGroup("network");
+	settings.setValue("httpAddressIn", QUrl::fromUserInput("http://uamobi.una.md/etalonusgrup.php"));
+	settings.endGroup();
+	settings.beginGroup("common");
+	settings.setValue("language", "Romanian");
+	settings.endGroup();
+
+	settings.beginGroup("modes");
 	QList<ModeDescription> modes;
 	for (int i = 0; i < MODES_TOTAL; ++i)
 	{
@@ -79,9 +107,10 @@ inline void initialize_default_file(QSettings& settings)
 		serializedModes << modes.at(i).serialize();
 	}
 	settings.setValue("modesSettings", serializedModes);
+	settings.endGroup();
 }
 #else
-inline void initialize_default_file(QSettings& settings)
+inline void initialize_default_file(QSettings& /*settings*/)
 {
 	return;
 }

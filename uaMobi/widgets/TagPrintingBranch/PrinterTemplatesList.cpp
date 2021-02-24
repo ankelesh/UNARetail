@@ -97,9 +97,9 @@ PrinterTemplateRedactor::PrinterTemplateRedactor(QWidget* parent)
 	bindingLayout->addLayout(buttonsLayout);
 	buttonsLayout->addWidget(cancelButton);
 	buttonsLayout->addWidget(okButton);
-	bindingTemplateField->setMinimumHeight(calculateAdaptiveButtonHeight(0.2));
-	bindingTemplateField->setMaximumHeight(calculateAdaptiveButtonHeight(0.4));
-	bindingInfo->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
+	bindingTemplateField->setMinimumHeight(calculateAdaptiveHeight(0.2));
+	bindingTemplateField->setMaximumHeight(calculateAdaptiveHeight(0.4));
+	bindingInfo->setMaximumHeight(calculateAdaptiveHeight(0.1));
 	cancelButton->setText(tr("cancel"));
 	cancelButton->setStyleSheet(DELETE_BUTTONS_STYLESHEET);
 	cancelButton->setIcon(QIcon(":/res/data.png"));
@@ -197,7 +197,7 @@ PrinterTemplatesListWidget::PrinterTemplatesListWidget(QWidget* parent)
 	explanationLabel->setText("select template or add new");
 	newButton->setIcon(QIcon(":/res/plus.png"));
 	newButton->setText(tr("new"));
-	newButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.9));;
+	newButton->setMaximumHeight(calculateAdaptiveHeight(0.9));;
 	newButton->setMaximumWidth(calculateAdaptiveWidth(0.15));
 	deleteButton->setIcon(QIcon(":/res/data.png"));
 	deleteButton->setText(tr("delete"));

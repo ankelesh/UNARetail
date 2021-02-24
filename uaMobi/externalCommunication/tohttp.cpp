@@ -15,7 +15,7 @@
 const char separator[] = { 30, 0 };
 
 #include <QtConcurrent>
-QLinkedList<ShortBarcode> extractProducts(QString input, int sessionCounter)
+QLinkedList<ShortBarcode> extractProducts(QString input, int /*sessionCounter*/)
 {
 	QLinkedList<ShortBarcode> loaded;
 	QStringList splitted = input.split(QChar(30));

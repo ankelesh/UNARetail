@@ -41,6 +41,6 @@ void SpecialActionsSettings::saveAndExit()
 {
     pSettings->extractAndSave();
     eSettings->extractAndSave();
-    AppSettings->Save();
+    AppSettings->save();
     emit backRequired();
 }

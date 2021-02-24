@@ -179,7 +179,7 @@ fromFileLoad(new MegaIconButton(this))
 	model->selectIndexes(AppSettings->deserializationOrder);
 	fieldSelector->setItemDelegate(new ExtraSelectionDelegate(this));
 	databasePath->setWordWrapMode(QTextOption::WrapMode::WrapAnywhere);
-	databasePath->setFixedHeight(calculateAdaptiveButtonHeight(0.2));
+	databasePath->setFixedHeight(calculateAdaptiveHeight(0.2));
 	databasePath->setInputMethodHints(Qt::InputMethodHint::ImhNoPredictiveText);
 #ifdef QT_VERSION5X
 	QObject::connect(fromFileLoad, &MegaIconButton::clicked, this, &DatabaseLoadSettings::loadDatabaseFromFile);
@@ -294,12 +294,12 @@ void DatabaseLoadSettings::loadDatabaseFromFile()
 	}
 }
 
-int IndexedListModel::rowCount(const QModelIndex& parent) const
+int IndexedListModel::rowCount(const QModelIndex& /*parent*/) const
 {
 	return innerList.count();
 }
 
-bool IndexedListModel::insertRows(int row, int count, const QModelIndex& parent)
+bool IndexedListModel::insertRows(int row, int count, const QModelIndex& /*parent*/)
 {
 	QVector<indexedString> temp;
 	temp.reserve(innerList.count() + count);
@@ -319,7 +319,7 @@ bool IndexedListModel::insertRows(int row, int count, const QModelIndex& parent)
 	return  true;
 }
 
-bool IndexedListModel::insertColumns(int column, int count, const QModelIndex& parent)
+bool IndexedListModel::insertColumns(int /*column*/, int /*count*/, const QModelIndex& /*parent*/)
 {
 	return true;
 }
@@ -331,7 +331,7 @@ Qt::DropActions IndexedListModel::supportedDragActions() const
 	return Qt::DropAction::TargetMoveAction | Qt::DropAction::CopyAction | Qt::DropAction::MoveAction | Qt::DropAction::LinkAction;
 }
 
-bool IndexedListModel::dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent)
+bool IndexedListModel::dropMimeData(const QMimeData* data, Qt::DropAction /*action*/, int /*row*/, int /*column*/, const QModelIndex& parent)
 {
 	if (data == Q_NULLPTR)
 		return false;
@@ -347,7 +347,7 @@ bool IndexedListModel::dropMimeData(const QMimeData* data, Qt::DropAction action
 	return false;
 }
 
-bool IndexedListModel::removeRows(int row, int count, const QModelIndex& parent)
+bool IndexedListModel::removeRows(int /*row*/, int /*count*/, const QModelIndex& /*parent*/)
 {
 	
 	return false;
@@ -408,7 +408,7 @@ QMimeData* IndexedListModel::mimeData(const QModelIndexList& indexes) const
 	return data;
 }
 
-bool IndexedListModel::canDropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) const
+bool IndexedListModel::canDropMimeData(const QMimeData* data, Qt::DropAction /*action*/, int /*row*/, int /*column*/, const QModelIndex& /*parent*/) const
 {
 	if (data->hasText())
 		return true;
@@ -453,7 +453,7 @@ QVariant IndexedListModel::data(const QModelIndex& index, int role) const
 	}
 }
 
-QVariant IndexedListModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant IndexedListModel::headerData(int /*section*/, Qt::Orientation /*orientation*/, int /*role*/) const
 {
 	return QVariant();
 }

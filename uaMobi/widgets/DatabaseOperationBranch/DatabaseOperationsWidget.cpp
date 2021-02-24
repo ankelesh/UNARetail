@@ -31,26 +31,26 @@ DatabaseOperationsWidget::DatabaseOperationsWidget(QWidget* parent)
 	operationPanel->addWidget(fullViewSwitcher);
 	counterLayout->addWidget(totalBarcodes);
 
-	addButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	removeButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	replaceButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	fullViewSwitcher->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	backButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	keyboardButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
+	addButton->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	removeButton->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	replaceButton->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	fullViewSwitcher->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	backButton->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	keyboardButton->setMaximumHeight(calculateAdaptiveHeight(0.1));
 #ifdef CAMERA_SUPPORT
-	cameraButton->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
+	cameraButton->setMaximumHeight(calculateAdaptiveHeight(0.1));
 #endif
-	priceField->myWidget()->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	countField->myWidget()->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	discountField->myWidget()->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
-	codeField->myWidget()->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
+	priceField->myWidget()->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	countField->myWidget()->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	discountField->myWidget()->setMaximumHeight(calculateAdaptiveHeight(0.1));
+	codeField->myWidget()->setMaximumHeight(calculateAdaptiveHeight(0.1));
 
 	totalBarcodes->setText(tr("total barcodes"));
 	 codeField->show();
 	countField->show();
 	discountField->show();
 	priceField->show();
-	totalBarcodes->setMinimumHeight(calculateAdaptiveButtonHeight(0.08));
+	totalBarcodes->setMinimumHeight(calculateAdaptiveHeight(0.08));
 	codeField->setMaximum(9999999);
 
 	QObject::connect(barcodeInfo, &ReturnableTextEdit::returnPressed, codeField, &abs_control::setFocus);

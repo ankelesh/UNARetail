@@ -222,6 +222,7 @@
     <ClCompile Include="submodules\UNAQtCommons\barcodeHandling\BarcodeObserver.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\consts\DatetimeConstants.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\debug\debugtrace.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\settings\CommonAppSettings.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\abs_control.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\BarcodeControl.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\ControlTranslator.cpp" />
@@ -231,6 +232,7 @@
     <ClCompile Include="submodules\UNAQtCommons\widgets\ControlsWidgets\StringControl.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\parents\abstractNodeInterface.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\parents\inframedWidget.cpp" />
+    <ClCompile Include="submodules\UNAQtCommons\widgets\Scaling\ScalingUtilities.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\AndroidFileDialog.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\BigButtonsSpinbox.cpp" />
     <ClCompile Include="submodules\UNAQtCommons\widgets\UtilityElements\ExtendedDialogs.cpp" />
@@ -523,6 +525,7 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
     </QtMoc>
+    <ClInclude Include="submodules\UNAQtCommons\settings\CommonAppSettings.h" />
     <ClInclude Include="submodules\UNAQtCommons\widgets\ControlsWidgets\QuantityControl.h" />
     <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\StringControl.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.;D:\Lib\Qt\5.12.2\msvc2017\include\QtZlib;.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
@@ -645,6 +648,7 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;.\qzxing-master\src;.\qzxing-master\src\zxing;.\qzxing-master\src\zxing\win32\zxing;.\qzxing-master\src\zxing\win32\zxing\msvc;$(QTDIR)\include;.\release;C:\VulkanSDK\1.0.51.0\include;$(QTDIR)\mkspecs\win32-msvc;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtQml;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtQuickWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtQuick;$(QTDIR)\include\QtConcurrent</IncludePath>
       <Define Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">QT_VERSION5X;_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;QZXING_LIBRARY;ZXING_ICONV_CONST;DISABLE_LIBRARY_FEATURES;QZXING_MULTIMEDIA;QZXING_QML;NOFMAXL;__STDC_LIMIT_MACROS;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_QML_LIB;QT_SQL_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_QUICKWIDGETS_LIB;QT_XML_LIB;QT_QUICK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
     </QtMoc>
+    <ClInclude Include="submodules\UNAQtCommons\widgets\Scaling\ScalingUtilities.h" />
     <ClInclude Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.h" />
     <ClInclude Include="widgets\ControlsMiniwidgets\ControlManager.h" />
     <QtMoc Include="widgets\MultibranchWidgets\Redactors\BarcodeRedactorForm.h" />

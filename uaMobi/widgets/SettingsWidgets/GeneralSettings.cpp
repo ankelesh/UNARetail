@@ -86,7 +86,7 @@ void GeneralSettings::langChangePressed()
 	currlang = (currlang + 1 > 2) ? 0 : currlang + 1;
 	AppSettings->language = langnames[currlang];
 	qApp->removeTranslator(&(AppSettings->qt_translator));
-	AppSettings->SetTranslator();
+	AppSettings->setTranslator();
 	qApp->installTranslator(&(AppSettings->qt_translator));
 	langButton->setIcon(langicons[currlang]);
 	emit retranslated();

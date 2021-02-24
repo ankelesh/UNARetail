@@ -57,7 +57,7 @@ void LoginSettings::loginEnableToggled()
 	}
 }
 
-QValidator::State LoginPassValidator::validate(QString& input, int& pos) const
+QValidator::State LoginPassValidator::validate(QString& input, int& /*pos*/) const
 {
 	if (input.count() > 20)
 		return QValidator::State::Invalid;

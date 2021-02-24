@@ -47,7 +47,7 @@ SendingDataPickerWidget::SendingDataPickerWidget(Modes mode, QWidget* parent)
 	mainLayout->setSpacing(0);
 
 
-	semaphor->setFixedHeight(calculateAdaptiveButtonHeight(0.1));
+	semaphor->setFixedHeight(calculateAdaptiveHeight(0.1));
 	semaphor->setText(tr("Sending state"));
 	
 	sendWidget->hide();

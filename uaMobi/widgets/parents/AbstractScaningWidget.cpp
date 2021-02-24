@@ -101,7 +101,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	backButton->setStyleSheet(BACK_BUTTONS_STYLESHEET);
 
 //	barcodeInfo->setStyleSheet(COUNTERS_LABEL_STYLESHEET);
-	barcodeInfo->setFixedHeight(calculateAdaptiveButtonHeight());
+	barcodeInfo->setFixedHeight(calculateAdaptiveHeight());
 	barcodeInfo->setFont(AppFonts->makeFont(3.0));
 	barcodeInfo->setWordWrapMode(QTextOption::WordWrap);
 	barcodeInfo->setAlignment(Qt::AlignCenter);
@@ -113,7 +113,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	modeName->setAlignment(Qt::AlignCenter);
 	modeName->setText(transformModeToString(currentMode));
 
-	barcodeInput->setMinimumHeight(calculateAdaptiveButtonHeight());
+	barcodeInput->setMinimumHeight(calculateAdaptiveHeight());
 	barcodeInput->setFont(AppFonts->makeFont(3.0));
 	barcodeInput->setAlignment(Qt::AlignCenter);
 

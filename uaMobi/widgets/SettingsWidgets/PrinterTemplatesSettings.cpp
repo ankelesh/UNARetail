@@ -53,6 +53,6 @@ void PrinterTemplatesSettings::backPressed()
 		AppSettings->labelPrinterTemplateText = currentOne->templateText;
 		AppSettings->labelPrinterTemplateGUID = currentOne->GUID;
 	}
-	AppSettings->Save();
+	AppSettings->save();
 	emit backRequired();
 }

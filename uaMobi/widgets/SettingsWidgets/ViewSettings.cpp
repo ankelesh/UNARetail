@@ -22,10 +22,10 @@ ViewSettings::ViewSettings(QWidget* parent)
 	mainLayout->setRowWrapPolicy(QFormLayout::WrapAllRows);
 	example->setFont(GENERAL_FONT);
 	fontMin->setMinimum(5);
-	fontMin->setMaximum(calculateAdaptiveButtonHeight(0.03));
+	fontMin->setMaximum(calculateAdaptiveHeight(0.03));
 	fontMin->setValue(AppFonts->getMinFontHeight());
 	fontMax->setMinimum(15);
-	fontMax->setMaximum(calculateAdaptiveButtonHeight(0.08));
+	fontMax->setMaximum(calculateAdaptiveHeight(0.08));
 	fontMax->setValue(AppFonts->getMaxFontHeight());
 	fontPercent->setMinimum(1);
 	fontPercent->setMaximum(100);

@@ -51,6 +51,6 @@ void innerSettingsForm::dumpAndReturn()
 	scaningSettings->extractAndSave();
 	extrascanSettings->extractAndSave();
 	taxInvoiceSettings->extractAndSave();
-	AppSettings->Save();
+	AppSettings->save();
 	emit backRequired();
 }

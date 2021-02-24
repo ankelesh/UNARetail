@@ -86,8 +86,8 @@ CoreWidget::CoreWidget(QWidget* parent)
 	printTags->setSizePolicy(sizePol);
 	settingsButton->setIcon(QIcon(":/res/settings.png"));
 	exitButton->setIcon(QIcon(":/res/exit.png"));
-	settingsButton->setMinimumHeight(calculateAdaptiveButtonHeight());
-    exitButton->setMinimumHeight(calculateAdaptiveButtonHeight());
+	settingsButton->setMinimumHeight(calculateAdaptiveHeight());
+    exitButton->setMinimumHeight(calculateAdaptiveHeight());
 	BarcodeObserver::init();
 #ifdef QT_VERSION5X
 	QObject::connect(settingsButton, &QPushButton::clicked, this, &CoreWidget::settingsPressed);
@@ -119,7 +119,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 void CoreWidget::exitPressed()
 {
 	//detrace_METHCALL("ExitPressed")
-	AppSettings->Save();
+	AppSettings->save();
 	this->close();
 }
 void CoreWidget::settingsPressed()

@@ -74,7 +74,7 @@ const QString LARGE_BUTTON_STYLESHEET("QDateEdit{	"
 QString BETTER_CALENDAR_STYLESHEET()
 {
 	return QString() + "QCalendarWidget QToolButton{"
-		+ " height:" + QString::number(calculateAdaptiveButtonHeight(0.05)) + "px;"
+		+ " height:" + QString::number(calculateAdaptiveHeight(0.05)) + "px;"
 		+ " width:" + QString::number(calculateAdaptiveWidth(0.8)) + "px;"
 		"color: white;"
 		"font-size: " + QString::number(calculateAdaptiveWidth(0.05)) + "px;"
@@ -109,15 +109,15 @@ QString BETTER_CALENDAR_STYLESHEET()
 		"}"
 		"QCalendarWidget QSpinBox::up-arrow{"
 		+ " width:" + QString::number(calculateAdaptiveWidth(0.116)) + "px;"
-		+ " height:" + QString::number(calculateAdaptiveButtonHeight(0.116)) + "px;"
+		+ " height:" + QString::number(calculateAdaptiveHeight(0.116)) + "px;"
 		"}"
 		"QCalendarWidget QSpinBox::down-arrow{"
 		+ " width:" + QString::number(calculateAdaptiveWidth(0.116)) + "px;"
-		+ " height:" + QString::number(calculateAdaptiveButtonHeight(0.116)) + "px;"
+		+ " height:" + QString::number(calculateAdaptiveHeight(0.116)) + "px;"
 		"}"
 		"QCalendarWidget QWidget{"
 		+ " width:" + QString::number(calculateAdaptiveWidth(0.25))+ "px;"
-		+ " height:"+ QString::number(calculateAdaptiveButtonHeight(0.2)) + "px;"
+		+ " height:"+ QString::number(calculateAdaptiveHeight(0.2)) + "px;"
 		"alternate-background-color: rgb(128, 128, 128);"
 		"}"
 		"QCalendarWidget QAbstractItemView : enabled"
@@ -155,97 +155,7 @@ const QString DOWNLOAD_BUTTONS_STYLESHEET("QPushButton{ "
 
 const QString ERROR_LINEEDIT_STYLESHEET(
         "QLineEdit { border: 2px solid red; background-color: #f7d0cd;}");
-const QFont& makeFont(double /*perc*/)
-{
-	return *(FontAdapter::general());
-}
 
-void FontAdapter::_setCharPerWidth()
-{
-	QFontMetrics fm(*general());
-	int width = calculateAdaptiveWidth(0.95);
-	if (fm.averageCharWidth() == 0 || width == 0)
-		averageCharPerWidth = 10;
-	averageCharPerWidth = int(width / fm.averageCharWidth());
-}
-
-FontAdapter::FontAdapter(int mh, int mah, double mfp)
-	: minheight(mh), maxheight(mah), minimumFontPercent(mfp)
-{
-#ifdef  Q_OS_WIN
-	minimumFontPercent = mfp * 0.6;
-#endif //  Q_OS_WIN
-}
-void FontAdapter::reset(int mh, int Mh, double mfp)
-{
-	minheight = mh;
-	maxheight = Mh;
-	minimumFontPercent = mfp;
-	*_generalFont = QFont(makeFont(1.0));
-	_setCharPerWidth();
-}
-int FontAdapter::howMuchCharacterFitsIntoScreen()
-{
-	return averageCharPerWidth;
-}
-int FontAdapter::getMinFontHeight()
-{
-	return minheight;
-}
-int FontAdapter::getMaxFontHeight()
-{
-	return maxheight;
-}
-double FontAdapter::getFontPercent()
-{
-	return minimumFontPercent;
-}
-FontAdapter* FontAdapter::_instanse = Q_NULLPTR;
-QFont* FontAdapter::_generalFont = Q_NULLPTR;
-FontAdapter* FontAdapter::instanse()
-{
-	if (_instanse == Q_NULLPTR)
-	{
-		_instanse = new FontAdapter(AppSettings->fontMinHeight, AppSettings->fontMaxHeight,
-			AppSettings->fontPercent);
-	}
-	return _instanse;
-}
-
-const QFont* FontAdapter::general()
-{
-	if (_generalFont == Q_NULLPTR)
-	{
-		_generalFont = new QFont(FontAdapter::makeFont(1.0));
-		FontAdapter::instanse()->_setCharPerWidth();
-	}
-	return _generalFont;
-}
-
-const QFont FontAdapter::makeIndependentFont(int minheight, int maxheight, double minimumFontPercent)
-{
-    double currentHeight = GEOMETRY_SOURCE->availableGeometry().height();
-	currentHeight *= minimumFontPercent;
-	if (currentHeight < minheight)
-		currentHeight = minheight;
-	else
-		if (currentHeight > maxheight)
-			currentHeight = maxheight;
-	return QFont("Times new Roman", int(currentHeight));
-}
-
-QFont FontAdapter::makeFont(double extrapercents)
-{
-    double currentHeight = GEOMETRY_SOURCE->availableGeometry().height();
-	currentHeight *= FontAdapter::instanse()->minimumFontPercent;
-	currentHeight *= extrapercents;
-	if (currentHeight < _instanse->minheight)
-		currentHeight = _instanse->minheight;
-	else
-		if (currentHeight > _instanse->maxheight)
-			currentHeight = _instanse->maxheight;
-	return QFont("Times new Roman", int(currentHeight));
-}
 
 const QString FOCUSED_DATETIMEEDIT_STYLESHEET(
 	QStringLiteral(

@@ -54,6 +54,6 @@ void SendSettings::saveAndExit()
 	loginSettings->extractAndSave();
 	if (extraSettings != Q_NULLPTR)
 		extraSettings->extractAndSave();
-	AppSettings->Save();
+	AppSettings->save();
 	emit backRequired();
 }

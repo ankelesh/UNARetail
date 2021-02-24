@@ -32,7 +32,7 @@ SettingsForm::SettingsForm( QWidget* parent)
 	mainLayout->setSpacing(0);
 	mainLayout->setContentsMargins(0, 0, 0, 0);
 	setFont(GENERAL_FONT);
-	innerWidget->setMinimumHeight(calculateAdaptiveButtonHeight(0.8));
+	innerWidget->setMinimumHeight(calculateAdaptiveHeight(0.8));
 	innerWidget->setSizePolicy(QSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding));
 	innerWidget->setLayout(new QVBoxLayout(innerWidget));
 	
@@ -73,7 +73,7 @@ void SettingsForm::saveAndExit()
 	databaseSettings->extractAndSave();
 	viewSettings->extractAndSave();
 	dataloadSettings->extractAndSave();
-	AppSettings->Save();
+	AppSettings->save();
 	emit backRequired();
 	emit fontsChanged();
 }

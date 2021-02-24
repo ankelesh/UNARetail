@@ -275,6 +275,12 @@
     <Filter Include="Submodules\UNAQtCommons\Sources\consts">
       <UniqueIdentifier>{4554fdd5-3709-457c-854c-b6d8b0a4b15c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Headers\widgets\Scaling">
+      <UniqueIdentifier>{385aa349-445f-4651-987a-0a753d2c65e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Submodules\UNAQtCommons\Sources\widgets\Scaling">
+      <UniqueIdentifier>{d03fb33b-e894-4087-a8f9-f21469522f3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -1057,6 +1063,12 @@
     <ClCompile Include="submodules\UNAQtCommons\consts\DatetimeConstants.cpp">
       <Filter>Submodules\UNAQtCommons\Sources\consts</Filter>
     </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\widgets\Scaling\ScalingUtilities.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources\widgets\Scaling</Filter>
+    </ClCompile>
+    <ClCompile Include="submodules\UNAQtCommons\settings\CommonAppSettings.cpp">
+      <Filter>Submodules\UNAQtCommons\Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1193,6 +1205,12 @@
     </ClInclude>
     <ClInclude Include="submodules\UNAQtCommons\consts\DatetimeConstants.h">
       <Filter>Submodules\UNAQtCommons\Headers\consts</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\widgets\Scaling\ScalingUtilities.h">
+      <Filter>Submodules\UNAQtCommons\Headers\widgets\Scaling</Filter>
+    </ClInclude>
+    <ClInclude Include="submodules\UNAQtCommons\settings\CommonAppSettings.h">
+      <Filter>Submodules\UNAQtCommons\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

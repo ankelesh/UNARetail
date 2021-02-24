@@ -302,8 +302,8 @@ RoleBoundScaningWidget::RoleBoundScaningWidget(Modes mode, int counter_role,
 	lengthInfo->setFont(AppFonts->makeFont(2.5));
 	totalInfo->setFont(AppFonts->makeFont(2.5));
 #endif
-	totalInfo->setMinimumHeight(calculateAdaptiveButtonHeight());
-	lengthInfo->setMinimumHeight(calculateAdaptiveButtonHeight());
+	totalInfo->setMinimumHeight(calculateAdaptiveHeight());
+	lengthInfo->setMinimumHeight(calculateAdaptiveHeight());
 
 
 	if (!AppSettings->navigationElements)
@@ -335,7 +335,7 @@ RoleBoundScaningWidget::RoleBoundScaningWidget(Modes mode, int counter_role,
 		}
 		roleBinds << cbind->role;
 		controlList << new_control;
-		new_control->myWidget()->setMaximumHeight(calculateAdaptiveButtonHeight(0.1));
+		new_control->myWidget()->setMaximumHeight(calculateAdaptiveHeight(0.1));
 		new_control->show();
 
 		++cbind;
@@ -361,12 +361,12 @@ void RoleBoundScaningWidget::addExtraCounter(QString explanation, CounterFillerF
 	case 0:
 	default:
 		counters << new TwoLevelCounterLabel(explanation, qQNaN(), this);
-		counters.last()->setMinimumHeight(calculateAdaptiveButtonHeight(0.08));
+		counters.last()->setMinimumHeight(calculateAdaptiveHeight(0.08));
 		break;
 	case 1:
 		counters << new CounterLabel(this);
 		counters.last()->setText(explanation);
-		counters.last()->setMinimumHeight(calculateAdaptiveButtonHeight(0.08));
+		counters.last()->setMinimumHeight(calculateAdaptiveHeight(0.08));
 		break;
 	}
 	counterLayout->addWidget(counters.last());

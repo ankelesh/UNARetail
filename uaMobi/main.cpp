@@ -7,6 +7,7 @@
 #include "submodules/UNAQtCommons/debug/debugtrace.h"
 #include <QtQml>
 #include <QProxyStyle>
+#include "widgets/utils/GlobalAppSettings.h"
 class WinCEProxyStyle : public QProxyStyle
 {
 
@@ -37,6 +38,7 @@ int main(int argc, char* argv[])
 #endif
     qRegisterMetaType<Modes>("Modes");
     qRegisterMetaType<EntityList>("EntityList");
+    GlobalAppSettings::init();
     CoreWidget w;
 #ifdef Q_OS_WINCE
     w.move(0, 0);
@@ -47,7 +49,7 @@ int main(int argc, char* argv[])
         w.setWindowFlags((w.windowFlags() | Qt::FramelessWindowHint | Qt::CustomizeWindowHint)
             & ~(Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::WindowMinMaxButtonsHint
            | Qt::WindowCloseButtonHint | Qt::Dialog | Qt::WindowContextHelpButtonHint));
-        w.setFixedHeight(calculateAdaptiveButtonHeight(1));
+        w.setFixedHeight(calculateAdaptiveHeight(1));
         w.setFixedWidth(calculateAdaptiveWidth(1));
         QTimer::singleShot(1, &w, SLOT(showMaximized()));
 #endif
