@@ -118,7 +118,7 @@ template<class DataEntity>
 QVector<Entity> downcastEntityList(QVector<QSharedPointer<DataEntity> > list)
 {
 	QVector<Entity> downcasted;
-	for (QVector<QSharedPointer<DataEntity> >::iterator item = list.begin(); item != list.end(); ++item)
+    for (typename QVector<QSharedPointer<DataEntity> >::iterator item = list.begin(); item != list.end(); ++item)
 	{
 		downcasted.push_back(Entity(*item));
 	}

@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="cameradoc">music/found.wav</file>
-        <file>music/notfound.wav</file>
         <file>translations/unaretail_en.qm</file>
         <file>translations/unaretail_ro.qm</file>
         <file>translations/unaretail_ru.qm</file>

@@ -253,7 +253,7 @@ void PrinterTemplatesListWidget::onShareButtonPress()
 	if (currentIndex.isValid())
 	{
 #ifdef Q_OS_ANDROID
-		 AndroidServiceWrapper->sendMessageIntent(
+         AndroidServiceWrapper::instance().sendMessageIntent(
 			 model->directAccessByFlatIndex(
 				 currentIndex.row())
 			 ->getWriteable(Roles::PrinterTemplate::templateText));
