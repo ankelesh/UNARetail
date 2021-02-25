@@ -928,9 +928,6 @@
     <ClCompile Include="widgets\SalesAccountingBranch\SalesAccounting.cpp">
       <Filter>Source Files\View\Root</Filter>
     </ClCompile>
-    <ClCompile Include="widgets\ControlsMiniwidgets\ControlManager.cpp">
-      <Filter>Header Files\View\elements\controls</Filter>
-    </ClCompile>
     <ClCompile Include="widgets\SettingsWidgets\EmailSettings.cpp">
       <Filter>Header Files\View\SettingsScreens\ExtraSettings</Filter>
     </ClCompile>
@@ -1069,6 +1066,9 @@
     <ClCompile Include="submodules\UNAQtCommons\settings\CommonAppSettings.cpp">
       <Filter>Submodules\UNAQtCommons\Sources</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\ControlsMiniwidgets\ControlManager.cpp">
+      <Filter>Source Files\View\elements\controls</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qzxing-master\src\zxing\zxing\oned\rss\expanded\decoders\AbstractExpandedDecoder.h">
@@ -1197,9 +1197,6 @@
     <ClInclude Include="submodules\UNAQtCommons\wrappers\DirectConnectionPrinters\PrinterWrapperFactory.h">
       <Filter>Submodules\UNAQtCommons\Headers\wrappers\DirectConnectionPrinters</Filter>
     </ClInclude>
-    <ClInclude Include="Datacore\ControlBinds.h">
-      <Filter>Source Files\View\elements\controls</Filter>
-    </ClInclude>
     <ClInclude Include="submodules\UNAQtCommons\widgets\ControlsWidgets\QuantityControl.h">
       <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
     </ClInclude>
@@ -1212,9 +1209,11 @@
     <ClInclude Include="submodules\UNAQtCommons\settings\CommonAppSettings.h">
       <Filter>Submodules\UNAQtCommons\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Datacore\ControlBinds.h">
+      <Filter>Header Files\View\elements\controls</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
     <None Include="CameraSurface.qml" />
@@ -1264,6 +1263,9 @@
     </None>
     <None Include="translations\unaretail_ru.qm">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="CameraSurface.qml">
+      <Filter>qml</Filter>
     </None>
     <None Include="CameraSurface.qml">
       <Filter>qml</Filter>
@@ -1715,9 +1717,6 @@
     <QtMoc Include="widgets\CoreWidget.h">
       <Filter>Header Files\View</Filter>
     </QtMoc>
-    <QtMoc Include="widgets\utils\EventsAndFilters.h">
-      <Filter>Header Files\util</Filter>
-    </QtMoc>
     <QtMoc Include="externalCommunication\tohttp.h">
       <Filter>Header Files\Model\commcore</Filter>
     </QtMoc>
@@ -1966,6 +1965,9 @@
     </QtMoc>
     <QtMoc Include="submodules\UNAQtCommons\widgets\ControlsWidgets\StringControl.h">
       <Filter>Submodules\UNAQtCommons\Headers\widgets\controls</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\utils\EventsAndFilters.h">
+      <Filter>Header Files\util\globals</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

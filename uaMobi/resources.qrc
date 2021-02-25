@@ -5,8 +5,6 @@
         <file>translations/unaretail_en.qm</file>
         <file>translations/unaretail_ro.qm</file>
         <file>translations/unaretail_ru.qm</file>
-        <file>res/beep-08b.wav</file>
-        <file>res/beep-02.wav</file>
     </qresource>
     <qresource prefix="/resources">
         <file alias="add">submodules/UNAQtCommons/resources/add.png</file>
@@ -91,5 +89,7 @@
         <file alias="wifi">submodules/UNAQtCommons/resources/wifi.png</file>
         <file alias="with">submodules/UNAQtCommons/resources/with.png</file>
         <file alias="without">submodules/UNAQtCommons/resources/without.png</file>
+        <file alias="beep2">submodules/UNAQtCommons/resources/beep-02.wav</file>
+        <file alias="beep8">submodules/UNAQtCommons/resources/beep-08b.wav</file>
     </qresource>
 </RCC>
