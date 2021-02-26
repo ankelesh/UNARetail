@@ -80,6 +80,7 @@ HEADERS += \
     submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.h \
     submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.h \
     submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h \
+    submodules/UNAQtCommons/widgets/UtilityElements/SwitchableIMDecorator.h \
     submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.h \
     submodules/UNAQtCommons/widgets/parents/inframedWidget.h \
     submodules/UNAQtCommons/wrappers/DirectConnectionPrinters/AbsPrinterWrapper.h \
@@ -196,6 +197,7 @@ SOURCES += \
     submodules/UNAQtCommons/widgets/UtilityElements/ExtendedDialogs.cpp \
     submodules/UNAQtCommons/widgets/UtilityElements/ExtendedLabels.cpp \
     submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.cpp \
+    submodules/UNAQtCommons/widgets/UtilityElements/SwitchableIMDecorator.cpp \
     submodules/UNAQtCommons/widgets/parents/abstractNodeInterface.cpp \
     submodules/UNAQtCommons/widgets/parents/inframedWidget.cpp \
     submodules/UNAQtCommons/wrappers/DirectConnectionPrinters/AbsPrinterWrapper.cpp \

@@ -17,6 +17,9 @@
 #include "submodules/UNAQtCommons/widgets/UtilityElements/MegaIconButton.h"
 #include "submodules/UNAQtCommons/barcodeHandling/BarcodeObserver.h"
 #include "Datacore/DataEntities.h"
+#ifdef Q_OS_ANDROID
+#include "submodules/UNAQtCommons/widgets/UtilityElements/SwitchableIMDecorator.h"
+#endif
 
 AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	: inframedWidget(parent), abstractDynamicNode(new inframedWidget(this), new QVBoxLayout(this)),
@@ -33,7 +36,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 #ifdef Q_OS_ANDROID
 	barcodeLayout(new QHBoxLayout(this)),
 	switchKeyboardTypeButton(new MegaIconButton(this)),
-	switchDecorator(new SwitchableIMDecorator(barcodeField)),
+    switchDecorator(new SwitchableIMDecorator(barcodeInput)),
 #endif
 
 	backButton(new MegaIconButton(untouchable)),
@@ -55,7 +58,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 #endif
 #ifdef Q_OS_ANDROID
 	innerLayout->addLayout(barcodeLayout);
-	barcodeLayout->addWidget(barcodeField);
+    barcodeLayout->addWidget(barcodeInput);
 	barcodeLayout->addWidget(switchKeyboardTypeButton);
 #else
 	innerLayout->addWidget(barcodeInput);
@@ -132,12 +135,12 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 
 #ifdef Q_OS_ANDROID
 	QVector<Qt::InputMethodHints> hints;
-	hints.push_back(Qt::ImhNone);
-	hints.push_back(Qt::ImhDigitsOnly);
+    hints.push_back(Qt::ImhDigitsOnly);
+    hints.push_back(Qt::ImhNone);
 	switchDecorator->initiate(hints, true);
 	switchKeyboardTypeButton->setIcon(QIcon(":/resources/key"));
-	switchKeyboardTypeButton->setMaximumHeight(barcodeField->maximumHeight());
-	switchKeyboardTypeButton->setMinimumHeight(barcodeField->minimumHeight());
+    switchKeyboardTypeButton->setMaximumHeight(barcodeInput->maximumHeight());
+    switchKeyboardTypeButton->setMinimumHeight(barcodeInput->minimumHeight());
 	switchKeyboardTypeButton->setMinimumWidth(calculateAdaptiveWidth(0.1));
 	QObject::connect(switchKeyboardTypeButton, &QPushButton::clicked, switchDecorator, &SwitchableIMDecorator::nextIM);
 #endif
