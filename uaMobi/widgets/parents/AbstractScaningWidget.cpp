@@ -30,6 +30,12 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 #endif
 	barcodeInfo(new ReturnableTextEdit(untouchable)),
 	barcodeInput(new ReturnEatingLineEdit(untouchable)),
+#ifdef Q_OS_ANDROID
+	barcodeLayout(new QHBoxLayout(this)),
+	switchKeyboardTypeButton(new MegaIconButton(this)),
+	switchDecorator(new SwitchableIMDecorator(barcodeField)),
+#endif
+
 	backButton(new MegaIconButton(untouchable)),
 	keyboardButton(new MegaIconButton(untouchable)),
 #ifdef CAMERA_SUPPORT
@@ -47,7 +53,14 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	//innerLayout->addWidget(debugInfo);
 	//debugInfo->setWordWrap(true);
 #endif
+#ifdef Q_OS_ANDROID
+	innerLayout->addLayout(barcodeLayout);
+	barcodeLayout->addWidget(barcodeField);
+	barcodeLayout->addWidget(switchKeyboardTypeButton);
+#else
 	innerLayout->addWidget(barcodeInput);
+#endif
+	
 	innerLayout->addWidget(barcodeInfo);
 	innerLayout->addLayout(counterLayout);
 	innerLayout->addLayout(controlLayout);
@@ -116,6 +129,18 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	barcodeInput->setMinimumHeight(calculateAdaptiveHeight());
 	barcodeInput->setFont(AppFonts->makeFont(3.0));
 	barcodeInput->setAlignment(Qt::AlignCenter);
+
+#ifdef Q_OS_ANDROID
+	QVector<Qt::InputMethodHints> hints;
+	hints.push_back(Qt::ImhNone);
+	hints.push_back(Qt::ImhDigitsOnly);
+	switchDecorator->initiate(hints, true);
+	switchKeyboardTypeButton->setIcon(QIcon(":/resources/key"));
+	switchKeyboardTypeButton->setMaximumHeight(barcodeField->maximumHeight());
+	switchKeyboardTypeButton->setMinimumHeight(barcodeField->minimumHeight());
+	switchKeyboardTypeButton->setMinimumWidth(calculateAdaptiveWidth(0.1));
+	QObject::connect(switchKeyboardTypeButton, &QPushButton::clicked, switchDecorator, &SwitchableIMDecorator::nextIM);
+#endif
 
 	if (!AppSettings->additionalControlElements)
 	{

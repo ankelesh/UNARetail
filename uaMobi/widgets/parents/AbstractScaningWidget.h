@@ -6,7 +6,9 @@
 #include <QTextEdit>
 #include <QLineEdit>
 
-
+#ifdef Q_OS_ANDROID
+class SwitchableIMDecorator;
+#endif
 
 /*
 */
@@ -58,6 +60,11 @@ protected:
 #endif
 	ReturnableTextEdit* barcodeInfo;
 	ReturnEatingLineEdit* barcodeInput;		//	field for manual barcode input
+#ifdef Q_OS_ANDROID
+	QHBoxLayout* barcodeLayout;
+	MegaIconButton* switchKeyboardTypeButton;
+	SwitchableIMDecorator* switchDecorator;
+#endif
 	MegaIconButton* backButton;		//	emits backRequired
 	MegaIconButton* keyboardButton;	//	opens keyboard widget
 #ifdef CAMERA_SUPPORT
