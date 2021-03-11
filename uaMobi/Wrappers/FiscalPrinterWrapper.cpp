@@ -8,6 +8,7 @@
 #include "widgets/utils/GlobalAppSettings.h"
 #include "Datacore/DataEntities.h"
 #include "Datacore/ProductEntity.h"
+#include <QFile>
 FiscalPrinterWrapper* FiscalPrinterWrapper::_instance = Q_NULLPTR;
 FiscalPrinterWrapper::FiscalPrinterWrapper() : QObject(Q_NULLPTR), awaited(Q_NULLPTR),
 timeoutTimer(new QTimer(this)),

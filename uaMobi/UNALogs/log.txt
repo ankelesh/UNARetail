@@ -1,6 +1,6 @@
 
--->	Method called: initializeGlobalAppSettings in object 18998944
--->	Method called: load common part of AppSettings in object 18998944
+-->	Method called: initializeGlobalAppSettings in object 14697200
+-->	Method called: load common part of AppSettings in object 14697200
 if errors: 0
 if errors: 0
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
@@ -17,7 +17,40 @@ if errors: 0
 ***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
 ***	method execing query: PRAGMA TABLE_INFO(PrinterTemplates)called
 ***	method execing query: SELECT count(*) from shortbcscalled
+-->	Method called: dump common settings in object 14697200
+if errors: 0
+if errors: 0
+***	method execing query: SELECT count(*) from shortbcscalled
 
--->	Method called: dump common settings in object 18998944
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***	method execing query: drop table shortbcscalled
+***	method execing query: create table shortbcs (id number PRIMARY KEY NOT NULL,barcode TEXT,code number,info TEXT,count TEXT,price number,discprice number,nameAlt TEXT,unitPrice TEXT)called
+***	method execing query: SELECT count(*) from shortbcscalled
+
+-->	Method called: dump common settings in object 14697200
 if errors: 0
 if errors: 0
+***	method execing query: select id , barcode , code , info , count , price , discprice , nameAlt , unitPrice from shortbcs where barcode = '4823063102001'called
+***	method execing query: select id , barcode , code , info , count , price , discprice , nameAlt , unitPrice from shortbcs where barcode = '4840022006255'called

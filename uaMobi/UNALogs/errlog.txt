@@ -1,3 +1,1 @@
 Application start begins: version 0.838 nigthly
--->!<--	Error possible in object 128971264 in method DBEXECUTE: SELECT count(*) from shortbcs
-with context:  : no such table: shortbcs Unable to execute statement

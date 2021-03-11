@@ -121,6 +121,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	barcodeInfo->setFont(AppFonts->makeFont(3.0));
 	barcodeInfo->setWordWrapMode(QTextOption::WordWrap);
 	barcodeInfo->setAlignment(Qt::AlignCenter);
+	barcodeInfo->setPlaceholderText(tr("information placeholder"));
 	QPalette p;
 	p.setColor(QPalette::Base, qApp->palette().background().color());
 	barcodeInfo->setPalette(p);
@@ -132,6 +133,7 @@ AbstractScaningWidget::AbstractScaningWidget(Modes mode, QWidget* parent)
 	barcodeInput->setMinimumHeight(calculateAdaptiveHeight());
 	barcodeInput->setFont(AppFonts->makeFont(3.0));
 	barcodeInput->setAlignment(Qt::AlignCenter);
+	barcodeInput->setPlaceholderText(tr("barcode placeholder"));
 
 #ifdef Q_OS_ANDROID
 	QVector<Qt::InputMethodHints> hints;
