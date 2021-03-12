@@ -8,7 +8,7 @@
 #endif
 #include "client_specific_defaults.h"
 
-const float VERSION = 0.838f;
+const float VERSION = 0.840f;
 #ifdef LINELLA
 const char* SUFFIX = "linella_release";
 #else 

@@ -11,7 +11,7 @@ void ScaningCameraWidget::barcodeObtained(QString str)
     emit hasBarcode(str);
 }
 ScaningCameraWidget::ScaningCameraWidget(QWidget* parent)
-	: AbstractCameraWidget("qrc:///ScaningCameraSurface.qml", parent)
+    : AbstractCameraWidget("qrc:///res/ScaningCameraSurface.qml", parent)
 {
 	auto root2 = qmlCamera->rootObject();
 	auto filter = root2->findChild<QObject*>("FilterZX");

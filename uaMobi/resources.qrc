@@ -90,4 +90,8 @@
         <file alias="beep2">submodules/UNAQtCommons/resources/beep-02.wav</file>
         <file alias="beep8">submodules/UNAQtCommons/resources/beep-08b.wav</file>
     </qresource>
+    <qresource prefix="/res">
+        <file>CameraSurface.qml</file>
+        <file>ScaningCameraSurface.qml</file>
+    </qresource>
 </RCC>
