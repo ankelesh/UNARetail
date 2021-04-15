@@ -2,6 +2,7 @@
 #include "widgets/MultibranchWidgets/innerSettingsForm.h"
 #include "widgets/MultibranchWidgets/ScaningWidget.h"
 #include "widgets/MultibranchWidgets/ScanedStorageWidget.h"
+#include "widgets/MultibranchWidgets/RestScaningWidget.h"
 #include <QLabel>
 InventoryWidget::InventoryWidget(QWidget* parent)
 	: BranchRootWidget(Modes::Inventory, parent)
@@ -22,7 +23,7 @@ inframedWidget* InventoryWidget::_allocateSettings()
 
 inframedWidget* InventoryWidget::_allocateScaning()
 {
-	ScaningWidget* scanwidget = new ScaningWidget(currentMode, this);
+	ScaningWidget* scanwidget = new RestScaningWidget(currentMode, this);
 #ifdef QT_VERSION5X
 	QObject::connect(scanwidget, &inframedWidget::backRequired,
 		this, &BranchRootWidget::backRequire);

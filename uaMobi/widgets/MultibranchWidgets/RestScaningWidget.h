@@ -1,13 +1,13 @@
 #pragma once
 #include "UpdateableScaningWidget.h"
 
-class ClickableTLCounterLabel;
+class MultistateClickableCounterLabel;
 class RestScaningWidget : public UpdateableScaningWidget
 {
 	Q_OBJECT
 protected:
 	QString itemCode;
-	ClickableTLCounterLabel* restLabel;
+	MultistateClickableCounterLabel* restLabel;
 	QString requestTemplate;
 	virtual void _emplaceBarcode(QString barcode, ShortBarcode info) override;
 	virtual void operateOverResponse(QStringList parsedResponse) override;

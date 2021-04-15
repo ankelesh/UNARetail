@@ -10,6 +10,7 @@ void RestScaningWidget::_emplaceBarcode(QString barcode, ShortBarcode info)
 	if (info != Q_NULLPTR)
 	{
 		itemCode = QString::number(info->code);
+		restLabel->setNotFreshValue(info->count.toDouble());
 	}
     sendRestRequest();
 }
@@ -22,21 +23,21 @@ void RestScaningWidget::operateOverResponse(QStringList parsedResponse)
 	double rest = parsedResponse.first().toDouble(&ok);
 	if (ok)
 	{
-		restLabel->setValue(rest);
+		restLabel->setFreshValue(rest);
 	}
 	else
 	{
-		restLabel->setValue(NAN);
+		restLabel->setFreshValue(NAN);
 	}
 }
 
 RestScaningWidget::RestScaningWidget(Modes mode, QWidget* parent)
 	: UpdateableScaningWidget(mode,parent), itemCode(), 
-	restLabel(new ClickableTLCounterLabel(tr("Rest"), NAN,this)),
+	restLabel(new MultistateClickableCounterLabel(tr("Rest"), NAN,this)),
 	requestTemplate("?c=get_sld&username=%1&barcode=%2&code=%3&place=%4&sysfid=%5")
 {
 	counterLayout->addWidget(restLabel);
-	QObject::connect(restLabel, &ClickableTLCounterLabel::clicked, this, &RestScaningWidget::sendRestRequest);
+	QObject::connect(restLabel, &MultistateClickableCounterLabel::clicked, this, &RestScaningWidget::sendRestRequest);
 }
 
 void RestScaningWidget::sendRestRequest()
@@ -54,5 +55,4 @@ void RestScaningWidget::sendRestRequest()
 			AppSettings->getModeDescription(currentMode).getSysfeed()
 		)
 	);
-    restLabel->clearValue();
 }

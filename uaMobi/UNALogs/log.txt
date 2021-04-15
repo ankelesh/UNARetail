@@ -1,8 +1,10 @@
 
--->	Method called: initializeGlobalAppSettings in object 14697200
--->	Method called: load common part of AppSettings in object 14697200
+-->	Method called: initializeGlobalAppSettings in object 14777648
+-->	Method called: load common part of AppSettings in object 14777648
 if errors: 0
 if errors: 0
+-->	Method called: translate control Quantity8 | in object 6201808
+][	Created object control-like of type 1 on address 82528232
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesscan)called
 ***	method execing query: PRAGMA TABLE_INFO(invbarcodesupld)called
 ***	method execing query: PRAGMA TABLE_INFO(simbarcodesscan)called
@@ -16,41 +18,16 @@ if errors: 0
 ***	method execing query: PRAGMA TABLE_INFO(pripricedbcsupld)called
 ***	method execing query: PRAGMA TABLE_INFO(slaproductsupld)called
 ***	method execing query: PRAGMA TABLE_INFO(PrinterTemplates)called
-***	method execing query: SELECT count(*) from shortbcscalled
--->	Method called: dump common settings in object 14697200
-if errors: 0
-if errors: 0
-***	method execing query: SELECT count(*) from shortbcscalled
+***	method execing query: select id , barcode , code , info , count , price , discprice , nameAlt , unitPrice from shortbcs where barcode = '04713'called
+***	method execing query: SELECT sum(quantity) from invbarcodesscan where barcode = "04713"called
 
 
 
 
 
+***	method execing query: select id , barcode , code , info , count , price , discprice , nameAlt , unitPrice from shortbcs where barcode = '04317'called
+***	method execing query: SELECT sum(quantity) from invbarcodesscan where barcode = "04317"called
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-***	method execing query: drop table shortbcscalled
-***	method execing query: create table shortbcs (id number PRIMARY KEY NOT NULL,barcode TEXT,code number,info TEXT,count TEXT,price number,discprice number,nameAlt TEXT,unitPrice TEXT)called
-***	method execing query: SELECT count(*) from shortbcscalled
-
--->	Method called: dump common settings in object 14697200
-if errors: 0
-if errors: 0
-***	method execing query: select id , barcode , code , info , count , price , discprice , nameAlt , unitPrice from shortbcs where barcode = '4823063102001'called
-***	method execing query: select id , barcode , code , info , count , price , discprice , nameAlt , unitPrice from shortbcs where barcode = '4840022006255'called

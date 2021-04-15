@@ -1,1 +1,2 @@
-Application start begins: version 0.838 nigthly
+Application start begins: version 0.84 nigthly
+> ! <	414329962922825 error making request status:404 : no content

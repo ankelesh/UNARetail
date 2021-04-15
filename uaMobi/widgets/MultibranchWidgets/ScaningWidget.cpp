@@ -245,7 +245,7 @@ void ScaningWidget::_emplaceBarcode(QString barcode, ShortBarcode info)
 			barcodeInfo->clear();
 		}
 		setLen();
-		setTotal(AppData->sumAllFilteredIn(currentMode, barcode, BarcodeEntity::getEnumerableFieldIndex(), pendingBarcode, TableNames::Scanned));
+		setTotal(AppData->sumAllFilteredIn(currentMode, "\"" + barcode + "\"", BarcodeEntity::getEnumerableFieldIndex(), pendingBarcode, TableNames::Scanned));
 	
 	}
 }
