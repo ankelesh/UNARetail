@@ -12,7 +12,7 @@
 #include "externalCommunication/communicationCore.h"
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
-const char separator[] = { 30, 0 };
+
 
 #include <QtConcurrent>
 QLinkedList<ShortBarcode> extractProducts(QString input, int /*sessionCounter*/)
@@ -81,7 +81,7 @@ bool toHttp::_product_list_receiving_start()
 	return true;
 }
 
-bool toHttp::_product_list_receiving_block(QString input)
+bool toHttp::_product_list_receiving_block(QString /*input*/)
 {
 	emit downloadStateChanged(tr("Receiving block ") + QString::number(page));
 	_parseProductList();

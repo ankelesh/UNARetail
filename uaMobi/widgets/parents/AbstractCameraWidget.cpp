@@ -1,6 +1,6 @@
 #include "AbstractCameraWidget.h"
 #ifdef CAMERA_SUPPORT
-#include <QQMLError>
+#include <QQmlError>
 #include <QtQuick/qquickitem.h>
 #include <widgets/utils/ElementsStyles.h>
 #include <QBoxLayout>

@@ -6,7 +6,7 @@ QT       += core gui sql network xml multimedia multimediawidgets quickwidgets q
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 android : QT += androidextras bluetooth
-CONFIG += release
+CONFIG += debug
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
 include(qzxing-master/src/qzxing.pri)

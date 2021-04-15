@@ -206,7 +206,7 @@ QString TemplatedTableHandler::sum(const QString field, const QString& newName) 
 QString TemplatedTableHandler::sum(unsigned int index, const QString& newName) const noexcept
 {
 	const QString& name = assertAnotherName(newName);
-	if (index >= table_fields.count())
+    if (int(index) >= table_fields.count())
 		return "SELECT sum(" % table_fields.at(0) % ") from " % name;
 	return "SELECT sum(" % table_fields.at(index) % ") from " % name;
 }
@@ -214,7 +214,7 @@ QString TemplatedTableHandler::sum(unsigned int index, const QString& newName) c
 QString TemplatedTableHandler::sumFieldFiltered(unsigned int index, const QString& value, const QString& newName) const noexcept
 {
 	const QString& name = assertAnotherName(newName);
-	if (index >= table_fields.count())
+    if (int(index) >= table_fields.count())
 		return "SELECT sum(" % table_fields.at(0) % ") from " % name % " where " % table_fields.at(1) % " = " % value;
 	return "SELECT sum(" % table_fields.at(index) % ") from " % name % " where " % table_fields.at(1) % " = " % value;
 }

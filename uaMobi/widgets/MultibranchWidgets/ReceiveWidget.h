@@ -58,7 +58,7 @@ private:
 public:
 	ReceiveWidget(Modes mode, QWidget* parent);
 
-	virtual void show();
+    virtual void show() override;
 	virtual void _numberReaction(int value) override;
 	virtual bool giveSettings();
 	void setMode(sendingMode);

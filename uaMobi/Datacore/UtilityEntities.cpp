@@ -15,12 +15,12 @@ const TemplatedTableHandler* SeparatorEntity::_assocTable() const
 	return nullTTH;
 }
 
-QString SeparatorEntity::_formatedView(QString sep, QString dform) const
+QString SeparatorEntity::_formatedView(QString /*sep*/, QString /*dform*/) const
 {
 	return QString().fill('-', AppFonts->howMuchCharacterFitsIntoScreen() - 2);
 }
 
-QString SeparatorEntity::_maximumInfoView(QString sep, QString dform) const
+QString SeparatorEntity::_maximumInfoView(QString /*sep*/, QString /*dform*/) const
 {
 	return QString().fill('-', AppFonts->howMuchCharacterFitsIntoScreen() - 2);
 }
@@ -83,11 +83,11 @@ SeparatorEntity::~SeparatorEntity()
 {
 }
 
-void SeparatorEntity::_setWriteable(int role, QString text)
+void SeparatorEntity::_setWriteable(int /*role*/, QString /*text*/)
 {
 }
 
-QString SeparatorEntity::_getWriteable(int role) const
+QString SeparatorEntity::_getWriteable(int /*role*/) const
 {
 	return QString();
 }
@@ -96,7 +96,7 @@ void SeparatorEntity::_erase()
 {
 }
 
-int SeparatorEntity::_getFieldNumberForRole(int role) const
+int SeparatorEntity::_getFieldNumberForRole(int /*role*/) const
 {
 	return 0;
 }

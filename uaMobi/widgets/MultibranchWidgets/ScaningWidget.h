@@ -27,7 +27,7 @@ protected:
 #ifdef CAMERA_SUPPORT
 	virtual void handleCameraBarcode(QString value) override;
 #endif
-	virtual void handleScanButton();
+    virtual void handleScanButton() override;
 public:
 	ScaningWidget(Modes mode, QWidget* parent);
 

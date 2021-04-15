@@ -62,7 +62,7 @@ const TemplatedTableHandler* BarcodeEntity::_assocTable() const
 	return BarcodeEntityPrivate::barcodeTableHandler;
 }
 
-QString BarcodeEntity::_formatedView(QString sep, QString dform) const
+QString BarcodeEntity::_formatedView(QString sep, QString /*dform*/) const
 {
 	QString formated;
 	if (!comment.isEmpty())
@@ -76,7 +76,7 @@ QString BarcodeEntity::_formatedView(QString sep, QString dform) const
 	return formated;
 }
 
-QString BarcodeEntity::_maximumInfoView(QString sep, QString dform) const
+QString BarcodeEntity::_maximumInfoView(QString sep, QString /*dform*/) const
 {
 	return barcode % "\n" % sep % QString::number(quantity) % sep %
 		addDate.toString(DATETIME_ENCODING_FORMAT) % "\n"

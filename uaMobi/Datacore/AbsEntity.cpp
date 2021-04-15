@@ -13,7 +13,7 @@ bool AbsEntity::deepCompare(AbsEntity* bc) const
 	return mytype == bc->myType() && getId() == bc->getId();
 }
 
-void AbsEntity::_setEnumerable(int role, double value)
+void AbsEntity::_setEnumerable(int /*role*/, double /*value*/)
 {
 }
 
@@ -22,7 +22,7 @@ int AbsEntity::_getHeight() const
 	return _getName().count("\n") + 1;
 }
 
-void AbsEntity::_concatenate(const AbsEntity* other)
+void AbsEntity::_concatenate(const AbsEntity* /*other*/)
 {
 
 }

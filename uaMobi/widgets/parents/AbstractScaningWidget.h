@@ -87,7 +87,7 @@ public:
 	AbstractScaningWidget(Modes mode, QWidget* parent = Q_NULLPTR);
 	
 	virtual void show() override;					//	overrided to provide Input only when needed
-	virtual void hide();
+    virtual void hide() override;
 protected slots:					//	Slots for inner usage. To submit barcodes etc use tree intefaces
 	virtual void handleScanButton() = 0;		//	handles scan press
 	virtual void handleValueFromKeyboard(QString value) = 0;

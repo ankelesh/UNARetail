@@ -20,7 +20,7 @@ double summSpentMoney(Entity e, double previous)
 			return previous + p->price * p->quantity;
 }
 
-void autoinsert_price(Entity e, ShortBarcode sb, QVector<abs_control*>& c, QVector<labels_private::abs_counter_label*>&, QTextEdit* /*cc*/)
+void autoinsert_price(Entity /*e*/, ShortBarcode sb, QVector<abs_control*>& c, QVector<labels_private::abs_counter_label*>&, QTextEdit* /*cc*/)
 {
 	if (c.length() == 2 && !(sb.isNull()))
 	{
@@ -30,7 +30,7 @@ void autoinsert_price(Entity e, ShortBarcode sb, QVector<abs_control*>& c, QVect
 	}
 	return;
 }
-void set_minimum_by_history(Entity current, EntityHash hash, QVector<abs_control*>& controls,
+void set_minimum_by_history(Entity /*current*/, EntityHash hash, QVector<abs_control*>& controls,
 	DataEntityListModel* history, QVector<EntityHash>& hashes)
 {
 	if (controls.count() != 2 || hashes.isEmpty())
@@ -70,7 +70,7 @@ void set_minimum_by_history(Entity current, EntityHash hash, QVector<abs_control
 
 }
 
-bool set_price_comment_as_previous(Entity pendingBarcode,EntityHash /*hash*/, QVector<EntityHash>& /*hashes*/, DataEntityListModel* /*history*/, QVector<abs_control*>& controls)
+bool set_price_comment_as_previous(Entity /*pendingBarcode*/,EntityHash /*hash*/, QVector<EntityHash>& /*hashes*/, DataEntityListModel* /*history*/, QVector<abs_control*>& controls)
 {
 	if (!controls.isEmpty())
 	{

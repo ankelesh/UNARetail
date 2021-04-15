@@ -36,8 +36,7 @@ bool ModeDescription::_deserialize(const QString& str)
 {
 	QStringList temp = str.split(QChar(30));
 	int intBuffer;
-	bool ok;
-	bool bBuffer;
+    bool ok;
 	switch (temp.count())
 	{
 	default:
@@ -142,6 +141,8 @@ ModeDescription::ModeDescription(Modes md)
 		{
 			historyRequired = true;
 		}
+    default:
+        break;
 	}
 }
 
@@ -157,7 +158,7 @@ ModeDescription::ModeDescription(Modes m, int sf, QList<int>& sO, bool fc, long 
 	bool andtp, bool cband, bool aITIN, bool NBMHTIN, bool hIR)
 	: mode(m), sysfeed(sf), serializationOrder(sO), floatControl(fc), previousDocument(prevdoc),
 	attachNewDataToPrevious(andtp), clearBeforeAttachingNewData(cband),
-	allowInsertingTaxInvoiceNumber(aITIN), newBCMustHaveTaxInvoiceNumber(NBMHTIN), historyRequired(false)
+    allowInsertingTaxInvoiceNumber(aITIN), newBCMustHaveTaxInvoiceNumber(NBMHTIN), historyRequired(hIR)
 {
 }
 

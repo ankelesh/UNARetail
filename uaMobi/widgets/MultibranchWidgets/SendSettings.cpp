@@ -16,8 +16,8 @@ SendSettings::SendSettings(Modes cmode, Entity prototype, QWidget* parent)
 	innerWidget(new QTabWidget(this)),
 	quickSendSettings(new QuickSendSettings(cmode,this)),
 	serializationSettings(new SerializationSettings(cmode,prototype, this)),
-	loginSettings(new LoginSettings(this)),
-	extraSettings(Q_NULLPTR),
+    extraSettings(Q_NULLPTR),
+    loginSettings(new LoginSettings(this)),
 	backButton(new MegaIconButton(this)),
 	currentMode(cmode)
 {

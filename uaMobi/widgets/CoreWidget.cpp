@@ -11,6 +11,18 @@
 #include "widgets/DatabaseOperationBranch/DatabaseOperationsWidget.h"
 #include "widgets/TagPrintingBranch/PriceTagPrintingWidget.h"
 #include "submodules/UNAQtCommons/barcodeHandling/BarcodeObserver.h"
+#if defined (Q_OS_ANDROID)
+#include <QtAndroid>
+const QVector<QString> permissions({ "android.permission.ACCESS_COARSE_LOCATION",
+                                    "android.permission.BLUETOOTH",
+                                    "android.permission.BLUETOOTH_ADMIN",
+                                    "android.permission.INTERNET",
+                                    "android.permission.WRITE_EXTERNAL_STORAGE",
+                                    "android.permission.READ_EXTERNAL_STORAGE",
+                                    "android.permission.CAMERA"
+                                   });
+#endif
+
 
 CoreWidget::CoreWidget(QWidget* parent)
 	: QWidget(parent), abstractDynamicNode( new inframedWidget(this), new QVBoxLayout(this)),
@@ -89,6 +101,7 @@ CoreWidget::CoreWidget(QWidget* parent)
 	settingsButton->setMinimumHeight(calculateAdaptiveHeight());
     exitButton->setMinimumHeight(calculateAdaptiveHeight());
 	BarcodeObserver::init();
+    _getPermissions();
 #ifdef QT_VERSION5X
 	QObject::connect(settingsButton, &QPushButton::clicked, this, &CoreWidget::settingsPressed);
 	QObject::connect(exitButton, &QPushButton::clicked, this, &CoreWidget::exitPressed);
@@ -122,6 +135,20 @@ void CoreWidget::exitPressed()
 	AppSettings->save();
 	this->close();
 }
+
+void CoreWidget::_getPermissions()
+{
+#if defined (Q_OS_ANDROID)
+        //Request requiered permissions at runtime
+        for (const QString& permission : permissions) {
+            auto result = QtAndroid::checkPermission(permission);
+            if (result == QtAndroid::PermissionResult::Denied) {
+                QtAndroid::requestPermissionsSync(QStringList({ permission }));
+            }
+        }
+#endif
+}
+
 void CoreWidget::settingsPressed()
 {
 	if (currentlyOpened != untouchable)

@@ -67,7 +67,7 @@ const TemplatedTableHandler* ProductEntity::_assocTable() const
 	return ProductEntityPrivate::barcodeTableHandler;
 }
 
-QString ProductEntity::_formatedView(QString sep, QString dform) const
+QString ProductEntity::_formatedView(QString sep, QString /*dform*/) const
 {
 	QString formated;
 	if (!comment.isEmpty())

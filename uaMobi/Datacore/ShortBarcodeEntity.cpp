@@ -285,12 +285,12 @@ const TemplatedTableHandler* ShortBarcodeEntity::_assocTable() const
 	return ShortBarcodePrivate::barcodeTableHandler;
 }
 
-QString ShortBarcodeEntity::_formatedView(QString sep, QString dform) const
+QString ShortBarcodeEntity::_formatedView(QString sep, QString /*dform*/) const
 {
 	return barcode % sep % info % sep % QString::number(code);
 }
 
-QString ShortBarcodeEntity::_maximumInfoView(QString sep, QString dform) const
+QString ShortBarcodeEntity::_maximumInfoView(QString sep, QString /*dform*/) const
 {
 	return QString::number(price) % sep % QString::number(discount)
 		% sep % info;

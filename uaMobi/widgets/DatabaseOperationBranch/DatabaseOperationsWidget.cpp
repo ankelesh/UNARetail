@@ -143,7 +143,7 @@ void DatabaseOperationsWidget::_clearControls()
 {
 }
 
-void DatabaseOperationsWidget::handleValueFromKeyboard(QString value)
+void DatabaseOperationsWidget::handleValueFromKeyboard(QString /*value*/)
 {
 }
 

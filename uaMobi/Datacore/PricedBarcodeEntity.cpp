@@ -71,7 +71,7 @@ const TemplatedTableHandler* PricedBarcodeEntity::_assocTable() const
 	return PricedBarcodeEntityPrivate::barcodeTableHandler;
 }
 
-QString PricedBarcodeEntity::_formatedView(QString sep, QString dform) const
+QString PricedBarcodeEntity::_formatedView(QString sep, QString /*dform*/) const
 {
 	return comment % sep % barcode % sep % normalizePrice(generalPrice) % sep
 		% normalizePrice(discountPrice) % sep % normalizePrice(secondaryPrice)

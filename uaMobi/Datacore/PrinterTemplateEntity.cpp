@@ -57,12 +57,12 @@ const TemplatedTableHandler* PrinterTemplateEntity::_assocTable() const
 	return PrinterTemplatePrivate::barcodeTableHandler;
 }
 
-QString PrinterTemplateEntity::_formatedView(QString sep, QString dform) const
+QString PrinterTemplateEntity::_formatedView(QString /*sep*/, QString /*dform*/) const
 {
 	return templateName % "_" % QString::number(width) % "_" % QString::number(height);
 }
 
-QString PrinterTemplateEntity::_maximumInfoView(QString sep, QString dform) const
+QString PrinterTemplateEntity::_maximumInfoView(QString /*sep*/, QString /*dform*/) const
 {
 	return templateText;
 }

@@ -60,7 +60,7 @@ protected:
 #ifdef CAMERA_SUPPORT
 	virtual void handleCameraBarcode(QString value) override;
 #endif
-	virtual void handleScanButton();
+    virtual void handleScanButton() override;
 	virtual void _fill_counters();
 	virtual void _pushToHistory(Entity) override;
 public:

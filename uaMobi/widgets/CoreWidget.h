@@ -60,7 +60,8 @@ private:
 	QHBoxLayout* controlPanel;			
 	IgnorantButton* exitButton;			//	quits app
 	MegaIconButton* settingsButton;		//	opens settings screen 
-	bool lock;
+    bool lock;
+    void _getPermissions();
 public:
 	CoreWidget(QWidget* parent = Q_NULLPTR);
 

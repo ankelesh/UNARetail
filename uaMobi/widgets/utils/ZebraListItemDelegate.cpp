@@ -79,7 +79,7 @@ void ShortZebraItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem
 	painter->restore();
 }
 
-QSize ShortZebraItemDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const
+QSize ShortZebraItemDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& /*index*/) const
 {
 	return QSize(option.rect.width(), option.fontMetrics.height() + 2);
 }

@@ -32,7 +32,7 @@ protected:
 	virtual void _clearControls() override;
 	virtual void handleValueFromKeyboard(QString value) override;
 	virtual void barcodeReady() override;
-	virtual void handleScanButton();
+    virtual void handleScanButton() override;
 	void _clearEverything();
 	void _setTotalBarcodes();
 public:
@@ -48,5 +48,5 @@ protected slots:
 
         // AbstractScaningWidget interface
 protected slots:
-        void handleCameraBarcode(QString value);
+        void handleCameraBarcode(QString value) override;
 };
