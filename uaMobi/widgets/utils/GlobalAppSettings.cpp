@@ -18,7 +18,11 @@ const char* SUFFIX = "bemol_beta";
 #ifdef ETALONUS
 const char* SUFFIX = "etalonus_release";
 #else
+#ifdef VITAC
+const char * SUFFIX = "vitac_release";
+#else
 const char* SUFFIX = "nigthly";
+#endif
 #endif
 #endif
 #endif

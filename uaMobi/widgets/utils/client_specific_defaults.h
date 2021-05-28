@@ -1,7 +1,7 @@
 #pragma once
+#include <QSettings>
 #ifdef LINELLA
 #include "dataproviders/ModesDescriptions.h"
-#include <QSettings>
 #include <QString>
 #include <QVariant>
 #include <QUrl>
@@ -42,7 +42,6 @@ inline void initialize_default_file(QSettings& settings)
 #else
 #ifdef BEMOL
 #include "dataproviders/ModesDescriptions.h"
-#include <QSettings>
 #include <QString>
 #include <QVariant>
 #include <QUrl>
@@ -68,7 +67,6 @@ inline void initialize_default_file(QSettings& settings)
 #else
 #ifdef ETALONUS
 #include "dataproviders/ModesDescriptions.h"
-#include <QSettings>
 #include <QString>
 #include <QVariant>
 #include <QUrl>
@@ -110,10 +108,37 @@ inline void initialize_default_file(QSettings& settings)
 	settings.endGroup();
 }
 #else
+#ifdef VITAC
+#include "dataproviders/ModesDescriptions.h"
+#include <QString>
+#include <QVariant>
+#include <QUrl>
+inline void initialize_default_file(QSettings& settings)
+{
+    if (!settings.allKeys().isEmpty())
+        return;
+    // settings default for all linella users
+    settings.beginGroup("interface");
+    settings.setValue("additionalElements", true);
+    settings.endGroup();
+
+    settings.beginGroup("behaviour");
+    settings.setValue("autoSearch", QVariant(true));
+    settings.setValue("clearScanBuffer", QVariant(true));
+    settings.endGroup();
+    settings.beginGroup("network");
+    settings.setValue("httpAddressIn", QUrl::fromUserInput("http://uamobi.una.md/vitac.php"));
+    settings.endGroup();
+    settings.beginGroup("common");
+    settings.setValue("language", "Russian");
+    settings.endGroup();
+}
+#else
 inline void initialize_default_file(QSettings& /*settings*/)
 {
 	return;
 }
+#endif
 #endif
 #endif
 #endif

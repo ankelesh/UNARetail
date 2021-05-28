@@ -6,14 +6,14 @@ QT       += core gui sql network xml multimedia multimediawidgets quickwidgets q
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 android : QT += androidextras bluetooth
-CONFIG += debug
+CONFIG += release
 CONFIG += qzxing_qml
 CONFIG += qzxing_multimedia
 include(qzxing-master/src/qzxing.pri)
 
 TARGET = UNARetail
 TEMPLATE = app
-DEFINES += QT_VERSION5X CAMERA_SUPPORT DEBUG
+DEFINES += QT_VERSION5X CAMERA_SUPPORT DEBUG VITAC
 # Default rules for deployment.
 DEPENDPATH += .
 TRANSLATIONS += translations/unaretail_ru.ts \
